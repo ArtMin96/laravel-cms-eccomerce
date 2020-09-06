@@ -53,4 +53,16 @@ class LoginController extends Controller
 
         return redirect()->back();
     }
+
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function logout()
+    {
+        // Logout user
+        Auth::logout();
+
+        // Redirect to homepage
+        return redirect('/');
+    }
 }

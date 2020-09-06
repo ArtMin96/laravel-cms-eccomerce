@@ -28,6 +28,7 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
     Route::namespace('Auth')->group(function () {
         Route::get('/login', 'LoginController@index')->name('login');
         Route::post('/login', 'LoginController@login')->name('login');
+        Route::post('/logout', 'LoginController@logout')->name('logout');
     });
 
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
