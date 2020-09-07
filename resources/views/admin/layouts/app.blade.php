@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Auth;
 
     <!-- Styles -->
     <link href="{{ asset('admin/css/styles.css') }}" rel="stylesheet">
+
+    @stack('style')
 </head>
 <body class="nav-fixed">
     <div id="app">
@@ -78,7 +80,7 @@ use Illuminate\Support\Facades\Auth;
                                 </a>
 
                                 <div class="sidenav-menu-heading">{{ __('CMS') }}</div>
-                                <a class="nav-link" href="{{ url('/admin/pages') }}">
+                                <a class="nav-link" href="{{ url('/admin/page') }}">
                                     <div class="nav-link-icon"><i data-feather="grid"></i></div>
                                     {{ __('Pages') }}
                                 </a>
@@ -101,5 +103,7 @@ use Illuminate\Support\Facades\Auth;
             </div>
         </div>
     </div>
+
+    @stack('script')
 </body>
 </html>
