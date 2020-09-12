@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Banner;
 use App\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 
-class PageController extends AdminController
+class BannerController extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +17,7 @@ class PageController extends AdminController
      */
     public function index()
     {
-        $pages = Page::whereNull('parent_id')->with('childrenPages')->get();
-
-        return view('admin.page.index', compact('pages'));
+        //
     }
 
     /**
@@ -27,9 +27,7 @@ class PageController extends AdminController
      */
     public function create()
     {
-        $pages = Page::active();
-
-        return view('admin.page.create', compact('pages'));
+        //
     }
 
     /**
@@ -38,30 +36,10 @@ class PageController extends AdminController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $page_id)
     {
-        $page = new Page();
-        $page->validate($request->all());
+        $page = Page::findOfFail($page_id);
 
-        // Page
-        $pageTranslationData = [
-            'en' => [
-                'name' => $request->input('en_name')
-            ],
-            'ru' => [
-                'name' => $request->input('ru_name')
-            ],
-            'hy' => [
-                'name' => $request->input('hy_name')
-            ],
-            'alias' => $request->input('alias'),
-            'parent_id' => $request->input('parent_id'),
-            'sort_order' => $request->input('sort_order'),
-        ];
-
-        $resource = Page::create($pageTranslationData);
-
-        // Banner
         $bannerTranslationData = [
             'en' => [
                 'title' => '',
@@ -76,12 +54,10 @@ class PageController extends AdminController
                 'description' => '',
             ],
             'image' => '',
-            'page_id' => $resource->id,
+            'page_id' => $page_id,
         ];
 
-        Banner::create($bannerTranslationData);
-
-        return redirect()->route('admin.page.edit', $resource->id);
+        $page->banners()->create($bannerTranslationData);
     }
 
     /**
@@ -103,9 +79,8 @@ class PageController extends AdminController
      */
     public function edit($id)
     {
-        $page = Page::find($id);
-        $pages = Page::active();
-        return view('admin.page.edit', compact('page', 'pages'));
+        $banner = Banner::findOrFail($id);
+        return view('admin.banner.edit', compact('banner'));
     }
 
     /**
@@ -117,29 +92,45 @@ class PageController extends AdminController
      */
     public function update(Request $request, $id)
     {
-
-        $page = new Page();
-        $page->validate($request->all());
-
-        $pageTranslationData = [
+        // Banner
+        $bannerTranslationData = [
             'en' => [
-                'name' => $request->input('en_name')
+                'title' => $request->input('en_title'),
+                'description' => $request->input('en_description')
             ],
             'ru' => [
-                'name' => $request->input('ru_name')
+                'title' => $request->input('ru_title'),
+                'description' => $request->input('ru_description')
             ],
             'hy' => [
-                'name' => $request->input('hy_name')
+                'title' => $request->input('hy_title'),
+                'description' => $request->input('hy_description')
             ],
-            'alias' => $request->input('alias'),
-            'parent_id' => $request->input('parent_id'),
-            'sort_order' => $request->input('sort_order'),
         ];
 
-        $resource = Page::findOrFail($id);
-        $resource->update($pageTranslationData);
+        if ($request->hasFile('image')) {
+            if ($request->file('image')->isValid()) {
 
-        return redirect()->route('admin.page.index');
+                $this->validate($request, [
+                    'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5000',
+                ]);
+            }
+            $image = $request->file('image');
+            $input['imagename'] = time().'.'.$image->extension();
+            $destinationPath = storage_path('app/public/banner');
+
+            File::isDirectory($destinationPath) or File::makeDirectory($destinationPath, 0777, true, true);
+
+            $img = Image::make($image->path());
+            $img->save($destinationPath.'/'.$input['imagename'], 90);
+
+            $bannerTranslationData['image'] = $input['imagename'];
+        }
+
+        $banner = Banner::findOrFail($id);
+        $banner->update($bannerTranslationData);
+
+        return redirect()->route('admin.banner.edit', $id);
     }
 
     /**

@@ -73,33 +73,59 @@
                                 <form action="{{ route('admin.page.store') }}" method="POST">
                                     @csrf
 
-                                    <!-- Title translations -->
-                                        <div class="translatable-form">
-                                            <ul class="nav nav-tabs translatable-switcher mb-4">
-                                                @foreach(config('app.locales') as $key => $locale)
-                                                    <li class="nav-item">
-                                                        <a class="nav-link locale-{{ $locale }} switch-{{ $locale }} @if($key == 0) active @endif" href="javascript:void(0);" data-locale="{{ $locale }}">{{ \Illuminate\Support\Str::upper($locale) }}</a>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
+                                    <ul class="nav nav-tabs translatable-switcher mb-4">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" href="javascript:void(0);" id="english">EN</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="javascript:void(0);" id="russian">RU</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="javascript:void(0);" id="armenian">HY</a>
+                                        </li>
+                                    </ul>
 
-                                            @foreach(config('app.locales') as $key => $locale)
-                                                <div class="card-body p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
-                                                    <div class="form-group">
-                                                        <label class="required" for="{{ $locale }}_name">{{ trans('Page title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                        <input class="form-control @error($locale.'_name') is-invalid @enderror" type="text" name="{{ $locale }}_name" id="{{ $locale }}_name" value="{{ old($locale.'_name') }}" required>
+                                    <div class="card-body p-0" id="english-form">
+                                        <div class="form-group">
+                                            <label class="required" for="en_name">{{ trans('Page name') }} (EN)</label>
+                                            <input class="form-control @error('en_name') is-invalid @enderror" type="text" name="en_name" id="en_name" value="{{ old('en_name') }}" required>
 
-                                                        @error($locale.'_name')
-                                                        <span class="invalid-feedback" role="alert">
+                                            @error('en_name')
+                                                <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
-                                                        @enderror
+                                            @enderror
 
-                                                    </div>
-                                                </div>
-                                            @endforeach
                                         </div>
-                                        <!-- .end Title translations -->
+                                    </div>
+
+                                    <div class="card-body d-none p-0" id="russian-form">
+                                        <div class="form-group">
+                                            <label class="required" for="ru_name">{{ trans('Page name') }} (RU)</label>
+                                            <input class="form-control @error('ru_name') is-invalid @enderror" type="text" name="ru_name" id="ru_name" value="{{ old('ru_name') }}" required>
+
+                                            @error('ru_name')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body d-none p-0" id="armenian-form">
+                                        <div class="form-group">
+                                            <label class="required" for="hy_name">{{ trans('Page name') }} (HY)</label>
+                                            <input class="form-control @error('hy_name') is-invalid @enderror" type="text" name="hy_name" id="hy_name" value="{{ old('hy_name') }}" required>
+
+                                            @error('hy_name')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+
+                                        </div>
+                                    </div>
 
                                     <div class="form-group">
                                         <label class="required" for="alias">{{ trans('Page URL') }}</label>

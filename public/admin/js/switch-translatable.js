@@ -2,14 +2,17 @@ $(document).ready(function () {
 
     $('body').on('click', '.translatable-switcher .nav-link', function () {
 
-        let form = $(this).attr('id');
-        let selectForm = $(`#${form}-form`);
+        let locale = $(this).attr('data-locale');
+        let selectForm = $(`.${locale}-form`);
+        let switchers = $('.translatable-switcher');
+        let switcherLink = $('.translatable-switcher .nav-link');
 
-        $('.translatable-switcher .nav-link').removeClass('active');
-        $('.translatable-switcher').closest('form').find('.card-body').addClass('d-none');
-
-        $(this).addClass('active');
+        switcherLink.removeClass('active');
+        switchers.closest('form').find('.card-body').addClass('d-none');
+        switchers.closest('form').find('.card-body').removeClass('d-block');
+        $(`.switch-${locale}`).addClass('active');
         selectForm.removeClass('d-none');
+        $(this).closest('.translatable-form').find('input, textarea').focus();
 
     });
 });
