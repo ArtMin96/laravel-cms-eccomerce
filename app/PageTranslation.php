@@ -2,7 +2,9 @@
 
 namespace App;
 
+use Astrotomic\Translatable\Validation\RuleFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Validator;
 
 /**
  * @property integer $id
@@ -19,6 +21,16 @@ class PageTranslation extends Model
      * @var string
      */
     protected $keyType = 'integer';
+
+    private $rules = [
+        'translations.%name%' => 'required|min:5',
+    ];
+
+    public function validate()
+    {
+        // make a new validator object
+        return RuleFactory::make($this->rules);
+    }
 
     /**
      * @var array

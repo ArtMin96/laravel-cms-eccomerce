@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Auth;
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link href="{{ asset('admin/css/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/styles.css') }}" rel="stylesheet">
 
     @stack('style')

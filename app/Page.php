@@ -2,15 +2,15 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Translatable;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Validator;
 
 /**
  * @property integer $id
  * @property integer $parent_id
- * @property string $name
  * @property string $alias
  * @property int $sort_order
  * @property int $active
@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $created_at
  * @property string $updated_at
  * @property Page $page
+ * @property Banner[] $banners
  * @property PageTranslation[] $pageTranslations
  */
 class Page extends Model
@@ -25,7 +26,23 @@ class Page extends Model
 
     use Translatable, Sluggable, SoftDeletes;
 
+    /**
+     * @var string[]
+     */
     public $translatedAttributes = ['name'];
+
+    private $rules = [
+        'en_name' => 'required|min:5',
+    ];
+
+    public function validate($data)
+    {
+        // make a new validator object
+        $k = Validator::make($data, $this->rules);
+
+        // return the result
+        return $k->passes();
+    }
 
     /**
      * Return the sluggable configuration array for this model.
@@ -73,6 +90,9 @@ class Page extends Model
         return $this->belongsTo(Page::class, 'parent_id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function childrenPages()
     {
         return $this->hasMany(Page::class, 'parent_id')->with('page');
@@ -81,11 +101,22 @@ class Page extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function pageTranslations()
+    public function banners()
     {
-        return $this->hasMany(PageTranslation::class);
+        return $this->hasOne('App\Banner');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function pageTranslations()
+    {
+        return $this->hasMany('App\PageTranslation');
+    }
+
+    /**
+     * @return mixed
+     */
     public static function getPagesWithRelations()
     {
         return Page::whereNull('parent_id')->with('childrenPages')->get();
@@ -99,5 +130,16 @@ class Page extends Model
     public static function active()
     {
         return Page::where('deleted_at', null)->get();
+    }
+
+    /**
+     * Find pages by given alias
+     *
+     * @param $alias
+     * @return mixed
+     */
+    public static function findByAlias($alias)
+    {
+        return Page::where('alias', $alias)->first();
     }
 }

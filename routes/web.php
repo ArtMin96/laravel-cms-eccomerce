@@ -33,7 +33,21 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
 
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
     Route::resource('/page', 'PageController');
+    Route::resource('/banner', 'BannerController');
 
     // Check slug
     Route::get('/request/slug', 'RequestController@slug')->name('request.slug');
+    Route::post('/request/remove-banner-image', 'RequestController@removeBannerImage')->name('request.remove.banner.image');
 });
+
+//Route::get('{page}', function ($alias) {
+//
+//    $page = \App\Page::findByAlias($alias);
+//    dd($page);
+//    if (view()->exists("services/{$page->alias}")) {
+//        return view("services/{$page->alias}", compact('page'));
+//    }
+//
+//    return abort(404);
+//
+//});

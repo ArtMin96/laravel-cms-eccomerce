@@ -82,6 +82,10 @@ return [
 
     'locale' => 'en',
 
+    'locales' => [
+        'en', 'ru', 'hy'
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
@@ -177,6 +181,7 @@ return [
 
         Krlove\EloquentModelGenerator\Provider\GeneratorServiceProvider::class,
         App\Providers\HelperServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -229,6 +234,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 
