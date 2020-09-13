@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Banner;
 use App\Page;
+use App\Seo;
 use Illuminate\Http\Request;
 
 class PageController extends AdminController
@@ -15,7 +16,7 @@ class PageController extends AdminController
      */
     public function index()
     {
-        $pages = Page::whereNull('parent_id')->with('childrenPages')->get();
+        $pages = Page::with('childrenPages')->get();
 
         return view('admin.page.index', compact('pages'));
     }
@@ -80,6 +81,7 @@ class PageController extends AdminController
         ];
 
         Banner::create($bannerTranslationData);
+        Seo::create(['page_id' => $resource->id]);
 
         return redirect()->route('admin.page.edit', $resource->id);
     }
@@ -150,6 +152,14 @@ class PageController extends AdminController
      */
     public function destroy($id)
     {
-        //
+        $page = Page::findOrFail($id);
+        $pages = Page::with('childrenPages')->get();
+
+//        $page->banners->bannerLinks->delete();
+//        $page->banners->delete();
+        $page->seo->delete();
+        $page->delete();
+
+        return redirect('admin/pages');
     }
 }
