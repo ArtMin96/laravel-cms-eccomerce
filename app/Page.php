@@ -99,11 +99,11 @@ class Page extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function banners()
     {
-        return $this->hasOne('App\Banner');
+        return $this->hasOne(Banner::class, 'page_id');
     }
 
     /**
@@ -112,6 +112,14 @@ class Page extends Model
     public function pageTranslations()
     {
         return $this->hasMany('App\PageTranslation');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function seo()
+    {
+        return $this->hasOne(Seo::class, 'page_id');
     }
 
     /**

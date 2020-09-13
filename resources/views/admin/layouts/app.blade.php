@@ -80,17 +80,72 @@ use Illuminate\Support\Facades\Auth;
                                     {{ __('Dashboard') }}
                                 </a>
 
+                                <div class="sidenav-menu-heading">{{ __('Shop') }}</div>
+
+                                <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseProducts" aria-expanded="false" aria-controls="collapseProducts">
+                                    <div class="nav-link-icon"><i data-feather="box"></i></div>
+                                    {{ __('Products') }}
+                                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="collapseProducts" data-parent="#accordionSidenav">
+                                    <nav class="sidenav-menu-nested nav">
+                                        <a class="nav-link" href="multi-tenant-select.html">{{ __('Rent Equipment') }}</a>
+                                        <a class="nav-link" href="wizard.html">{{ __('Sell Documents') }}</a>
+                                        <a class="nav-link" href="wizard.html">{{ __('?') }}</a>
+                                    </nav>
+                                </div>
+
+                                <a class="nav-link" href="{{ url('/admin/orders') }}">
+                                    <div class="nav-link-icon"><i data-feather="clipboard"></i></div>
+                                    {{ __('Orders') }}
+                                </a>
+                                <a class="nav-link" href="{{ url('/admin/customers') }}">
+                                    <div class="nav-link-icon"><i data-feather="users"></i></div>
+                                    {{ __('Customers') }}
+                                </a>
+
                                 <div class="sidenav-menu-heading">{{ __('CMS') }}</div>
                                 <a class="nav-link" href="{{ url('/admin/page') }}">
                                     <div class="nav-link-icon"><i data-feather="grid"></i></div>
                                     {{ __('Pages') }}
                                 </a>
+                                <a class="nav-link" href="{{ url('/admin/blog') }}">
+                                    <div class="nav-link-icon"><i data-feather="book"></i></div>
+                                    {{ __('Blog') }}
+                                </a>
+
+                                <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseAboutUs" aria-expanded="false" aria-controls="collapseAboutUs">
+                                    <div class="nav-link-icon"><i data-feather="briefcase"></i></div>
+                                    {{ __('Company') }}
+                                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="collapseAboutUs" data-parent="#accordionSidenav">
+                                    <nav class="sidenav-menu-nested nav">
+                                        <a class="nav-link" href="multi-tenant-select.html">{{ __('About Us') }}</a>
+                                        <a class="nav-link" href="wizard.html">{{ __('Credentials') }}</a>
+                                        <a class="nav-link" href="wizard.html">{{ __('Customers') }}</a>
+                                    </nav>
+                                </div>
+
+                                <a class="nav-link" href="{{ url('/admin/jobs') }}">
+                                    <div class="nav-link-icon"><i data-feather="dollar-sign"></i></div>
+                                    {{ __('Jobs') }}
+                                </a>
+                                <a class="nav-link" href="{{ url('/admin/faqs') }}">
+                                    <div class="nav-link-icon"><i data-feather="help-circle"></i></div>
+                                    {{ __('FAQs') }}
+                                </a>
+
+                                <a class="nav-link" href="{{ url('/admin/settings') }}">
+                                    <div class="nav-link-icon"><i data-feather="settings"></i></div>
+                                    {{ __('Settings') }}
+                                </a>
                             </div>
                         </div>
                         <div class="sidenav-footer">
                             <div class="sidenav-footer-content">
-                                <div class="sidenav-footer-subtitle">Logged in as:</div>
-                                <div class="sidenav-footer-title">Valerie Luna</div>
+                                <div class="sidenav-footer-subtitle">{{ __('Logged in as') }}:</div>
+                                <div class="sidenav-footer-title">{{ Auth::user()->name }}</div>
                             </div>
                         </div>
                     </nav>

@@ -54,7 +54,7 @@
                         </div>
                     </a>
                     <!-- Wizard navigation item 4-->
-                    <a class="nav-item nav-link" id="seo-tab" href="#seo" data-toggle="tab" role="tab" aria-controls="seo" aria-selected="true">
+                    <a class="nav-item nav-link" id="seo-tab" href="{{ url('admin/seo/'.$banner->page->seo->id.'/edit') }}">
                         <div class="wizard-step-icon">4</div>
                         <div class="wizard-step-text">
                             <div class="wizard-step-text-name">{{ __('SEO') }}</div>
