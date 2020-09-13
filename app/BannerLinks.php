@@ -4,34 +4,32 @@ namespace App;
 
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property integer $id
- * @property integer $page_id
- * @property string $image
- * @property string $deleted_at
+ * @property integer $banner_id
+ * @property string $link
  * @property string $created_at
  * @property string $updated_at
- * @property Page $page
- * @property BannerTranslation[] $bannerTranslations
+ * @property Banner $banner
+ * @property BannerLinksTranslation[] $bannerLinkTranslations
  */
-class Banner extends Model
+class BannerLinks extends Model
 {
 
-    use Translatable, SoftDeletes;
+    use Translatable;
 
     /**
      * @var string[]
      */
-    public $translatedAttributes = ['title', 'description'];
+    public $translatedAttributes = ['link_title'];
 
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'banner';
+    protected $table = 'banner_links';
 
     /**
      * The "type" of the auto-incrementing ID.
@@ -44,7 +42,7 @@ class Banner extends Model
      * @var array
      */
     protected $fillable = [
-        'page_id', 'image', 'deleted_at'
+        'banner_id', 'link'
     ];
 
     /**
@@ -60,22 +58,16 @@ class Banner extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function page()
+    public function banner()
     {
-        return $this->belongsTo(Page::class);
+        return $this->belongsTo(Banner::class);
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function bannerTranslations()
+    public function bannerLinksTranslations()
     {
-        return $this->hasMany(BannerTranslation::class);
+        return $this->hasMany(BannerLinksTranslation::class);
     }
-
-    public function bannerLinks()
-    {
-        return $this->hasMany(BannerLinks::class);
-    }
-
 }

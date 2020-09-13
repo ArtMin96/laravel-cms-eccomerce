@@ -20,36 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="188bee73-7fda-407a-a0b3-1cea2f9f01e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/admin/css/file-field.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/js/file-field.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/banner/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/banner/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/banner/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/banner/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gaudeamus.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gaudeamus.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/RequestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/RequestController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Page.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/PageTranslation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PageTranslation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_06_131557_create_pages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_06_131557_create_pages_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/PageSeeder.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/css/all.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/css/all.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/css/select2.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/css/select2.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/js/feather.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/feather.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/js/select2.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/select2.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/js/switch-translatable.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/switch-translatable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/page/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/page/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/page/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/page/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Banner.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Banner.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/BannerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BannerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_12_004358_create_banner_links.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_12_004358_create_banner_links.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_12_004604_create_banner_link_translations.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_12_004604_create_banner_link_translations.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/banner/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/banner/edit.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,6 +174,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/banner" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -232,7 +209,9 @@
       <workItem from="1599347313683" duration="1239000" />
       <workItem from="1599353688533" duration="5782000" />
       <workItem from="1599391476801" duration="28039000" />
-      <workItem from="1599506312714" duration="28507000" />
+      <workItem from="1599506312714" duration="31786000" />
+      <workItem from="1599990141558" duration="1436000" />
+      <workItem from="1599991870248" duration="8929000" />
     </task>
     <servers />
   </component>
@@ -252,6 +231,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="663" y="0" width="574" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1599993738695">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="663" y="0" width="574" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599993738695" />
     <state x="693" y="277" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599521741744">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -264,6 +247,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="778" y="445" width="354" height="147" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599406803517" />
+    <state x="464" y="154" key="SettingsEditor" timestamp="1599991659950">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="464" y="154" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599991659950" />
     <state x="665" y="99" width="589" height="840" key="find.popup" timestamp="1599854207856">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

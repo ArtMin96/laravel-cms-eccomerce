@@ -176,6 +176,100 @@
                                     </div>
                                     <!-- .end Banner image -->
 
+                                    <hr class="my-3">
+
+                                    <!-- Banner links -->
+                                    <h3>Banner Links</h3>
+
+                                    <div class="translatable-form mt-3">
+                                        <ul class="nav nav-tabs translatable-switcher mb-4">
+                                            @foreach(config('app.locales') as $key => $locale)
+                                                <li class="nav-item">
+                                                    <a class="nav-link locale-{{ $locale }} switch-{{ $locale }} @if($key == 0) active @endif" href="javascript:void(0);" data-locale="{{ $locale }}">{{ \Illuminate\Support\Str::upper($locale) }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+
+                                        @foreach(config('app.locales') as $key => $locale)
+                                            <div class="card-body p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
+                                                <div class="form-group">
+                                                    <label class="required" for="{{ $locale }}_link_title">{{ trans('Banner link title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
+                                                    <input class="form-control @error($locale.'_link_title') is-invalid @enderror" type="text" name="{{ $locale }}_link_title[]" id="{{ $locale }}_link_title" value="{{ old($locale.'_link_title', $banner->translate($locale)->link_title) }}">
+
+                                                    @error($locale.'_link_title')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+
+                                    <label class="required" for="link">{{ trans('Link URL') }}</label>
+                                    <div class="input-group input-group-joined mb-5">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i data-feather="link-2"></i>
+                                            </span>
+                                        </div>
+
+                                        <input class="form-control @error('link') is-invalid @enderror" type="text" name="link[]" id="link" value="{{ old('link', $banner->link) }}">
+
+                                        @error('link')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+
+                                    </div>
+
+                                    <div class="translatable-form">
+                                        <ul class="nav nav-tabs translatable-switcher mb-4">
+                                            @foreach(config('app.locales') as $key => $locale)
+                                                <li class="nav-item">
+                                                    <a class="nav-link locale-{{ $locale }} switch-{{ $locale }} @if($key == 0) active @endif" href="javascript:void(0);" data-locale="{{ $locale }}">{{ \Illuminate\Support\Str::upper($locale) }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+
+                                        @foreach(config('app.locales') as $key => $locale)
+                                            <div class="card-body p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
+                                                <div class="form-group">
+                                                    <label class="required" for="{{ $locale }}_link_title">{{ trans('Banner link title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
+                                                    <input class="form-control @error($locale.'_link_title') is-invalid @enderror" type="text" name="{{ $locale }}_link_title[]" id="{{ $locale }}_link_title" value="{{ old($locale.'_link_title', $banner->translate($locale)->link_title) }}">
+
+                                                    @error($locale.'_link_title')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+
+                                    <label class="required" for="link">{{ trans('Link URL') }}</label>
+                                    <div class="input-group input-group-joined mb-5">
+                                        <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i data-feather="link-2"></i>
+                                        </span>
+                                        </div>
+
+                                        <input class="form-control @error('link') is-invalid @enderror" type="text" name="link[]" id="link" value="{{ old('link', $banner->link) }}">
+
+                                        @error('link')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+
+                                    </div>
+                                    <!-- .end Banner links -->
+
                                     <button type="submit" class="btn btn-primary">{{ __('Update') }}</button>
 
                                 </form>

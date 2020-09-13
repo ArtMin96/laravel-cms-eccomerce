@@ -17,11 +17,11 @@ class CreateBannerLinkTranslations extends Migration
             $table->id();
             $table->string('locale')->index();
 
-            $table->unsignedBigInteger('banner_link_id');
-            $table->unique(['banner_link_id', 'locale']);
-            $table->foreign('banner_link_id')->references('id')->on('banner_links')->onDelete('cascade');
+            $table->unsignedBigInteger('banner_links_id');
+            $table->unique(['banner_links_id', 'locale']);
+            $table->foreign('banner_links_id')->references('id')->on('banner_links')->onDelete('cascade');
 
-            $table->string('title');
+            $table->string('link_title');
         });
     }
 

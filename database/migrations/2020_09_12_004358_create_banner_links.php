@@ -16,7 +16,7 @@ class CreateBannerLinks extends Migration
         Schema::create('banner_links', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('banner_id');
-            $table->string('link');
+            $table->string('link')->nullable();
             $table->timestamps();
 
             $table->foreign('banner_id')->references('id')->on('banner')->onDelete('cascade');
