@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Banner;
+use App\BannerLinks;
+use App\BannerLinksTranslation;
 use App\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -92,6 +94,7 @@ class BannerController extends AdminController
      */
     public function update(Request $request, $id)
     {
+
         // Banner
         $bannerTranslationData = [
             'en' => [
@@ -129,6 +132,36 @@ class BannerController extends AdminController
 
         $banner = Banner::findOrFail($id);
         $banner->update($bannerTranslationData);
+
+        // Banner links
+        if (!empty($request->input('en_link_title'))) {
+
+            $this->validate($request, [
+                'link' => 'required_if:en_link_title,ru_link_title,hy_link_title',
+            ]);
+
+            foreach ($request->input('en_link_title') as $key => $link) {
+
+                $bannerLinks = BannerLinks::where('banner_id', $id)->first();
+
+
+                if (empty($bannerLinks)) {
+                    $bannerLinks = new BannerLinks();
+                }
+
+                $bannerLinks->banner_id = $id;
+                $bannerLinks->link = $request->input('link')[$key];
+                $bannerLinks->save();
+
+
+//                $bannerLinksTranslation = BannerLinksTranslation::where('banner_links_id', $id)->first();
+                foreach (['en', 'ru', 'hy'] as $locale) {
+                    $bannerLinks->translateOrNew($locale)->link_title = $request->input("{$locale}_link_title")[$key];
+                }
+
+                $bannerLinks->save();
+            }
+        }
 
         return redirect()->route('admin.banner.edit', $id);
     }
