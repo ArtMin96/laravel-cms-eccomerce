@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Banner;
-use App\BannerLinks;
-use App\BannerLinksTranslation;
-use App\Page;
+use App\Http\Controllers\Controller;
+use App\PageContent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 
-class BannerController extends AdminController
+class PageContentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,28 +36,9 @@ class BannerController extends AdminController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $page_id)
+    public function store(Request $request)
     {
-        $page = Page::findOfFail($page_id);
-
-        $bannerTranslationData = [
-            'en' => [
-                'title' => '',
-                'description' => '',
-            ],
-            'ru' => [
-                'title' => '',
-                'description' => '',
-            ],
-            'hy' => [
-                'title' => '',
-                'description' => '',
-            ],
-            'image' => '',
-            'page_id' => $page_id,
-        ];
-
-        $page->banners()->create($bannerTranslationData);
+        //
     }
 
     /**
@@ -81,8 +60,8 @@ class BannerController extends AdminController
      */
     public function edit($id)
     {
-        $banner = Banner::findOrFail($id);
-        return view('admin.banner.edit', compact('banner'));
+        $pageContent = PageContent::findOrFail($id);
+        return view('admin.page-content.edit', compact('pageContent'));
     }
 
     /**
@@ -94,9 +73,7 @@ class BannerController extends AdminController
      */
     public function update(Request $request, $id)
     {
-
-        // Banner
-        $bannerTranslationData = [
+        $pageContentTranslationData = [
             'en' => [
                 'title' => $request->input('en_title'),
                 'description' => $request->input('en_description')
@@ -120,51 +97,20 @@ class BannerController extends AdminController
             }
             $image = $request->file('image');
             $input['imagename'] = time().'.'.$image->extension();
-            $destinationPath = storage_path('app/public/banner');
+            $destinationPath = storage_path('app/public/page-content');
 
             File::isDirectory($destinationPath) or File::makeDirectory($destinationPath, 0777, true, true);
 
             $img = Image::make($image->path());
             $img->save($destinationPath.'/'.$input['imagename'], 90);
 
-            $bannerTranslationData['image'] = $input['imagename'];
+            $pageContentTranslationData['image'] = $input['imagename'];
         }
 
-        $banner = Banner::findOrFail($id);
-        $banner->update($bannerTranslationData);
+        $pageContent = PageContent::findOrFail($id);
+        $pageContent->update($pageContentTranslationData);
 
-        // Banner links
-        if (!empty($request->input('en_link_title'))) {
-
-            $this->validate($request, [
-                'link' => 'required_if:en_link_title,ru_link_title,hy_link_title',
-            ]);
-
-            foreach ($request->input('en_link_title') as $key => $link) {
-
-                $bannerLinks = BannerLinks::where('banner_id', $id)->first();
-
-
-                if (empty($bannerLinks)) {
-                    $bannerLinks = new BannerLinks();
-                }
-
-                $bannerLinks->banner_id = $id;
-                $bannerLinks->link = $request->input('link')[$key];
-                $bannerLinks->save();
-
-                foreach (['en', 'ru', 'hy'] as $locale) {
-                  if(!empty($request->input("{$locale}_link_title")[$key])){
-                     $bannerLinks->translateOrNew($locale)->link_title = $request->input("{$locale}_link_title")[$key];
-                  }
-                }
-
-                $bannerLinks->save();
-
-            }
-        }
-
-        return redirect()->route('admin.banner.edit', $id);
+        return redirect()->route('admin.page-content.edit', $id);
     }
 
     /**

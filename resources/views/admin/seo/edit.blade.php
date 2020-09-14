@@ -38,7 +38,7 @@
                         </div>
                     </a>
                     <!-- Wizard navigation item 2-->
-                    <a class="nav-item nav-link" id="page-content-tab" href="#page-content" data-toggle="tab" role="tab" aria-controls="page-content" aria-selected="true">
+                    <a class="nav-item nav-link" id="page-content-tab" href="{{ url('admin/page-content/'.$seo->page->id.'/edit') }}">
                         <div class="wizard-step-icon">2</div>
                         <div class="wizard-step-text">
                             <div class="wizard-step-text-name">{{ __('Page Content') }}</div>
@@ -71,7 +71,7 @@
                         <div class="row justify-content-center">
                             <div class="col-xl-10">
 
-                                <h3 class="text-primary">{{ __('Step') }} 3</h3>
+                                <h3 class="text-primary">{{ __('Step') }} 4</h3>
                                 <h5 class="card-title">{{ __('Page banner details') }}</h5>
 
                                 <form action="{{ route('admin.seo.update', $seo->id) }}" method="POST" enctype="multipart/form-data">

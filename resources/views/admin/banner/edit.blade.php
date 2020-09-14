@@ -38,7 +38,7 @@
                         </div>
                     </a>
                     <!-- Wizard navigation item 2-->
-                    <a class="nav-item nav-link" id="page-content-tab" href="#page-content" data-toggle="tab" role="tab" aria-controls="page-content" aria-selected="true">
+                    <a class="nav-item nav-link" id="page-content-tab" href="{{ url('admin/page-content/'.$banner->page->id.'/edit') }}">
                         <div class="wizard-step-icon">2</div>
                         <div class="wizard-step-text">
                             <div class="wizard-step-text-name">{{ __('Page Content') }}</div>
