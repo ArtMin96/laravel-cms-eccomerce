@@ -141,7 +141,7 @@
 
                                             @if(!empty($banner->image))
                                                 <div class="img">
-                                                    <img src="{{ asset('storage/banner/'.$banner->image)  }}" alt="{{ $banner->translate($locale)->title }}">
+                                                    <img src="{{ asset('storage/banner/'.$banner->image) }}" alt="{{ $banner->translate($locale)->title }}">
                                                     <span class="remove-pic result_file"
                                                           data-file-id="{{ $banner->id }}"
                                                           data-file-url="/admin/request/remove-banner-image"

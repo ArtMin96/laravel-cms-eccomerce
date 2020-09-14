@@ -122,7 +122,7 @@ class PageSeeder extends Seeder
               'name' => 'Մեր մասին'
           ],
           'parent_id' => 5,
-          'alias' => 'javascript:void(0);',
+          'alias' => 'about-us',
           'sort_order' => 0,
           'page_number' => 4,
             'base_page' => 1,
@@ -141,7 +141,7 @@ class PageSeeder extends Seeder
               'name' => 'Հավատարմագրեր'
           ],
           'parent_id' => 5,
-          'alias' => 'javascript:void(0);',
+          'alias' => 'credentials',
           'sort_order' => 1,
           'page_number' => 5,
             'base_page' => 1,
@@ -160,7 +160,7 @@ class PageSeeder extends Seeder
               'name' => 'Հաճախորդներ'
           ],
           'parent_id' => 5,
-          'alias' => 'javascript:void(0);',
+          'alias' => 'customers',
           'sort_order' => 2,
           'page_number' => 6,
             'base_page' => 1,
@@ -179,7 +179,7 @@ class PageSeeder extends Seeder
               'name' => 'Բլոգ'
           ],
           'parent_id' => null,
-          'alias' => 'javascript:void(0);',
+          'alias' => 'blog',
           'sort_order' => 5,
           'page_number' => 7,
             'base_page' => 1,
@@ -217,7 +217,7 @@ class PageSeeder extends Seeder
               'name' => 'Կապվեք'
           ],
           'parent_id' => 10,
-          'alias' => 'javascript:void(0);',
+          'alias' => 'get-in-touch',
           'sort_order' => 0,
           'page_number' => null,
             'base_page' => 1,
@@ -236,7 +236,7 @@ class PageSeeder extends Seeder
               'name' => 'Օգնեք մեզ բարելավել'
           ],
           'parent_id' => 10,
-          'alias' => 'javascript:void(0);',
+          'alias' => 'help-us-improve',
           'sort_order' => 1,
           'page_number' => null,
             'base_page' => 1,
@@ -255,7 +255,7 @@ class PageSeeder extends Seeder
               'name' => 'Հարցեր եւ պատասխաններ'
           ],
           'parent_id' => 10,
-          'alias' => 'javascript:void(0);',
+          'alias' => 'faqs',
           'sort_order' => 2,
           'page_number' => 8,
             'base_page' => 1,
@@ -274,7 +274,7 @@ class PageSeeder extends Seeder
               'name' => 'Միացեք մեզ'
           ],
           'parent_id' => 10,
-          'alias' => 'javascript:void(0);',
+          'alias' => 'join-us',
           'sort_order' => 3,
           'page_number' => 9,
             'base_page' => 1,
