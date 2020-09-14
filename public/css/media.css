@@ -1,0 +1,202 @@
+@media only screen and (max-width: 1199px) {
+    .g-home-banner .g-banner-content{
+        left: 50%;
+        width: 100%;
+        max-width: 960px;
+        padding: 0 15px;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, .6);
+    }
+    .g-step-line-2-box .g-step-line-2{
+        width: calc(100% - (190px * 2) + 75px);
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .g-navbar .navbar-brand{
+        margin-top: 55px;
+    }
+    .g-navbar .navbar-brand img{
+        width: 110px;
+    }
+    .g-navbar .navbar-collapse {
+        padding-left: 40px;
+    }
+    .g-navbar .navbar-collapse{
+        margin-top: 35px;
+    }
+    .g-navbar .nav-item::before{
+        bottom: 20px;
+        left: -15px;
+    }
+    .g-navbar .nav-item.active::before{
+        height: 4px;
+        width: 18px;
+        left: -22px;
+    }
+    .g-navbar .nav-item:hover::before {
+        height: 4px;
+        width: 18px;
+        left: -22px;
+    }
+    .g-navbar .dropdown-submenu .dropdown-menu{
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+        margin: 0 20px
+    }
+    .g-navbar .dropdown-submenu .dropdown-menu::before{
+        content: none;
+    }
+    .g-home-banner .g-banner-content{
+        max-width: 720px;
+    }
+    .g-soc-box{
+        display: none;
+    }
+    .g-step-item{
+        max-width: 235px;
+    }
+    .g-step-line-1{
+        transform: rotate(90deg);
+        width: 34px;
+        margin: 0 auto;
+    }
+    .g-step-line-2-box{
+        height: unset;
+        padding-left: 85px;
+    }
+    .g-step-line-2-box .g-step-line-2-2{
+        display: none;
+    }
+    .g-step-line-2-box .g-step-line-2-1{
+        transform: rotate(90deg);
+        width: 34px;
+        margin: 0 auto;
+        float: none;
+        border-right-color: transparent;
+    }
+    .g-step-line-col{
+        height: 50px;
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        justify-content: center;
+    }
+    .g-message-btn-box{
+        text-align: center;
+        padding-right: 0;
+        margin: 15px 0;
+    }
+    .g-message-btn{
+        padding: 25px;
+        border-width: 9px;
+    }
+    .go-top-btn{
+        top: 15px;
+        right: 15px;
+    }
+    .g-contact-map-box{
+        flex-direction: column;
+    }
+    .g-contact-map-l{
+        border-radius: 20px;
+        margin-bottom: 30px;
+    }
+    .g-contact-map-l::before{
+        content: none;
+    }
+    .g-contact-map-r{
+        border-radius: 0;
+        height: 250px;
+    }
+    .gtco-testimonials .center .card{
+        padding: 40px 30px;
+    }
+    .g-description-btn-box{
+        margin: 20px 0 30px;
+    }
+    .g-page-description-1, .g-page-description-2{
+        padding: 20px 0;
+    }
+    .g-form-group{
+        margin-bottom: 20px;
+    }
+    .go-top-btn:hover {
+        top: 12px;
+    }
+    .g-blog-item figure{
+        text-align: center;
+    }
+    .g-blog-item .g-blog-link{
+        text-align: center;
+    }
+    .personal-data-edit{
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .w-md-50{
+        width: 100% !important;
+    }
+    .g-tabs .nav{
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .g-tabs .nav-link{
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    .g-banner-buttons{
+        flex-direction: column;
+        margin-top: 20px !important;
+        align-items: center;
+    }
+    .dropdown-menu .d-flex{
+        flex-direction: column;
+    }
+    .g-banner-buttons .g-btn{
+        margin-right: 0;
+    }
+    .g-scroll-nums-list{
+      flex-direction: column;
+    }
+    .g-scroll-num-item{
+        margin-bottom: 15px;
+    }
+    .g-page-description-1 .g-page-description-image-box{
+        text-align: center;
+    }
+    .g-pagination {
+        margin: 20px 0;
+    }
+    .g-wrapper{
+        padding: 20px;
+    }
+    .personal-data-edit{
+        right: 20px;
+    }
+    .duration-form-box{
+        padding-left: 20px;
+    }
+    .duration-day-label{
+        width: 45px;
+    }
+    .duration-form-row .duration-responsive-col {
+        margin-left: calc(45px + 10px);
+    }
+    .form-middle-text{
+        padding-top: 0;
+    }
+    .g-blog-main-content {
+        padding: 0 15px 15px;
+    }
+    .g-blog-main-description{
+        margin-bottom: 8px;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .g-navbar-buttons {
+        justify-content: center;
+    }
+}

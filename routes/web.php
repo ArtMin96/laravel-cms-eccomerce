@@ -41,14 +41,6 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
     Route::post('/request/remove-banner-image', 'RequestController@removeBannerImage')->name('request.remove.banner.image');
 });
 
-//Route::get('{page}', function ($alias) {
-//
-//    $page = \App\Page::findByAlias($alias);
-//    dd($page);
-//    if (view()->exists("services/{$page->alias}")) {
-//        return view("services/{$page->alias}", compact('page'));
-//    }
-//
-//    return abort(404);
-//
-//});
+Route::get('/{slug}', ['as' => 'pages.show', 'uses' => 'PagesController@show']);
+
+Route::get('/blog', ['as' => 'pages.show', 'uses' => 'PagesController@blog']);
