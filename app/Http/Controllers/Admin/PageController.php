@@ -28,7 +28,7 @@ class PageController extends AdminController
      */
     public function create()
     {
-        $pages = Page::active();
+        $pages = Page::activeAcceptedParents();
 
         return view('admin.page.create', compact('pages'));
     }
@@ -106,7 +106,7 @@ class PageController extends AdminController
     public function edit($id)
     {
         $page = Page::find($id);
-        $pages = Page::active();
+        $pages = Page::activeAcceptedParents();
         return view('admin.page.edit', compact('page', 'pages'));
     }
 

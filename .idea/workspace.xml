@@ -20,24 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="188bee73-7fda-407a-a0b3-1cea2f9f01e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PagesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Page.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Page.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/PageSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PageSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/css/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/css/dataTables.bootstrap4.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/css/dataTables.bootstrap4.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/js/data-table.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/data-table.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/js/dataTables.bootstrap4.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/dataTables.bootstrap4.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/js/jquery.dataTables.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/jquery.dataTables.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/js/pages.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/pages.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/js/sweetalert2.all.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/sweetalert2.all.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/banner/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/banner/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/page/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/page/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/page/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/page/edit.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +214,7 @@
       <workItem from="1599990141558" duration="1436000" />
       <workItem from="1599991870248" duration="25011000" />
       <workItem from="1600082503847" duration="70000" />
-      <workItem from="1600082589550" duration="10703000" />
+      <workItem from="1600082589550" duration="13028000" />
     </task>
     <servers />
   </component>
