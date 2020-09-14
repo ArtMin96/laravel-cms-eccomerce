@@ -83,11 +83,26 @@ class Page extends Model
     ];
 
     /**
+     * Default page numbers.
+     *
+     * @var integer
+     */
+    const Home = 1;
+    const Services = 2;
+    const Industries = 3;
+    const AboutUs = 4;
+    const Credentials = 5;
+    const Customers = 6;
+    const Blog = 7;
+    const FAQs = 8;
+    const JoinUs = 9;
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function page()
     {
-        return $this->belongsTo(Page::class, 'parent_id');
+        return $this->belongsTo(Page::class, 'parent_id')->orderBy('sort_order');
     }
 
     /**
@@ -95,7 +110,7 @@ class Page extends Model
      */
     public function childrenPages()
     {
-        return $this->hasMany(Page::class, 'parent_id')->with('page');
+        return $this->hasMany(Page::class, 'parent_id')->with('page')->orderBy('sort_order');
     }
 
     /**

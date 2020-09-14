@@ -18,7 +18,8 @@ class CreatePagesTable extends Migration
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->string('alias');
             $table->integer('sort_order')->default(0);
-            $table->integer('active')->default(0);
+            $table->integer('page_number')->nullable();
+            $table->integer('base_page')->default(0);
             $table->softDeletes();
             $table->timestamps();
 

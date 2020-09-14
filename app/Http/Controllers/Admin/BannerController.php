@@ -94,6 +94,7 @@ class BannerController extends AdminController
      */
     public function update(Request $request, $id)
     {
+      // dd($request);
 
         // Banner
         $bannerTranslationData = [
@@ -153,13 +154,14 @@ class BannerController extends AdminController
                 $bannerLinks->link = $request->input('link')[$key];
                 $bannerLinks->save();
 
-
-//                $bannerLinksTranslation = BannerLinksTranslation::where('banner_links_id', $id)->first();
                 foreach (['en', 'ru', 'hy'] as $locale) {
-                    $bannerLinks->translateOrNew($locale)->link_title = $request->input("{$locale}_link_title")[$key];
+                  if(!empty($request->input("{$locale}_link_title")[$key])){
+                     $bannerLinks->translateOrNew($locale)->link_title = $request->input("{$locale}_link_title")[$key];
+                  }
                 }
 
                 $bannerLinks->save();
+
             }
         }
 

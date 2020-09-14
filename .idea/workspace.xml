@@ -20,20 +20,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="188bee73-7fda-407a-a0b3-1cea2f9f01e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/admin/js/data-table.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/seo/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/seo/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/seo/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/seo/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/BannerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BannerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PageController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Page.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Page.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Seo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Seo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_06_131557_create_pages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_06_131557_create_pages_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_06_152415_create_page_translations_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_06_152415_create_page_translations_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_07_185949_create_banner_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_07_185949_create_banner_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_07_190221_create_banner_translations_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_07_190221_create_banner_translations_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_12_004358_create_banner_links.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_12_004358_create_banner_links.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_12_004604_create_banner_link_translations.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_12_004604_create_banner_link_translations.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_13_125055_create_seo_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_13_125055_create_seo_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/banner/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/banner/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/AdminSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/AdminSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/page/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/page/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/page/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/page/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,10 +182,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="SensioLabs.Insight" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -220,6 +223,8 @@
       <workItem from="1599506312714" duration="31786000" />
       <workItem from="1599990141558" duration="1436000" />
       <workItem from="1599991870248" duration="25011000" />
+      <workItem from="1600082503847" duration="70000" />
+      <workItem from="1600082589550" duration="3460000" />
     </task>
     <servers />
   </component>
@@ -255,10 +260,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="778" y="445" width="354" height="147" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599406803517" />
-    <state x="464" y="154" key="SettingsEditor" timestamp="1599991659950">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="464" y="154" key="SettingsEditor" timestamp="1600082598573">
+      <screen x="0" y="0" width="1920" height="1041" />
     </state>
     <state x="464" y="154" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599991659950" />
+    <state x="464" y="154" key="SettingsEditor/0.0.1920.1041@0.0.1920.1041" timestamp="1600082598573" />
     <state x="665" y="99" width="589" height="840" key="find.popup" timestamp="1599854207856">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
