@@ -150,16 +150,19 @@ class PageController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $page = Page::findOrFail($id);
-        $pages = Page::with('childrenPages')->get();
-
-//        $page->banners->bannerLinks->delete();
-//        $page->banners->delete();
+        $page = Page::with('childrenPages')->where('id', $request->id)->first();
+        $pagesId = $page->childrenPages->pluck('parent_id');
+        $page->childrenPages()->delete();
+        $page->banners->delete();
         $page->seo->delete();
-        $page->delete();
+        Page::destroy($pagesId);
 
-        return redirect('admin/pages');
+        if ($page->delete()) {
+            return response()->json(['status' => true]);
+        } else {
+            return response()->json(['status' => false]);
+        }
     }
 }

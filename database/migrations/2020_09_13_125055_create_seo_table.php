@@ -32,6 +32,7 @@ class CreateSeoTable extends Migration
             $table->text('twitter_description')->nullable();
             $table->string('twitter_creator')->default('gaudeamus')->nullable();
             $table->string('twitter_image')->default('default-gaudeamus.jpg')->nullable();
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('page_id')->references('id')->on('pages')->onDelete('cascade');
