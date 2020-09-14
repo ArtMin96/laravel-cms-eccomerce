@@ -90,12 +90,13 @@ class Page extends Model
     const Home = 1;
     const Services = 2;
     const Industries = 3;
-    const AboutUs = 4;
-    const Credentials = 5;
-    const Customers = 6;
-    const Blog = 7;
-    const FAQs = 8;
-    const JoinUs = 9;
+    const Languages = 4;
+    const AboutUs = 5;
+    const Credentials = 6;
+    const Customers = 7;
+    const Blog = 8;
+    const FAQs = 9;
+    const JoinUs = 10;
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -156,13 +157,23 @@ class Page extends Model
     }
 
     /**
+     * Get active pages for accepting child pages
+     *
+     * @return mixed
+     */
+    public static function activeAcceptedParents()
+    {
+        return Page::whereIn('page_number', [self::Services, self::Industries, self::Languages])->get();
+    }
+
+    /**
      * Find pages by given alias
      *
      * @param $alias
      * @return mixed
      */
-    public static function findByAlias($alias)
+    public static function findByAlias($slug)
     {
-        return Page::where('alias', $alias)->first();
+        return Page::where('alias', $slug)->where('deleted_at', null)->where('base_page', '!=', 1)->first();
     }
 }

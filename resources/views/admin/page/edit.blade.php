@@ -114,7 +114,7 @@
                                     <div class="form-group">
                                         <label class="required" for="parent_id">{{ trans('Parent page') }}</label>
                                         <select class="form-control @error('parent_id') is-invalid @enderror" type="text" name="parent_id" id="parent_id" @if($page->base_page == 1) readonly disabled @endif>
-                                            <option value="null">Select parent page</option>
+                                            <option value="">Select parent page</option>
                                             @if(!empty($pages))
                                                 @foreach($pages as $pageOptions)
                                                     <option value="{{ $pageOptions->id }}" @if($page->parent_id == $pageOptions->id) selected @endif>{{ $pageOptions->translate(app()->getLocale())->name }}</option>

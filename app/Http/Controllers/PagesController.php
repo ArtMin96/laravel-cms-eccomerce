@@ -15,7 +15,7 @@ class PagesController extends Controller
      * @return \Illuminate\Contracts\View\View
      */
     public function show ($slug = '/') {
-        $page = Page::where('alias', $slug)->where('deleted_at', null)->first();
+        $page = Page::findByAlias($slug);
 
         if (empty($page)) {
             abort('404');
@@ -26,7 +26,7 @@ class PagesController extends Controller
 
 
     public function blog () {
-        $page = Page::where('page_number', Page::Home)->where('deleted_at', null)->first();
+        $page = Page::where('page_number', Page::Blog)->where('deleted_at', null)->first();
 
         if (empty($page)) {
             abort('404');
