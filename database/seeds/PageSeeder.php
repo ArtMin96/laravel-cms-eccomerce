@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Page;
 use App\Banner;
 use App\Seo;
+use App\PageContent;
 
 class PageSeeder extends Seeder
 {
@@ -322,6 +323,27 @@ class PageSeeder extends Seeder
           ]);
 
           Seo::create(['page_id' => $value['id']]);
+
+          $pageContent = new PageContent();
+          $pageContent->create([
+              'page_id' => $value['id'],
+              'en' => [
+                  'title' => 'Test',
+                  'description' => 'Test desc',
+                  'link_title' => 'Test',
+              ],
+              'ru' => [
+                  'title' => 'Test',
+                  'description' => 'Test desc',
+                  'link_title' => 'Test',
+              ],
+              'hy' => [
+                  'title' => 'Test',
+                  'description' => 'Test desc',
+                  'link_title' => 'Test',
+              ],
+              'image' => ''
+          ]);
       }
     }
 }

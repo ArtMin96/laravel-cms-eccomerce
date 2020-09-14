@@ -24,7 +24,7 @@
                 <!-- Wizard navigation-->
                 <div class="nav nav-pills nav-justified flex-column flex-xl-row nav-wizard" id="cardTab" role="tablist">
                     <!-- Wizard navigation item 1-->
-                    <a class="nav-item nav-link active" id="page-basics-tab" href="#page-basics" data-toggle="tab" role="tab" aria-controls="page-basics" aria-selected="true">
+                    <a class="nav-item nav-link active" id="page-basics-tab" href="{{ url('admin/page/'.$page->id.'/edit') }}">
                         <div class="wizard-step-icon">1</div>
                         <div class="wizard-step-text">
                             <div class="wizard-step-text-name">{{ __('Page Details') }}</div>
@@ -32,7 +32,7 @@
                         </div>
                     </a>
                     <!-- Wizard navigation item 2-->
-                    <a class="nav-item nav-link" id="page-content-tab" href="#page-content" data-toggle="tab" role="tab" aria-controls="page-content" aria-selected="true">
+                    <a class="nav-item nav-link" id="page-content-tab" href="{{ url('admin/page-content/'.$page->id.'/edit') }}">
                         <div class="wizard-step-icon">2</div>
                         <div class="wizard-step-text">
                             <div class="wizard-step-text-name">{{ __('Page Content') }}</div>

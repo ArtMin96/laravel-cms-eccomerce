@@ -127,7 +127,7 @@ class Page extends Model
      */
     public function pageTranslations()
     {
-        return $this->hasMany('App\PageTranslation');
+        return $this->hasMany(PageTranslation::class);
     }
 
     /**
@@ -136,6 +136,13 @@ class Page extends Model
     public function seo()
     {
         return $this->hasOne(Seo::class, 'page_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function pageContent() {
+        return $this->hasMany(PageContent::class);
     }
 
     /**

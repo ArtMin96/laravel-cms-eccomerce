@@ -35,6 +35,7 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
     Route::resource('/page', 'PageController');
     Route::resource('/banner', 'BannerController');
     Route::resource('/seo', 'SeoController');
+    Route::resource('/page-content', 'PageContentController');
 
     // Check slug
     Route::get('/request/slug', 'RequestController@slug')->name('request.slug');

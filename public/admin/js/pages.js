@@ -53,4 +53,20 @@ $(document).ready(function() {
       });
   });
 
+    // Add new row
+    $('body').on('click', '.add-new-row', function () {
+
+        let firstRow = $(this).closest('form').find('.card:first');
+        let clone = firstRow.clone(true);
+
+        clone.find('input').val('');
+
+        clone.find('input').attr('id', function () {
+            $(this).val(null).trigger('change');
+            console.log($(this));
+            return $(this).attr('id') + '_' + (rowCount);
+        });
+
+    });
+
 });
