@@ -144,7 +144,6 @@ class BannerController extends AdminController
 
                 $bannerLinks = BannerLinks::where('banner_id', $id)->first();
 
-
                 if (empty($bannerLinks)) {
                     $bannerLinks = new BannerLinks();
                 }

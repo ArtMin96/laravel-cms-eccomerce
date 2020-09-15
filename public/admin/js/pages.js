@@ -60,12 +60,17 @@ $(document).ready(function() {
         let clone = firstRow.clone(true);
 
         clone.find('input').val('');
+        clone.addClass('mt-5');
+
+        let rowCount = $(this).closest('form').find('.card').length + 1;
 
         clone.find('input').attr('id', function () {
-            $(this).val(null).trigger('change');
-            console.log($(this));
             return $(this).attr('id') + '_' + (rowCount);
         });
+
+        clone.find('.card-header-row-count').text(rowCount);
+
+        clone.insertAfter($(this).closest('form').find('.card').last());
 
     });
 
