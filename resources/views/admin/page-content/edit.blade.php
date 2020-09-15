@@ -80,16 +80,21 @@
 
                                     <div class="card card-header-actions mx-auto">
                                         <div class="card-header">
+                                            <div class="card-header-row">
+                                                Flexible content
+                                                <span class="card-header-row-count">1</span>
+                                            </div>
+
                                             <div class="ml-auto">
-                                                <button class="btn btn-blue btn-icon add-new-row">
+                                                <button type="button" class="btn btn-blue btn-icon add-new-row">
                                                     <i data-feather="plus"></i>
                                                 </button>
-                                                <button class="btn btn-pink btn-icon mr-2 remove-row">
+                                                <button type="button" class="btn btn-pink btn-icon mr-2 remove-row">
                                                     <i data-feather="trash-2"></i>
                                                 </button>
                                             </div>
                                         </div>
-                                        <div class="card-body">
+                                        <div class="p-2">
 
                                             <!-- Title translations -->
                                             <div class="translatable-form">
@@ -108,9 +113,9 @@
                                                             <input class="form-control @error($locale.'_title') is-invalid @enderror" type="text" name="{{ $locale }}_title[]" id="{{ $locale }}_title" value="{{ old($locale.'_title', $pageContent->translate($locale)->title) }}" required>
 
                                                             @error($locale.'_title')
-                                                            <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
                                                             @enderror
 
                                                         </div>
@@ -212,4 +217,5 @@
     <script src="{{ asset('admin/js/select2.min.js') }}" type="text/javascript" defer></script>
     <script src="{{ asset('admin/js/sweetalert2.all.min.js') }}" type="text/javascript" defer></script>
     <script src="{{ asset('admin/js/file-field.js') }}" type="text/javascript" defer></script>
+    <script src="{{ asset('admin/js/pages.js') }}" type="text/javascript" defer></script>
 @endpush

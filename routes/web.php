@@ -37,9 +37,15 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
     Route::resource('/seo', 'SeoController');
     Route::resource('/page-content', 'PageContentController');
 
+    // Settings routes
+    Route::get('/settings', 'SettingsController@index');
+    Route::post('/settings/{id}', 'SettingsController@update')->name('settings.update');
+
     // Check slug
     Route::get('/request/slug', 'RequestController@slug')->name('request.slug');
     Route::post('/request/remove-banner-image', 'RequestController@removeBannerImage')->name('request.remove.banner.image');
+    Route::post('/request/remove-site-logo-image', 'RequestController@removeSiteLogoImage')->name('request.remove.site.logo.image');
+    Route::post('/request/remove-site-logo-sm-image', 'RequestController@removeSiteLogoSmImage')->name('request.remove.site.logo.sm.image');
 });
 
 Route::get('/{slug}', ['as' => 'pages.show', 'uses' => 'PagesController@show']);
