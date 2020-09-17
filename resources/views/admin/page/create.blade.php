@@ -84,7 +84,7 @@
                                             </ul>
 
                                             @foreach(config('app.locales') as $key => $locale)
-                                                <div class="card-body p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
+                                                <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
                                                     <div class="form-group">
                                                         <label class="required" for="{{ $locale }}_name">{{ trans('Page title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
                                                         <input class="form-control @error($locale.'_name') is-invalid @enderror" type="text" name="{{ $locale }}_name" id="{{ $locale }}_name" value="{{ old($locale.'_name') }}" required>

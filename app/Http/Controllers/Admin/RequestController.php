@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Banner;
 use App\Http\Controllers\Controller;
+use App\OurTeam;
 use App\Page;
 use App\Settings;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -77,6 +78,27 @@ class RequestController extends AdminController
             if (!empty($settings)) {
                 unlink(storage_path('app/public/site/'.$settings->logo_sm));
                 $settings->update(['logo_sm' => null]);
+
+                return response()->json(['status' => true, 'title' => 'Success', 'message' => 'File successfully removed!']);
+            } else {
+                return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+            }
+        } else {
+            return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function removeOurTeamImage(Request $request) {
+        if (!empty($request->post('file_id'))) {
+            $ourTeam = OurTeam::findOrFail($request->post('file_id'));
+
+            if (!empty($ourTeam)) {
+                unlink(storage_path('app/public/member/'.$ourTeam->image));
+                $ourTeam->update(['image' => null]);
 
                 return response()->json(['status' => true, 'title' => 'Success', 'message' => 'File successfully removed!']);
             } else {

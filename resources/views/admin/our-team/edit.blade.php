@@ -51,7 +51,7 @@
 
                                         <!-- Profile picture image-->
                                         <div class="img">
-                                            <img src="{{ asset('storage/our-team/'.$ourTeam->image) }}" alt="{{ $ourTeam->name }}">
+                                            <img src="{{ asset('storage/member/'.$ourTeam->image) }}" alt="{{ $ourTeam->name }}">
                                             <span class="remove-pic result_file"
                                                   data-file-id="{{ $ourTeam->id }}"
                                                   data-file-url="/admin/request/remove-our-team-image"
@@ -84,59 +84,76 @@
                         <!-- Account details card-->
                         <div class="card mb-4">
                             <div class="card-header">Account Details</div>
+
                             <div class="card-body">
 
-                                <!-- Form Group (username)-->
-                                <div class="form-group">
-                                    <label class="small mb-1" for="inputUsername">Username (how your name will appear to other users on the site)</label>
-                                    <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username" value="username" />
+                                <!-- Name translations -->
+                                <div class="translatable-form">
+                                    <ul class="nav nav-tabs translatable-switcher mb-4">
+                                        @foreach(config('app.locales') as $key => $locale)
+                                            <li class="nav-item">
+                                                <a class="nav-link locale-{{ $locale }} switch-{{ $locale }} @if($key == 0) active @endif" href="javascript:void(0);" data-locale="{{ $locale }}">{{ \Illuminate\Support\Str::upper($locale) }}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+
+                                    @foreach(config('app.locales') as $key => $locale)
+                                        <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
+                                            <div class="form-group">
+                                                <label class="required" for="{{ $locale }}_name">{{ trans('Member name') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
+                                                <input class="form-control @error($locale.'_name') is-invalid @enderror" type="text" name="{{ $locale }}_name" id="{{ $locale }}_name" value="{{ old($locale.'_name', $ourTeam->translate($locale)->name) }}" required>
+
+                                                @error($locale.'_name')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="required" for="{{ $locale }}_last_name">{{ trans('Member last name') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
+                                                <input class="form-control @error($locale.'_last_name') is-invalid @enderror" type="text" name="{{ $locale }}_last_name" id="{{ $locale }}_last_name" value="{{ old($locale.'_last_name', $ourTeam->translate($locale)->last_name) }}" required>
+
+                                                @error($locale.'_last_name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="required" for="{{ $locale }}_position">{{ trans('Member position') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
+                                                <input class="form-control @error($locale.'_position') is-invalid @enderror" type="text" name="{{ $locale }}_position" id="{{ $locale }}_position" value="{{ old($locale.'_position', $ourTeam->translate($locale)->position) }}" required>
+
+                                                @error($locale.'_position')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="required" for="{{ $locale }}_description">{{ trans('Member description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
+                                                <input class="form-control @error($locale.'_description') is-invalid @enderror" type="text" name="{{ $locale }}_description" id="{{ $locale }}_description" value="{{ old($locale.'_description', $ourTeam->translate($locale)->description) }}" required>
+
+                                                @error($locale.'_description')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
+                                            </div>
+
+                                        </div>
+                                    @endforeach
                                 </div>
-                                <!-- Form Row-->
-                                <div class="form-row">
-                                    <!-- Form Group (first name)-->
-                                    <div class="form-group col-md-6">
-                                        <label class="small mb-1" for="inputFirstName">First name</label>
-                                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" value="Valerie" />
-                                    </div>
-                                    <!-- Form Group (last name)-->
-                                    <div class="form-group col-md-6">
-                                        <label class="small mb-1" for="inputLastName">Last name</label>
-                                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" value="Luna" />
-                                    </div>
-                                </div>
-                                <!-- Form Row        -->
-                                <div class="form-row">
-                                    <!-- Form Group (organization name)-->
-                                    <div class="form-group col-md-6">
-                                        <label class="small mb-1" for="inputOrgName">Organization name</label>
-                                        <input class="form-control" id="inputOrgName" type="text" placeholder="Enter your organization name" value="Start Bootstrap" />
-                                    </div>
-                                    <!-- Form Group (location)-->
-                                    <div class="form-group col-md-6">
-                                        <label class="small mb-1" for="inputLocation">Location</label>
-                                        <input class="form-control" id="inputLocation" type="text" placeholder="Enter your location" value="San Francisco, CA" />
-                                    </div>
-                                </div>
-                                <!-- Form Group (email address)-->
-                                <div class="form-group">
-                                    <label class="small mb-1" for="inputEmailAddress">Email address</label>
-                                    <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="name@example.com" />
-                                </div>
-                                <!-- Form Row-->
-                                <div class="form-row">
-                                    <!-- Form Group (phone number)-->
-                                    <div class="form-group col-md-6">
-                                        <label class="small mb-1" for="inputPhone">Phone number</label>
-                                        <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="555-123-4567" />
-                                    </div>
-                                    <!-- Form Group (birthday)-->
-                                    <div class="form-group col-md-6">
-                                        <label class="small mb-1" for="inputBirthday">Birthday</label>
-                                        <input class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="Enter your birthday" value="06/10/1988" />
-                                    </div>
-                                </div>
+                                <!-- .end Name translations -->
+
                                 <!-- Save changes button-->
-                                <button class="btn btn-primary" type="button">Save changes</button>
+                                <button class="btn btn-primary" type="submit">{{ __('Save changes') }}</button>
 
                             </div>
                         </div>
