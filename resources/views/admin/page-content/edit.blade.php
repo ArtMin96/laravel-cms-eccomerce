@@ -78,6 +78,8 @@
                                     @csrf
                                     @method('PUT')
 
+                                    <input type="hidden" name="page_id" value="{{ $pageContent->page_id }}">
+
                                     <div class="card card-header-actions mx-auto">
                                         <div class="card-header">
                                             <div class="card-header-row">

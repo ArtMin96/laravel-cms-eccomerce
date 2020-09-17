@@ -59,7 +59,7 @@ $(document).ready(function() {
         let firstRow = $(this).closest('form').find('.card:first');
         let clone = firstRow.clone(true);
 
-        clone.find('input').val('');
+        clone.find(':input:not([type=hidden])').val('');
         clone.addClass('mt-5');
 
         let rowCount = $(this).closest('form').find('.card').length + 1;
