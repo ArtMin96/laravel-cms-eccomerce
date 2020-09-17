@@ -89,7 +89,7 @@
                                         </ul>
 
                                         @foreach(config('app.locales') as $key => $locale)
-                                            <div class="card-body p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
+                                            <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
                                                 <div class="form-group">
                                                     <label class="required" for="{{ $locale }}_title">{{ trans('Banner title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
                                                     <input class="form-control @error($locale.'_title') is-invalid @enderror" type="text" name="{{ $locale }}_title" id="{{ $locale }}_title" value="{{ old($locale.'_title', $banner->translate($locale)->title) }}" required>
@@ -117,7 +117,7 @@
                                         </ul>
 
                                         @foreach(config('app.locales') as $key => $locale)
-                                            <div class="card-body p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
+                                            <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
                                                 <div class="form-group">
                                                     <label class="required" for="{{ $locale }}_description">{{ trans('Banner description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
                                                     <input class="form-control @error($locale.'_description') is-invalid @enderror" type="text" name="{{ $locale }}_description" id="{{ $locale }}_description" value="{{ old($locale.'_description', $banner->translate($locale)->description) }}" required>
@@ -191,7 +191,7 @@
                                         </ul>
 
                                         @foreach(config('app.locales') as $key => $locale)
-                                            <div class="card-body p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
+                                            <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
                                                 <div class="form-group">
                                                     <label class="required" for="{{ $locale }}_link_title">{{ trans('Banner link title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
                                                     <input class="form-control @error($locale.'_link_title') is-invalid @enderror" type="text" name="{{ $locale }}_link_title[]" id="{{ $locale }}_link_title" value="{{ old($locale.'_link_title', $banner->translate($locale)->link_title) }}">
@@ -235,7 +235,7 @@
                                         </ul>
 
                                         @foreach(config('app.locales') as $key => $locale)
-                                            <div class="card-body p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
+                                            <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
                                                 <div class="form-group">
                                                     <label class="required" for="{{ $locale }}_link_title">{{ trans('Banner link title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
                                                     <input class="form-control @error($locale.'_link_title') is-invalid @enderror" type="text" name="{{ $locale }}_link_title[]" id="{{ $locale }}_link_title" value="{{ old($locale.'_link_title', $banner->translate($locale)->link_title) }}">

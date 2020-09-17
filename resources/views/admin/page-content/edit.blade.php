@@ -109,7 +109,7 @@
                                                 </ul>
 
                                                 @foreach(config('app.locales') as $key => $locale)
-                                                    <div class="card-body p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
+                                                    <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
                                                         <div class="form-group">
                                                             <label class="required" for="{{ $locale }}_title">{{ trans('Page content title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
                                                             <input class="form-control @error($locale.'_title') is-invalid @enderror" type="text" name="{{ $locale }}_title[]" id="{{ $locale }}_title" value="{{ old($locale.'_title', $pageContent->translate($locale)->title) }}" required>
@@ -137,7 +137,7 @@
                                                 </ul>
 
                                                 @foreach(config('app.locales') as $key => $locale)
-                                                    <div class="card-body p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
+                                                    <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
                                                         <div class="form-group">
                                                             <label class="required" for="{{ $locale }}_description">{{ trans('Page content description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
                                                             <input class="form-control @error($locale.'_description') is-invalid @enderror" type="text" name="{{ $locale }}_description[]" id="{{ $locale }}_description" value="{{ old($locale.'_description', $pageContent->translate($locale)->description) }}" required>

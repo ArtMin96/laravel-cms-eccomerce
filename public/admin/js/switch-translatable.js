@@ -8,8 +8,8 @@ $(document).ready(function () {
         let switcherLink = $('.translatable-switcher .nav-link');
 
         switcherLink.removeClass('active');
-        switchers.closest('form').find('.card-body').addClass('d-none');
-        switchers.closest('form').find('.card-body').removeClass('d-block');
+        switchers.closest('form').find('.switch-translatable-fields').addClass('d-none');
+        switchers.closest('form').find('.switch-translatable-fields').removeClass('d-block');
         $(`.switch-${locale}`).addClass('active');
         selectForm.removeClass('d-none');
         $(this).closest('.translatable-form').find('input, textarea').focus();

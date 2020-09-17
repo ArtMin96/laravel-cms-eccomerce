@@ -104,9 +104,7 @@
                                         "success"
                                     );
 
-                                    // Hide add more button for single image
-                                    _this.closest('.images').find('.pic').show();
-                                    _this.closest('.img').remove();
+                                    location.reload();
                                 } else {
                                     Swal.fire(
                                         response.title,
