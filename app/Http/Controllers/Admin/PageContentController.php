@@ -118,6 +118,7 @@ class PageContentController extends AdminController
                     $pageContents = new PageContent();
                 }
 
+                $pageContents->page_id = $request->input('page_id');
                 $pageContents->save();
 
                 foreach (['en', 'ru', 'hy'] as $locale) {
