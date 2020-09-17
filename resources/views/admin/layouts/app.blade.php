@@ -125,7 +125,7 @@ use Illuminate\Support\Facades\Auth;
                                     <nav class="sidenav-menu-nested nav">
                                         <a class="nav-link" href="{{ url('/admin/our-team') }}">{{ __('Our Team') }}</a>
                                         <a class="nav-link" href="{{ url('/admin/credentials') }}">{{ __('Credentials') }}</a>
-                                        <a class="nav-link" href="wizard.html">{{ __('Customers') }}</a>
+                                        <a class="nav-link" href="{{ url('/admin/customers') }}">{{ __('Customers') }}</a>
                                     </nav>
                                 </div>
 
