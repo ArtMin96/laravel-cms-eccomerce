@@ -6,21 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
- * @property integer $banner_link_id
+ * @property integer $credentials_id
  * @property string $locale
- * @property string $link_title
- * @property BannerLink $bannerLink
+ * @property string $name
+ * @property string $description
+ * @property Credentials $credential
  */
-class BannerLinksTranslation extends Model
+class CredentialsTranslation extends Model
 {
-
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'banner_link_translations';
-
     /**
      * The "type" of the auto-incrementing ID.
      *
@@ -31,9 +24,7 @@ class BannerLinksTranslation extends Model
     /**
      * @var array
      */
-    protected $fillable = [
-        'link_title'
-    ];
+    protected $fillable = ['credentials_id', 'locale', 'name', 'description'];
 
     /**
      * @var bool
@@ -43,8 +34,8 @@ class BannerLinksTranslation extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function bannerLink()
+    public function credentials()
     {
-        return $this->belongsTo(BannerLinks::class);
+        return $this->belongsTo(Credentials::class, 'credentials_id');
     }
 }

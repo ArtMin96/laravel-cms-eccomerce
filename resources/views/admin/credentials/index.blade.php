@@ -13,13 +13,13 @@
                 <div class="row align-items-center justify-content-between pt-3">
                     <div class="col-auto mb-3">
                         <h1 class="page-header-title">
-                            <div class="page-header-icon"><i data-feather="users"></i></div>
-                            {{ __('Our Team') }}
+                            <div class="page-header-icon"><i data-feather="file"></i></div>
+                            {{ __('Credentials') }}
                         </h1>
                     </div>
 
                     <div class="col-12 col-xl-auto mb-3">
-                        <a href="{{ url('admin/our-team/create') }}" class="btn btn-sm btn-primary" type="button">{{ __('Create team member') }}</a>
+                        <a href="{{ url('admin/credentials/create') }}" class="btn btn-sm btn-primary" type="button">{{ __('Create credential') }}</a>
                     </div>
                 </div>
             </div>
@@ -35,8 +35,6 @@
                         <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Last name</th>
-                            <th>Position</th>
                             <th>Description</th>
                             <th>Status</th>
                             <th>Created date</th>
@@ -47,8 +45,6 @@
                         <tfoot>
                         <tr>
                             <th>Name</th>
-                            <th>Last name</th>
-                            <th>Position</th>
                             <th>Description</th>
                             <th>Status</th>
                             <th>Created date</th>
@@ -57,23 +53,21 @@
                         </tr>
                         </tfoot>
                         <tbody>
-                        @foreach($ourTeam as $team)
+                        @foreach($credentials as $credential)
                             <tr>
-                                <td>{{ $team->name }}</td>
-                                <td>{{ $team->last_name }}</td>
-                                <td>{{ $team->position }}</td>
-                                <td>{{ \Illuminate\Support\Str::limit($team->description, 80, '...') }}</td>
-                                <td>@if(!empty($team->deleted_at)) ? <div class="badge badge-danger badge-pill">{{ __('Inactive') }}</div> @else <div class="badge badge-success badge-pill">{{ __('Active') }}</div> @endif</td>
-                                <td>{{ date('Y-m-d H:i', strtotime($team->created_at)) }}</td>
-                                <td>{{ date('Y-m-d H:i', strtotime($team->updated_at)) }}</td>
+                                <td>{{ $credential->name }}</td>
+                                <td>{{ \Illuminate\Support\Str::limit($credential->description, 80, '...') }}</td>
+                                <td>@if(!empty($credential->deleted_at)) ? <div class="badge badge-danger badge-pill">{{ __('Inactive') }}</div> @else <div class="badge badge-success badge-pill">{{ __('Active') }}</div> @endif</td>
+                                <td>{{ date('Y-m-d H:i', strtotime($credential->created_at)) }}</td>
+                                <td>{{ date('Y-m-d H:i', strtotime($credential->updated_at)) }}</td>
                                 <td>
-                                    <a class="btn btn-datatable btn-icon btn-transparent-dark" href="{{ url('admin/our-team/'.$team->id.'/edit') }}">
+                                    <a class="btn btn-datatable btn-icon btn-transparent-dark" href="{{ url('admin/our-team/'.$credential->id.'/edit') }}">
                                         <i data-feather="edit-3"></i>
                                     </a>
                                     <button type="submit"
                                             class="btn btn-datatable btn-icon text-danger remove-page"
-                                            data-page-id="{{ $team->id }}"
-                                            data-url="{{ url('/admin/our-team/destroy') }}"
+                                            data-page-id="{{ $credential->id }}"
+                                            data-url="{{ url('/admin/credentials/destroy') }}"
                                             data-title="Are you sure you want to remove this team member?"
                                             data-confirm-text="Delete"
                                             data-cancel-text="Cancel">

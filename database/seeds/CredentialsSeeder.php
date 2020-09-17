@@ -1,9 +1,9 @@
 <?php
 
-use App\OurTeam;
+use App\Credentials;
 use Illuminate\Database\Seeder;
 
-class OurTeamSeeder extends Seeder
+class CredentialsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,91 +12,67 @@ class OurTeamSeeder extends Seeder
      */
     public function run()
     {
-        $ourTeam = [
+        $credentials = [
             [
                 'en' => [
                     'name' => 'Lorem',
-                    'last_name' => 'Ipsum',
-                    'position' => 'Interpreter',
                     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum esse maxime, minus nobis similique. Accusantium culpa delectus ea eaque eveniet illum iure laborum maiores.',
                 ],
                 'ru' => [
                     'name' => 'Lorem',
-                    'last_name' => 'Ipsum',
-                    'position' => 'Interpreter',
                     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum esse maxime, minus nobis similique. Accusantium culpa delectus ea eaque eveniet illum iure laborum maiores.',
                 ],
                 'hy' => [
                     'name' => 'Lorem',
-                    'last_name' => 'Ipsum',
-                    'position' => 'Interpreter',
                     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum esse maxime, minus nobis similique. Accusantium culpa delectus ea eaque eveniet illum iure laborum maiores.',
                 ]
             ],
             [
                 'en' => [
                     'name' => 'Lorem',
-                    'last_name' => 'Ipsum',
-                    'position' => 'Interpreter',
                     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum esse maxime, minus nobis similique. Accusantium culpa delectus ea eaque eveniet illum iure laborum maiores.',
                 ],
                 'ru' => [
                     'name' => 'Lorem',
-                    'last_name' => 'Ipsum',
-                    'position' => 'Interpreter',
                     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum esse maxime, minus nobis similique. Accusantium culpa delectus ea eaque eveniet illum iure laborum maiores.',
                 ],
                 'hy' => [
                     'name' => 'Lorem',
-                    'last_name' => 'Ipsum',
-                    'position' => 'Interpreter',
                     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum esse maxime, minus nobis similique. Accusantium culpa delectus ea eaque eveniet illum iure laborum maiores.',
                 ]
             ],
             [
                 'en' => [
                     'name' => 'Lorem',
-                    'last_name' => 'Ipsum',
-                    'position' => 'Interpreter',
                     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum esse maxime, minus nobis similique. Accusantium culpa delectus ea eaque eveniet illum iure laborum maiores.',
                 ],
                 'ru' => [
                     'name' => 'Lorem',
-                    'last_name' => 'Ipsum',
-                    'position' => 'Interpreter',
                     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum esse maxime, minus nobis similique. Accusantium culpa delectus ea eaque eveniet illum iure laborum maiores.',
                 ],
                 'hy' => [
                     'name' => 'Lorem',
-                    'last_name' => 'Ipsum',
-                    'position' => 'Interpreter',
                     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum esse maxime, minus nobis similique. Accusantium culpa delectus ea eaque eveniet illum iure laborum maiores.',
                 ]
             ],
             [
                 'en' => [
                     'name' => 'Lorem',
-                    'last_name' => 'Ipsum',
-                    'position' => 'Interpreter',
                     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum esse maxime, minus nobis similique. Accusantium culpa delectus ea eaque eveniet illum iure laborum maiores.',
                 ],
                 'ru' => [
                     'name' => 'Lorem',
-                    'last_name' => 'Ipsum',
-                    'position' => 'Interpreter',
                     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum esse maxime, minus nobis similique. Accusantium culpa delectus ea eaque eveniet illum iure laborum maiores.',
                 ],
                 'hy' => [
                     'name' => 'Lorem',
-                    'last_name' => 'Ipsum',
-                    'position' => 'Interpreter',
                     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum esse maxime, minus nobis similique. Accusantium culpa delectus ea eaque eveniet illum iure laborum maiores.',
                 ]
             ]
         ];
 
-        foreach ($ourTeam as $key => $team) {
-            OurTeam::create($team);
+        foreach ($credentials as $key => $credential) {
+            Credentials::create($credential);
         }
     }
 }

@@ -23,7 +23,7 @@
                     <div class="col-auto mb-3">
                         <h1 class="page-header-title">
                             <div class="page-header-icon"><i data-feather="user"></i></div>
-                            {{ __('Team member info') }} - {{ $ourTeam->name }} {{ $ourTeam->last_name }}
+                            {{ __('Credential info') }} - {{ $credentials->name }}
                         </h1>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
     <!-- Main page content-->
     <div class="container mt-4">
 
-        <form action="{{ route('admin.our-team.update', $ourTeam->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.credentials.update', $credentials->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -43,23 +43,23 @@
                     <div class="col-xl-4">
                         <!-- Profile picture card-->
                         <div class="card">
-                            <div class="card-header">{{ __('Team member picture') }}</div>
+                            <div class="card-header">{{ __('Credential picture') }}</div>
                             <div class="card-body text-center">
 
                                 <div class="images">
-                                    @if(!empty($ourTeam->image))
+                                    @if(!empty($credentials->image))
 
                                         <!-- Profile picture image-->
                                         <div class="img">
-                                            <img src="{{ asset('storage/member/'.$ourTeam->image) }}" alt="{{ $ourTeam->name }}">
+                                            <img src="{{ asset('storage/credentials/'.$credentials->image) }}" alt="{{ $credentials->name }}">
                                             <span class="remove-pic result_file"
-                                                  data-file-id="{{ $ourTeam->id }}"
-                                                  data-file-url="/admin/request/remove-our-team-image"
+                                                  data-file-id="{{ $credentials->id }}"
+                                                  data-file-url="/admin/request/remove-credential-image"
                                                   data-title="Are you sure you want to remove this file?"
                                                   data-confirm-text="Delete"
                                                   data-cancel-text="Cancel"><i class="fal fa-times"></i></span>
                                         </div>
-    {{--                                    <img class="img-account-profile rounded-circle mb-2" src="{{ asset('storage/our-team/'.$ourTeam->image) }}" alt="{{ $ourTeam->name }}" />--}}
+    {{--                                    <img class="img-account-profile rounded-circle mb-2" src="{{ asset('storage/our-team/'.$credentials->image) }}" alt="{{ $credentials->name }}" />--}}
                                     @else
                                         <div class="pic">
                                             <span style="font-size: 1.25rem;">Upload</span>
@@ -83,7 +83,7 @@
                     <div class="col-xl-8">
                         <!-- Account details card-->
                         <div class="card mb-4">
-                            <div class="card-header">Account Details</div>
+                            <div class="card-header">Credential Details</div>
 
                             <div class="card-body">
 
@@ -101,21 +101,9 @@
                                         <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
                                             <div class="form-group">
                                                 <label class="required" for="{{ $locale }}_name">{{ trans('Member name') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                <input class="form-control @error($locale.'_name') is-invalid @enderror" type="text" name="{{ $locale }}_name" id="{{ $locale }}_name" value="{{ old($locale.'_name', $ourTeam->translate($locale)->name) }}" required>
+                                                <input class="form-control @error($locale.'_name') is-invalid @enderror" type="text" name="{{ $locale }}_name" id="{{ $locale }}_name" value="{{ old($locale.'_name', $credentials->translate($locale)->name) }}" required>
 
                                                 @error($locale.'_name')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="required" for="{{ $locale }}_last_name">{{ trans('Member last name') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                <input class="form-control @error($locale.'_last_name') is-invalid @enderror" type="text" name="{{ $locale }}_last_name" id="{{ $locale }}_last_name" value="{{ old($locale.'_last_name', $ourTeam->translate($locale)->last_name) }}" required>
-
-                                                @error($locale.'_last_name')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -124,20 +112,8 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="required" for="{{ $locale }}_position">{{ trans('Member position') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                <input class="form-control @error($locale.'_position') is-invalid @enderror" type="text" name="{{ $locale }}_position" id="{{ $locale }}_position" value="{{ old($locale.'_position', $ourTeam->translate($locale)->position) }}" required>
-
-                                                @error($locale.'_position')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-
-                                            </div>
-
-                                            <div class="form-group">
                                                 <label class="required" for="{{ $locale }}_description">{{ trans('Member description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                <input class="form-control @error($locale.'_description') is-invalid @enderror" type="text" name="{{ $locale }}_description" id="{{ $locale }}_description" value="{{ old($locale.'_description', $ourTeam->translate($locale)->description) }}" required>
+                                                <input class="form-control @error($locale.'_description') is-invalid @enderror" type="text" name="{{ $locale }}_description" id="{{ $locale }}_description" value="{{ old($locale.'_description', $credentials->translate($locale)->description) }}" required>
 
                                                 @error($locale.'_description')
                                                     <span class="invalid-feedback" role="alert">
