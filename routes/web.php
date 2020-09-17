@@ -37,6 +37,7 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
     Route::resource('/seo', 'SeoController');
     Route::resource('/page-content', 'PageContentController');
     Route::resource('/our-team', 'OurTeamController');
+    Route::resource('/credentials', 'CredentialsController');
 
     // Settings routes
     Route::get('/settings', 'SettingsController@index');
@@ -48,6 +49,7 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
     Route::post('/request/remove-site-logo-image', 'RequestController@removeSiteLogoImage')->name('request.remove.site.logo.image');
     Route::post('/request/remove-site-logo-sm-image', 'RequestController@removeSiteLogoSmImage')->name('request.remove.site.logo.sm.image');
     Route::post('/request/remove-our-team-image', 'RequestController@removeOurTeamImage')->name('request.remove.our.team.image');
+    Route::post('/request/remove-credential-image', 'RequestController@removeCredentialImage')->name('request.remove.credential.image');
 });
 
 Route::get('/{slug}', ['as' => 'pages.show', 'uses' => 'PagesController@show']);

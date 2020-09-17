@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\OurTeam;
+use App\Credentials;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 
-class OurTeamController extends AdminController
+class CredentialsController extends AdminController
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,8 @@ class OurTeamController extends AdminController
      */
     public function index()
     {
-        $ourTeam = OurTeam::active();
-        return view('admin.our-team.index', compact('ourTeam'));
+        $credentials = Credentials::active();
+        return view('admin.credentials.index', compact('credentials'));
     }
 
     /**
@@ -28,7 +27,7 @@ class OurTeamController extends AdminController
      */
     public function create()
     {
-        return view('admin.our-team.create');
+        return view('admin.credentials.create');
     }
 
     /**
@@ -39,23 +38,17 @@ class OurTeamController extends AdminController
      */
     public function store(Request $request)
     {
-        $ourTeamTranslationData = [
+        $credentialTranslationData = [
             'en' => [
                 'name' => $request->input('en_name'),
-                'last_name' => $request->input('en_last_name'),
-                'position' => $request->input('en_position'),
                 'description' => $request->input('en_description')
             ],
             'ru' => [
                 'name' => $request->input('ru_name'),
-                'last_name' => $request->input('ru_last_name'),
-                'position' => $request->input('ru_position'),
                 'description' => $request->input('ru_description')
             ],
             'hy' => [
                 'name' => $request->input('hy_name'),
-                'last_name' => $request->input('hy_last_name'),
-                'position' => $request->input('hy_position'),
                 'description' => $request->input('hy_description')
             ],
         ];
@@ -69,19 +62,19 @@ class OurTeamController extends AdminController
             }
             $image = $request->file('image');
             $input['imagename'] = time().'.'.$image->extension();
-            $destinationPath = storage_path('app/public/member');
+            $destinationPath = storage_path('app/public/credentials');
 
             File::isDirectory($destinationPath) or File::makeDirectory($destinationPath, 0777, true, true);
 
             $img = Image::make($image->path());
             $img->save($destinationPath.'/'.$input['imagename'], 90);
 
-            $ourTeamTranslationData['image'] = $input['imagename'];
+            $credentialTranslationData['image'] = $input['imagename'];
         }
 
-        $ourTeam = OurTeam::create($ourTeamTranslationData);
+        $credential = Credentials::create($credentialTranslationData);
 
-        return redirect()->route('admin.our-team.edit', $ourTeam->id);
+        return redirect()->route('admin.credentials.edit', $credential->id);
     }
 
     /**
@@ -103,8 +96,8 @@ class OurTeamController extends AdminController
      */
     public function edit($id)
     {
-        $ourTeam = OurTeam::find($id);
-        return view('admin.our-team.edit', compact('ourTeam'));
+        $credentials = Credentials::find($id);
+        return view('admin.credentials.edit', compact('credentials'));
     }
 
     /**
@@ -116,23 +109,17 @@ class OurTeamController extends AdminController
      */
     public function update(Request $request, $id)
     {
-        $ourTeamTranslationData = [
+        $credentialTranslationData = [
             'en' => [
                 'name' => $request->input('en_name'),
-                'last_name' => $request->input('en_last_name'),
-                'position' => $request->input('en_position'),
                 'description' => $request->input('en_description')
             ],
             'ru' => [
                 'name' => $request->input('ru_name'),
-                'last_name' => $request->input('ru_last_name'),
-                'position' => $request->input('ru_position'),
                 'description' => $request->input('ru_description')
             ],
             'hy' => [
                 'name' => $request->input('hy_name'),
-                'last_name' => $request->input('hy_last_name'),
-                'position' => $request->input('hy_position'),
                 'description' => $request->input('hy_description')
             ],
         ];
@@ -146,20 +133,20 @@ class OurTeamController extends AdminController
             }
             $image = $request->file('image');
             $input['imagename'] = time().'.'.$image->extension();
-            $destinationPath = storage_path('app/public/member');
+            $destinationPath = storage_path('app/public/credentials');
 
             File::isDirectory($destinationPath) or File::makeDirectory($destinationPath, 0777, true, true);
 
             $img = Image::make($image->path());
             $img->save($destinationPath.'/'.$input['imagename'], 90);
 
-            $ourTeamTranslationData['image'] = $input['imagename'];
+            $credentialTranslationData['image'] = $input['imagename'];
         }
 
-        $ourTeam = OurTeam::findOrFail($id);
-        $ourTeam->update($ourTeamTranslationData);
+        $credential = Credentials::findOrFail($id);
+        $credential->update($credentialTranslationData);
 
-        return redirect()->route('admin.our-team.edit', $id);
+        return redirect()->route('admin.credentials.edit', $id);
     }
 
     /**
@@ -170,8 +157,8 @@ class OurTeamController extends AdminController
      */
     public function destroy(Request $request)
     {
-        $teamMember = OurTeam::findOrFail($request->id);
-        $teamMember->delete();
+        $credential = Credentials::findOrFail($request->id);
+        $credential->delete();
 
         return response()->json(['status' => true]);
     }

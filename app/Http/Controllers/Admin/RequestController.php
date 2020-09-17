@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Banner;
+use App\Credentials;
 use App\Http\Controllers\Controller;
 use App\OurTeam;
 use App\Page;
@@ -99,6 +100,27 @@ class RequestController extends AdminController
             if (!empty($ourTeam)) {
                 unlink(storage_path('app/public/member/'.$ourTeam->image));
                 $ourTeam->update(['image' => null]);
+
+                return response()->json(['status' => true, 'title' => 'Success', 'message' => 'File successfully removed!']);
+            } else {
+                return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+            }
+        } else {
+            return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function removeCredentialImage(Request $request) {
+        if (!empty($request->post('file_id'))) {
+            $credential = Credentials::findOrFail($request->post('file_id'));
+
+            if (!empty($credential)) {
+                unlink(storage_path('app/public/credentials/'.$credential->image));
+                $credential->update(['image' => null]);
 
                 return response()->json(['status' => true, 'title' => 'Success', 'message' => 'File successfully removed!']);
             } else {

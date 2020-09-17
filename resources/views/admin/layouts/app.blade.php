@@ -124,7 +124,7 @@ use Illuminate\Support\Facades\Auth;
                                 <div class="collapse" id="collapseAboutUs" data-parent="#accordionSidenav">
                                     <nav class="sidenav-menu-nested nav">
                                         <a class="nav-link" href="{{ url('/admin/our-team') }}">{{ __('Our Team') }}</a>
-                                        <a class="nav-link" href="wizard.html">{{ __('Credentials') }}</a>
+                                        <a class="nav-link" href="{{ url('/admin/credentials') }}">{{ __('Credentials') }}</a>
                                         <a class="nav-link" href="wizard.html">{{ __('Customers') }}</a>
                                     </nav>
                                 </div>
