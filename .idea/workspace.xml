@@ -20,13 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="188bee73-7fda-407a-a0b3-1cea2f9f01e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/customers/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/customers/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/customers/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/customers/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/faqs/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/faqs/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/faqs/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/faqs/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/RequestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/RequestController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -180,15 +178,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/admin" />
       <recent name="$PROJECT_DIR$/resources/views/admin/banner" />
       <recent name="$PROJECT_DIR$/resources/views/admin/layouts" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin/Auth" />
       <recent name="$PROJECT_DIR$/app" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -216,8 +214,7 @@
       <workItem from="1599991870248" duration="25011000" />
       <workItem from="1600082503847" duration="70000" />
       <workItem from="1600082589550" duration="19237000" />
-      <workItem from="1600292097149" duration="4412000" />
-      <workItem from="1600356513175" duration="7054000" />
+      <workItem from="1600292097149" duration="9814000" />
     </task>
     <servers />
   </component>
@@ -242,11 +239,11 @@
     </state>
     <state x="663" y="0" width="574" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599993738695" />
     <state x="663" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1600087686917" />
-    <state x="693" y="277" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600363246523">
-      <screen x="0" y="0" width="1920" height="1041" />
+    <state x="693" y="277" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600459396653">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="693" y="277" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600295384455" />
-    <state x="693" y="277" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1600363246523" />
+    <state x="693" y="277" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600459396653" />
+    <state x="693" y="277" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1600102138235" />
     <state x="712" y="248" width="485" height="537" key="NewPhpClassDialog" timestamp="1599360121949">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -261,11 +258,10 @@
     </state>
     <state x="464" y="154" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599991659950" />
     <state x="464" y="154" key="SettingsEditor/0.0.1920.1041@0.0.1920.1041" timestamp="1600082598573" />
-    <state x="665" y="99" width="589" height="841" key="find.popup" timestamp="1600360124806">
-      <screen x="0" y="0" width="1920" height="1041" />
+    <state x="665" y="99" width="589" height="840" key="find.popup" timestamp="1599854207856">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="665" y="99" width="589" height="840" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599854207856" />
-    <state x="665" y="99" width="589" height="841" key="find.popup/0.0.1920.1041@0.0.1920.1041" timestamp="1600360124806" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
