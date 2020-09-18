@@ -39,6 +39,7 @@ Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {
     Route::resource('/our-team', 'OurTeamController');
     Route::resource('/credentials', 'CredentialsController');
     Route::resource('/customers', 'CustomersController');
+    Route::resource('/faqs', 'FaqsController');
 
     // Settings routes
     Route::get('/settings', 'SettingsController@index');
