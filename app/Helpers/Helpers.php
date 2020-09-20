@@ -63,12 +63,24 @@ if (!function_exists('wrapMenu')) {
                         }
                     }
 
+                    if ($items['route_number'] == \App\Page::ServiceRoute) {
+                        $route = '/services/'.$items['alias'];
+                    }
+
+                    if ($items['route_number'] == \App\Page::IndustryRoute) {
+                        $route = '/industry/'.$items['alias'];
+                    }
+
+                    if ($items['route_number'] == \App\Page::DefaultRoute) {
+                        $route = $items['alias'];
+                    }
+
                     if ($level === 0) {
-                        $setLinkType = '<a class="nav-link" href="' . $items['alias'] . '" ' . $attributes . '>' . $items['name'] . '</a>';
+                        $setLinkType = '<a class="nav-link" href="' . $route . '" ' . $attributes . '>' . $items['name'] . '</a>';
                     } else if ($level != 0 && !empty($items['childrenPages'][0])) {
-                        $setLinkType = '<a class="dropdown-item dropdown-toggle" href="' . $items['alias'] . '">' . $items['name'] . '</a>';
+                        $setLinkType = '<a class="dropdown-item dropdown-toggle" href="' . $route . '">' . $items['name'] . '</a>';
                     } else {
-                        $setLinkType = '<a class="dropdown-item" href="' . $items['alias'] . '" ' . $attributes . '>' . $items['name'] . '</a>';
+                        $setLinkType = '<a class="dropdown-item" href="' . $route . '" ' . $attributes . '>' . $items['name'] . '</a>';
                     }
 
                     echo $setLinkType;
