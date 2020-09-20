@@ -60,8 +60,14 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     });
 
     // Dynamic pages
-    Route::get('/{slug}', ['as' => 'pages.show', 'uses' => 'PagesController@show']);
+//    Route::get('/{slug}', ['as' => 'pages.show', 'uses' => 'PagesController@show']);
+    Route::get('/services/{slug}', ['as' => 'services.show', 'uses' => 'ServicesController@show']);
+    Route::get('/industry/{slug}', ['as' => 'industry.show', 'uses' => 'IndustryController@show']);
+
+    // Default pages routes.
+    Route::get('/about-us', 'AboutUsController@index')->name('about-us');
+    Route::get('/credentials', 'CredentialsController@index')->name('credentials');
+    Route::get('/credentials', 'CredentialsController@index')->name('credentials');
+    Route::get('/customers', 'CustomersController@index')->name('customers');
 
 });
-
-Route::get('/blog', ['as' => 'pages.show', 'uses' => 'PagesController@blog']);

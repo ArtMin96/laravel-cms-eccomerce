@@ -99,6 +99,13 @@ class Page extends Model
     const JoinUs = 10;
 
     /**
+     * Default route numbers for router separation.
+     */
+    const DefaultRoute = 0;
+    const ServiceRoute = 1;
+    const IndustryRoute = 2;
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function page()
@@ -171,17 +178,5 @@ class Page extends Model
     public static function activeAcceptedParents()
     {
         return Page::whereIn('page_number', [self::Services, self::Industries, self::Languages])->with('childrenPages')->get();
-    }
-
-    /**
-     * Find pages by given alias
-     *
-     * @param $alias
-     * @return mixed
-     */
-    public static function findByAlias($slug)
-    {
-//        return Page::where('alias', $slug)->where('deleted_at', null)->where('base_page', '!=', 1)->first();
-        return Page::where('alias', $slug)->where('deleted_at', null)->first();
     }
 }
