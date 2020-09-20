@@ -35,6 +35,9 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 
 - **[Eloquent Model Generator](https://github.com/krlove/eloquent-model-generator)**
 - **[Laravel Translatable](https://github.com/Astrotomic/laravel-translatable)**
+- **[Laravel Localization](https://github.com/mcamara/laravel-localization)**
+- **[Laravel Intervention Image](http://image.intervention.io/getting_started/installation#laravel)**
+- **[Eloquent Sluggable](https://github.com/cviebrock/eloquent-sluggable)**
 
 ## Contributing
 

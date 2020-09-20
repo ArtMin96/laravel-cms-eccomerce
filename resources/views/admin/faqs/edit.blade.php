@@ -9,7 +9,8 @@
                     <div class="col-auto mb-3">
                         <h1 class="page-header-title">
                             <div class="page-header-icon"><i data-feather="help-circle"></i></div>
-                            {{ __('Faq') }}
+                            {{ __('Faqgration
+                            ') }}
                         </h1>
                     </div>
                 </div>
