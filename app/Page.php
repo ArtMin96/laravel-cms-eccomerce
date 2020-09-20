@@ -111,7 +111,7 @@ class Page extends Model
      */
     public function childrenPages()
     {
-        return $this->hasMany(Page::class, 'parent_id')->with('page')->orderBy('sort_order');
+        return $this->hasMany(Page::class, 'parent_id')->with('page');
     }
 
     /**
@@ -170,7 +170,7 @@ class Page extends Model
      */
     public static function activeAcceptedParents()
     {
-        return Page::whereIn('page_number', [self::Services, self::Industries, self::Languages])->get();
+        return Page::whereIn('page_number', [self::Services, self::Industries, self::Languages])->with('childrenPages')->get();
     }
 
     /**

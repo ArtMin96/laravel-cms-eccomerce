@@ -120,6 +120,15 @@
                                             @if(!empty($pages))
                                                 @foreach($pages as $page)
                                                     <option value="{{ $page->id }}">{{ $page->translate(app()->getLocale())->name }}</option>
+
+                                                    @if(!empty($page['childrenPages'][0]))
+                                                        <optgroup label="{{ $page->name }}">
+                                                            @foreach($page['childrenPages'] as $child)
+<!--                                                                --><?php //print_r($child) ?>
+                                                                <option value="{{ $child->id }}">{{ $child->translate(app()->getLocale())->name }}</option>
+                                                            @endforeach
+                                                        </optgroup>
+                                                    @endif
                                                 @endforeach
                                             @endif
                                         </select>

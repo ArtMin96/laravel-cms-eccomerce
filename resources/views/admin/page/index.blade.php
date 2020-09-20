@@ -62,7 +62,7 @@
                                     <td>{{ $page->name }}</td>
                                     <td>@if($page->alias == 'javascript:void(0);') - @else {{ $page->alias }} @endif</td>
                                     <td>@if($parent = $page->page) {{ $parent->name }} @else - @endif</td>
-                                    <td>{{ $page->sort_active }}</td>
+                                    <td>{{ $page->sort_order }}</td>
                                     <td>@if(!empty($page->deleted_at)) ? <div class="badge badge-danger badge-pill">Inactive</div> @else <div class="badge badge-success badge-pill">Active</div> @endif</td>
                                     <td>{{ date('Y-m-d H:i', strtotime($page->created_at)) }}</td>
                                     <td>{{ date('Y-m-d H:i', strtotime($page->updated_at)) }}</td>
