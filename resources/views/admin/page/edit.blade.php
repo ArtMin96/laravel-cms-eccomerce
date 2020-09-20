@@ -118,6 +118,14 @@
                                             @if(!empty($pages))
                                                 @foreach($pages as $pageOptions)
                                                     <option value="{{ $pageOptions->id }}" @if($page->parent_id == $pageOptions->id) selected @endif>{{ $pageOptions->translate(app()->getLocale())->name }}</option>
+
+                                                    @if(!empty($pageOptions['childrenPages'][0]))
+                                                        <optgroup label="{{ $pageOptions->name }}">
+                                                        @foreach($pageOptions['childrenPages'] as $child)
+                                                                <option value="{{ $child->id }}" @if($page->parent_id == $child->id) selected @endif>{{ $child->translate(app()->getLocale())->name }}</option>
+                                                            @endforeach
+                                                        </optgroup>
+                                                    @endif
                                                 @endforeach
                                             @endif
                                         </select>

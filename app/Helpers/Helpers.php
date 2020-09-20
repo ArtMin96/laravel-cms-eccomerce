@@ -35,6 +35,9 @@ if (!function_exists('menuItems')) {
     }
 }
 
+/**
+ * Wrap menu recursively with childs.
+ */
 if (!function_exists('wrapMenu')) {
     function wrapMenu($menu, $level = 0) {
         if (!empty($menu)) {
@@ -43,7 +46,13 @@ if (!function_exists('wrapMenu')) {
 
                     if (!empty($items['childrenPages'][0])) {
                         $attributes = 'role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"';
-                        echo '<li class="nav-item dropdown">';
+
+                        if ($level != 0) {
+                            echo '<li class="dropdown-submenu">';
+                        } else {
+                            echo '<li class="nav-item dropdown">';
+                        }
+
                     } else {
                         $attributes = '';
 
@@ -56,6 +65,8 @@ if (!function_exists('wrapMenu')) {
 
                     if ($level === 0) {
                         $setLinkType = '<a class="nav-link" href="' . $items['alias'] . '" ' . $attributes . '>' . $items['name'] . '</a>';
+                    } else if ($level != 0 && !empty($items['childrenPages'][0])) {
+                        $setLinkType = '<a class="dropdown-item dropdown-toggle" href="' . $items['alias'] . '">' . $items['name'] . '</a>';
                     } else {
                         $setLinkType = '<a class="dropdown-item" href="' . $items['alias'] . '" ' . $attributes . '>' . $items['name'] . '</a>';
                     }
@@ -66,7 +77,17 @@ if (!function_exists('wrapMenu')) {
 
                         echo '<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">';
 
+                        if (!empty($items['childrenPages'][0]) && $level != 0) {
+                            echo '<div class="d-flex">';
+                            echo '<ul class="p-0 list-unstyled">';
+                        }
+
                         wrapMenu($items['childrenPages'], $level + 1);
+
+                        if (!empty($items['childrenPages'][0]) && $level != 0) {
+                            echo '</ul>';
+                            echo '</div>';
+                        }
 
                         echo '</ul>';
                     }
