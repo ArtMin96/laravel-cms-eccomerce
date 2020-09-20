@@ -78,9 +78,13 @@
                             <img src="../../images/flag/eng.png" class="g-lang-flag g-lang-flag-show" alt="flag">
                         </button>
                         <ul class="dropdown-menu lang-dropdown-menu dropdown-menu-right g-navbar-buttons-drop" aria-labelledby="dropdownLangButton">
-                            <li><a class="dropdown-item" href="#" data-lang="en"><img src="../../images/flag/eng.png" class="g-lang-flag" alt="flag"> English</a></li>
-                            <li><a class="dropdown-item" href="#" data-lang="am"><img src="../../images/flag/arm.png" class="g-lang-flag" alt="flag"> Հայերեն</a></li>
-                            <li><a class="dropdown-item" href="#" data-lang="ru"><img src="../../images/flag/rus.png" class="g-lang-flag" alt="flag"> Русский</a></li>
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <li>
+                                    <a class="dropdown-item" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" data-lang="en" rel="alternate">
+                                        <img src="../../images/flag/{{ $localeCode }}.png" class="g-lang-flag" alt="flag"> {{ $properties['native'] }}
+                                    </a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

@@ -25,13 +25,13 @@ class PagesController extends Controller
     }
 
 
-    public function blog () {
-        $page = Page::where('page_number', Page::Blog)->where('deleted_at', null)->first();
-
-        if (empty($page)) {
-            abort('404');
-        }
-
-        return \View::make('pages.index')->with('page', $page);
-    }
+//    public function blog () {
+//        $page = Page::where('page_number', Page::Blog)->where('deleted_at', null)->first();
+//
+//        if (empty($page)) {
+//            abort('404');
+//        }
+//
+//        return \View::make('pages.index')->with('page', $page);
+//    }
 }

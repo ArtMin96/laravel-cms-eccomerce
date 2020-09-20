@@ -181,6 +181,7 @@ class Page extends Model
      */
     public static function findByAlias($slug)
     {
-        return Page::where('alias', $slug)->where('deleted_at', null)->where('base_page', '!=', 1)->first();
+//        return Page::where('alias', $slug)->where('deleted_at', null)->where('base_page', '!=', 1)->first();
+        return Page::where('alias', $slug)->where('deleted_at', null)->first();
     }
 }
