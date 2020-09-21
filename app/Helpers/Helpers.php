@@ -72,7 +72,7 @@ if (!function_exists('wrapMenu')) {
                     }
 
                     if ($items['route_number'] == \App\Page::DefaultRoute) {
-                        $route = $items['alias'];
+                        $route = '/'.$items['alias'];
                     }
 
                     if ($level === 0) {
