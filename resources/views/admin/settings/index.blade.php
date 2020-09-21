@@ -162,6 +162,50 @@
                                 ></iframe>
                             @endif
 
+                            <hr class="my-4">
+
+                            <h5 class="mb-3">{{ __('Phone numbers') }}</h5>
+
+                            @foreach($settings->phoneNumbers as $key => $phoneNumber)
+                                <div class="phone-number-field-group">
+                                    <div class="js--add-new-phone-row-wrapper d-flex align-items-center">
+                                        <div class="form-group w-100">
+                                            <input class="form-control phone-input @error('phone_number') is-invalid @enderror" type="text" name="phone_number[]" id="phone_number_{{ $phoneNumber->id }}" value="{{ old('phone_number', $phoneNumber->phone_number) }}" required>
+
+                                            @error('phone_number')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+
+                                        </div>
+
+                                        <button class="btn btn-light btn-icon mb-3 ml-3 js--add-new-phone-row" type="button">
+                                            <i data-feather="plus"></i>
+                                        </button>
+
+                                        <button class="btn btn-danger btn-icon mb-3 ml-3 js--remove-new-phone-row remove-phone-input @if($key == 0) d-none @endif"
+                                                type="button"
+                                                data-id="{{ $phoneNumber->id }}"
+                                                data-url="/admin/request/remove-phone-number"
+                                                data-title="Are you sure you want to remove this number?"
+                                                data-confirm-text="Delete"
+                                                data-cancel-text="Cancel"
+                                        >
+                                            <i data-feather="minus"></i>
+                                        </button>
+                                    </div>
+
+                                    @if($key == 0)
+                                        <div class="custom-control custom-radio mb-3">
+                                            <input class="custom-control-input" id="is_main_number_{{ $phoneNumber->id }}" type="radio" name="is_main_number[]" value="@if($phoneNumber->is_main_number == 1) 1 @else 0 @endif" @if($phoneNumber->is_main_number == 1) checked @endif>
+                                            <label class="custom-control-label" for="is_main_number_{{ $phoneNumber->id }}">{{ __('Primary Number') }}</label>
+                                        </div>
+                                    @endif
+
+                                </div>
+                            @endforeach
+
                             <button class="btn btn-primary mt-3" type="submit">{{ __('Save') }}</button>
                         </div>
                     </div>
@@ -326,4 +370,5 @@
     <script src="{{ asset('admin/js/select2.min.js') }}" type="text/javascript" defer></script>
     <script src="{{ asset('admin/js/sweetalert2.all.min.js') }}" type="text/javascript" defer></script>
     <script src="{{ asset('admin/js/file-field.js') }}" type="text/javascript" defer></script>
+    <script src="{{ asset('admin/js/admin.js') }}" type="text/javascript" defer></script>
 @endpush

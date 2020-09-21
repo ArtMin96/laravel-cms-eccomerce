@@ -20,18 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="188bee73-7fda-407a-a0b3-1cea2f9f01e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/jobs/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/jobs/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/jobs/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/jobs/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/faqs/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/main/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gaudeamus.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gaudeamus.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/credentials/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/credentials/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/faqs/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/faqs/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/RequestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/RequestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/SettingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SettingsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Settings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/SettingsSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/SettingsSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/settings/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/settings/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -168,6 +169,10 @@
       <path value="$PROJECT_DIR$/vendor/cviebrock/eloquent-sluggable" />
       <path value="$PROJECT_DIR$/vendor/intervention/image" />
       <path value="$PROJECT_DIR$/vendor/mcamara/laravel-localization" />
+      <path value="$PROJECT_DIR$/vendor/league/iso3166" />
+      <path value="$PROJECT_DIR$/vendor/propaganistas/laravel-phone" />
+      <path value="$PROJECT_DIR$/vendor/giggsey/libphonenumber-for-php" />
+      <path value="$PROJECT_DIR$/vendor/giggsey/locale" />
     </include_path>
   </component>
   <component name="ProjectId" id="1h6PMQwNhcA420JmFe3jcTAleYy" />
@@ -224,7 +229,7 @@
       <workItem from="1600082503847" duration="70000" />
       <workItem from="1600082589550" duration="19237000" />
       <workItem from="1600292097149" duration="9814000" />
-      <workItem from="1600596928462" duration="28684000" />
+      <workItem from="1600596928462" duration="40152000" />
     </task>
     <servers />
   </component>
@@ -278,7 +283,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/Admin/SettingsController.php</url>
-          <line>109</line>
+          <line>128</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

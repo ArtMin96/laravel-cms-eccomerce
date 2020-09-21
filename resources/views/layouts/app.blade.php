@@ -52,11 +52,11 @@
                                 </li>
                                 <li class="g-footer-list-item g-footer-list-mail"><a href="mailto:{{ settings()->email }}" class="g-footer-list-link">{{ settings()->email }}</a></li>
                                 <li class="g-footer-list-item g-footer-list-phone">
-                            <span class="g-footer-list-phones">
-                                <a href="tel:+37411561678" class="g-footer-list-link">+374 11 56 16 78</a>
-                                <a href="tel:+37491561678" class="g-footer-list-link">+374 91 56 16 78</a>
-                                <a href="tel:+37491499944" class="g-footer-list-link">+374 91 49 99 44</a>
-                            </span>
+                                    <span class="g-footer-list-phones">
+                                        @foreach(settings()->phoneNumbers as $numbers)
+                                            <a href="tel:{{ str_replace(' ', '', $numbers->phone_number) }}" class="g-footer-list-link">{{ $numbers->phone_number }}</a>
+                                        @endforeach
+                                    </span>
                                 </li>
                                 <li class="g-footer-list-item g-footer-list-whatsapp">
                                     <a href="https://www.whatsapp.com/" target="_blank" class="g-footer-list-link">{{ settings()->whatsapp }}</a>
