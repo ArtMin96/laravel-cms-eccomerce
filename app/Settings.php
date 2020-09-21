@@ -56,4 +56,12 @@ class Settings extends Model
     {
         return $this->hasMany(SettingsTranslation::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function phoneNumbers()
+    {
+        return $this->hasMany(PhoneNumbers::class, 'setting_id');
+    }
 }

@@ -8,6 +8,7 @@ use App\Customers;
 use App\Http\Controllers\Controller;
 use App\OurTeam;
 use App\Page;
+use App\PhoneNumbers;
 use App\Settings;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
@@ -143,6 +144,26 @@ class RequestController extends AdminController
             if (!empty($customers)) {
                 unlink(storage_path('app/public/customers/'.$customers->image));
                 $customers->update(['image' => null]);
+
+                return response()->json(['status' => true, 'title' => 'Success', 'message' => 'File successfully removed!']);
+            } else {
+                return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+            }
+        } else {
+            return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function removePhoneNumber(Request $request) {
+        if (!empty($request->post('id'))) {
+            $number = PhoneNumbers::findOrFail($request->post('id'));
+
+            if (!empty($number)) {
+                $number->delete();
 
                 return response()->json(['status' => true, 'title' => 'Success', 'message' => 'File successfully removed!']);
             } else {

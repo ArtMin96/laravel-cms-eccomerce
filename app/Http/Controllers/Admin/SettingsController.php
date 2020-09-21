@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\PhoneNumbers;
 use App\Settings;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -28,6 +29,7 @@ class SettingsController extends AdminController
      */
     public function update(Request $request, $id)
     {
+//        dd($request);
         $setting = Settings::findOrFail($id);
         $settings = [
             'en' => [
@@ -91,6 +93,23 @@ class SettingsController extends AdminController
             $img->save($destinationPath.'/'.$input['imagename'], 90);
 
             $settings['logo_sm'] = $input['imagename'];
+        }
+
+        if (!empty($request->input('phone_number'))) {
+
+            PhoneNumbers::truncate();
+
+            foreach ($request->input('phone_number') as $key => $number) {
+//                $validate = $request->validate([
+//                    'phone_number' => 'phone:AM'
+//                ]);
+
+                $phoneNumber = new PhoneNumbers();
+                $phoneNumber->setting_id = 1;
+                $phoneNumber->phone_number = $request->input('phone_number')[$key];
+                $phoneNumber->is_main_number = ($key == 0) ? 1 : 0;
+                $phoneNumber->save();
+            }
         }
 
         $setting->update($settings);

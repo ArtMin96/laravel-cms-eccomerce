@@ -49,12 +49,15 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
         // Check slug
         Route::get('/request/slug', 'RequestController@slug')->name('request.slug');
+
+        // Ajax requests
         Route::post('/request/remove-banner-image', 'RequestController@removeBannerImage')->name('request.remove.banner.image');
         Route::post('/request/remove-site-logo-image', 'RequestController@removeSiteLogoImage')->name('request.remove.site.logo.image');
         Route::post('/request/remove-site-logo-sm-image', 'RequestController@removeSiteLogoSmImage')->name('request.remove.site.logo.sm.image');
         Route::post('/request/remove-our-team-image', 'RequestController@removeOurTeamImage')->name('request.remove.our.team.image');
         Route::post('/request/remove-credential-image', 'RequestController@removeCredentialImage')->name('request.remove.credential.image');
         Route::post('/request/remove-customers-image', 'RequestController@removeCustomersImage')->name('request.remove.customers.image');
+        Route::delete('/request/remove-phone-number', 'RequestController@removePhoneNumber')->name('request.remove.phone.number');
     });
 
     // Dynamic pages
