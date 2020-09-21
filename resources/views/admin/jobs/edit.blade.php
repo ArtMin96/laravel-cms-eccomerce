@@ -8,8 +8,8 @@
                 <div class="row align-items-center justify-content-between pt-3">
                     <div class="col-auto mb-3">
                         <h1 class="page-header-title">
-                            <div class="page-header-icon"><i data-feather="help-circle"></i></div>
-                            {{ __('Faq') }}
+                            <div class="page-header-icon"><i data-feather="dollar-sign"></i></div>
+                            {{ __('Job') }}
                         </h1>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
     <!-- Main page content-->
     <div class="container mt-4">
 
-        <form action="{{ route('admin.faqs.update', $faqs->id) }}" method="POST">
+        <form action="{{ route('admin.jobs.update', $jobs->id) }}" method="POST">
             @csrf
             @method('PUT')
 
@@ -45,22 +45,10 @@
                                     @foreach(config('app.locales') as $key => $locale)
                                         <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
                                             <div class="form-group">
-                                                <label class="required" for="{{ $locale }}_question">{{ trans('Question') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                <input class="form-control @error($locale.'_question') is-invalid @enderror" type="text" name="{{ $locale }}_question" id="{{ $locale }}_question" value="{{ old($locale.'_question', $faqs->translate($locale)->question) }}" required>
+                                                <label class="required" for="{{ $locale }}_title">{{ trans('Title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
+                                                <input class="form-control @error($locale.'_title') is-invalid @enderror" type="text" name="{{ $locale }}_title" id="{{ $locale }}_title" value="{{ old($locale.'_title', $jobs->translate($locale)->title) }}" required>
 
-                                                @error($locale.'_question')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="required" for="{{ $locale }}_answer">{{ trans('Answer') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                <input class="form-control @error($locale.'_answer') is-invalid @enderror" type="text" name="{{ $locale }}_answer" id="{{ $locale }}_answer" value="{{ old($locale.'_answer', $faqs->translate($locale)->answer) }}" required>
-
-                                                @error($locale.'_answer')
+                                                @error($locale.'_title')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -75,6 +63,7 @@
 
                                 <!-- Save changes button-->
                                 <button class="btn btn-primary" type="submit">{{ __('Save changes') }}</button>
+                                <a href="{{ url('/admin/jobs') }}" class="btn btn-light">{{ __('Cancel') }}</a>
 
                             </div>
                         </div>

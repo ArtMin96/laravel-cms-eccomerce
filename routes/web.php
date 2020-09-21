@@ -13,16 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 Route::group(['prefix' => LaravelLocalization::setLocale(),
              'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
 ], function () {
 
+    Route::get('/', 'MainController@index')->name('main');
     Route::get('/home', 'HomeController@index')->name('home');
 
     // Admin routes
@@ -44,6 +41,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::resource('/credentials', 'CredentialsController');
         Route::resource('/customers', 'CustomersController');
         Route::resource('/faqs', 'FaqsController');
+        Route::resource('/jobs', 'JobsController');
 
         // Settings routes
         Route::get('/settings', 'SettingsController@index');
@@ -69,5 +67,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/credentials', 'CredentialsController@index')->name('credentials');
     Route::get('/credentials', 'CredentialsController@index')->name('credentials');
     Route::get('/customers', 'CustomersController@index')->name('customers');
+    Route::get('/faqs', 'FaqsController@index')->name('faqs');
 
 });

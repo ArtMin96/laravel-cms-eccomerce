@@ -61,7 +61,7 @@
                                 <td>{{ date('Y-m-d H:i', strtotime($credential->created_at)) }}</td>
                                 <td>{{ date('Y-m-d H:i', strtotime($credential->updated_at)) }}</td>
                                 <td>
-                                    <a class="btn btn-datatable btn-icon btn-transparent-dark" href="{{ url('admin/our-team/'.$credential->id.'/edit') }}">
+                                    <a class="btn btn-datatable btn-icon btn-transparent-dark" href="{{ url('admin/credentials/'.$credential->id.'/edit') }}">
                                         <i data-feather="edit-3"></i>
                                     </a>
                                     <button type="submit"
