@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Banner;
 use App\Page;
 use App\Seo;
+use Astrotomic\Translatable\Validation\RuleFactory;
 use Illuminate\Http\Request;
 
 class PageController extends AdminController
@@ -42,18 +43,26 @@ class PageController extends AdminController
     public function store(Request $request)
     {
         $page = new Page();
-        $page->validate($request->all());
+//        $page->validate([
+//            'sort_order' => 'numeric|min:0|max:600',
+//        ]);
+
+        RuleFactory::make([
+            '%name%' => 'required',
+        ]);
+
+//        dd($request->input('en')['name']);
 
         // Page
         $pageTranslationData = [
             'en' => [
-                'name' => $request->input('en_name')
+                'name' => $request->input('en')['name']
             ],
             'ru' => [
-                'name' => $request->input('ru_name')
+                'name' => $request->input('ru')['name']
             ],
             'hy' => [
-                'name' => $request->input('hy_name')
+                'name' => $request->input('hy')['name']
             ],
             'alias' => $request->input('alias'),
             'parent_id' => $request->input('parent_id'),

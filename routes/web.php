@@ -71,5 +71,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/credentials', 'CredentialsController@index')->name('credentials');
     Route::get('/customers', 'CustomersController@index')->name('customers');
     Route::get('/faqs', 'FaqsController@index')->name('faqs');
+    Route::resource('/join-us', 'JoinUsController');
 
 });

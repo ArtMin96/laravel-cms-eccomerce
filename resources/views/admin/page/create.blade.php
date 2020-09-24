@@ -87,12 +87,12 @@
                                                 <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
                                                     <div class="form-group">
                                                         <label class="required" for="{{ $locale }}_name">{{ trans('Page title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                        <input class="form-control @error($locale.'_name') is-invalid @enderror" type="text" name="{{ $locale }}_name" id="{{ $locale }}_name" value="{{ old($locale.'_name') }}" required>
+                                                        <input class="form-control @error($locale.'[name]') is-invalid @enderror" type="text" name="{{ $locale }}_name" id="{{ $locale }}_name" value="{{ old($locale.'[name]') }}">
 
-                                                        @error($locale.'_name')
-                                                        <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
+                                                        @error($locale.'[name]')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
                                                         @enderror
 
                                                     </div>
