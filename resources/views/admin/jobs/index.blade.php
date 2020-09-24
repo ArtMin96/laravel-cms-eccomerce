@@ -19,7 +19,8 @@
                     </div>
 
                     <div class="col-12 col-xl-auto mb-3">
-                        <a href="{{ url('admin/jobs/create') }}" class="btn btn-sm btn-primary" type="button">{{ __('Create job') }}</a>
+                        <a href="{{ url('admin/jobs/request') }}" class="btn btn-sm btn-primary">{{ __('Job requests') }}</a>
+                        <a href="{{ url('admin/jobs/create') }}" class="btn btn-sm btn-primary">{{ __('Create job') }}</a>
                     </div>
                 </div>
             </div>
@@ -61,15 +62,17 @@
                                         <a class="btn btn-datatable btn-icon btn-transparent-dark" href="{{ url('admin/jobs/'.$job->id.'/edit') }}">
                                             <i data-feather="edit-3"></i>
                                         </a>
-                                        <button type="submit"
-                                                class="btn btn-datatable btn-icon text-danger remove-page"
-                                                data-page-id="{{ $job->id }}"
-                                                data-url="{{ url('/admin/jobs/destroy') }}"
-                                                data-title="Are you sure you want to remove this team member?"
-                                                data-confirm-text="Delete"
-                                                data-cancel-text="Cancel">
-                                            <i data-feather="trash-2"></i>
-                                        </button>
+                                        @if($job->id != 1)
+                                            <button type="submit"
+                                                    class="btn btn-datatable btn-icon text-danger remove-page"
+                                                    data-page-id="{{ $job->id }}"
+                                                    data-url="{{ url('/admin/jobs/destroy') }}"
+                                                    data-title="Are you sure you want to remove this team member?"
+                                                    data-confirm-text="Delete"
+                                                    data-cancel-text="Cancel">
+                                                <i data-feather="trash-2"></i>
+                                            </button>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

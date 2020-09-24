@@ -24,9 +24,9 @@ class CreateJobRequestTable extends Migration
             $table->integer('year_expertise');
             $table->bigInteger('translated_page_number');
             $table->bigInteger('daily_translation_capacity');
-            $table->integer('translator_type');
-            $table->decimal('translation_rate_per_page');
-            $table->decimal('monthly_salary_expectation');
+            $table->integer('translator_type')->nullable();
+            $table->decimal('translation_rate_per_page')->nullable();
+            $table->decimal('monthly_salary_expectation')->nullable();
             $table->string('cv');
             $table->softDeletes();
             $table->timestamps();

@@ -32,7 +32,7 @@ class Page extends Model
     public $translatedAttributes = ['name'];
 
     private $rules = [
-        'en_name' => 'required|min:5',
+        '%name%' => 'required|min:5',
     ];
 
     public function validate($data)
