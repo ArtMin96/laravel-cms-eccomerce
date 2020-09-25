@@ -88,9 +88,9 @@
                                     <div class="card-body p-0" id="english-form">
                                         <div class="form-group">
                                             <label class="required" for="en_name">{{ trans('Page name') }} (EN)</label>
-                                            <input class="form-control @error('en_name') is-invalid @enderror" type="text" name="en_name" id="en_name" value="{{ old('en_name') }}" required>
+                                            <input class="form-control @error('en.name') is-invalid @enderror" type="text" name="en[name]" id="en_name" value="{{ old('en.name') }}">
 
-                                            @error('en_name')
+                                            @error('en.name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -102,7 +102,7 @@
                                     <div class="card-body d-none p-0" id="russian-form">
                                         <div class="form-group">
                                             <label class="required" for="ru_name">{{ trans('Page name') }} (RU)</label>
-                                            <input class="form-control @error('ru_name') is-invalid @enderror" type="text" name="ru_name" id="ru_name" value="{{ old('ru_name') }}" required>
+                                            <input class="form-control @error('ru_name') is-invalid @enderror" type="text" name="ru_name" id="ru_name" value="{{ old('ru_name') }}">
 
                                             @error('ru_name')
                                                 <span class="invalid-feedback" role="alert">

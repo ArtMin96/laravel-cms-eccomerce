@@ -92,12 +92,12 @@
                                             <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
                                                 <div class="form-group">
                                                     <label class="required" for="{{ $locale }}_title">{{ trans('Banner title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                    <input class="form-control @error($locale.'_title') is-invalid @enderror" type="text" name="{{ $locale }}_title" id="{{ $locale }}_title" value="{{ old($locale.'_title', $banner->translate($locale)->title) }}" required>
+                                                    <input class="form-control @error($locale.'.title') is-invalid @enderror" type="text" name="{{ $locale }}[title]" id="{{ $locale }}_title" value="{{ old($locale.'.title', $banner->translate($locale)->title) }}">
 
-                                                    @error($locale.'_title')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
+                                                    @error($locale.'.title')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
                                                     @enderror
 
                                                 </div>
@@ -120,9 +120,9 @@
                                             <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
                                                 <div class="form-group">
                                                     <label class="required" for="{{ $locale }}_description">{{ trans('Banner description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                    <input class="form-control @error($locale.'_description') is-invalid @enderror" type="text" name="{{ $locale }}_description" id="{{ $locale }}_description" value="{{ old($locale.'_description', $banner->translate($locale)->description) }}" required>
+                                                    <input class="form-control @error($locale.'.description') is-invalid @enderror" type="text" name="{{ $locale }}[description]" id="{{ $locale }}_description" value="{{ old($locale.'.description', $banner->translate($locale)->description) }}">
 
-                                                    @error($locale.'_description')
+                                                    @error($locale.'.description')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
@@ -155,7 +155,7 @@
                                                     <input type="file" name="image" accept="image/*" class="file-uploader d-none form-control @error('image') is-invalid @enderror" id="banner-image">
 
                                                     @error('image')
-                                                    <span class="invalid-feedback" role="alert">
+                                                        <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
                                                     @enderror
@@ -166,7 +166,7 @@
                                                     <input type="file" name="image" accept="image/*" class="file-uploader d-none form-control @error('image') is-invalid @enderror" id="banner-image">
 
                                                     @error('image')
-                                                    <span class="invalid-feedback" role="alert">
+                                                        <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
                                                     @enderror
@@ -194,9 +194,9 @@
                                             <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
                                                 <div class="form-group">
                                                     <label class="required" for="{{ $locale }}_link_title">{{ trans('Banner link title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                    <input class="form-control @error($locale.'_link_title') is-invalid @enderror" type="text" name="{{ $locale }}_link_title[]" id="{{ $locale }}_link_title" value="{{ old($locale.'_link_title', $banner->translate($locale)->link_title) }}">
+                                                    <input class="form-control @error($locale.'.link_title') is-invalid @enderror" type="text" name="{{ $locale }}[link_title][]" id="{{ $locale }}_link_title" value="{{ old($locale.'.link_title', $banner->translate($locale)->link_title) }}">
 
-                                                    @error($locale.'_link_title')
+                                                    @error($locale.'.link_title')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
