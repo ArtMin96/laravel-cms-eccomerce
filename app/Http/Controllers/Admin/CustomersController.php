@@ -38,14 +38,13 @@ class CustomersController extends AdminController
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5000',
+        ]);
+
         $customersData = [];
         if ($request->hasFile('image')) {
-            if ($request->file('image')->isValid()) {
 
-                $this->validate($request, [
-                    'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5000',
-                ]);
-            }
             $image = $request->file('image');
             $input['imagename'] = time().'.'.$image->extension();
             $destinationPath = storage_path('app/public/customers');
@@ -95,14 +94,13 @@ class CustomersController extends AdminController
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5000',
+        ]);
+
         $customersData = [];
         if ($request->hasFile('image')) {
-            if ($request->file('image')->isValid()) {
 
-                $this->validate($request, [
-                    'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5000',
-                ]);
-            }
             $image = $request->file('image');
             $input['imagename'] = time().'.'.$image->extension();
             $destinationPath = storage_path('app/public/customers');

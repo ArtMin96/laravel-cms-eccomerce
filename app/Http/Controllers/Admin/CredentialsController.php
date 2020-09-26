@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Credentials;
+use Astrotomic\Translatable\Validation\RuleFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
@@ -38,28 +39,16 @@ class CredentialsController extends AdminController
      */
     public function store(Request $request)
     {
-        $credentialTranslationData = [
-            'en' => [
-                'name' => $request->input('en_name'),
-                'description' => $request->input('en_description')
-            ],
-            'ru' => [
-                'name' => $request->input('ru_name'),
-                'description' => $request->input('ru_description')
-            ],
-            'hy' => [
-                'name' => $request->input('hy_name'),
-                'description' => $request->input('hy_description')
-            ],
-        ];
+        $rules = RuleFactory::make([
+            '%name%' => 'required|string',
+            '%description%' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5000',
+        ]);
+        $request->validate($rules);
+        $inputs = $request->all();
 
         if ($request->hasFile('image')) {
-            if ($request->file('image')->isValid()) {
 
-                $this->validate($request, [
-                    'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5000',
-                ]);
-            }
             $image = $request->file('image');
             $input['imagename'] = time().'.'.$image->extension();
             $destinationPath = storage_path('app/public/credentials');
@@ -69,10 +58,10 @@ class CredentialsController extends AdminController
             $img = Image::make($image->path());
             $img->save($destinationPath.'/'.$input['imagename'], 90);
 
-            $credentialTranslationData['image'] = $input['imagename'];
+            $inputs['image'] = $input['imagename'];
         }
 
-        $credential = Credentials::create($credentialTranslationData);
+        $credential = Credentials::create($inputs);
 
         return redirect()->route('admin.credentials.edit', $credential->id);
     }
@@ -109,28 +98,15 @@ class CredentialsController extends AdminController
      */
     public function update(Request $request, $id)
     {
-        $credentialTranslationData = [
-            'en' => [
-                'name' => $request->input('en_name'),
-                'description' => $request->input('en_description')
-            ],
-            'ru' => [
-                'name' => $request->input('ru_name'),
-                'description' => $request->input('ru_description')
-            ],
-            'hy' => [
-                'name' => $request->input('hy_name'),
-                'description' => $request->input('hy_description')
-            ],
-        ];
+        $rules = RuleFactory::make([
+            '%name%' => 'required|string',
+            '%description%' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5000',
+        ]);
+        $request->validate($rules);
+        $inputs = $request->all();
 
         if ($request->hasFile('image')) {
-            if ($request->file('image')->isValid()) {
-
-                $this->validate($request, [
-                    'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5000',
-                ]);
-            }
             $image = $request->file('image');
             $input['imagename'] = time().'.'.$image->extension();
             $destinationPath = storage_path('app/public/credentials');
@@ -140,11 +116,11 @@ class CredentialsController extends AdminController
             $img = Image::make($image->path());
             $img->save($destinationPath.'/'.$input['imagename'], 90);
 
-            $credentialTranslationData['image'] = $input['imagename'];
+            $inputs['image'] = $input['imagename'];
         }
 
         $credential = Credentials::findOrFail($id);
-        $credential->update($credentialTranslationData);
+        $credential->update($inputs);
 
         return redirect()->route('admin.credentials.edit', $id);
     }

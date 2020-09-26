@@ -36,7 +36,7 @@
                                 <ul class="nav nav-tabs translatable-switcher mb-4">
                                     @foreach(config('app.locales') as $key => $locale)
                                         <li class="nav-item">
-                                            <a class="nav-link locale-{{ $locale }} switch-{{ $locale }} @if($key == 0) active @endif" href="javascript:void(0);" data-locale="{{ $locale }}">{{ \Illuminate\Support\Str::upper($locale) }}</a>
+                                            <a class="nav-link locale-{{ $locale }} switch-{{ $locale }} @if($key == 0) active @endif @error($locale.'.title') text-danger @enderror" href="javascript:void(0);" data-locale="{{ $locale }}">{{ \Illuminate\Support\Str::upper($locale) }}</a>
                                         </li>
                                     @endforeach
                                 </ul>
@@ -45,9 +45,9 @@
                                     <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
                                         <div class="form-group">
                                             <label class="required" for="{{ $locale }}_title">{{ trans('Title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                            <input class="form-control @error($locale.'_title') is-invalid @enderror" type="text" name="{{ $locale }}_title" id="{{ $locale }}_title" value="{{ old($locale.'_title') }}" required>
+                                            <input class="form-control @error($locale.'.title') is-invalid @enderror" type="text" name="{{ $locale }}[title]" id="{{ $locale }}_title" value="{{ old($locale.'.title') }}">
 
-                                            @error($locale.'_title')
+                                            @error($locale.'.title')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>

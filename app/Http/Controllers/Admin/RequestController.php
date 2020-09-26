@@ -58,7 +58,7 @@ class RequestController extends AdminController
 
             if (!empty($settings)) {
                 unlink(storage_path('app/public/site/'.$settings->logo));
-                $settings->update(['logo' => null]);
+                $settings->update(['logo' => 'logo.png']);
 
                 return response()->json(['status' => true, 'title' => 'Success', 'message' => 'File successfully removed!']);
             } else {
@@ -80,7 +80,7 @@ class RequestController extends AdminController
 
             if (!empty($settings)) {
                 unlink(storage_path('app/public/site/'.$settings->logo_sm));
-                $settings->update(['logo_sm' => null]);
+                $settings->update(['logo_sm' => 'logo_sm.png']);
 
                 return response()->json(['status' => true, 'title' => 'Success', 'message' => 'File successfully removed!']);
             } else {
@@ -143,7 +143,7 @@ class RequestController extends AdminController
 
             if (!empty($customers)) {
                 unlink(storage_path('app/public/customers/'.$customers->image));
-                $customers->update(['image' => null]);
+                $customers->update(['image' => 'customer-default.png']);
 
                 return response()->json(['status' => true, 'title' => 'Success', 'message' => 'File successfully removed!']);
             } else {

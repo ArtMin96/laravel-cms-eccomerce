@@ -62,17 +62,17 @@
                                     <div class="pic">
                                         <span style="font-size: 1.25rem;">Upload</span>
                                         <input type="file" name="image" accept="image/*" class="file-uploader d-none form-control @error('image') is-invalid @enderror" id="banner-image">
-
-                                        @error('image')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
                                     </div>
                                 @endif
                             </div>
 
                             <!-- Profile picture help block-->
+                            @error('image')
+                                <span class="invalid-feedback d-block" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+
                             <div class="small font-italic text-muted mb-4">{{ __('JPG or PNG no larger than 5 MB') }}</div>
 
                             <!-- Save changes button-->

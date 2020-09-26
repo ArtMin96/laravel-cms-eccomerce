@@ -78,7 +78,11 @@
                                             <ul class="nav nav-tabs translatable-switcher mb-4">
                                                 @foreach(config('app.locales') as $key => $locale)
                                                     <li class="nav-item">
-                                                        <a class="nav-link locale-{{ $locale }} switch-{{ $locale }} @if($key == 0) active @endif" href="javascript:void(0);" data-locale="{{ $locale }}">{{ \Illuminate\Support\Str::upper($locale) }}</a>
+                                                        <a class="nav-link locale-{{ $locale }} switch-{{ $locale }}
+                                                        @if($key == 0) active @endif
+                                                        @error($locale.'.name') text-danger @enderror" href="javascript:void(0);" data-locale="{{ $locale }}">
+                                                            {{ \Illuminate\Support\Str::upper($locale) }}
+                                                        </a>
                                                     </li>
                                                 @endforeach
                                             </ul>
@@ -124,7 +128,6 @@
                                                     @if(!empty($page['childrenPages'][0]))
                                                         <optgroup label="{{ $page->name }}">
                                                             @foreach($page['childrenPages'] as $child)
-<!--                                                                --><?php //print_r($child) ?>
                                                                 <option value="{{ $child->id }}">{{ $child->translate(app()->getLocale())->name }}</option>
                                                             @endforeach
                                                         </optgroup>
@@ -143,10 +146,10 @@
 
                                     <div class="form-group">
                                         <label class="required" for="sort_order">{{ trans('Page Sort') }}</label>
-                                        <input class="form-control @error('sort_order') is-invalid @enderror" type="text" name="sort_order" id="sort_order" value="{{ old('sort_order') }}" required>
+                                        <input class="form-control @error('sort_order') is-invalid @enderror" type="text" name="sort_order" id="sort_order" value="{{ old('sort_order') }}">
 
                                         @error('sort_order')
-                                        <span class="invalid-feedback" role="alert">
+                                            <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror

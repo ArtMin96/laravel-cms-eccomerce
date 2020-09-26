@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\OurTeam;
+use Astrotomic\Translatable\Validation\RuleFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
@@ -39,34 +40,18 @@ class OurTeamController extends AdminController
      */
     public function store(Request $request)
     {
-        $ourTeamTranslationData = [
-            'en' => [
-                'name' => $request->input('en_name'),
-                'last_name' => $request->input('en_last_name'),
-                'position' => $request->input('en_position'),
-                'description' => $request->input('en_description')
-            ],
-            'ru' => [
-                'name' => $request->input('ru_name'),
-                'last_name' => $request->input('ru_last_name'),
-                'position' => $request->input('ru_position'),
-                'description' => $request->input('ru_description')
-            ],
-            'hy' => [
-                'name' => $request->input('hy_name'),
-                'last_name' => $request->input('hy_last_name'),
-                'position' => $request->input('hy_position'),
-                'description' => $request->input('hy_description')
-            ],
-        ];
+        $rules = RuleFactory::make([
+            '%name%' => 'required|string',
+            '%last_name%' => 'required|string',
+            '%position%' => 'required|string',
+            '%description%' => 'required|string',
+            'image' => 'file|max:5000|mimes:png,jpg,jpeg,gif',
+        ]);
+        $request->validate($rules);
+
+        $inputs = $request->all();
 
         if ($request->hasFile('image')) {
-            if ($request->file('image')->isValid()) {
-
-                $this->validate($request, [
-                    'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5000',
-                ]);
-            }
             $image = $request->file('image');
             $input['imagename'] = time().'.'.$image->extension();
             $destinationPath = storage_path('app/public/member');
@@ -76,10 +61,10 @@ class OurTeamController extends AdminController
             $img = Image::make($image->path());
             $img->save($destinationPath.'/'.$input['imagename'], 90);
 
-            $ourTeamTranslationData['image'] = $input['imagename'];
+            $inputs['image'] = $input['imagename'];
         }
 
-        $ourTeam = OurTeam::create($ourTeamTranslationData);
+        $ourTeam = OurTeam::create($inputs);
 
         return redirect()->route('admin.our-team.edit', $ourTeam->id);
     }
@@ -116,34 +101,19 @@ class OurTeamController extends AdminController
      */
     public function update(Request $request, $id)
     {
-        $ourTeamTranslationData = [
-            'en' => [
-                'name' => $request->input('en_name'),
-                'last_name' => $request->input('en_last_name'),
-                'position' => $request->input('en_position'),
-                'description' => $request->input('en_description')
-            ],
-            'ru' => [
-                'name' => $request->input('ru_name'),
-                'last_name' => $request->input('ru_last_name'),
-                'position' => $request->input('ru_position'),
-                'description' => $request->input('ru_description')
-            ],
-            'hy' => [
-                'name' => $request->input('hy_name'),
-                'last_name' => $request->input('hy_last_name'),
-                'position' => $request->input('hy_position'),
-                'description' => $request->input('hy_description')
-            ],
-        ];
+        $rules = RuleFactory::make([
+            '%name%' => 'required|string',
+            '%last_name%' => 'required|string',
+            '%position%' => 'required|string',
+            '%description%' => 'required|string',
+            'image' => 'file|max:5000|mimes:png,jpg,jpeg,gif',
+        ]);
+        $request->validate($rules);
+
+        $inputs = $request->all();
 
         if ($request->hasFile('image')) {
-            if ($request->file('image')->isValid()) {
 
-                $this->validate($request, [
-                    'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5000',
-                ]);
-            }
             $image = $request->file('image');
             $input['imagename'] = time().'.'.$image->extension();
             $destinationPath = storage_path('app/public/member');
@@ -153,11 +123,11 @@ class OurTeamController extends AdminController
             $img = Image::make($image->path());
             $img->save($destinationPath.'/'.$input['imagename'], 90);
 
-            $ourTeamTranslationData['image'] = $input['imagename'];
+            $inputs['image'] = $input['imagename'];
         }
 
         $ourTeam = OurTeam::findOrFail($id);
-        $ourTeam->update($ourTeamTranslationData);
+        $ourTeam->update($inputs);
 
         return redirect()->route('admin.our-team.edit', $id);
     }

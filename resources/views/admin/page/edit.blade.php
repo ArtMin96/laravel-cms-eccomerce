@@ -76,7 +76,11 @@
                                         <ul class="nav nav-tabs translatable-switcher mb-4">
                                             @foreach(config('app.locales') as $key => $locale)
                                                 <li class="nav-item">
-                                                    <a class="nav-link locale-{{ $locale }} switch-{{ $locale }} @if($key == 0) active @endif" href="javascript:void(0);" data-locale="{{ $locale }}">{{ \Illuminate\Support\Str::upper($locale) }}</a>
+                                                    <a class="nav-link locale-{{ $locale }} switch-{{ $locale }}
+                                                    @if($key == 0) active @endif
+                                                    @error($locale.'.name') text-danger @enderror" href="javascript:void(0);" data-locale="{{ $locale }}">
+                                                        {{ \Illuminate\Support\Str::upper($locale) }}
+                                                    </a>
                                                 </li>
                                             @endforeach
                                         </ul>
@@ -85,7 +89,7 @@
                                             <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
                                                 <div class="form-group">
                                                     <label class="required" for="{{ $locale }}_name">{{ trans('Page title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                    <input class="form-control @error($locale.'_name') is-invalid @enderror" type="text" name="{{ $locale }}_name" id="{{ $locale }}_name" value="{{ old($locale.'_name', $page->translate($locale)->name) }}" required @if($page->base_page == 1) readonly disabled @endif>
+                                                    <input class="form-control @error($locale.'_name') is-invalid @enderror" type="text" name="{{ $locale }}_name" id="{{ $locale }}_name" value="{{ old($locale.'_name', $page->translate($locale)->name) }}" @if($page->base_page == 1) readonly disabled @endif>
 
                                                     @error($locale.'_name')
                                                         <span class="invalid-feedback" role="alert">
@@ -101,7 +105,7 @@
 
                                     <div class="form-group">
                                         <label class="required" for="alias">{{ trans('Page URL') }}</label>
-                                        <input class="form-control @error('alias') is-invalid @enderror" type="text" name="alias" id="alias" value="{{ old('alias', ($page->alias == 'javascript:void(0);') ? '' : $page->alias) }}" required @if($page->base_page == 1) readonly disabled @endif>
+                                        <input class="form-control @error('alias') is-invalid @enderror" type="text" name="alias" id="alias" value="{{ old('alias', ($page->alias == 'javascript:void(0);') ? '' : $page->alias) }}" @if($page->base_page == 1) readonly disabled @endif>
 
                                         @error('alias')
                                             <span class="invalid-feedback" role="alert">
@@ -140,7 +144,7 @@
 
                                     <div class="form-group">
                                         <label class="required" for="sort_order">{{ trans('Page Sort') }}</label>
-                                        <input class="form-control @error('sort_order') is-invalid @enderror" type="text" name="sort_order" id="sort_order" value="{{ old('sort_order', $page->sort_order) }}" required @if($page->base_page == 1) readonly disabled @endif>
+                                        <input class="form-control @error('sort_order') is-invalid @enderror" type="text" name="sort_order" id="sort_order" value="{{ old('sort_order', $page->sort_order) }}" @if($page->base_page == 1) readonly disabled @endif>
 
                                         @error('sort_order')
                                             <span class="invalid-feedback" role="alert">

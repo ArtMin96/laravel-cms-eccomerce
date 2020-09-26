@@ -64,17 +64,16 @@
                                         <div class="pic">
                                             <span style="font-size: 1.25rem;">Upload</span>
                                             <input type="file" name="image" accept="image/*" class="file-uploader d-none form-control @error('image') is-invalid @enderror" id="banner-image">
-
-                                            @error('image')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
                                         </div>
                                     @endif
                                 </div>
 
                                 <!-- Profile picture help block-->
+                                @error('image')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                                 <div class="small font-italic text-muted mb-4">{{ __('JPG or PNG no larger than 5 MB') }}</div>
                             </div>
                         </div>
@@ -92,7 +91,14 @@
                                     <ul class="nav nav-tabs translatable-switcher mb-4">
                                         @foreach(config('app.locales') as $key => $locale)
                                             <li class="nav-item">
-                                                <a class="nav-link locale-{{ $locale }} switch-{{ $locale }} @if($key == 0) active @endif" href="javascript:void(0);" data-locale="{{ $locale }}">{{ \Illuminate\Support\Str::upper($locale) }}</a>
+                                                <a class="nav-link locale-{{ $locale }} switch-{{ $locale }}
+                                                @if($key == 0) active @endif
+                                                @error($locale.'.name') text-danger @enderror
+                                                @error($locale.'.last_name') text-danger @enderror
+                                                @error($locale.'.position') text-danger @enderror
+                                                @error($locale.'.description') text-danger @enderror" href="javascript:void(0);" data-locale="{{ $locale }}">
+                                                    {{ \Illuminate\Support\Str::upper($locale) }}
+                                                </a>
                                             </li>
                                         @endforeach
                                     </ul>
@@ -101,21 +107,21 @@
                                         <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
                                             <div class="form-group">
                                                 <label class="required" for="{{ $locale }}_name">{{ trans('Member name') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                <input class="form-control @error($locale.'_name') is-invalid @enderror" type="text" name="{{ $locale }}_name" id="{{ $locale }}_name" value="{{ old($locale.'_name', $ourTeam->translate($locale)->name) }}" required>
+                                                <input class="form-control @error($locale.'.name') is-invalid @enderror" type="text" name="{{ $locale }}[name]" id="{{ $locale }}_name" value="{{ old($locale.'.name', $ourTeam->name) }}">
 
-                                                @error($locale.'_name')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
+                                                @error($locale.'.name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
                                                 @enderror
 
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="required" for="{{ $locale }}_last_name">{{ trans('Member last name') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                <input class="form-control @error($locale.'_last_name') is-invalid @enderror" type="text" name="{{ $locale }}_last_name" id="{{ $locale }}_last_name" value="{{ old($locale.'_last_name', $ourTeam->translate($locale)->last_name) }}" required>
+                                                <input class="form-control @error($locale.'.last_name') is-invalid @enderror" type="text" name="{{ $locale }}[last_name]" id="{{ $locale }}_last_name" value="{{ old($locale.'.last_name', $ourTeam->last_name) }}">
 
-                                                @error($locale.'_last_name')
+                                                @error($locale.'.last_name')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -125,21 +131,21 @@
 
                                             <div class="form-group">
                                                 <label class="required" for="{{ $locale }}_position">{{ trans('Member position') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                <input class="form-control @error($locale.'_position') is-invalid @enderror" type="text" name="{{ $locale }}_position" id="{{ $locale }}_position" value="{{ old($locale.'_position', $ourTeam->translate($locale)->position) }}" required>
+                                                <input class="form-control @error($locale.'.position') is-invalid @enderror" type="text" name="{{ $locale }}[position]" id="{{ $locale }}_position" value="{{ old($locale.'.position', $ourTeam->position) }}">
 
-                                                @error($locale.'_position')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
+                                                @error($locale.'.position')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
                                                 @enderror
 
                                             </div>
 
                                             <div class="form-group">
                                                 <label class="required" for="{{ $locale }}_description">{{ trans('Member description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                <input class="form-control @error($locale.'_description') is-invalid @enderror" type="text" name="{{ $locale }}_description" id="{{ $locale }}_description" value="{{ old($locale.'_description', $ourTeam->translate($locale)->description) }}" required>
+                                                <input class="form-control @error($locale.'.description') is-invalid @enderror" type="text" name="{{ $locale }}[description]" id="{{ $locale }}_description" value="{{ old($locale.'.description', $ourTeam->description) }}">
 
-                                                @error($locale.'_description')
+                                                @error($locale.'.description')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
