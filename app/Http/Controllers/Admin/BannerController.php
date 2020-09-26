@@ -6,6 +6,7 @@ use App\Banner;
 use App\BannerLinks;
 use App\BannerLinksTranslation;
 use App\Page;
+use Astrotomic\Translatable\Validation\RuleFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
@@ -94,44 +95,50 @@ class BannerController extends AdminController
      */
     public function update(Request $request, $id)
     {
+//        dd($request);
+        $rules = RuleFactory::make([
+            '%title%' => 'required',
+            '%description%' => 'required',
+        ]);
+        $request->validate($rules);
+        $request->validate([
+            'image' => 'file|max:5000|mimes:png,jpg,jpeg,gif',
+        ]);
+
+        $inputs = $request->all();
 
         // Banner
-        $bannerTranslationData = [
-            'en' => [
-                'title' => $request->input('en_title'),
-                'description' => $request->input('en_description')
-            ],
-            'ru' => [
-                'title' => $request->input('ru_title'),
-                'description' => $request->input('ru_description')
-            ],
-            'hy' => [
-                'title' => $request->input('hy_title'),
-                'description' => $request->input('hy_description')
-            ],
-        ];
+//        $bannerTranslationData = [
+//            'en' => [
+//                'title' => $request->input('en')['title'],
+//                'description' => $request->input('en')['description']
+//            ],
+//            'ru' => [
+//                'title' => $request->input('ru')['title'],
+//                'description' => $request->input('ru')['description']
+//            ],
+//            'hy' => [
+//                'title' => $request->input('hy')['title'],
+//                'description' => $request->input('hy')['description']
+//            ],
+//        ];
 
-        if ($request->hasFile('image')) {
-            if ($request->file('image')->isValid()) {
-
-                $this->validate($request, [
-                    'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5000',
-                ]);
-            }
-            $image = $request->file('image');
-            $input['imagename'] = time().'.'.$image->extension();
-            $destinationPath = storage_path('app/public/banner');
-
-            File::isDirectory($destinationPath) or File::makeDirectory($destinationPath, 0777, true, true);
-
-            $img = Image::make($image->path());
-            $img->save($destinationPath.'/'.$input['imagename'], 90);
-
-            $bannerTranslationData['image'] = $input['imagename'];
-        }
+//        if ($request->hasFile('image')) {
+//
+//            $image = $request->file('image');
+//            $input['imagename'] = time().'.'.$image->extension();
+//            $destinationPath = storage_path('app/public/banner');
+//
+//            File::isDirectory($destinationPath) or File::makeDirectory($destinationPath, 0777, true, true);
+//
+//            $img = Image::make($image->path());
+//            $img->save($destinationPath.'/'.$input['imagename'], 90);
+//
+//            $inputs['image'] = $input['imagename'];
+//        }
 
         $banner = Banner::findOrFail($id);
-        $banner->update($bannerTranslationData);
+        $banner->update($inputs);
 
         // Banner links
         if (!empty($request->input('en_link_title'))) {
@@ -163,7 +170,7 @@ class BannerController extends AdminController
             }
         }
 
-        return redirect()->route('admin.banner.edit', $id);
+        return redirect()->back();
     }
 
     /**

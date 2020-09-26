@@ -73,7 +73,7 @@
                                 <form action="{{ route('admin.page.store') }}" method="POST">
                                     @csrf
 
-                                    <!-- Title translations -->
+                                        <!-- Title translations -->
                                         <div class="translatable-form">
                                             <ul class="nav nav-tabs translatable-switcher mb-4">
                                                 @foreach(config('app.locales') as $key => $locale)
@@ -87,9 +87,9 @@
                                                 <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
                                                     <div class="form-group">
                                                         <label class="required" for="{{ $locale }}_name">{{ trans('Page title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                        <input class="form-control @error($locale.'[name]') is-invalid @enderror" type="text" name="{{ $locale }}_name" id="{{ $locale }}_name" value="{{ old($locale.'[name]') }}">
+                                                        <input class="form-control @error($locale.'.name') is-invalid @enderror" type="text" name="{{ $locale }}[name]" id="{{ $locale }}_name" value="{{ old($locale.'.name') }}">
 
-                                                        @error($locale.'[name]')
+                                                        @error($locale.'.name')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
                                                             </span>
@@ -103,7 +103,7 @@
 
                                     <div class="form-group">
                                         <label class="required" for="alias">{{ trans('Page URL') }}</label>
-                                        <input class="form-control @error('alias') is-invalid @enderror" type="text" name="alias" id="alias" value="{{ old('alias') }}" required>
+                                        <input class="form-control @error('alias') is-invalid @enderror" type="text" name="alias" id="alias" value="{{ old('alias') }}">
 
                                         @error('alias')
                                             <span class="invalid-feedback" role="alert">

@@ -42,34 +42,17 @@ class PageController extends AdminController
      */
     public function store(Request $request)
     {
-        $page = new Page();
-//        $page->validate([
-//            'sort_order' => 'numeric|min:0|max:600',
-//        ]);
 
-        RuleFactory::make([
-            '%name%' => 'required',
+        $rules = RuleFactory::make([
+            '%name%' => 'required|string',
+        ]);
+        $request->validate($rules);
+        $request->validate([
+            'alias' => 'required|string',
+            'sort_order' => 'numeric|min:0|max:600',
         ]);
 
-//        dd($request->input('en')['name']);
-
-        // Page
-        $pageTranslationData = [
-            'en' => [
-                'name' => $request->input('en')['name']
-            ],
-            'ru' => [
-                'name' => $request->input('ru')['name']
-            ],
-            'hy' => [
-                'name' => $request->input('hy')['name']
-            ],
-            'alias' => $request->input('alias'),
-            'parent_id' => $request->input('parent_id'),
-            'sort_order' => $request->input('sort_order'),
-        ];
-
-        $resource = Page::create($pageTranslationData);
+        $resource = Page::create($request->all());
 
         // Banner
         $bannerTranslationData = [
