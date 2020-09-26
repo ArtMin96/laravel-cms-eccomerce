@@ -19,7 +19,7 @@
                     </div>
 
                     <div class="col-12 col-xl-auto mb-3">
-                        <a href="{{ url('admin/jobs/request') }}" class="btn btn-sm btn-primary">{{ __('Job requests') }}</a>
+                        <a href="{{ url('admin/job-requests') }}" class="btn btn-sm btn-primary">{{ __('Job requests') }}</a>
                         <a href="{{ url('admin/jobs/create') }}" class="btn btn-sm btn-primary">{{ __('Create job') }}</a>
                     </div>
                 </div>
