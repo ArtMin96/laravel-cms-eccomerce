@@ -43,6 +43,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::resource('/faqs', 'FaqsController');
         Route::resource('/jobs', 'JobsController');
 
+        Route::get('/job-requests/download/{file}', 'JobRequestsController@download')->name('job-requests.download');
+        Route::resource('/job-requests', 'JobRequestsController');
+
         // Settings routes
         Route::get('/settings', 'SettingsController@index');
         Route::post('/settings/{id}', 'SettingsController@update')->name('settings.update');

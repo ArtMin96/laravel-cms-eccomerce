@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\JobRequest;
 use App\Jobs;
 use Illuminate\Http\Request;
 
@@ -116,5 +117,14 @@ class JobsController extends AdminController
         $jobs->delete();
 
         return response()->json(['status' => true]);
+    }
+
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function requests()
+    {
+        $jobRequests = JobRequest::where('deleted_at', '=', null)->get();
+        return view('admin.jobs.requests', compact('jobRequests'));
     }
 }
