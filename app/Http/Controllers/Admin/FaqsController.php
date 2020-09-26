@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Faqs;
 use App\Http\Controllers\Controller;
+use Astrotomic\Translatable\Validation\RuleFactory;
 use Illuminate\Http\Request;
 
 class FaqsController extends AdminController
@@ -37,22 +38,13 @@ class FaqsController extends AdminController
      */
     public function store(Request $request)
     {
-        $faqTranslationData = [
-            'en' => [
-                'question' => $request->input('en_question'),
-                'answer' => $request->input('en_answer'),
-            ],
-            'ru' => [
-                'question' => $request->input('ru_question'),
-                'answer' => $request->input('ru_answer'),
-            ],
-            'hy' => [
-                'question' => $request->input('hy_question'),
-                'answer' => $request->input('hy_answer'),
-            ],
-        ];
+        $rules = RuleFactory::make([
+            '%question%' => 'required|string',
+            '%answer%' => 'required|string',
+        ]);
+        $request->validate($rules);
 
-        $faqs = Faqs::create($faqTranslationData);
+        $faqs = Faqs::create($request->all());
 
         return redirect()->route('admin.faqs.edit', $faqs->id);
     }
@@ -89,23 +81,14 @@ class FaqsController extends AdminController
      */
     public function update(Request $request, $id)
     {
-        $faqTranslationData = [
-            'en' => [
-                'question' => $request->input('en_question'),
-                'answer' => $request->input('en_answer'),
-            ],
-            'ru' => [
-                'question' => $request->input('ru_question'),
-                'answer' => $request->input('ru_answer'),
-            ],
-            'hy' => [
-                'question' => $request->input('hy_question'),
-                'answer' => $request->input('hy_answer'),
-            ],
-        ];
+        $rules = RuleFactory::make([
+            '%question%' => 'required|string',
+            '%answer%' => 'required|string',
+        ]);
+        $request->validate($rules);
 
         $faqs = Faqs::findOrFail($id);
-        $faqs->update($faqTranslationData);
+        $faqs->update($request->all());
 
         return redirect()->route('admin.faqs.edit', $id);
     }

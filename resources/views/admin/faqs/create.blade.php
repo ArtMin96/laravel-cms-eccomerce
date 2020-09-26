@@ -36,7 +36,11 @@
                                 <ul class="nav nav-tabs translatable-switcher mb-4">
                                     @foreach(config('app.locales') as $key => $locale)
                                         <li class="nav-item">
-                                            <a class="nav-link locale-{{ $locale }} switch-{{ $locale }} @if($key == 0) active @endif" href="javascript:void(0);" data-locale="{{ $locale }}">{{ \Illuminate\Support\Str::upper($locale) }}</a>
+                                            <a class="nav-link locale-{{ $locale }} switch-{{ $locale }}
+                                            @if($key == 0) active @endif
+                                            @error($locale.'.question') text-danger @enderror @error($locale.'.answer') text-danger @enderror" href="javascript:void(0);" data-locale="{{ $locale }}">
+                                                {{ \Illuminate\Support\Str::upper($locale) }}
+                                            </a>
                                         </li>
                                     @endforeach
                                 </ul>
@@ -45,9 +49,9 @@
                                     <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
                                         <div class="form-group">
                                             <label class="required" for="{{ $locale }}_question">{{ trans('Question') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                            <input class="form-control @error($locale.'_question') is-invalid @enderror" type="text" name="{{ $locale }}_question" id="{{ $locale }}_question" value="{{ old($locale.'_question') }}" required>
+                                            <input class="form-control @error($locale.'.question') is-invalid @enderror" type="text" name="{{ $locale }}[question]" id="{{ $locale }}_question" value="{{ old($locale.'.question') }}">
 
-                                            @error($locale.'_question')
+                                            @error($locale.'.question')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -57,9 +61,9 @@
 
                                         <div class="form-group">
                                             <label class="required" for="{{ $locale }}_answer">{{ trans('Answer') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                            <input class="form-control @error($locale.'_answer') is-invalid @enderror" type="text" name="{{ $locale }}_answer" id="{{ $locale }}_answer" value="{{ old($locale.'_answer') }}" required>
+                                            <input class="form-control @error($locale.'.answer') is-invalid @enderror" type="text" name="{{ $locale }}[answer]" id="{{ $locale }}_answer" value="{{ old($locale.'.answer') }}">
 
-                                            @error($locale.'_answer')
+                                            @error($locale.'.answer')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>

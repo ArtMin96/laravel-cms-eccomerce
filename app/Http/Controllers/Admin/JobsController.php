@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\JobRequest;
 use App\Jobs;
+use Astrotomic\Translatable\Validation\RuleFactory;
 use Illuminate\Http\Request;
 
 class JobsController extends AdminController
@@ -38,19 +39,12 @@ class JobsController extends AdminController
      */
     public function store(Request $request)
     {
-        $jobTranslationData = [
-            'en' => [
-                'title' => $request->input('en_title'),
-            ],
-            'ru' => [
-                'title' => $request->input('ru_title'),
-            ],
-            'hy' => [
-                'title' => $request->input('hy_title'),
-            ],
-        ];
+        $rules = RuleFactory::make([
+            '%title%' => 'required|string',
+        ]);
+        $request->validate($rules);
 
-        $jobs = Jobs::create($jobTranslationData);
+        $jobs = Jobs::create($request->all());
 
         return redirect()->route('admin.jobs.edit', $jobs->id);
     }
@@ -87,20 +81,13 @@ class JobsController extends AdminController
      */
     public function update(Request $request, $id)
     {
-        $jobTranslationData = [
-            'en' => [
-                'title' => $request->input('en_title'),
-            ],
-            'ru' => [
-                'title' => $request->input('ru_title'),
-            ],
-            'hy' => [
-                'title' => $request->input('hy_title'),
-            ],
-        ];
+        $rules = RuleFactory::make([
+            '%title%' => 'required|string',
+        ]);
+        $request->validate($rules);
 
         $jobs = Jobs::findOrFail($id);
-        $jobs->update($jobTranslationData);
+        $jobs->update($request->all());
 
         return redirect()->route('admin.jobs.edit', $id);
     }

@@ -112,26 +112,17 @@ class PageController extends AdminController
     public function update(Request $request, $id)
     {
 
-        $page = new Page();
-        $page->validate($request->all());
-
-        $pageTranslationData = [
-            'en' => [
-                'name' => $request->input('en_name')
-            ],
-            'ru' => [
-                'name' => $request->input('ru_name')
-            ],
-            'hy' => [
-                'name' => $request->input('hy_name')
-            ],
-            'alias' => $request->input('alias'),
-            'parent_id' => $request->input('parent_id'),
-            'sort_order' => $request->input('sort_order'),
-        ];
+        $rules = RuleFactory::make([
+            '%name%' => 'required|string',
+        ]);
+        $request->validate($rules);
+        $request->validate([
+            'alias' => 'required|string',
+            'sort_order' => 'numeric|min:0|max:600',
+        ]);
 
         $resource = Page::findOrFail($id);
-        $resource->update($pageTranslationData);
+        $resource->update($request->all());
 
         return redirect()->route('admin.page.index');
     }

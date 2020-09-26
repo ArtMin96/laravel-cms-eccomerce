@@ -20,6 +20,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="188bee73-7fda-407a-a0b3-1cea2f9f01e2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CredentialsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CredentialsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CustomersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CustomersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/FaqsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/FaqsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/JobsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/JobsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/OurTeamController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/OurTeamController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/RequestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/RequestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/SettingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SettingsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/credentials/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/credentials/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/credentials/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/credentials/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/customers/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/customers/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/faqs/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/faqs/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/faqs/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/faqs/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/jobs/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/jobs/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/jobs/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/jobs/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/our-team/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/our-team/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/our-team/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/our-team/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/page/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/page/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/page/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/page/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/settings/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/settings/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,6 +238,7 @@
       <workItem from="1600292097149" duration="9814000" />
       <workItem from="1600596928462" duration="44116000" />
       <workItem from="1600895115910" duration="4491000" />
+      <workItem from="1601155360871" duration="2012000" />
     </task>
     <servers />
   </component>
@@ -240,6 +263,10 @@
     </state>
     <state x="663" y="0" width="574" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600898095741" />
     <state x="663" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1600087686917" />
+    <state x="693" y="277" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601149035505">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="693" y="277" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601149035505" />
     <state x="712" y="248" width="485" height="537" key="NewPhpClassDialog" timestamp="1599360121949">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -264,7 +291,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/Admin/SettingsController.php</url>
-          <line>128</line>
+          <line>107</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

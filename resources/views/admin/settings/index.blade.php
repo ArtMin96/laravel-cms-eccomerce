@@ -46,7 +46,14 @@
                                 <ul class="nav nav-tabs translatable-switcher mb-4">
                                     @foreach(config('app.locales') as $key => $locale)
                                         <li class="nav-item">
-                                            <a class="nav-link locale-{{ $locale }} switch-{{ $locale }} @if($key == 0) active @endif" href="javascript:void(0);" data-locale="{{ $locale }}">{{ \Illuminate\Support\Str::upper($locale) }}</a>
+                                            <a class="nav-link locale-{{ $locale }} switch-{{ $locale }}
+                                            @if($key == 0) active @endif
+                                            @error($locale.'.title') text-danger @enderror
+                                            @error($locale.'.footer_title') text-danger @enderror
+                                            @error($locale.'.footer_description') text-danger @enderror
+                                            @error($locale.'.address') text-danger @enderror" href="javascript:void(0);" data-locale="{{ $locale }}">
+                                                {{ \Illuminate\Support\Str::upper($locale) }}
+                                            </a>
                                         </li>
                                     @endforeach
                                 </ul>
@@ -56,9 +63,9 @@
 
                                         <div class="form-group">
                                             <label class="required" for="{{ $locale }}_title">{{ trans('Site title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                            <input class="form-control @error($locale.'_title') is-invalid @enderror" type="text" name="{{ $locale }}_title" id="{{ $locale }}_title" value="{{ old($locale.'_title', $settings->translate($locale)->title) }}" required>
+                                            <input class="form-control @error($locale.'.title') is-invalid @enderror" type="text" name="{{ $locale }}[title]" id="{{ $locale }}_title" value="{{ old($locale.'.title', $settings->title) }}">
 
-                                            @error($locale.'_title')
+                                            @error($locale.'.title')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -68,9 +75,9 @@
 
                                         <div class="form-group">
                                             <label class="required" for="{{ $locale }}_footer_title">{{ trans('Site footer title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                            <input class="form-control @error($locale.'_footer_title') is-invalid @enderror" type="text" name="{{ $locale }}_footer_title" id="{{ $locale }}_footer_title" value="{{ old($locale.'_footer_title', $settings->translate($locale)->footer_title) }}" required>
+                                            <input class="form-control @error($locale.'.footer_title') is-invalid @enderror" type="text" name="{{ $locale }}[footer_title]" id="{{ $locale }}_footer_title" value="{{ old($locale.'.footer_title', $settings->footer_title) }}">
 
-                                            @error($locale.'_footer_title')
+                                            @error($locale.'.footer_title')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -80,11 +87,11 @@
 
                                         <div class="form-group">
                                             <label class="required" for="{{ $locale }}_footer_description">{{ trans('Site footer description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                            <textarea class="form-control @error($locale.'_footer_description') is-invalid @enderror" name="{{ $locale }}_footer_description" id="{{ $locale }}_footer_description" required>
-                                                {{ old($locale.'_footer_description', $settings->translate($locale)->footer_description) }}
+                                            <textarea class="form-control @error($locale.'.footer_description') is-invalid @enderror" name="{{ $locale }}[footer_description]" id="{{ $locale }}_footer_description">
+                                                {{ old($locale.'.footer_description', $settings->footer_description) }}
                                             </textarea>
 
-                                            @error($locale.'_footer_description')
+                                            @error($locale.'.footer_description')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -96,9 +103,9 @@
 
                                         <div class="form-group">
                                             <label class="required" for="{{ $locale }}_address">{{ trans('Address') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                            <input class="form-control @error($locale.'_address') is-invalid @enderror" type="text" name="{{ $locale }}_address" id="{{ $locale }}_address" value="{{ old($locale.'_address', $settings->translate($locale)->address) }}" required>
+                                            <input class="form-control @error($locale.'.address') is-invalid @enderror" type="text" name="{{ $locale }}[address]" id="{{ $locale }}_address" value="{{ old($locale.'.address', $settings->address) }}">
 
-                                            @error($locale.'_address')
+                                            @error($locale.'.address')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
