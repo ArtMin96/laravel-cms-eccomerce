@@ -6,7 +6,7 @@
             </a>
 
             <div class="g-navbar-buttons">
-                <a href="../forms.html" class="g-btn g-btn-green-ol">TRANSLATE NOW</a>
+                <a href="../forms.html" class="g-btn g-btn-green-ol">{{ __('pages.TRANSLATE NOW') }}</a>
 
                 <!-- Authentication Links -->
                 @guest
@@ -15,8 +15,8 @@
                             <i class="far fa-user-circle"></i>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-right g-navbar-buttons-drop" aria-labelledby="dropdownUsergButton">
-                            <li><a class="dropdown-item" href="{{ route('login') }}" data-lang="en"><i class="fas fa-sign-in-alt"></i>{{ __('Login') }}</a></li>
-                            <li><a class="dropdown-item" href="{{ route('register') }}" data-lang="en"><i class="fas fa-user-plus"></i>{{ __('Sign up') }}</a></li>
+                            <li><a class="dropdown-item" href="{{ route('login') }}" data-lang="en"><i class="fas fa-sign-in-alt"></i>{{ __('pages.Login') }}</a></li>
+                            <li><a class="dropdown-item" href="{{ route('register') }}" data-lang="en"><i class="fas fa-user-plus"></i>{{ __('pages.Sign up') }}</a></li>
                         </ul>
                     </div>
                 @else
@@ -33,7 +33,7 @@
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    <i class="fas fa-sign-in-alt"></i>{{ __('Logout') }}
+                                    <i class="fas fa-sign-in-alt"></i>{{ __('pages.Logout') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

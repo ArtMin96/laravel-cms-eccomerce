@@ -45,7 +45,7 @@
 
         <section>
             <div class="mb-5">
-                <h2 class="g-title text-center">Apply for job</h2>
+                <h2 class="g-title text-center">{{ __('pages.Apply for job') }}</h2>
             </div>
             <div class="row">
                 <div class="col-lg-2 d-none d-md-block"></div>
@@ -69,7 +69,7 @@
                                         <div class="g-tag-btn-body">
                                             <div class="g-tag-btn-text">{{ $job->title }}</div>
                                             <div class="g-tag-btn-button">
-                                                <button class="g-btn g-btn-green g-btn-round" type="button" data-toggle="collapse" data-target="#collapse-{{ $job->id }}" aria-expanded="false" aria-controls="collapse-{{ $job->id }}">Apply</button>
+                                                <button class="g-btn g-btn-green g-btn-round" type="button" data-toggle="collapse" data-target="#collapse-{{ $job->id }}" aria-expanded="false" aria-controls="collapse-{{ $job->id }}">{{ __('pages.Apply') }}</button>
                                             </div>
                                         </div>
                                     </div>
@@ -95,7 +95,7 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group g-form-group">
-                                                            <label for="name">{{ __('Name') }}</label>
+                                                            <label for="name">{{ __('forms.Name') }}</label>
                                                             <input type="text" class="form-control g-form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}">
 
                                                             @error('name')
@@ -108,7 +108,7 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group g-form-group">
-                                                            <label for="last-name">{{ __('Last name') }}</label>
+                                                            <label for="last-name">{{ __('forms.Last Name') }}</label>
                                                             <input type="text" class="form-control g-form-control @error('last_name') is-invalid @enderror" id="last-name" name="last_name" value="{{ old('last_name') }}">
 
                                                             @error('last_name')
@@ -121,7 +121,7 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group g-form-group">
-                                                            <label for="phone">{{ __('Phone number') }}</label>
+                                                            <label for="phone">{{ __('forms.Phone Number') }}</label>
                                                             <input type="tel" class="form-control g-form-control @error('phone') is-invalid @enderror" id="phone" name="phone" value="{{ old('phone') }}">
 
                                                             @error('phone')
@@ -134,7 +134,7 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group g-form-group">
-                                                            <label for="email">{{ __('E-mail') }}</label>
+                                                            <label for="email">{{ __('forms.E-mail') }}</label>
                                                             <input type="text" class="form-control g-form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}">
 
                                                             @error('email')
@@ -147,7 +147,7 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group g-form-group">
-                                                            <label for="field_expertise">{{ __('Field of expertise') }}</label>
+                                                            <label for="field_expertise">{{ __('forms.Field of expertise') }}</label>
                                                             <select class="form-control g-form-control g-form-control-square selectpicker @error('field_expertise') is-invalid @enderror" id="field_expertise" name="field_expertise">
                                                                 <option value="1">option 1</option>
                                                                 <option value="2">option 2</option>
@@ -163,7 +163,7 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group g-form-group">
-                                                            <label for="year_expertise">{{ __('Year of expertise') }}</label>
+                                                            <label for="year_expertise">{{ __('forms.Year of expertise') }}</label>
                                                             <input type="number" class="form-control g-form-control g-form-control-square @error('year_expertise') is-invalid @enderror" id="year_expertise" name="year_expertise" value="{{ old('year_expertise') }}">
 
                                                             @error('year_expertise')
@@ -176,7 +176,7 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group g-form-group">
-                                                            <label for="translated_page_number">{{ __('Number of translated page') }}</label>
+                                                            <label for="translated_page_number">{{ __('forms.Number of translated page') }}</label>
                                                             <input type="number" class="form-control g-form-control g-form-control-square @error('translated_page_number') is-invalid @enderror" id="translated_page_number" name="translated_page_number" value="{{ old('translated_page_number') }}">
 
                                                             @error('translated_page_number')
@@ -189,7 +189,7 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group g-form-group">
-                                                            <label for="daily_translation_capacity">{{ __('Daily translation capacity') }}</label>
+                                                            <label for="daily_translation_capacity">{{ __('forms.Daily translation capacity') }}</label>
                                                             <input type="number" class="form-control g-form-control g-form-control-square @error('daily_translation_capacity') is-invalid @enderror" id="daily_translation_capacity" name="daily_translation_capacity" value="{{ old('daily_translation_capacity') }}">
 
                                                             @error('daily_translation_capacity')
@@ -201,7 +201,7 @@
                                                     </div>
 
                                                     <div class="col-12">
-                                                        <p class="text-center font-weight-bold font-size-5">Applying for Freelance translator or In-house translator</p>
+                                                        <p class="text-center font-weight-bold font-size-5">{{ __('pages.Applying for Freelance translator or In-house translator') }}</p>
                                                     </div>
 
                                                     <div class="col-12">
@@ -210,9 +210,9 @@
                                                                 <div class="col-md-6">
                                                                     <div class="job-place-item text-center">
                                                                         <input type="radio" name="translator_type" value="0">
-                                                                        <button class="g-btn g-btn-green-ol g-btn-round mb-3 job-place-btn" type="button">Freelance</button>
+                                                                        <button class="g-btn g-btn-green-ol g-btn-round mb-3 job-place-btn" type="button">{{ __('pages.Freelance') }}</button>
                                                                         <div class="g-form-group-sm">
-                                                                            <input type="number" class="form-control g-form-control g-form-control-square job-place-input @error('translation_rate_per_page') is-invalid @enderror" placeholder="{{ __('Translation rate per page') }}" id="translation_rate_per_page" name="translation_rate_per_page" value="{{ old('translation_rate_per_page') }}" disabled>
+                                                                            <input type="number" class="form-control g-form-control g-form-control-square job-place-input @error('translation_rate_per_page') is-invalid @enderror" placeholder="{{ __('forms.Translation rate per page') }}" id="translation_rate_per_page" name="translation_rate_per_page" value="{{ old('translation_rate_per_page') }}" disabled>
 
                                                                             @error('translation_rate_per_page')
                                                                                 <span class="invalid-feedback" role="alert">
@@ -225,9 +225,9 @@
                                                                 <div class="col-md-6">
                                                                     <div class="job-place-item text-center">
                                                                         <input type="radio" name="translator_type" value="1">
-                                                                        <button class="g-btn g-btn-green-ol g-btn-round mb-3 job-place-btn" type="button">In house</button>
+                                                                        <button class="g-btn g-btn-green-ol g-btn-round mb-3 job-place-btn" type="button">{{ __('pages.In house') }}</button>
                                                                         <div class="g-form-group-sm">
-                                                                            <input type="number" class="form-control g-form-control g-form-control-square job-place-input @error('monthly_salary_expectation') is-invalid @enderror" placeholder="{{ __('Monthly salary expectation') }}" id="monthly_salary_expectation" name="monthly_salary_expectation" value="{{ old('monthly_salary_expectation') }}" disabled>
+                                                                            <input type="number" class="form-control g-form-control g-form-control-square job-place-input @error('monthly_salary_expectation') is-invalid @enderror" placeholder="{{ __('forms.Monthly salary expectation') }}" id="monthly_salary_expectation" name="monthly_salary_expectation" value="{{ old('monthly_salary_expectation') }}" disabled>
 
                                                                             @error('monthly_salary_expectation')
                                                                                 <span class="invalid-feedback" role="alert">
@@ -243,7 +243,7 @@
                                                     <div class="col-12">
                                                         <div class="text-center mt-4">
                                                             <label class="g-type-file g-type-file-1">
-                                                                <input type="file" name="cv">Upload CV <i class="fas fa-upload"></i>
+                                                                <input type="file" name="cv">{{ __('pages.Upload CV') }} <i class="fas fa-upload"></i>
                                                             </label>
 
                                                             @error('cv')
@@ -255,7 +255,7 @@
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="text-center mt-4">
-                                                            <button type="submit" class="g-btn g-btn-green g-btn-round">Apply</button>
+                                                            <button type="submit" class="g-btn g-btn-green g-btn-round">{{ __('pages.Apply') }}</button>
                                                         </div>
                                                     </div>
                                                 </div>
