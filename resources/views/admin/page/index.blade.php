@@ -70,7 +70,7 @@
                                         <a class="btn btn-datatable btn-icon btn-transparent-dark" href="{{ url('admin/page/'.$page->id.'/edit') }}">
                                             <i data-feather="edit-3"></i>
                                         </a>
-                                        @if($parent = $page->page)
+                                        @if($parent = $page->page && $page->base_page != 1)
                                           <button type="submit"
                                                   class="btn btn-datatable btn-icon text-danger remove-page"
                                                   data-page-id="{{ $page->id }}"

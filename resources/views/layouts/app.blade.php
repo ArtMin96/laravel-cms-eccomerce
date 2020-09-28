@@ -45,7 +45,7 @@
                             <p>{{ settings()->footer_description }}</p>
                         </div>
                         <div class="col-lg-4">
-                            <h3 class="font-size-1">Get in touch</h3>
+                            <h3 class="font-size-1">{{ __('pages.Get in touch') }}</h3>
                             <ul class="g-footer-list g-footer-list-1">
                                 <li class="g-footer-list-item g-footer-list-location">
                                     <a href="https://www.google.com/maps/place/42+Tumanyan+St,+Yerevan,+Armenia/@40.187054,44.511407,18z/data=!4m5!3m4!1s0x406abd1db99c3ce1:0x8663c432835d1d5c!8m2!3d40.1870543!4d44.5114073?hl=en" target="_blank" class="g-footer-list-link">{{ settings()->address }}</a>
@@ -67,7 +67,7 @@
                             </ul>
                         </div>
                         <div class="col-lg-5">
-                            <h3 class="font-size-1">Services</h3>
+                            <h3 class="font-size-1">{{ __('pages.Services') }}</h3>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <ul class="g-footer-list g-footer-list-2">

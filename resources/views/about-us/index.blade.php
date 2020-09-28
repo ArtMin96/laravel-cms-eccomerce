@@ -29,7 +29,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <h2 class="g-title text-center my-5">Our team</h2>
+                    <h2 class="g-title text-center my-5">{{ __('pages.Our team') }}</h2>
                 </div>
 
                 @if(!empty($ourTeam))
@@ -60,7 +60,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="text-center mt-4">
-                        <a href="#" class="g-btn g-btn-green text-uppercase">get my free quote</a>
+                        <a href="#" class="g-btn g-btn-green text-uppercase">{{ __('pages.get my free quote') }}</a>
                     </div>
                 </div>
             </div>
