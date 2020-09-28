@@ -16,7 +16,7 @@ class CreatePageContentTable extends Migration
         Schema::create('page_content', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('page_id');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->integer('button_type')->nullable();
             $table->integer('has_link')->default(0);
             $table->string('url')->nullable();

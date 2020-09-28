@@ -69,22 +69,21 @@
                     <!-- Wizard tab pane item 3-->
                     <div class="tab-pane py-5 py-xl-10 fade show active" id="banner" role="tabpanel" aria-labelledby="banner-tab">
                         <div class="row justify-content-center">
-                            <div class="col-xxl-6 col-xl-8">
+                            <div class="col-xxl-10 col-xl-8">
 
                                 <h3 class="text-primary">{{ __('Step') }} 2</h3>
-                                <h5 class="card-title">{{ __('Page banner details') }}</h5>
+                                <h5 class="card-title">{{ __('Page content details') }}</h5>
 
                                 <form action="{{ route('admin.page-content.update', $pageContent->id) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
 
-                                    <input type="hidden" name="page_id" value="{{ $pageContent->page_id }}">
+                                    <input type="hidden" name="page_id" value="{{ $pageContent->page->id }}">
 
                                     <div class="card card-header-actions mx-auto">
                                         <div class="card-header">
                                             <div class="card-header-row">
-                                                Flexible content
-                                                <span class="card-header-row-count">1</span>
+                                                {{ $pageContent->page->name }}
                                             </div>
 
                                             <div class="ml-auto">
@@ -96,105 +95,139 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        <div class="p-2">
+                                        <div class="p-3">
 
-                                            <!-- Title translations -->
-                                            <div class="translatable-form">
-                                                <ul class="nav nav-tabs translatable-switcher mb-4">
-                                                    @foreach(config('app.locales') as $key => $locale)
-                                                        <li class="nav-item">
-                                                            <a class="nav-link locale-{{ $locale }} switch-{{ $locale }} @if($key == 0) active @endif" href="javascript:void(0);" data-locale="{{ $locale }}">{{ \Illuminate\Support\Str::upper($locale) }}</a>
-                                                        </li>
-                                                    @endforeach
-                                                </ul>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-7">
+                                                    <!-- Title translations -->
+                                                    <div class="translatable-form">
+                                                        <ul class="nav nav-tabs translatable-switcher mb-4">
+                                                            @foreach(config('app.locales') as $key => $locale)
+                                                                <li class="nav-item">
+                                                                    <a class="nav-link locale-{{ $locale }} switch-{{ $locale }}
+                                                                    @if($key == 0) active @endif
+                                                                    @error($locale.'.title') text-danger @enderror
+                                                                    @error($locale.'.description') text-danger @enderror" href="javascript:void(0);" data-locale="{{ $locale }}">{{ \Illuminate\Support\Str::upper($locale) }}</a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
 
-                                                @foreach(config('app.locales') as $key => $locale)
-                                                    <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
-                                                        <div class="form-group">
-                                                            <label class="required" for="{{ $locale }}_title">{{ trans('Page content title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                            <input class="form-control @error($locale.'_title') is-invalid @enderror" type="text" name="{{ $locale }}_title[]" id="{{ $locale }}_title" value="{{ old($locale.'_title', $pageContent->translate($locale)->title) }}" required>
+                                                        @foreach(config('app.locales') as $key => $locale)
+                                                            <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
+                                                                <div class="form-group">
+                                                                    <label class="required" for="{{ $locale }}_title">{{ trans('Page content title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
+                                                                    <input class="form-control @error($locale.'.title') is-invalid @enderror" type="text" name="{{ $locale }}[title]" id="{{ $locale }}_title" value="{{ old($locale.'.title', !empty($pageContent->translate($locale)->title)? $pageContent->translate($locale)->title : '') }}">
 
-                                                            @error($locale.'_title')
-                                                                <span class="invalid-feedback" role="alert">
+                                                                    @error($locale.'.title')
+                                                                    <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
                                                                 </span>
-                                                            @enderror
+                                                                    @enderror
 
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="required" for="{{ $locale }}_description">{{ trans('Page content description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
+                                                                    <input class="form-control @error($locale.'.description') is-invalid @enderror" type="text" name="{{ $locale }}[description]" id="{{ $locale }}_description" value="{{ old($locale.'.description', !empty($pageContent->translate($locale)->description)? $pageContent->translate($locale)->description : '') }}">
+
+                                                                    @error($locale.'.description')
+                                                                    <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                                    @enderror
+
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    </div>
+                                                    <!-- .end Title translations -->
+
+                                                    <!-- Has link -->
+                                                    <div class="form-group">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input class="custom-control-input" type="checkbox" name="has_link" id="has_link" {{ ($pageContent->has_link == 1) ? 'checked' : '' }} />
+                                                            <label class="custom-control-label" for="has_link">{{ __('Has link') }}</label>
                                                         </div>
                                                     </div>
-                                                @endforeach
-                                            </div>
-                                            <!-- .end Title translations -->
+                                                    <!-- .end Has link -->
 
-                                            <!-- Description translations -->
-                                            <div class="translatable-form">
-                                                <ul class="nav nav-tabs translatable-switcher mb-4">
-                                                    @foreach(config('app.locales') as $key => $locale)
-                                                        <li class="nav-item">
-                                                            <a class="nav-link locale-{{ $locale }} switch-{{ $locale }} @if($key == 0) active @endif" href="javascript:void(0);" data-locale="{{ $locale }}">{{ \Illuminate\Support\Str::upper($locale) }}</a>
-                                                        </li>
-                                                    @endforeach
-                                                </ul>
-
-                                                @foreach(config('app.locales') as $key => $locale)
-                                                    <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
-                                                        <div class="form-group">
-                                                            <label class="required" for="{{ $locale }}_description">{{ trans('Page content description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                            <input class="form-control @error($locale.'_description') is-invalid @enderror" type="text" name="{{ $locale }}_description[]" id="{{ $locale }}_description" value="{{ old($locale.'_description', $pageContent->translate($locale)->description) }}" required>
-
-                                                            @error($locale.'_description')
-                                                            <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                            @enderror
-
-                                                        </div>
+                                                    <!-- Button types -->
+                                                    <div class="form-group">
+                                                        <label class="required" for="button_type">{{ __('Button type') }}</label>
+                                                        <select class="form-control" type="text" name="button_type" id="button_type">
+                                                            <option value="">{{ __('Select button type') }}</option>
+                                                            <option value="0">{{ __('Basic') }}</option>
+                                                            <option value="0">{{ __('Filled') }}</option>
+                                                        </select>
                                                     </div>
-                                                @endforeach
-                                            </div>
-                                            <!-- .end Description translations -->
+                                                    <!-- .end Button types -->
 
-                                            <!-- Banner image -->
-                                            <div class="file-field">
-                                                <label for="page-content-image"></label>
-                                                <div class="images">
+                                                    <!-- Link title -->
+                                                    <div class="form-group">
+                                                        <label class="required" for="url">{{ __('URL') }}</label>
+                                                        <input class="form-control @error('url') is-invalid @enderror" type="text" name="url" id="url" value="{{ old('url', $pageContent->url) }}">
 
-                                                    @if(!empty($pageContent->image))
-                                                        <div class="img">
-                                                            <img src="{{ asset('storage/page-content/'.$pageContent->image) }}" alt="{{ $pageContent->translate($locale)->title }}">
-                                                            <span class="remove-pic result_file"
-                                                                  data-file-id="{{ $pageContent->id }}"
-                                                                  data-file-url="/admin/request/remove-page-content-image"
-                                                                  data-title="Are you sure you want to remove this file?"
-                                                                  data-confirm-text="Delete"
-                                                                  data-cancel-text="Cancel"><i class="fal fa-times"></i></span>
+                                                        @error('url')
+                                                        <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                        @enderror
+
+                                                    </div>
+                                                    <!-- .end Link -->
+
+                                                    <!-- Link title -->
+                                                    <div class="form-group">
+                                                        <label class="required" for="link_title">{{ __('Button title') }}</label>
+                                                        <input class="form-control @error('link_title') is-invalid @enderror" type="text" name="link_title" id="link_title" value="{{ old('link_title', $pageContent->link_title) }}">
+
+                                                        @error('link_title')
+                                                        <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                        @enderror
+
+                                                    </div>
+                                                    <!-- .end Link -->
+                                                </div>
+                                                <div class="col-sm-12 col-md-5">
+                                                    <!-- Banner image -->
+                                                    <div class="file-field">
+                                                        <label for="page-content-image"></label>
+                                                        <div class="images">
+
+                                                            @if(!empty($pageContent->image))
+                                                                <div class="img">
+                                                                    <img src="{{ asset('storage/page-content/'.$pageContent->image) }}" alt="{{ $pageContent->title }}">
+                                                                    <span class="remove-pic result_file"
+                                                                          data-file-id="{{ $pageContent->id }}"
+                                                                          data-file-url="/admin/request/remove-page-content-image"
+                                                                          data-title="Are you sure you want to remove this file?"
+                                                                          data-confirm-text="Delete"
+                                                                          data-cancel-text="Cancel"><i class="fal fa-times"></i></span>
+                                                                </div>
+
+                                                                <div class="pic" style="display: none;">
+                                                                    <span style="font-size: 1.25rem;">Upload</span>
+                                                                    <input type="file" name="image" accept="image/*" class="file-uploader d-none form-control @error('image') is-invalid @enderror" id="page-content-image">
+                                                                </div>
+                                                            @else
+                                                                <div class="pic">
+                                                                    <span style="font-size: 1.25rem;">Upload</span>
+                                                                    <input type="file" name="image" accept="image/*" class="file-uploader d-none form-control @error('image') is-invalid @enderror" id="page-content-image">
+                                                                </div>
+                                                            @endif
                                                         </div>
 
-                                                        <div class="pic" style="display: none;">
-                                                            <span style="font-size: 1.25rem;">Upload</span>
-                                                            <input type="file" name="image[]" accept="image/*" class="file-uploader d-none form-control @error('image') is-invalid @enderror" id="page-content-image">
-
-                                                            @error('image')
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </span>
-                                                            @enderror
-                                                        </div>
-                                                    @else
-                                                        <div class="pic">
-                                                            <span style="font-size: 1.25rem;">Upload</span>
-                                                            <input type="file" name="image[]" accept="image/*" class="file-uploader d-none form-control @error('image') is-invalid @enderror" id="page-content-image">
-
-                                                            @error('image')
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </span>
-                                                            @enderror
-                                                        </div>
-                                                    @endif
+                                                        @error('image')
+                                                        <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                        @enderror
+                                                    </div>
+                                                    <!-- .end Banner image -->
                                                 </div>
                                             </div>
-                                            <!-- .end Banner image -->
 
                                         </div>
                                     </div>
