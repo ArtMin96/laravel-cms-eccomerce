@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Banner;
 use App\Page;
+use App\PageContent;
 use App\Seo;
 use Astrotomic\Translatable\Validation\RuleFactory;
 use Illuminate\Http\Request;
@@ -73,6 +74,7 @@ class PageController extends AdminController
         ];
 
         Banner::create($bannerTranslationData);
+        PageContent::create(['page_id' => $resource->id]);
         Seo::create(['page_id' => $resource->id]);
 
         return redirect()->route('admin.page.edit', $resource->id);

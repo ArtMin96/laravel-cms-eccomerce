@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\PageContent;
+use Astrotomic\Translatable\Validation\RuleFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
@@ -73,69 +74,30 @@ class PageContentController extends AdminController
      */
     public function update(Request $request, $id)
     {
-//        $pageContentTranslationData = [
-//            'en' => [
-//                'title' => $request->input('en_title'),
-//                'description' => $request->input('en_description')
-//            ],
-//            'ru' => [
-//                'title' => $request->input('ru_title'),
-//                'description' => $request->input('ru_description')
-//            ],
-//            'hy' => [
-//                'title' => $request->input('hy_title'),
-//                'description' => $request->input('hy_description')
-//            ],
-//        ];
+        $rules = RuleFactory::make([
+            '%title%' => 'required|string',
+            '%description%' => 'required|string',
+            'image' => 'file|max:5000|mimes:png,jpg,jpeg,gif',
+        ]);
+        $request->validate($rules);
+        $inputs = $request->all();
 
-//        if ($request->hasFile('image')) {
-//            if ($request->file('image')->isValid()) {
-//
-//                $this->validate($request, [
-//                    'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5000',
-//                ]);
-//            }
-//            $image = $request->file('image');
-//            $input['imagename'] = time().'.'.$image->extension();
-//            $destinationPath = storage_path('app/public/page-content');
-//
-//            File::isDirectory($destinationPath) or File::makeDirectory($destinationPath, 0777, true, true);
-//
-//            $img = Image::make($image->path());
-//            $img->save($destinationPath.'/'.$input['imagename'], 90);
-//
-//            $pageContentTranslationData['image'] = $input['imagename'];
-//        }
+        if ($request->hasFile('image')) {
 
-//        $pageContent = PageContent::findOrFail($id);
-//        $input =
+            $image = $request->file('image');
+            $input['imagename'] = time().'.'.$image->extension();
+            $destinationPath = storage_path('app/public/page-content');
 
-        if (!empty($request->input('en_title'))) {
-            foreach ($request->input('en_title') as $key => $link) {
-                $pageContents = PageContent::findOrFail($id);
+            File::isDirectory($destinationPath) or File::makeDirectory($destinationPath, 0777, true, true);
 
-                if (empty($pageContents)) {
-                    $pageContents = new PageContent();
-                }
+            $img = Image::make($image->path());
+            $img->save($destinationPath.'/'.$input['imagename'], 90);
 
-                $pageContents->page_id = $request->input('page_id');
-                $pageContents->save();
-
-                foreach (['en', 'ru', 'hy'] as $locale) {
-                    if(!empty($request->input("{$locale}_title")[$key])) {
-                        $pageContents->translateOrNew($locale)->title = $request->input("{$locale}_title")[$key];
-                    }
-
-                    if(!empty($request->input("{$locale}_description")[$key])) {
-                        $pageContents->translateOrNew($locale)->description = $request->input("{$locale}_description")[$key];
-                    }
-                }
-
-                $pageContents->save();
-            }
+            $inputs['image'] = $input['imagename'];
         }
 
-//        $pageContent->update($pageContentTranslationData);
+        $pageContent = PageContent::findOrFail($id);
+        $pageContent->update($inputs);
 
         return redirect()->route('admin.page-content.edit', $id);
     }
