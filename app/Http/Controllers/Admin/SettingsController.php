@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\PaymentGateways;
 use App\PhoneNumbers;
 use App\Settings;
 use Astrotomic\Translatable\Validation\RuleFactory;
@@ -19,7 +20,9 @@ class SettingsController extends AdminController
     public function index()
     {
         $settings = Settings::first();
-        return view('admin.settings.index', compact('settings'));
+        $paymentGateways = PaymentGateways::withTrashed()->get();
+
+        return view('admin.settings.index', compact('settings', 'paymentGateways'));
     }
 
     /**

@@ -227,49 +227,51 @@
                         </div>
                         <div class="card-body">
                             <!-- Payment method 1-->
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center">
-                                    <i class="fab fa-cc-visa fa-2x cc-color-visa"></i>
-                                    <div class="ml-4">
-                                        <div class="small">Visa ending in 1234</div>
-                                        <div class="text-xs text-muted">Expires 04/2024</div>
+
+                            @if (!empty($paymentGateways))
+                                @foreach($paymentGateways as $key => $gateway)
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="d-flex align-items-center">
+
+                                            <img src="{{ asset('storage/payment-gateways/'.$gateway->icon) }}" width="36" alt="{{ $gateway->name }}">
+
+                                            <div class="ml-4">
+                                                <div class="small">{{ $gateway->name }}</div>
+                                                <div class="text-xs text-muted">
+                                                    @if (!empty($gateway->deleted_at))
+                                                        {{ __('Inactive') }}
+                                                    @else
+                                                        {{ __('Active') }}
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="ml-4 small">
+                                            @if (!empty($gateway->deleted_at))
+                                                <div class="badge badge-danger mr-3">{{ __('Inactive') }}</div>
+                                            @else
+                                                <div class="badge badge-light mr-3">{{ __('Active') }}</div>
+                                            @endif
+
+                                            <a href="{{ url('admin/payment-gateways/'.$gateway->id.'/edit') }}">{{ __('Edit') }}</a>
+                                            <button type="button"
+                                                    class="btn btn-datatable btn-icon text-danger remove-page"
+                                                    data-page-id="{{ $gateway->id }}"
+                                                    data-url="{{ url('/admin/payment-gateways/destroy') }}"
+                                                    data-title="Are you sure you want to disable this payment?"
+                                                    data-confirm-text="Disable"
+                                                    data-cancel-text="Cancel">
+                                                <i data-feather="trash-2"></i>
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="ml-4 small">
-                                    <div class="badge badge-light mr-3">Default</div>
-                                    <a href="#!">Edit</a>
-                                </div>
-                            </div>
-                            <hr />
-                            <!-- Payment method 2-->
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center">
-                                    <i class="fab fa-cc-mastercard fa-2x cc-color-mastercard"></i>
-                                    <div class="ml-4">
-                                        <div class="small">Mastercard ending in 5678</div>
-                                        <div class="text-xs text-muted">Expires 05/2022</div>
-                                    </div>
-                                </div>
-                                <div class="ml-4 small">
-                                    <a class="text-muted mr-3" href="#!">Make Default</a>
-                                    <a href="#!">Edit</a>
-                                </div>
-                            </div>
-                            <hr />
-                            <!-- Payment method 3-->
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center">
-                                    <i class="fab fa-cc-amex fa-2x cc-color-amex"></i>
-                                    <div class="ml-4">
-                                        <div class="small">American Express ending in 9012</div>
-                                        <div class="text-xs text-muted">Expires 01/2026</div>
-                                    </div>
-                                </div>
-                                <div class="ml-4 small">
-                                    <a class="text-muted mr-3" href="#!">Make Default</a>
-                                    <a href="#!">Edit</a>
-                                </div>
-                            </div>
+
+                                    @if ($key == array_key_last((array) $paymentGateways))
+                                        <hr />
+                                    @endif
+                                @endforeach
+                            @endif
+
                         </div>
                     </div>
 
@@ -378,4 +380,5 @@
     <script src="{{ asset('admin/js/sweetalert2.all.min.js') }}" type="text/javascript" defer></script>
     <script src="{{ asset('admin/js/file-field.js') }}" type="text/javascript" defer></script>
     <script src="{{ asset('admin/js/admin.js') }}" type="text/javascript" defer></script>
+    <script src="{{ asset('admin/js/pages.js') }}" type="text/javascript" defer></script>
 @endpush

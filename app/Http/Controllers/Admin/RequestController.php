@@ -8,6 +8,7 @@ use App\Customers;
 use App\Http\Controllers\Controller;
 use App\OurTeam;
 use App\Page;
+use App\PaymentGateways;
 use App\PhoneNumbers;
 use App\Settings;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -171,6 +172,23 @@ class RequestController extends AdminController
             }
         } else {
             return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+        }
+    }
+
+    public function removePaymentGatewayIcon(Request $request) {
+        if (!empty($request->post('file_id'))) {
+            $paymentGateway = PaymentGateways::findOrFail($request->post('file_id'));
+
+            if (!empty($paymentGateway)) {
+                unlink(storage_path('app/public/payment-gateway/'.$paymentGateway->icon));
+                $paymentGateway->update(['image' => 'payment-gateway.png']);
+
+                return response()->json(['status' => true, 'title' => 'Success', 'message' => 'Icon successfully removed!']);
+            } else {
+                return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find icon!']);
+            }
+        } else {
+            return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find icon!']);
         }
     }
 }

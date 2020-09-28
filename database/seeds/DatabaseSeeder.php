@@ -1,6 +1,5 @@
 <?php
 
-use App\PageContent;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,7 +17,7 @@ class DatabaseSeeder extends Seeder
          $this->call(SettingsSeeder::class);
          $this->call(OurTeamSeeder::class);
          $this->call(JobSeeder::class);
+         $this->call(PaymentGatewaysSeeder::class);
          $this->call(CredentialsSeeder::class);
-         $this->call(PageContent::class);
     }
 }
