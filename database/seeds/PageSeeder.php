@@ -230,7 +230,7 @@ class PageSeeder extends Seeder
                 'parent_id' => 10,
                 'alias' => 'get-in-touch',
                 'sort_order' => 0,
-                'page_number' => null,
+                'page_number' => 11,
                 'route_number' => 0,
                 'base_page' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
