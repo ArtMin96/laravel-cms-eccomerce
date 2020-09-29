@@ -116,24 +116,24 @@
                                                             <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
                                                                 <div class="form-group">
                                                                     <label class="required" for="{{ $locale }}_title">{{ trans('Page content title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                                    <input class="form-control @error($locale.'.title') is-invalid @enderror" type="text" name="{{ $locale }}[title]" id="{{ $locale }}_title" value="{{ old($locale.'.title', !empty($pageContent->translate($locale)->title)? $pageContent->translate($locale)->title : '') }}">
+                                                                    <input class="form-control @error($locale.'.title') is-invalid @enderror" type="text" name="{{ $locale }}[title][]" id="{{ $locale }}_title" value="{{ old($locale.'.title', !empty($pageContent->translate($locale)->title)? $pageContent->translate($locale)->title : '') }}">
 
                                                                     @error($locale.'.title')
-                                                                    <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
                                                                     @enderror
 
                                                                 </div>
 
                                                                 <div class="form-group">
                                                                     <label class="required" for="{{ $locale }}_description">{{ trans('Page content description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                                    <input class="form-control @error($locale.'.description') is-invalid @enderror" type="text" name="{{ $locale }}[description]" id="{{ $locale }}_description" value="{{ old($locale.'.description', !empty($pageContent->translate($locale)->description)? $pageContent->translate($locale)->description : '') }}">
+                                                                    <input class="form-control @error($locale.'.description') is-invalid @enderror" type="text" name="{{ $locale }}[description][]" id="{{ $locale }}_description" value="{{ old($locale.'.description', !empty($pageContent->translate($locale)->description)? $pageContent->translate($locale)->description : '') }}">
 
                                                                     @error($locale.'.description')
-                                                                    <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
                                                                     @enderror
 
                                                                 </div>
@@ -142,53 +142,58 @@
                                                     </div>
                                                     <!-- .end Title translations -->
 
+                                                    <hr />
+
                                                     <!-- Has link -->
                                                     <div class="form-group">
                                                         <div class="custom-control custom-checkbox">
-                                                            <input class="custom-control-input" type="checkbox" name="has_link" id="has_link" {{ ($pageContent->has_link == 1) ? 'checked' : '' }} />
+                                                            <input class="custom-control-input toggle-page-content-buttons" type="checkbox" name="has_link[]" id="has_link" {{ ($pageContent->has_link == 1) ? 'checked' : '' }} />
                                                             <label class="custom-control-label" for="has_link">{{ __('Has link') }}</label>
                                                         </div>
                                                     </div>
                                                     <!-- .end Has link -->
 
-                                                    <!-- Button types -->
-                                                    <div class="form-group">
-                                                        <label class="required" for="button_type">{{ __('Button type') }}</label>
-                                                        <select class="form-control" type="text" name="button_type" id="button_type">
-                                                            <option value="">{{ __('Select button type') }}</option>
-                                                            <option value="0">{{ __('Basic') }}</option>
-                                                            <option value="0">{{ __('Filled') }}</option>
-                                                        </select>
+                                                    <div class="page-content-create-button-group {{ ($pageContent->has_link == 1) ? '' : 'd-none' }}">
+                                                        <!-- Button types -->
+                                                        <div class="form-group">
+                                                            <label class="required" for="button_type">{{ __('Button type') }}</label>
+                                                            <select class="form-control" type="text" name="button_type[]" id="button_type">
+                                                                <option value="">{{ __('Select button type') }}</option>
+                                                                <option value="0">{{ __('Basic') }}</option>
+                                                                <option value="1">{{ __('Filled') }}</option>
+                                                            </select>
+                                                        </div>
+                                                        <!-- .end Button types -->
+
+                                                        <!-- Link title -->
+                                                        <div class="form-group">
+                                                            <label class="required" for="url">{{ __('URL') }}</label>
+                                                            <input class="form-control @error('url') is-invalid @enderror" type="text" name="url[]" id="url" value="{{ old('url', $pageContent->url) }}">
+
+                                                            @error('url')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+
+                                                        </div>
+                                                        <!-- .end Link -->
+
+                                                        <!-- Link title -->
+                                                        <div class="form-group">
+                                                            <label class="required" for="link_title">{{ __('Button title') }}</label>
+                                                            <input class="form-control @error('link_title') is-invalid @enderror" type="text" name="link_title[]" id="link_title" value="{{ old('link_title', $pageContent->link_title) }}">
+
+                                                            @error('link_title')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+
+                                                        </div>
+                                                        <!-- .end Link -->
                                                     </div>
-                                                    <!-- .end Button types -->
 
-                                                    <!-- Link title -->
-                                                    <div class="form-group">
-                                                        <label class="required" for="url">{{ __('URL') }}</label>
-                                                        <input class="form-control @error('url') is-invalid @enderror" type="text" name="url" id="url" value="{{ old('url', $pageContent->url) }}">
-
-                                                        @error('url')
-                                                        <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                        @enderror
-
-                                                    </div>
-                                                    <!-- .end Link -->
-
-                                                    <!-- Link title -->
-                                                    <div class="form-group">
-                                                        <label class="required" for="link_title">{{ __('Button title') }}</label>
-                                                        <input class="form-control @error('link_title') is-invalid @enderror" type="text" name="link_title" id="link_title" value="{{ old('link_title', $pageContent->link_title) }}">
-
-                                                        @error('link_title')
-                                                        <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                        @enderror
-
-                                                    </div>
-                                                    <!-- .end Link -->
                                                 </div>
                                                 <div class="col-sm-12 col-md-5">
                                                     <!-- Banner image -->
@@ -220,9 +225,9 @@
                                                         </div>
 
                                                         @error('image')
-                                                        <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
                                                         @enderror
                                                     </div>
                                                     <!-- .end Banner image -->
