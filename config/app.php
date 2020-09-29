@@ -182,6 +182,7 @@ return [
         Krlove\EloquentModelGenerator\Provider\GeneratorServiceProvider::class,
         App\Providers\HelperServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Geocoder\Laravel\Providers\GeocoderService::class,
 
     ],
 
