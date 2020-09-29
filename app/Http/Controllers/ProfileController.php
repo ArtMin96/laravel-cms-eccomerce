@@ -2,15 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Rules\MatchOldPassword;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Intervention\Image\Facades\Image;
 use function GuzzleHttp\Promise\all;
 
 class ProfileController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:web');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -69,7 +77,7 @@ class ProfileController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
@@ -86,7 +94,7 @@ class ProfileController extends Controller
         $user->last_name = $request->last_name;
         $user->username = $request->name.'_'.$request->last_name;
         $user->email = $request->email;
-        $user->password = bcrypt($request->password);
+        $user->password = Hash::make($request->password);
         $user->phone = $request->phone;
         $user->gender = $request->gender;
         $user->country = $request->country;
@@ -130,5 +138,26 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function changePassword() {
+        return view('profile.change-password');
+    }
+
+    public function updatePassword(Request $request) {
+
+        $request->validate([
+            'password' => 'required',
+            'new_password' => 'required|string|min:8',
+            'new_password_confirmation' => 'same:new_password',
+        ]);
+
+        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+
+        return back()->with('message', __('Password updated successfully.'));
     }
 }

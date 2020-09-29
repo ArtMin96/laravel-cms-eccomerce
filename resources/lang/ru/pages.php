@@ -30,4 +30,6 @@ return [
     'Logout' => 'Выйти',
     'Cancel' => 'Отмена',
     'Save Changes' => 'Сохранить изменения',
+    'Change password' => 'Изменить пароль',
+    'Password updated successfully.' => 'Пароль успешно обновлен.',
 ];

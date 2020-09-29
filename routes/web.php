@@ -78,6 +78,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/get-in-touch', 'GetInTouchController@index')->name('get-in-touch');
     Route::resource('/join-us', 'JoinUsController');
 
+    // Profile routes
+    Route::get('/profile/change-password', 'ProfileController@changePassword')->name('profile.change-password');
+    Route::post('/profile/update-password', 'ProfileController@updatePassword')->name('profile.update.password');
     Route::resource('/profile', 'ProfileController');
 
     // Ajax requests

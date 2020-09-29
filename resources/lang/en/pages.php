@@ -30,5 +30,7 @@ return [
     'Logout' => 'Logout',
     'Cancel' => 'Cancel',
     'Save Changes' => 'Save Changes',
+    'Change password' => 'Change password',
+    'Password updated successfully.' => 'Password updated successfully.',
 
 ];

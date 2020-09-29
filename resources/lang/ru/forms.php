@@ -27,5 +27,8 @@ return [
     'Female' => 'Женский',
     'Address' => 'Адрес',
     'Company' => 'Компания',
+    'Current password' => 'Текущий пароль',
+    'New password' => 'Новый пароль',
+    'Confirm password' => 'Подтвердить Пароль',
 
 ];
