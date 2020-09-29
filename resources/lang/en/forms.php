@@ -27,5 +27,8 @@ return [
     'Female' => 'Female',
     'Address' => 'Address',
     'Company' => 'Company',
+    'Current password' => 'Current password',
+    'New password' => 'New password',
+    'Confirm password' => 'Confirm password',
 
 ];

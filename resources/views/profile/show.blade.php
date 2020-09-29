@@ -19,9 +19,7 @@
                             <span class="g-page-navigation-user-name">{{ Auth::user()->name }} {{ Auth::user()->last_name }}</span>
                         </div>
                         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownLangButton">
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i>Log out</a></li>
-                            <li><a class="dropdown-item" href="./personal_data.html"><i class="fas fa-address-card"></i>Personal data</a></li>
-                            <li><a class="dropdown-item" href="../forms/change_password.html"><i class="fas fa-key"></i>Change password</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/profile/change-password') }}"><i class="fas fa-key"></i>{{ __('pages.Change password') }}</a></li>
                         </ul>
                     </div>
                 </div>
