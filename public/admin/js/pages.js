@@ -68,10 +68,18 @@ $(document).ready(function() {
             return $(this).attr('id') + '_' + (rowCount);
         });
 
+        clone.find('.custom-control-label').attr('for', function () {
+            return $(this).attr('for') + '_' + (rowCount);
+        });
+
         clone.find('.card-header-row-count').text(rowCount);
 
         clone.insertAfter($(this).closest('form').find('.card').last());
 
+    });
+
+    $('body').on('change', '.toggle-page-content-buttons', function () {
+        $(this).closest('.row').find('.page-content-create-button-group').toggleClass('d-none');
     });
 
 });

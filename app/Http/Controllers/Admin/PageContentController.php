@@ -74,12 +74,13 @@ class PageContentController extends AdminController
      */
     public function update(Request $request, $id)
     {
-        $rules = RuleFactory::make([
-            '%title%' => 'required|string',
-            '%description%' => 'required|string',
-            'image' => 'file|max:5000|mimes:png,jpg,jpeg,gif',
-        ]);
-        $request->validate($rules);
+//        dd($request);
+//        $rules = RuleFactory::make([
+//            '%title%' => 'required|string',
+//            '%description%' => 'required|string',
+//            'image' => 'file|max:5000|mimes:png,jpg,jpeg,gif',
+//        ]);
+//        $request->validate($rules);
         $inputs = $request->all();
 
         if ($request->hasFile('image')) {
@@ -94,6 +95,30 @@ class PageContentController extends AdminController
             $img->save($destinationPath.'/'.$input['imagename'], 90);
 
             $inputs['image'] = $input['imagename'];
+        }
+
+        if (!empty($inputs['has_link'])) {
+            foreach ($inputs['has_link'] as $key => $hasLink) {
+                if ($hasLink == 'on') {
+                    $pageContent = PageContent::where('page_id', $id)->first();
+
+                    if (empty($pageContent)) {
+                        $pageContent = new PageContent();
+                    }
+
+                    $pageContent->page_id = $inputs['page_id'][$key];
+                    $pageContent->has_link = 1;
+                    $pageContent->button_type = !empty($inputs['button_type'][$key])? $inputs['button_type'][$key] : 0; // Validate required_if has link
+                    $pageContent->url = $inputs['url'][$key];
+                    $pageContent->save();
+
+                    foreach (['en', 'ru', 'hy'] as $locale) {
+                        if(!empty($request->input("link_title")[$key])){
+                            $pageContent->translateOrNew($locale)->link_title = $request->input("link_title")[$key];
+                        }
+                    }
+                }
+            }
         }
 
         $pageContent = PageContent::findOrFail($id);
