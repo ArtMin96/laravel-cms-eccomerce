@@ -19,7 +19,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.2",
         "mcamara/laravel-localization": "^1.6",
-        "propaganistas/laravel-phone": "^4.2"
+        "propaganistas/laravel-phone": "^4.2",
+        "toin0u/geocoder-laravel": "^4.4"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
