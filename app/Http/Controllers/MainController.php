@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Page;
 use Illuminate\Http\Request;
 
-class MainController extends Controller
+class MainController extends FrontController
 {
     /**
      * Show the application dashboard.
