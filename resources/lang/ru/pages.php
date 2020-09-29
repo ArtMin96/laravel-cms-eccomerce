@@ -26,5 +26,8 @@ return [
     'Login' => 'Логин',
     'Sign up' => 'Зарегистрироваться',
     'Personal area' => 'Личный кабинет',
+    'Personal data' => 'Личные данные',
     'Logout' => 'Выйти',
+    'Cancel' => 'Отмена',
+    'Save Changes' => 'Сохранить изменения',
 ];

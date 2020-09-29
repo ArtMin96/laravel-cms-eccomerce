@@ -12,6 +12,7 @@ return [
     'Name' => 'Name',
     'Last Name' => 'Last Name',
     'Phone Number' => 'Phone Number',
+    'Phone' => 'Phone',
     'E-mail' => 'E-mail',
     'Field of expertise' => 'Field of expertise',
     'Year of expertise' => 'Year of expertise',
@@ -19,5 +20,12 @@ return [
     'Daily translation capacity' => 'Daily translation capacity',
     'Translation rate per page' => 'Translation rate per page',
     'Monthly salary expectation' => 'Monthly salary expectation',
+    'Country' => 'Country',
+    'City' => 'City',
+    'Gender' => 'Gender',
+    'Male' => 'Male',
+    'Female' => 'Female',
+    'Address' => 'Address',
+    'Company' => 'Company',
 
 ];
