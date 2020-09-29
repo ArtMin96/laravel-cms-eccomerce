@@ -78,6 +78,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/get-in-touch', 'GetInTouchController@index')->name('get-in-touch');
     Route::resource('/join-us', 'JoinUsController');
 
+    Route::resource('/profile', 'ProfileController');
+
+    // Ajax requests
+    Route::post('/front-request/remove-user-image', 'FrontRequestController@removeUserImage')->name('front-request.remove.user.image');
+
 });
 
 //Clear route cache:

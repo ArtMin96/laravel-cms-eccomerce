@@ -26,7 +26,7 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-right g-navbar-buttons-drop" aria-labelledby="dropdownUsergButton">
                             <li>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="{{ route('profile.show', Auth::user()->id) }}">
                                     <i class="fas fa-sign-in-alt"></i> {{ Auth::user()->name }}
                                 </a>
                             </li>

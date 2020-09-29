@@ -26,6 +26,9 @@ return [
     'Login' => 'Login',
     'Sign up' => 'Sign up',
     'Personal area' => 'Personal area',
+    'Personal data' => 'Personal data',
     'Logout' => 'Logout',
+    'Cancel' => 'Cancel',
+    'Save Changes' => 'Save Changes',
 
 ];

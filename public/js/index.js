@@ -228,20 +228,20 @@ $( document ).ready(function() {
     /**
      * delete personal data user image
      */
-    (function (){
-        $('.personal-image-del').click(function (){
-            $(this).hide('blind');
-            const image = $(this).closest('.personal-image-box').find('.personal-image');
-            let imageSrc = image.attr('src');
-
-            imageSrc = imageSrc.split('/');
-            imageSrc.pop();
-            imageSrc.push('default-profile-image.png');
-            imageSrc = imageSrc.join('/');
-            image.attr('src', imageSrc);
-
-        });
-    })();
+    // (function (){
+    //     $('.personal-image-del').click(function (){
+    //         $(this).hide('blind');
+    //         const image = $(this).closest('.personal-image-box').find('.personal-image');
+    //         let imageSrc = image.attr('src');
+    //
+    //         imageSrc = imageSrc.split('/');
+    //         imageSrc.pop();
+    //         imageSrc.push('default-profile-image.png');
+    //         imageSrc = imageSrc.join('/');
+    //         image.attr('src', imageSrc);
+    //
+    //     });
+    // })();
 
     /**
      * add duration form day
