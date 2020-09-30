@@ -77,10 +77,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/faqs', 'FaqsController@index')->name('faqs');
     Route::get('/get-in-touch', 'GetInTouchController@index')->name('get-in-touch');
     Route::resource('/join-us', 'JoinUsController');
+    Route::resource('/help-us-improve', 'HelpUsImproveController');
 
     // Profile routes
     Route::get('/profile/change-password', 'ProfileController@changePassword')->name('profile.change-password');
-//    Route::post('/profile/update-user-password', 'ProfileController@updateUserPassword')->name('profile.update-user-password');
     Route::resource('/profile', 'ProfileController');
 
     // Ajax requests

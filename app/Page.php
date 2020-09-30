@@ -98,6 +98,7 @@ class Page extends Model
     const FAQs = 9;
     const JoinUs = 10;
     const GetInTouch = 11;
+    const HelpUsImprove = 12;
 
     /**
      * Default route numbers for router separation.

@@ -20,15 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="188bee73-7fda-407a-a0b3-1cea2f9f01e2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/lang/en/messages.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/hy/messages.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/ru/messages.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/help-us-improve/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Rules/MatchOldPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Rules/MatchOldPassword.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/hy/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hy/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ru/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/change-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/change-password.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Page.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Page.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/PageSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PageSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/forms.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/forms.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/pages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/pages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/forms.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/forms.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/pages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/pages.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -199,7 +202,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/profile" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang/hy" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
@@ -211,11 +214,11 @@
       <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/lang/hy" />
+      <recent name="$PROJECT_DIR$/resources/lang/ru" />
+      <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/resources/views/profile" />
       <recent name="$PROJECT_DIR$/resources/views/admin" />
-      <recent name="$PROJECT_DIR$/resources/lang/ru" />
-      <recent name="$PROJECT_DIR$/resources/lang" />
-      <recent name="$PROJECT_DIR$/resources/views" />
     </key>
   </component>
   <component name="RunManager">
@@ -271,20 +274,20 @@
     </state>
     <state x="663" y="0" width="574" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600898095741" />
     <state x="663" y="0" width="662" height="693" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1601390527306" />
-    <state x="693" y="277" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601416315928">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="693" y="277" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601464858548">
+      <screen x="0" y="0" width="1920" height="1041" />
     </state>
     <state x="693" y="277" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601416315928" />
-    <state x="693" y="277" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1601383428871" />
+    <state x="693" y="277" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1601464858548" />
     <state x="712" y="248" width="485" height="537" key="NewPhpClassDialog" timestamp="1599360121949">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="712" y="248" width="485" height="537" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599360121949" />
-    <state x="778" y="445" width="354" height="142" key="NewPhpFileDialog" timestamp="1601408325616">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="778" y="445" width="354" height="142" key="NewPhpFileDialog" timestamp="1601472465971">
+      <screen x="0" y="0" width="1920" height="1041" />
     </state>
     <state x="778" y="445" width="354" height="147" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601408325616" />
-    <state x="778" y="445" width="354" height="142" key="NewPhpFileDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1601286170467" />
+    <state x="778" y="445" width="354" height="142" key="NewPhpFileDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1601472465971" />
     <state x="464" y="154" key="SettingsEditor" timestamp="1600976489493">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

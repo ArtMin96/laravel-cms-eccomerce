@@ -250,7 +250,7 @@ class PageSeeder extends Seeder
                 'parent_id' => 10,
                 'alias' => 'help-us-improve',
                 'sort_order' => 1,
-                'page_number' => null,
+                'page_number' => 12,
                 'route_number' => 0,
                 'base_page' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
