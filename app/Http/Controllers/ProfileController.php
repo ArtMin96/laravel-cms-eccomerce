@@ -47,7 +47,15 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'password' => ['required', new MatchOldPassword()],
+            'new_password' => 'required|string|min:8',
+            'password_confirmation' => 'same:new_password',
+        ]);
+
+        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+
+        return back()->with('message', __('Password updated successfully.'));
     }
 
     /**
@@ -146,18 +154,5 @@ class ProfileController extends Controller
      */
     public function changePassword() {
         return view('profile.change-password');
-    }
-
-    public function updatePassword(Request $request) {
-
-        $request->validate([
-            'password' => 'required',
-            'new_password' => 'required|string|min:8',
-            'new_password_confirmation' => 'same:new_password',
-        ]);
-
-        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
-
-        return back()->with('message', __('Password updated successfully.'));
     }
 }

@@ -117,6 +117,7 @@ return [
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',
+    'match_old_password' => 'The :attribute does not match your current password.',
 
     /*
     |--------------------------------------------------------------------------
@@ -146,6 +147,39 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name'                  => 'Name',
+        'username'              => 'Username',
+        'email'                 => 'E-mail',
+        'first_name'            => 'First name',
+        'last_name'             => 'Last name',
+        'password'              => 'Password',
+        'new_password'          => 'New password',
+        'password_confirmation' => 'Password Confirmation',
+        'city'                  => 'City',
+        'company'               => 'Company',
+        'country'               => 'Country',
+        'address'               => 'Address',
+        'phone'                 => 'Phone',
+        'mobile'                => 'Mobile',
+        'age'                   => 'Age',
+        'sex'                   => 'Sex',
+        'gender'                => 'Gender',
+        'day'                   => 'Day',
+        'month'                 => 'Month',
+        'year'                  => 'Year',
+        'hour'                  => 'Hour',
+        'minute'                => 'Minute',
+        'second'                => 'Second',
+        'title'                 => 'Title',
+        'content'               => 'Content',
+        'description'           => 'Description',
+        'excerpt'               => 'Excerpt',
+        'date'                  => 'Date',
+        'time'                  => 'Time',
+        'available'             => 'Available',
+        'size'                  => 'Size',
+        'image'                 => 'Image',
+    ],
 
 ];
