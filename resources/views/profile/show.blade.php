@@ -72,13 +72,15 @@
                                                         <i class="fas fa-plus"></i>
                                                     </label>
                                                 </div>
+                                            </div>
 
-                                                @error('image')
-                                                    <span class="invalid-feedback" role="alert">
+                                            @error('image')
+                                                <div class="col-12 mb-5 text-center">
+                                                    <span class="invalid-feedback d-block" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
-                                                @enderror
-                                            </div>
+                                                </div>
+                                            @enderror
 
                                             <div class="col-md-6">
                                                 <div class="form-group g-form-group-sm">

@@ -80,7 +80,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
     // Profile routes
     Route::get('/profile/change-password', 'ProfileController@changePassword')->name('profile.change-password');
-    Route::post('/profile/update-password', 'ProfileController@updatePassword')->name('profile.update.password');
+//    Route::post('/profile/update-user-password', 'ProfileController@updateUserPassword')->name('profile.update-user-password');
     Route::resource('/profile', 'ProfileController');
 
     // Ajax requests

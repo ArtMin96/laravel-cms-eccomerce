@@ -16,20 +16,13 @@
                     </div>
 
                     @if(session()->has('message'))
-                        <div class="col-12">
-                            <div class="alert alert-success">
-                                {{ session()->get('message') }}
-                            </div>
+                        <div class="alert alert-success">
+                            {{ session()->get('message') }}
                         </div>
                     @endif
 
-                    @if($errors->any())
-                        {!! implode('', $errors->all('<div>:message</div>')) !!}
-                    @endif
-
-                    <form method="POST" action="{{ route('profile.update.password') }}">
+                    <form method="POST" action="{{ route('profile.store') }}">
                         @csrf
-                        @method('PUT')
 
                         <div class="row">
                             <div class="col-12">
@@ -46,8 +39,8 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-group g-form-group">
-                                    <label for="new-password-input">{{ __('forms.New password') }}</label>
-                                    <input type="password" class="form-control g-form-control @error('new_password') is-invalid @enderror" name="new_password" id="new-password-input" required>
+                                    <label for="new_password">{{ __('forms.New password') }}</label>
+                                    <input type="password" class="form-control g-form-control @error('new_password') is-invalid @enderror" name="new_password" id="new_password" required>
 
                                     @error('new_password')
                                         <span class="invalid-feedback" role="alert">
@@ -58,10 +51,10 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-group g-form-group">
-                                    <label for="confirm-password-input">{{ __('forms.Confirm password') }}</label>
-                                    <input type="password" class="form-control g-form-control @error('new_password_confirmation') is-invalid @enderror" name="new_password_confirmation" id="new_password_confirmation" required>
+                                    <label for="password_confirmation">{{ __('forms.Confirm password') }}</label>
+                                    <input type="password" class="form-control g-form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" id="password_confirmation" required>
 
-                                    @error('new_password_confirmation')
+                                    @error('password_confirmation')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
