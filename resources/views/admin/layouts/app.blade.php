@@ -138,6 +138,11 @@ use Illuminate\Support\Facades\Auth;
                                     {{ __('FAQs') }}
                                 </a>
 
+                                <a class="nav-link" href="{{ url('/admin/ratings') }}">
+                                    <div class="nav-link-icon"><i data-feather="star"></i></div>
+                                    {{ __('Ratings') }}
+                                </a>
+
                                 <a class="nav-link" href="{{ url('/admin/settings') }}">
                                     <div class="nav-link-icon"><i data-feather="settings"></i></div>
                                     {{ __('Settings') }}

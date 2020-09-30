@@ -20,18 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="188bee73-7fda-407a-a0b3-1cea2f9f01e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/messages.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/hy/messages.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/ru/messages.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/help-us-improve/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/ratings/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/ratings/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/ratings/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/ratings/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Page.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Page.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/PageSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PageSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/forms.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/forms.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/pages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/pages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ru/forms.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/forms.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ru/pages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/pages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Rating.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Rating.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -202,7 +197,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang/hy" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
@@ -214,11 +209,11 @@
       <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/admin" />
       <recent name="$PROJECT_DIR$/resources/lang/hy" />
       <recent name="$PROJECT_DIR$/resources/lang/ru" />
       <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/resources/views/profile" />
-      <recent name="$PROJECT_DIR$/resources/views/admin" />
     </key>
   </component>
   <component name="RunManager">
