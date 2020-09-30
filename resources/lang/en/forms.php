@@ -30,5 +30,6 @@ return [
     'Current password' => 'Current password',
     'New password' => 'New password',
     'Confirm password' => 'Confirm password',
+    'Comments' => 'Comments',
 
 ];

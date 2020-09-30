@@ -30,7 +30,16 @@ return [
     'Logout' => 'Logout',
     'Cancel' => 'Cancel',
     'Save Changes' => 'Save Changes',
+    'Submit' => 'Submit',
+    'Yes' => 'Yes',
+    'No' => 'No',
     'Change password' => 'Change password',
     'Password updated successfully.' => 'Password updated successfully.',
+
+    'Help Us Improve' => 'Help Us Improve',
+    'help_us_improve_short_description' => 'We value your business and would appreciate your feedback to help us improve. Simply complete this form and well get back to you in 10 minutes or less.',
+    'Please rate our service' => 'Please rate our service',
+    'help_us_improve_comment' => 'How was your overall experience with us? Feel free to send us your suggestions or comments to improve our service or website.',
+    'help_us_improve_share_feedback' => 'Can we share this and any feedback sent previously by email on our Social Media/Website?',
 
 ];

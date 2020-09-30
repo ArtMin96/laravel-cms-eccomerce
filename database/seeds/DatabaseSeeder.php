@@ -23,5 +23,6 @@ class DatabaseSeeder extends Seeder
          $this->call(InterMethodSeeder::class);
          $this->call(InterTypeSeeder::class);
          $this->call(LanguagesSeeder::class);
+         $this->call(RateServiceSeeder::class);
     }
 }

@@ -30,5 +30,6 @@ return [
     'Current password' => 'Текущий пароль',
     'New password' => 'Новый пароль',
     'Confirm password' => 'Подтвердить Пароль',
+    'Comments' => 'Комментарии',
 
 ];
