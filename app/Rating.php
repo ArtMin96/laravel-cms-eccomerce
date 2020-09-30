@@ -59,4 +59,16 @@ class Rating extends Model
     {
         return $this->belongsTo(RateService::class, 'service_id');
     }
+
+    public static function avgRating($service_id) {
+//        $ratings = ImproveRating::where('service_id', $service_id)->get();
+//        $ratingValues = [];
+//
+//        foreach ($ratings as $arrRating) {
+//            dd($arrRating);
+//            $ratingValues[] = $arrRating->rating;
+//        }
+
+        return Rating::where('service_id', $service_id)->selectRaw('SUM(star)/COUNT(service_id) AS avg_rating')->first()->avg_rating;
+    }
 }
