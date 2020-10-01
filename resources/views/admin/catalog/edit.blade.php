@@ -8,8 +8,8 @@
                 <div class="row align-items-center justify-content-between pt-3">
                     <div class="col-auto mb-3">
                         <h1 class="page-header-title">
-                            <div class="page-header-icon"><i data-feather="dollar-sign"></i></div>
-                            {{ __('Job') }}
+                            <div class="page-header-icon"><i data-feather="book-open"></i></div>
+                            {{ __('Catalog') }}
                         </h1>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
     <!-- Main page content-->
     <div class="container mt-4">
 
-        <form action="{{ route('admin.jobs.update', $jobs->id) }}" method="POST">
+        <form action="{{ route('admin.catalog.update', $catalog->id) }}" method="POST">
             @csrf
             @method('PUT')
 
@@ -46,7 +46,7 @@
                                         <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
                                             <div class="form-group">
                                                 <label class="required" for="{{ $locale }}_title">{{ trans('Title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                <input class="form-control @error($locale.'.title') is-invalid @enderror" type="text" name="{{ $locale }}[title]" id="{{ $locale }}_title" value="{{ old($locale.'.title', $jobs->translate($locale)->title) }}">
+                                                <input class="form-control @error($locale.'.title') is-invalid @enderror" type="text" name="{{ $locale }}[title]" id="{{ $locale }}_title" value="{{ old($locale.'.title', $catalog->translate($locale)->title) }}">
 
                                                 @error($locale.'.title')
                                                     <span class="invalid-feedback" role="alert">
@@ -63,7 +63,7 @@
 
                                 <!-- Save changes button-->
                                 <button class="btn btn-primary" type="submit">{{ __('Save changes') }}</button>
-                                <a href="{{ url('/admin/jobs') }}" class="btn btn-light">{{ __('Cancel') }}</a>
+                                <a href="{{ url('/admin/catalog') }}" class="btn btn-light">{{ __('Cancel') }}</a>
 
                             </div>
                         </div>

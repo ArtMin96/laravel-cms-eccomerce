@@ -8,8 +8,8 @@
                 <div class="row align-items-center justify-content-between pt-3">
                     <div class="col-auto mb-3">
                         <h1 class="page-header-title">
-                            <div class="page-header-icon"><i data-feather="dollar-sign"></i></div>
-                            {{ __('Create job') }}
+                            <div class="page-header-icon"><i data-feather="book-open"></i></div>
+                            {{ __('Create catalog') }}
                         </h1>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
     <!-- Main page content-->
     <div class="container mt-4">
 
-        <form action="{{ route('admin.jobs.store') }}" method="POST">
+        <form action="{{ route('admin.catalog.store') }}" method="POST">
             @csrf
 
             <div class="row">
@@ -62,7 +62,7 @@
 
                             <!-- Save changes button-->
                             <button class="btn btn-primary" type="submit">{{ __('Save changes') }}</button>
-                            <a href="{{ url('/admin/jobs') }}" class="btn btn-light">{{ __('Cancel') }}</a>
+                            <a href="{{ url('/admin/catalog') }}" class="btn btn-light">{{ __('Cancel') }}</a>
 
                         </div>
                     </div>

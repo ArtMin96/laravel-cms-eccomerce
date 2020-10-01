@@ -54,14 +54,14 @@
                             @foreach($catalogs as $catalog)
                                 <tr>
                                     <td>{{ $catalog->title }}</td>
-                                    <td>@if(!empty($catalog->deleted_at)) ? <div class="badge badge-danger badge-pill">{{ __('Inactive') }}</div> @else <div class="badge badge-success badge-pill">{{ __('Active') }}</div> @endif</td>
+                                    <td>@if(!empty($catalog->deleted_at)) <div class="badge badge-danger badge-pill">{{ __('Inactive') }}</div> @else <div class="badge badge-success badge-pill">{{ __('Active') }}</div> @endif</td>
                                     <td>{{ date('Y-m-d H:i', strtotime($catalog->created_at)) }}</td>
                                     <td>{{ date('Y-m-d H:i', strtotime($catalog->updated_at)) }}</td>
                                     <td>
                                         <a class="btn btn-datatable btn-icon btn-transparent-dark" href="{{ url('admin/catalog/'.$catalog->id.'/edit') }}">
                                             <i data-feather="edit-3"></i>
                                         </a>
-                                        @if($catalog->id != 1)
+                                        @if(empty($catalog->deleted_at))
                                             <button type="submit"
                                                     class="btn btn-datatable btn-icon text-danger remove-page"
                                                     data-page-id="{{ $catalog->id }}"
@@ -70,6 +70,16 @@
                                                     data-confirm-text="Delete"
                                                     data-cancel-text="Cancel">
                                                 <i data-feather="trash-2"></i>
+                                            </button>
+                                        @else
+                                            <button type="submit"
+                                                    class="btn btn-datatable btn-icon text-success rollback-page"
+                                                    data-page-id="{{ $catalog->id }}"
+                                                    data-url="{{ LaravelLocalization::localizeUrl('/admin/catalog/rollback') }}"
+                                                    data-title="Are you sure you want to rollback this catalog?"
+                                                    data-confirm-text="Rollback"
+                                                    data-cancel-text="Cancel">
+                                                <i data-feather="refresh-ccw"></i>
                                             </button>
                                         @endif
                                     </td>
