@@ -41,7 +41,7 @@ class Catalog extends Model
     /**
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['deleted_at'];
 
     /**
      * The attributes that should be mutated to dates.

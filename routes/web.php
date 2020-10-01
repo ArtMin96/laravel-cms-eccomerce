@@ -45,6 +45,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::resource('/payment-gateways', 'PaymentGatewaysController');
         Route::resource('/ratings', 'RatingsController');
 
+        Route::delete('/catalog/rollback', 'CatalogController@rollback')->name('catalog.rollback');
         Route::resource('/catalog', 'CatalogController');
 
         Route::get('/job-requests/download/{file}', 'JobRequestsController@download')->name('job-requests.download');

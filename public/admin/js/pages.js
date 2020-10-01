@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $(document).on('click', '.remove-page', function (e) {
+  $(document).on('click', '.remove-page, .rollback-page', function (e) {
       e.preventDefault();
 
       let pageId = $(this).attr('data-page-id');
