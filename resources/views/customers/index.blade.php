@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('seo')
+    @include('partials.Seo', ['seo' => $page->seo])
+@endsection
+
 @push('style')
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
 @endpush

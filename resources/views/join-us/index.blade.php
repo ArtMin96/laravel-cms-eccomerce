@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('seo')
+    @include('partials.Seo', ['seo' => $page->seo])
+@endsection
+
 @section('content')
 
     <section class="g-home-banner">
