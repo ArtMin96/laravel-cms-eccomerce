@@ -45,7 +45,7 @@ class Product extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'sale_type_id', 'price', 'deleted_at'];
+    protected $fillable = ['user_id', 'catalog_id', 'sale_type_id', 'price', 'deleted_at'];
 
     /**
      * The attributes that should be cast to native types.
@@ -79,5 +79,21 @@ class Product extends Model
     public function productTranslations()
     {
         return $this->hasMany(ProductTranslation::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function productFiles()
+    {
+        return $this->belongsTo(ProductFiles::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function catalog()
+    {
+        return $this->belongsTo(Catalog::class);
     }
 }
