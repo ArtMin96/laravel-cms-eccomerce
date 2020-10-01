@@ -151,6 +151,7 @@ return [
         'name'                  => 'Անուն',
         'username'              => 'Օգտանուն',
         'email'                 => 'Էլ-փոստի հասցե',
+        'email_address'         => 'Էլ-փոստի հասցե',
         'first_name'            => 'Անուն',
         'last_name'             => 'Ազգանուն',
         'password'              => 'Գաղտնաբառ',

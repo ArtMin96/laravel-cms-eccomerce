@@ -151,6 +151,7 @@ return [
         'name'                  => 'Name',
         'username'              => 'Username',
         'email'                 => 'E-mail',
+        'email_address'         => 'E-mail',
         'first_name'            => 'First name',
         'last_name'             => 'Last name',
         'password'              => 'Password',

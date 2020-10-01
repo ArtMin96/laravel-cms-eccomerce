@@ -75,10 +75,10 @@
 
                             <div class="col-md-6">
                                 <div class="form-group g-form-group">
-                                    <label for="email">{{ __('forms.E-mail') }}</label>
-                                    <input type="text" class="form-control g-form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}">
+                                    <label for="email_address">{{ __('forms.E-mail') }}</label>
+                                    <input type="text" class="form-control g-form-control @error('email_address') is-invalid @enderror" id="email_address" name="email_address" value="{{ old('email_address') }}">
 
-                                    @error('email')
+                                    @error('email_address')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -153,7 +153,14 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="text-center">
-                                    <button type="submit" class="g-btn g-btn-blue g-btn-round text-capitalize">{{ __('pages.Submit') }}</button>
+                                    @if (Auth::check())
+                                        <button type="submit" class="g-btn g-btn-blue g-btn-round text-capitalize">{{ __('pages.Submit') }}</button>
+                                    @else
+                                        <a class="g-btn g-btn-blue g-btn-round text-capitalize"
+                                           style="cursor: pointer"
+                                           data-toggle="modal"
+                                           data-target="#loginModal">{{ __('Login') }}</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
