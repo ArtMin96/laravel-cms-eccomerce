@@ -42,7 +42,7 @@ class HelpUsImproveController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'email' => 'required|email',
+            'email_address' => 'required|email',
             'star' => 'required',
         ]);
 
@@ -50,7 +50,7 @@ class HelpUsImproveController extends Controller
             $improveRating = new ImproveRating();
             $improveRating->user_id = \Auth::user()->id;
             $improveRating->name = $request->input('name');
-            $improveRating->email = $request->input('email');
+            $improveRating->email = $request->input('email_address');
             $improveRating->comment = $request->input('comment');
             $improveRating->allow_share = $request->input('allow_share');
 

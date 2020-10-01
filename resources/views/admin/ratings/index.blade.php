@@ -36,7 +36,7 @@
                                 <div class="d-flex align-items-center">
                                     <div class="flex-grow-1">
                                         <div class="small font-weight-bold text-primary mb-1">{{ $service->title }}</div>
-                                        <div class="h5">{{ App\Rating::avgRating($service->id) }}</div>
+                                        <div class="h5">{{ number_format(App\Rating::avgRating($service->id), 1) }}</div>
                                     </div>
                                     <div class="ml-2"><i class="fas fa-chart-pie fa-2x text-gray-200"></i></div>
                                 </div>

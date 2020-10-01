@@ -94,6 +94,13 @@
             </div>
         </footer>
 
+        @include('partials.Login')
+{{--        @include('partials.Register')--}}
+{{--        <a class="nav-link"--}}
+{{--           style="cursor: pointer"--}}
+{{--           data-toggle="modal"--}}
+{{--           data-target="#registerModal">{{ __('Register') }}</a>--}}
+
     </div>
 </body>
 

@@ -20,14 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="188bee73-7fda-407a-a0b3-1cea2f9f01e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/ratings/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/ratings/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/ratings/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/ratings/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/partials/Login.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/partials/Register.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Rating.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Rating.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HelpUsImproveController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HelpUsImproveController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hy/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hy/validation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/validation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/ratings/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/ratings/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/help-us-improve/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/help-us-improve/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,11 +280,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="712" y="248" width="485" height="537" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599360121949" />
-    <state x="778" y="445" width="354" height="142" key="NewPhpFileDialog" timestamp="1601472465971">
+    <state x="778" y="445" width="354" height="147" key="NewPhpFileDialog" timestamp="1601540647096">
       <screen x="0" y="0" width="1920" height="1041" />
     </state>
     <state x="778" y="445" width="354" height="147" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601408325616" />
-    <state x="778" y="445" width="354" height="142" key="NewPhpFileDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1601472465971" />
+    <state x="778" y="445" width="354" height="147" key="NewPhpFileDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1601540647096" />
     <state x="464" y="154" key="SettingsEditor" timestamp="1600976489493">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
