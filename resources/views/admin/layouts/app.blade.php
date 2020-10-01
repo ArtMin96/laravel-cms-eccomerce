@@ -84,6 +84,11 @@ use Illuminate\Support\Facades\Auth;
 
                                 <div class="sidenav-menu-heading">{{ __('Shop') }}</div>
 
+                                <a class="nav-link" href="{{ url('/admin/catalog') }}">
+                                    <div class="nav-link-icon"><i data-feather="book-open"></i></div>
+                                    {{ __('Catalog') }}
+                                </a>
+
                                 <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseProducts" aria-expanded="false" aria-controls="collapseProducts">
                                     <div class="nav-link-icon"><i data-feather="box"></i></div>
                                     {{ __('Products') }}

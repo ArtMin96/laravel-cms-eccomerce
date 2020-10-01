@@ -43,7 +43,17 @@ class JobRequest extends Model
     /**
      * @var array
      */
-    protected $fillable = ['job_id', 'name', 'last_name', 'phone', 'email', 'field_expertise', 'year_expertise', 'translated_page_number', 'daily_translation_capacity', 'translator_type', 'translation_rate_per_page', 'monthly_salary_expectation', 'cv', 'deleted_at', 'created_at', 'updated_at'];
+    protected $fillable = ['job_id', 'name', 'last_name', 'phone', 'email', 'field_expertise', 'year_expertise', 'translated_page_number', 'daily_translation_capacity', 'translator_type', 'translation_rate_per_page', 'monthly_salary_expectation', 'cv', 'deleted_at'];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

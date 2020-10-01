@@ -45,6 +45,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::resource('/payment-gateways', 'PaymentGatewaysController');
         Route::resource('/ratings', 'RatingsController');
 
+        Route::resource('/catalog', 'CatalogController');
+
         Route::get('/job-requests/download/{file}', 'JobRequestsController@download')->name('job-requests.download');
         Route::resource('/job-requests', 'JobRequestsController');
 
