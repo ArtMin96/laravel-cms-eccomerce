@@ -17,7 +17,7 @@ class CreateProductTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('sale_type_id')->nullable();
-            $table->decimal('price', 10, 2);
+            $table->decimal('price', 10, 2)->nullable();
             $table->softDeletes();
             $table->timestamps();
 

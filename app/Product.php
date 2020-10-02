@@ -16,10 +16,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $updated_at
  * @property SaleType $saleType
  * @property Admin $admin
+ * @property Catalog[] $catalogs
+ * @property ProductFile[] $productFiles
  * @property ProductTranslation[] $productTranslations
  */
 class Product extends Model
 {
+    const DocumentShop = 1;
+    const RequestedDocument = 2;
+    const RentEquipment = 3;
 
     use Translatable, SoftDeletes;
 
@@ -45,7 +50,7 @@ class Product extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'catalog_id', 'sale_type_id', 'price', 'deleted_at'];
+    protected $fillable = ['user_id', 'sale_type_id', 'price', 'deleted_at'];
 
     /**
      * The attributes that should be cast to native types.
@@ -86,14 +91,14 @@ class Product extends Model
      */
     public function productFiles()
     {
-        return $this->belongsTo(ProductFiles::class);
+        return $this->hasMany(ProductFiles::class);
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function catalog()
     {
-        return $this->belongsTo(Catalog::class);
+        return $this->belongsToMany(Catalog::class);
     }
 }

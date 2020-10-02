@@ -308,9 +308,9 @@ class PageSeeder extends Seeder
                     'name' => 'Տեխնիկայի վարձույթ'
                 ],
                 'parent_id' => null,
-                'alias' => '/rent-equipment',
+                'alias' => 'rent-equipment',
                 'sort_order' => 7,
-                'page_number' => null,
+                'page_number' => 13,
                 'route_number' => 0,
                 'base_page' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
@@ -1076,6 +1076,26 @@ class PageSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 53
+            [
+                'id' => 54,
+                'en' => [
+                    'name' => 'Experts'
+                ],
+                'ru' => [
+                    'name' => 'Эксперты'
+                ],
+                'hy' => [
+                    'name' => 'Փորձագետներ'
+                ],
+                'parent_id' => null,
+                'alias' => 'experts',
+                'sort_order' => 0,
+                'page_number' => 14,
+                'route_number' => 0,
+                'base_page' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 15
         ];
 
         foreach ($pages as $key => $value) {

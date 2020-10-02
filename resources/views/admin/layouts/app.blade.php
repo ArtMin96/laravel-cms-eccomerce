@@ -96,9 +96,11 @@ use Illuminate\Support\Facades\Auth;
                                 </a>
                                 <div class="collapse" id="collapseProducts" data-parent="#accordionSidenav">
                                     <nav class="sidenav-menu-nested nav">
-                                        <a class="nav-link" href="multi-tenant-select.html">{{ __('Rent Equipment') }}</a>
-                                        <a class="nav-link" href="wizard.html">{{ __('Sell Documents') }}</a>
-                                        <a class="nav-link" href="wizard.html">{{ __('?') }}</a>
+                                        @if(!empty(saleType()))
+                                            @foreach(saleType() as $saleType)
+                                                <a class="nav-link" href="{{ url('/admin/product/'. $saleType->id) }}">{{ $saleType->name }}</a>
+                                            @endforeach
+                                        @endif
                                     </nav>
                                 </div>
 

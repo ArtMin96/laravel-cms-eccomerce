@@ -45,9 +45,17 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::resource('/payment-gateways', 'PaymentGatewaysController');
         Route::resource('/ratings', 'RatingsController');
 
+        // Catalog routes
         Route::delete('/catalog/rollback', 'CatalogController@rollback')->name('catalog.rollback');
         Route::resource('/catalog', 'CatalogController');
 
+        // Product routes
+        Route::delete('/product/rollback', 'ProductController@rollback')->name('product.rollback');
+        Route::get('/product/{id}', ['as' => 'product.index', 'uses' => 'ProductController@index']);
+        Route::get('/product/{id}/create', 'ProductController@create');
+        Route::resource('/product', 'ProductController', ['except' => ['index']]);
+
+        // Job request routes
         Route::get('/job-requests/download/{file}', 'JobRequestsController@download')->name('job-requests.download');
         Route::resource('/job-requests', 'JobRequestsController');
 
@@ -86,6 +94,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     // Profile routes
     Route::get('/profile/change-password', 'ProfileController@changePassword')->name('profile.change-password');
     Route::resource('/profile', 'ProfileController');
+
+    // Rent equipment routes
+    Route::get('/rent-equipment', 'RentEquipmentController@index')->name('rent-equipment');
 
     // Ajax requests
     Route::post('/front-request/remove-user-image', 'FrontRequestController@removeUserImage')->name('front-request.remove.user.image');
