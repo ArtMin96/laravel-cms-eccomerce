@@ -41,4 +41,12 @@ return [
     'Please rate our service' => 'Пожалуйста, оцените наш сервис',
     'help_us_improve_comment' => 'Каким был ваш общий опыт работы с нами? Не стесняйтесь присылать нам свои предложения или комментарии по улучшению нашего сервиса или веб-сайта.',
     'help_us_improve_share_feedback' => 'Можем ли мы поделиться этим и любыми отзывами, отправленными ранее по электронной почте в наших социальных сетях / на веб-сайте?',
+
+    'Equipments' => 'Оборудование',
+    'Experts' => 'Эксперты',
+    'Search' => 'Поиск',
+    'Wish list' => 'Список желаний',
+    'Rent now' => 'Арендовать',
+    'rent_equipment_text_1' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, quasi, voluptatem. Accusamus, alias distinctio dolor magni perferendis ratione repudiandae vel!',
+    'rent_equipment_text_2' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, quasi, voluptatem. Accusamus',
 ];

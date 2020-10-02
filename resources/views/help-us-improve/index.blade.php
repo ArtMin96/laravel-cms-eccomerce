@@ -177,4 +177,6 @@
 
     <div class="g-message-btn-box"><a href="#" class="g-message-btn"></a></div>
 
+    @include('partials.Login')
+
 @endsection

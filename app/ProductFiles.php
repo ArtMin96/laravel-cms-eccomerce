@@ -17,7 +17,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class ProductFiles extends Model
 {
-
     use SoftDeletes;
 
     /**
@@ -30,7 +29,7 @@ class ProductFiles extends Model
     /**
      * @var array
      */
-    protected $fillable = ['product_id', 'url', 'file'];
+    protected $fillable = ['product_id', 'url', 'file', 'deleted_at'];
 
     /**
      * The attributes that should be mutated to dates.

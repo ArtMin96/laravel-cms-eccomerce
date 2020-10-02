@@ -99,6 +99,8 @@ class Page extends Model
     const JoinUs = 10;
     const GetInTouch = 11;
     const HelpUsImprove = 12;
+    const RentEquipment = 13;
+    const Experts = 14;
 
     /**
      * Default route numbers for router separation.

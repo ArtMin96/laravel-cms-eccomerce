@@ -42,4 +42,12 @@ return [
     'help_us_improve_comment' => 'How was your overall experience with us? Feel free to send us your suggestions or comments to improve our service or website.',
     'help_us_improve_share_feedback' => 'Can we share this and any feedback sent previously by email on our Social Media/Website?',
 
+    'Equipments' => 'Equipments',
+    'Experts' => 'Experts',
+    'Search' => 'Search',
+    'Wish list' => 'Wish list',
+    'Rent now' => 'Rent now',
+    'rent_equipment_text_1' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, quasi, voluptatem. Accusamus, alias distinctio dolor magni perferendis ratione repudiandae vel!',
+    'rent_equipment_text_2' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, quasi, voluptatem. Accusamus',
+
 ];

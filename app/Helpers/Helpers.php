@@ -27,6 +27,15 @@ if (!function_exists('settings')) {
 }
 
 /**
+ * Return website catalog
+ */
+if (!function_exists('saleType')) {
+    function saleType() {
+        return \App\SaleType::all();
+    }
+}
+
+/**
  * Return active menu items with child items.
  */
 if (!function_exists('menuItems')) {

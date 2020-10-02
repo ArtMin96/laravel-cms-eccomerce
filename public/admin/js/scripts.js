@@ -80,16 +80,16 @@
   else {
     activatedPath = 'index.html';
   }
-    
+
   let targetAnchor = $('[href="' + activatedPath + '"]');
   let collapseAncestors = targetAnchor.parents('.collapse');
-  
+
   targetAnchor.addClass('active');
-  
+
   collapseAncestors.each(function() {
     $(this).addClass('show');
     $('[data-target="#' + this.id +  '"]').removeClass('collapsed');
-     
-  })
+
+  });
 
 })(jQuery);

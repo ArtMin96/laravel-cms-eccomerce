@@ -94,7 +94,6 @@
             </div>
         </footer>
 
-        @include('partials.Login')
 {{--        @include('partials.Register')--}}
 {{--        <a class="nav-link"--}}
 {{--           style="cursor: pointer"--}}

@@ -2,8 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Catalog;
 use App\Http\Controllers\Controller;
+use App\Product;
+use App\ProductFiles;
+use App\SaleType;
+use Astrotomic\Translatable\Validation\RuleFactory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 
 class ProductController extends AdminController
 {
@@ -12,9 +19,11 @@ class ProductController extends AdminController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $products = Product::withTrashed()->where('sale_type_id', $id)->get();
+        $saleType = SaleType::where('id', $id)->first();
+        return view('admin.product.index', compact('products', 'saleType'));
     }
 
     /**
@@ -22,9 +31,11 @@ class ProductController extends AdminController
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $saleType = SaleType::where('id', $id)->first();
+        $catalog = Catalog::all();
+        return view('admin.product.create', ['id' => $id, 'saleType' => $saleType, 'catalog' => $catalog]);
     }
 
     /**
@@ -35,7 +46,67 @@ class ProductController extends AdminController
      */
     public function store(Request $request)
     {
-        //
+        $rules = RuleFactory::make([
+            '%title%' => 'required|string',
+            'price' => 'required|numeric',
+        ]);
+
+        if ($request->input('sale_type_id') == 3) {
+            $rules = RuleFactory::make([
+                '%title%' => 'required|string',
+                'price' => 'numeric',
+                'file.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:5000',
+            ]);
+        }
+
+        if ($request->input('sale_type_id') == 1) {
+            $rules = RuleFactory::make([
+                '%title%' => 'required|string',
+                'price' => 'required|numeric',
+                'file.*' => 'required|mimes:pdf|max:25000',
+            ]);
+        }
+
+        $request->validate($rules);
+
+        $product = new Product();
+        $product->user_id = \Auth::check() ? \Auth::user()->id : null;
+        $product->sale_type_id = $request->input('sale_type_id');
+        $product->price = $request->input('price');
+        $product->save();
+
+        $product->catalog()->attach($request->input('catalog'));
+
+        $translationProduct = Product::withTrashed()->findOrFail($product->id);
+        $translationProduct->update([
+            'en' => [
+                'title' => $request->input('en')['title']
+            ],
+            'ru' => [
+                'title' => $request->input('ru')['title']
+            ],
+            'hy' => [
+                'title' => $request->input('hy')['title']
+            ]
+        ]);
+
+        if ($request->hasFile('file')) {
+
+            $fileModel = new ProductFiles();
+            $fileName = time().'_'.$request->file->getClientOriginalName();
+            $filePath = $request->file('file')->storeAs('products', $fileName, 'public');
+
+            File::isDirectory($filePath) or File::makeDirectory($filePath, 0777, true, true);
+
+            $fileModel->product_id = $product->id;
+            $fileModel->file = time().'_'.$request->file->getClientOriginalName();
+            $fileModel->url = '/storage/' . $filePath;
+            $fileModel->save();
+        }
+
+        return redirect()
+            ->route('admin.product.index', $request->input('sale_type_id'))
+            ->with('message', __('messages.product_created_success'));
     }
 
     /**
@@ -75,11 +146,34 @@ class ProductController extends AdminController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $product = Product::with('productFiles')->where('id', $request->id)->first();
+        $product->productFiles()->delete();
+
+        if ($product->delete()) {
+            return response()->json(['status' => true]);
+        } else {
+            return response()->json(['status' => false]);
+        }
+    }
+
+    /**
+     * Rollback the specified resource from storage.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function rollback(Request $request)
+    {
+        $product = Product::withTrashed()->findOrFail($request->id);
+        $product->restore();
+
+        $product->productFiles()->restore();
+
+        return response()->json(['status' => true]);
     }
 }

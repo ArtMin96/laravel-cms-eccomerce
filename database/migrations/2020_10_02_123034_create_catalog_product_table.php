@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCatalogIdColumnToProductTable extends Migration
+class CreateCatalogProductTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class AddCatalogIdColumnToProductTable extends Migration
      */
     public function up()
     {
-        Schema::table('product', function (Blueprint $table) {
-            $table->unsignedBigInteger('catalog_id')->nullable();
+        Schema::create('catalog_product', function (Blueprint $table) {
+            $table->primary(['catalog_id', 'product_id']);
+            $table->unsignedBigInteger('catalog_id');
+            $table->unsignedBigInteger('product_id');
 
             $table->foreign('catalog_id')->references('id')->on('catalog');
+            $table->foreign('product_id')->references('id')->on('product')->onDelete('cascade');
         });
     }
 
@@ -27,8 +30,6 @@ class AddCatalogIdColumnToProductTable extends Migration
      */
     public function down()
     {
-        Schema::table('product', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('catalog_product');
     }
 }
