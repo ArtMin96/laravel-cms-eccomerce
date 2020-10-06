@@ -81,13 +81,16 @@ class ProductController extends AdminController
         $translationProduct = Product::withTrashed()->findOrFail($product->id);
         $translationProduct->update([
             'en' => [
-                'title' => $request->input('en')['title']
+                'title' => $request->input('en')['title'],
+                'description' => $request->input('en')['description']
             ],
             'ru' => [
-                'title' => $request->input('ru')['title']
+                'title' => $request->input('ru')['title'],
+                'description' => $request->input('ru')['description']
             ],
             'hy' => [
-                'title' => $request->input('hy')['title']
+                'title' => $request->input('hy')['title'],
+                'description' => $request->input('hy')['description']
             ]
         ]);
 
@@ -180,16 +183,19 @@ class ProductController extends AdminController
         $translationProduct = Product::withTrashed()->findOrFail($product->id);
         $translationProduct->update([
             'en' => [
-                'title' => $request->input('en')['title']
+                'title' => $request->input('en')['title'],
+                'description' => $request->input('en')['description']
             ],
             'ru' => [
-                'title' => $request->input('ru')['title']
+                'title' => $request->input('ru')['title'],
+                'description' => $request->input('ru')['description']
             ],
             'hy' => [
-                'title' => $request->input('hy')['title']
+                'title' => $request->input('hy')['title'],
+                'description' => $request->input('hy')['description']
             ]
         ]);
-        
+
         if ($request->hasFile('file')) {
 
             $fileModel = new ProductFiles();

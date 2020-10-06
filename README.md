@@ -39,6 +39,7 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 - **[Laravel Intervention Image](http://image.intervention.io/getting_started/installation#laravel)**
 - **[Eloquent Sluggable](https://github.com/cviebrock/eloquent-sluggable)**
 - **[Laravel Phone](composer require propaganistas/laravel-phone)**
+- **[Artisan View](https://github.com/svenluijten/artisan-view)**
 
 ## Contributing
 

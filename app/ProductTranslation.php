@@ -23,7 +23,7 @@ class ProductTranslation extends Model
     /**
      * @var array
      */
-    protected $fillable = ['product_id', 'locale', 'title'];
+    protected $fillable = ['product_id', 'locale', 'title', 'description'];
 
     /**
      * @var bool

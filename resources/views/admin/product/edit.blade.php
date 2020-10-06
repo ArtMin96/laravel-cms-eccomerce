@@ -56,6 +56,7 @@
                                     @if(!empty($product->productFiles[0]))
                                         <!-- Profile picture image-->
                                         <div class="img">
+
                                             <img src="{{ asset('storage/products/'.$product->productFiles[0]->file) }}" alt="{{ $product->title }}">
                                             <span class="remove-pic result_file"
                                                   data-file-id="{{ $product->id }}"
@@ -109,6 +110,20 @@
                                                 <input class="form-control @error($locale.'.title') is-invalid @enderror" type="text" name="{{ $locale }}[title]" id="{{ $locale }}_title" value="{{ old($locale.'.title', $product->translate($locale)->title) }}">
 
                                                 @error($locale.'.title')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="required" for="{{ $locale }}_description">{{ __('Description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
+                                                <textarea class="form-control @error($locale.'.description') is-invalid @enderror" name="{{ $locale }}[description]" id="{{ $locale }}_description">
+                                                    {{ old($locale.'.description', $product->translate($locale)->description) }}
+                                                </textarea>
+
+                                                @error($locale.'.description')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>

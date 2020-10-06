@@ -98,10 +98,26 @@
 
                                         </div>
 
+                                        <div class="form-group">
+                                            <label class="required" for="{{ $locale }}_description">{{ __('Description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
+                                            <textarea class="form-control @error($locale.'.description') is-invalid @enderror" name="{{ $locale }}[description]" id="{{ $locale }}_description">
+                                                {{ old($locale.'.description') }}
+                                            </textarea>
+
+                                            @error($locale.'.description')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+
+                                        </div>
+
                                     </div>
                                 @endforeach
                             </div>
                             <!-- .end Name translations -->
+
+                            <hr class="my-5">
 
                             <div class="form-group">
                                 <label class="required" for="price">{{ __('Price') }}</label>

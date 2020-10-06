@@ -49,4 +49,18 @@ return [
     'Rent now' => 'Арендовать',
     'rent_equipment_text_1' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, quasi, voluptatem. Accusamus, alias distinctio dolor magni perferendis ratione repudiandae vel!',
     'rent_equipment_text_2' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, quasi, voluptatem. Accusamus',
+
+    // Document shop
+    'Document Shop' => 'Магазин документов',
+    'Catalog' => 'Каталог',
+    'Filter' => 'Фильтр',
+    'Time' => 'Время',
+    'By name' => 'По имени',
+    'Alphabetically' => 'По алфавиту',
+    'By time' => 'По времени',
+    'By language' => 'По языку',
+    'Watch expert' => 'Смотреть эксперт',
+    'Buy' => 'Купить',
+
+    'There is no product' => 'Нет товара'
 ];

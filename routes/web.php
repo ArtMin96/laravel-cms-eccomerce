@@ -100,6 +100,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
     // Rent equipment routes
     Route::get('/rent-equipment', 'RentEquipmentController@index')->name('rent-equipment');
+    Route::get('/document-shop', 'DocumentShopController@index')->name('document-shop');
+    Route::get('/document-shop/catalog/{id}', 'DocumentShopController@catalog')->name('document-shop.catalog');
 
     // Ajax requests
     Route::post('/front-request/remove-user-image', 'FrontRequestController@removeUserImage')->name('front-request.remove.user.image');
