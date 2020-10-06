@@ -137,6 +137,7 @@
       <path value="$PROJECT_DIR$/vendor/geocoder-php/geo-plugin-provider" />
       <path value="$PROJECT_DIR$/vendor/geocoder-php/common-http" />
       <path value="$PROJECT_DIR$/vendor/geocoder-php/google-maps-provider" />
+      <path value="$PROJECT_DIR$/vendor/sven/artisan-view" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

@@ -50,4 +50,18 @@ return [
     'rent_equipment_text_1' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, quasi, voluptatem. Accusamus, alias distinctio dolor magni perferendis ratione repudiandae vel!',
     'rent_equipment_text_2' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, quasi, voluptatem. Accusamus',
 
+    // Document shop
+    'Document Shop' => 'Document Shop',
+    'Catalog' => 'Catalog',
+    'Filter' => 'Filter',
+    'Time' => 'Time',
+    'By name' => 'By name',
+    'Alphabetically' => 'Alphabetically',
+    'By time' => 'By time',
+    'By language' => 'By language',
+    'Watch expert' => 'Watch expert',
+    'Buy' => 'Buy',
+
+    'There is no product' => 'There is no product',
+
 ];

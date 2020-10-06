@@ -299,18 +299,18 @@ class PageSeeder extends Seeder
             [
                 'id' => 15,
                 'en' => [
-                    'name' => 'Rent equipment'
+                    'name' => 'Shop'
                 ],
                 'ru' => [
-                    'name' => 'Аренда оборудования'
+                    'name' => 'Магазин'
                 ],
                 'hy' => [
-                    'name' => 'Տեխնիկայի վարձույթ'
+                    'name' => 'Խանութ'
                 ],
                 'parent_id' => null,
-                'alias' => 'rent-equipment',
+                'alias' => 'javascript:void(0);',
                 'sort_order' => 7,
-                'page_number' => 13,
+                'page_number' => null,
                 'route_number' => 0,
                 'base_page' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
@@ -1095,7 +1095,67 @@ class PageSeeder extends Seeder
                 'base_page' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
-            ], // 15
+            ], // 54
+            [
+                'id' => 55,
+                'en' => [
+                    'name' => 'Rent equipment'
+                ],
+                'ru' => [
+                    'name' => 'Аренда оборудования'
+                ],
+                'hy' => [
+                    'name' => 'Տեխնիկայի վարձույթ'
+                ],
+                'parent_id' => 15,
+                'alias' => 'rent-equipment',
+                'sort_order' => 0,
+                'page_number' => 13,
+                'route_number' => 0,
+                'base_page' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 55
+            [
+                'id' => 56,
+                'en' => [
+                    'name' => 'Document Shop'
+                ],
+                'ru' => [
+                    'name' => 'Магазин документов'
+                ],
+                'hy' => [
+                    'name' => 'Փաստաթղթերի խանութ'
+                ],
+                'parent_id' => 15,
+                'alias' => 'document-shop',
+                'sort_order' => 1,
+                'page_number' => 15,
+                'route_number' => 0,
+                'base_page' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 56
+            [
+                'id' => 57,
+                'en' => [
+                    'name' => 'Document Templates'
+                ],
+                'ru' => [
+                    'name' => 'Шаблоны документов'
+                ],
+                'hy' => [
+                    'name' => 'Փաստաթղթի ձևանմուշներ'
+                ],
+                'parent_id' => 15,
+                'alias' => 'document-templates',
+                'sort_order' => 2,
+                'page_number' => 16,
+                'route_number' => 0,
+                'base_page' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 57
         ];
 
         foreach ($pages as $key => $value) {

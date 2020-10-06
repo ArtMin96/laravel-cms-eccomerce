@@ -31,7 +31,7 @@ class Product extends Model
     /**
      * @var string[]
      */
-    public $translatedAttributes = ['title'];
+    public $translatedAttributes = ['title', 'description'];
 
     /**
      * The table associated with the model.

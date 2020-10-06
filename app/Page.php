@@ -101,6 +101,8 @@ class Page extends Model
     const HelpUsImprove = 12;
     const RentEquipment = 13;
     const Experts = 14;
+    const DocumentShop = 15;
+    const DocumentTemplates = 16;
 
     /**
      * Default route numbers for router separation.

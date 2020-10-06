@@ -22,6 +22,7 @@ class CreateProductTranslationsTable extends Migration
             $table->foreign('product_id')->references('id')->on('product')->onDelete('cascade');
 
             $table->string('title');
+            $table->string('description')->nullable();
         });
     }
 

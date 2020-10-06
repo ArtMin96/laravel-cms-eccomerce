@@ -136,3 +136,37 @@ if (!function_exists('getRealIP')) {
         }
     }
 }
+
+if (!function_exists('fileBaseNameOrExtension')) {
+    function fileBaseNameOrExtension($file, $getBaseName = false) {
+
+        $fileInfo = [];
+
+        if (!empty($file) && $getBaseName === false) {
+            return pathinfo($file, PATHINFO_EXTENSION);
+        }
+        if (!empty($file) && $getBaseName === true) {
+            $fileInfo[] = [
+                pathinfo($file, PATHINFO_BASENAME),
+                pathinfo($file, PATHINFO_EXTENSION),
+            ];
+
+            return $fileInfo;
+        }
+
+        return false;
+    }
+}
+
+if (!function_exists('checkFileMimeType')) {
+    function checkFileMimeType($file) {
+        $allowedMimeTypes = ['image/jpeg','image/gif','image/png','image/bmp','image/svg+xml'];
+        $file = mime_content_type($file);
+        if(!in_array($file, $allowedMimeTypes) ){
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+}
