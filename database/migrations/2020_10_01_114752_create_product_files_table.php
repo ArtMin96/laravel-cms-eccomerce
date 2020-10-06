@@ -16,8 +16,8 @@ class CreateProductFilesTable extends Migration
         Schema::create('product_files', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('product_id');
-            $table->string('url');
-            $table->string('file');
+            $table->string('url')->nullable();
+            $table->string('file')->nullable();
             $table->softDeletes();
             $table->timestamps();
 

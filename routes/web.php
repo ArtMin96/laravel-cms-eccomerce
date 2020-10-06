@@ -53,6 +53,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::delete('/product/rollback', 'ProductController@rollback')->name('product.rollback');
         Route::get('/product/{id}', ['as' => 'product.index', 'uses' => 'ProductController@index']);
         Route::get('/product/{id}/create', 'ProductController@create');
+        Route::get('/product/{id}/duplicate', 'ProductController@duplicate');
         Route::resource('/product', 'ProductController', ['except' => ['index']]);
 
         // Job request routes
@@ -74,6 +75,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::post('/request/remove-credential-image', 'RequestController@removeCredentialImage')->name('request.remove.credential.image');
         Route::post('/request/remove-customers-image', 'RequestController@removeCustomersImage')->name('request.remove.customers.image');
         Route::delete('/request/remove-phone-number', 'RequestController@removePhoneNumber')->name('request.remove.phone.number');
+
+        Route::post('/request/remove-product-image', 'RequestController@removeProductImage')->name('request.remove.product.image');
     });
 
     // Dynamic pages
