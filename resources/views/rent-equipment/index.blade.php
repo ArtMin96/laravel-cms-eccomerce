@@ -59,10 +59,15 @@
 
                     @if(!empty($products))
                         @foreach($products as $key => $product)
-{{--                            @dd($product->productFiles[0])--}}
                             <div class="col-xl-3 col-lg-4 col-md-6">
                                 <div class="g-card-product g-card-wrap">
-                                    <span class="g-card-product-image" style="background-image: url('{{ asset('storage/products/'.$product->productFiles[0]->file)  }}')"></span>
+
+                                    @if(!empty($product->productFiles[0]) || !empty($product->productFiles[0]->deleted_at))
+                                        <span class="g-card-product-image" style="background-image: url('{{ asset($product->productFiles[0]->url)  }}')"></span>
+                                    @else
+                                        <span class="g-card-product-image" style="background-image: url('{{ asset('images/products/default-product.jpg')  }}')"></span>
+                                    @endif
+
                                     <p class="g-card-product-text">{{ $product->title }}</p>
                                     <div class="mt-2 d-flex justify-content-center">
                                         <a href="../forms/equipment_rent.html" class="g-btn g-btn-green g-btn-round mr-2">{{ __('pages.Rent now') }}</a>

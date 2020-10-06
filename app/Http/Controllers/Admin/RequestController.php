@@ -10,6 +10,7 @@ use App\OurTeam;
 use App\Page;
 use App\PaymentGateways;
 use App\PhoneNumbers;
+use App\ProductFiles;
 use App\Settings;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
@@ -189,6 +190,27 @@ class RequestController extends AdminController
             }
         } else {
             return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find icon!']);
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function removeProductImage(Request $request) {
+        if (!empty($request->post('file_id'))) {
+            $files = ProductFiles::findOrFail($request->post('file_id'));
+
+            if (!empty($files)) {
+                unlink(storage_path('app/public/products/'.$files->file));
+                $files->delete();
+
+                return response()->json(['status' => true, 'title' => 'Success', 'message' => 'File successfully removed!']);
+            } else {
+                return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+            }
+        } else {
+            return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
         }
     }
 }

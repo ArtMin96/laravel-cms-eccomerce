@@ -64,6 +64,9 @@
                                         <a class="btn btn-datatable btn-icon btn-transparent-dark" href="{{ url('admin/product/'.$product->id.'/edit') }}">
                                             <i data-feather="edit-3"></i>
                                         </a>
+                                        <a class="btn btn-datatable btn-icon btn-transparent-dark" href="{{ url('admin/product/'.$product->id.'/duplicate') }}">
+                                            <i data-feather="copy"></i>
+                                        </a>
                                         @if(empty($product->deleted_at))
                                             <button type="submit"
                                                     class="btn btn-datatable btn-icon text-danger remove-page"

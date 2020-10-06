@@ -10,6 +10,7 @@ use App\SaleType;
 use Astrotomic\Translatable\Validation\RuleFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 class ProductController extends AdminController
@@ -54,7 +55,7 @@ class ProductController extends AdminController
         if ($request->input('sale_type_id') == 3) {
             $rules = RuleFactory::make([
                 '%title%' => 'required|string',
-                'price' => 'numeric',
+                'price' => 'nullable|numeric',
                 'file.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:5000',
             ]);
         }
@@ -93,13 +94,11 @@ class ProductController extends AdminController
         if ($request->hasFile('file')) {
 
             $fileModel = new ProductFiles();
-            $fileName = time().'_'.$request->file->getClientOriginalName();
+            $fileName = time().'_'.str_replace(' ', '_', $request->file->getClientOriginalName());
             $filePath = $request->file('file')->storeAs('products', $fileName, 'public');
 
-            File::isDirectory($filePath) or File::makeDirectory($filePath, 0777, true, true);
-
             $fileModel->product_id = $product->id;
-            $fileModel->file = time().'_'.$request->file->getClientOriginalName();
+            $fileModel->file = $fileName;
             $fileModel->url = '/storage/' . $filePath;
             $fileModel->save();
         }
@@ -128,7 +127,14 @@ class ProductController extends AdminController
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        $saleType = SaleType::where('id', $id)->first();
+        $catalog = Catalog::all();
+        return view('admin.product.edit', [
+            'product' => $product,
+            'saleType' => $saleType,
+            'catalog' => $catalog
+        ]);
     }
 
     /**
@@ -140,7 +146,65 @@ class ProductController extends AdminController
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules = RuleFactory::make([
+            '%title%' => 'required|string',
+            'price' => 'required|numeric',
+        ]);
+
+        if ($request->input('sale_type_id') == 3) {
+            $rules = RuleFactory::make([
+                '%title%' => 'required|string',
+                'price' => 'nullable|numeric',
+                'file.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:5000',
+            ]);
+        }
+
+        if ($request->input('sale_type_id') == 1) {
+            $rules = RuleFactory::make([
+                '%title%' => 'required|string',
+                'price' => 'required|numeric',
+                'file.*' => 'required|mimes:pdf|max:25000',
+            ]);
+        }
+
+        $request->validate($rules);
+
+        $product = Product::findOrFail($id);
+        $product->user_id = \Auth::check() ? \Auth::user()->id : null;
+        $product->sale_type_id = $request->input('sale_type_id');
+        $product->price = $request->input('price');
+        $product->save();
+
+        $product->catalog()->attach($request->input('catalog'));
+
+        $translationProduct = Product::withTrashed()->findOrFail($product->id);
+        $translationProduct->update([
+            'en' => [
+                'title' => $request->input('en')['title']
+            ],
+            'ru' => [
+                'title' => $request->input('ru')['title']
+            ],
+            'hy' => [
+                'title' => $request->input('hy')['title']
+            ]
+        ]);
+        
+        if ($request->hasFile('file')) {
+
+            $fileModel = new ProductFiles();
+            $fileName = time().'_'.str_replace(' ', '_', $request->file->getClientOriginalName());
+            $filePath = $request->file('file')->storeAs('products', $fileName, 'public');
+
+            $fileModel->product_id = $product->id;
+            $fileModel->file = $fileName;
+            $fileModel->url = '/storage/' . $filePath;
+            $fileModel->save();
+        }
+
+        return redirect()
+            ->route('admin.product.index', $request->input('sale_type_id'))
+            ->with('message', __('messages.product_created_success'));
     }
 
     /**
@@ -175,5 +239,23 @@ class ProductController extends AdminController
         $product->productFiles()->restore();
 
         return response()->json(['status' => true]);
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function duplicate($id)
+    {
+        $findProduct = Product::findOrFail($id);
+        $product = $findProduct->replicate();
+        $product->save();
+
+        foreach (['en', 'ru', 'hy'] as $locale) {
+            $product->translateOrNew($locale)->title = $findProduct->title;
+        }
+        $product->save();
+
+        return redirect(route('admin.product.edit', $product->id))->with(['product' => $product]);
     }
 }
