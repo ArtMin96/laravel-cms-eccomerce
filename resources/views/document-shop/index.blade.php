@@ -103,25 +103,32 @@
                 </div>
                 <div id="document-shop-cards-list">
 
-                    @if(!empty($product))
-                        <div class="g-card-product-basket g-card-wrap">
-                            <div class="g-card-product-basket-image-box">
-                                <img src="../../images/cards/card-1.png" class="g-card-product-basket-image" alt="gaudeamus">
-                                <button class="g-link g-link-1 font-size-7" data-toggle="modal" data-target="#card-image-modal">Watch excerpt</button>
-                            </div>
-                            <div class="flex-grow-1">
-                                <div class="d-flex justify-content-between mb-2">
-                                    <a href="#" class="g-link g-link-2 p-0 light-color document-shop-link"><span>15</span> <i class="fas fa-download"></i></a>
+                    @if(!empty($products))
+                        @foreach($products as $product)
+                            <div class="g-card-product-basket g-card-wrap">
+                                <div class="g-card-product-basket-image-box">
+                                    @if (!empty($product->productFiles[0]))
+                                        @if(checkFileMimeType($product->productFiles[0]->file) === false)
+                                            <div class="img-file-info g-card-product-basket-image text-uppercase d-flex justify-content-center align-items-center"
+                                                 style="background-image: url({{ asset('images/svg/document.svg') }}); background-color: #fff; background-size: auto; font-size: 20px;">{{ fileBaseNameOrExtension($product->productFiles[0]->file) }}</div>
+{{--                                            <img src="{{ asset('storage/products/'.$product->productFiles[0]->file) }}" class="g-card-product-basket-image" alt="{{ $product->title }}">--}}
+                                            <button class="g-link g-link-1 font-size-7" data-toggle="modal" data-target="#card-image-modal">Watch excerpt</button>
+                                        @endif
+                                    @else
+                                        <img src="{{ asset('images/products/default-product.jpg') }}" class="g-card-product-basket-image" alt="{{ $product->title }}">
+                                    @endif
                                 </div>
-                                <div class="black-color font-weight-bold">Lorem ipsum</div>
-                                <p class="green-color">Lorem ipsum dolor sit amet, consectetur.</p>
-                                <div class="text-right">
-                                    <div class="black-color font-size-5 font-weight-bold mt-2 pr-5">100 <span>AMD</span></div>
-                                    <button class="g-btn g-btn-grey g-btn-round text-capitalize">buy</button>
-                                    <button class="g-btn blue-color"><i class="fas fa-shopping-cart"></i></button>
+                                <div class="flex-grow-1">
+                                    <div class="black-color font-weight-bold">{{ $product->title }}</div>
+                                    <p class="green-color">{{ \Illuminate\Support\Str::limit($product->description, 80, '...') }}</p>
+                                    <div class="text-right">
+                                        <div class="black-color font-size-5 font-weight-bold mt-2 pr-5">{{ number_format($product->price, 0, '.', '') }} <span>AMD</span></div>
+                                        <button class="g-btn g-btn-grey g-btn-round text-capitalize">buy</button>
+                                        <button class="g-btn blue-color"><i class="fas fa-shopping-cart"></i></button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
                     @else
                         <div class="d-flex align-items-center justify-content-center">
                             <h3 class="text-muted">{{ __('pages.There is no product') }}</h3>
