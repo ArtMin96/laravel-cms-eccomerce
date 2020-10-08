@@ -100,6 +100,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
     // Rent equipment routes
     Route::get('/rent-equipment', 'RentEquipmentController@index')->name('rent-equipment');
+    Route::post('/rent-equipment/add-wishlist', 'RentEquipmentController@addWishlist')->name('rent-equipment.add-wishlist');
     Route::get('/document-shop', 'DocumentShopController@index')->name('document-shop');
     Route::get('/document-shop/catalog/{id}', 'DocumentShopController@catalog')->name('document-shop.catalog');
 

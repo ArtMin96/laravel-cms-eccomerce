@@ -112,5 +112,6 @@
 
 <script src="{{ asset('js/rating.js') }}" defer></script>
 <script src="{{ asset('js/index.js') }}" defer></script>
+<script src="{{ asset('js/requests.js') }}" defer></script>
 
 </html>

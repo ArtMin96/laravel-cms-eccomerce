@@ -107,6 +107,7 @@ body{
     width: fit-content;
 }
 .languages-toggle-col,
+.delivery-toggle-col,
 .personal-data-btn-col{
     display: none;
 }
@@ -132,6 +133,38 @@ body{
     white-space: nowrap;
     flex: none;
     font-size: 13px;
+}
+
+.message-dialog{
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 22px;
+    color: #5A6C8F;
+    font-weight: 600;
+    display: none;
+}
+
+.checkout-products-cards-list{
+    overflow-y: auto;
+    margin-bottom: 30px;
+    padding: 15px;
+    flex-grow: 1;
+    height: 0;
+}
+
+.checkout-products-cards-list .g-card-product-2:last-child{
+    margin-bottom: 0;
+}
+
+.simple-total-card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
 }
 
 /* ********** end global ********** */
@@ -1295,17 +1328,17 @@ label.label-row:hover{
     height: 62px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
-.g-btn-img:hover{
+.g-btn-img-active, .g-btn-img:hover{
     color: inherit;
     box-shadow: 0 0 30px rgba(180, 191, 24, 0.3);
 }
 .g-btn-img img{
     max-height: 32px;
-    margin: 0 auto;
 }
 .g-btn-img > span{
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 100%;
 }
 .g-btn-img > span > span{
@@ -1782,9 +1815,6 @@ label.label-row:hover{
 /* ********** end card sum ********** */
 
 /* ********** card product ********** */
-.g-card-product{
-
-}
 .g-card-product-image{
     display: block;
     height: 150px;
@@ -1799,6 +1829,13 @@ label.label-row:hover{
     margin-bottom: 20px;
     height: 75px;
     overflow: hidden;
+}
+.g-card-product-2 .g-card-product-text{
+    height: unset;
+}
+
+.g-card-product-2 .g-card-product-image{
+    height: 100px;
 }
 /* ********** end card product ********** */
 

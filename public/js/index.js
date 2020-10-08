@@ -378,12 +378,12 @@ $( document ).ready(function() {
     /**
      * equipment card wishing
      */
-    (function (){
-        $('#equipment-cards-list').on('click', '.equipment-wish-btn', function (){
-            $(this).find('i').toggleClass('far fas');
-            console.log(this);
-        });
-    })();
+    // (function (){
+    //     $('#equipment-cards-list').on('click', '.equipment-wish-btn', function (){
+    //         $(this).find('i').toggleClass('far fas');
+    //         console.log(this);
+    //     });
+    // })();
 
     /**
      * downloads history document download

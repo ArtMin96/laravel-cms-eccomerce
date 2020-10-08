@@ -71,7 +71,16 @@
                                     <p class="g-card-product-text">{{ $product->title }}</p>
                                     <div class="mt-2 d-flex justify-content-center">
                                         <a href="../forms/equipment_rent.html" class="g-btn g-btn-green g-btn-round mr-2">{{ __('pages.Rent now') }}</a>
-                                        <button class="g-btn px-0 blue-color equipment-wish-btn"><i class="far fa-heart"></i></button>
+
+                                        @if (Auth::check())
+                                            <button class="g-btn px-0 blue-color equipment-wish-btn" data-id="{{ $product->id }}" data-url="{{ LaravelLocalization::localizeUrl('/rent-equipment/add-wishlist') }}">
+                                                <i class="far fa-heart"></i>
+                                            </button>
+                                        @else
+                                            <button class="g-btn px-0 blue-color" data-toggle="modal" data-target="#loginModal">
+                                                <i class="far fa-heart"></i>
+                                            </button>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -106,5 +115,7 @@
     </div>
 
     <div class="g-message-btn-box"><a href="#" class="g-message-btn"></a></div>
+
+    @include('partials.Login')
 
 @endsection
