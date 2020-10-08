@@ -54,17 +54,30 @@
 
                                 <div class="images">
                                     @if(!empty($product->productFiles[0]))
-                                        <!-- Profile picture image-->
-                                        <div class="img">
 
-                                            <img src="{{ asset('storage/products/'.$product->productFiles[0]->file) }}" alt="{{ $product->title }}">
-                                            <span class="remove-pic result_file"
-                                                  data-file-id="{{ $product->id }}"
-                                                  data-file-url="{{ LaravelLocalization::localizeUrl('/admin/request/remove-product-image') }}"
-                                                  data-title="Are you sure you want to remove this file?"
-                                                  data-confirm-text="Delete"
-                                                  data-cancel-text="Cancel"><i class="fal fa-times"></i></span>
-                                        </div>
+
+                                        @if(checkFileMimeType($product->productFiles[0]->file) === false)
+                                            <div class="img" style="background-image: url({{ asset('images/svg/document.svg') }}); background-color: #fff; background-size: auto; font-size: 32px;">
+                                                <span class="remove-pic result_file"
+                                                      data-file-id="{{ $product->id }}"
+                                                      data-file-url="{{ LaravelLocalization::localizeUrl('/admin/request/remove-product-image') }}"
+                                                      data-title="Are you sure you want to remove this file?"
+                                                      data-confirm-text="Delete"
+                                                      data-cancel-text="Cancel"><i class="fal fa-times"></i></span>
+
+                                                <div class="img-file-info text-uppercase">{{ fileBaseNameOrExtension($product->productFiles[0]->file) }}</div>
+                                            </div>
+                                        @else
+                                            <div class="img">
+                                                <img src="{{ asset('storage/products/'.$product->productFiles[0]->file) }}" alt="{{ $product->title }}">
+                                                <span class="remove-pic result_file"
+                                                      data-file-id="{{ $product->id }}"
+                                                      data-file-url="{{ LaravelLocalization::localizeUrl('/admin/request/remove-product-image') }}"
+                                                      data-title="Are you sure you want to remove this file?"
+                                                      data-confirm-text="Delete"
+                                                      data-cancel-text="Cancel"><i class="fal fa-times"></i></span>
+                                            </div>
+                                        @endif
                                     @else
                                         <div class="pic">
                                             <span style="font-size: 1.25rem;">Upload</span>
@@ -117,50 +130,51 @@
 
                                             </div>
 
-                                            <div class="form-group">
-                                                <label class="required" for="{{ $locale }}_description">{{ __('Description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                <textarea class="form-control @error($locale.'.description') is-invalid @enderror" name="{{ $locale }}[description]" id="{{ $locale }}_description">
-                                                    {{ old($locale.'.description', $product->translate($locale)->description) }}
-                                                </textarea>
+                                            @if($product->sale_type_id == 1)
+                                                <div class="form-group">
+                                                    <label class="required" for="{{ $locale }}_description">{{ __('Description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
+                                                    <textarea class="form-control @error($locale.'.description') is-invalid @enderror" name="{{ $locale }}[description]" id="{{ $locale }}_description">
+                                                        {{ old($locale.'.description', $product->translate($locale)->description) }}
+                                                    </textarea>
 
-                                                @error($locale.'.description')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
+                                                    @error($locale.'.description')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
 
-                                            </div>
+                                                </div>
+                                            @endif
 
                                         </div>
                                     @endforeach
                                 </div>
                                 <!-- .end Name translations -->
 
-                                <div class="form-group">
-                                    <label class="required" for="price">{{ __('Price') }}</label>
-                                    <input class="form-control @error('price') is-invalid @enderror" type="text" name="price" id="price" value="{{ old('price', $product->price) }}">
+                                @if($product->sale_type_id == 1)
+                                    <div class="form-group">
+                                        <label class="required" for="price">{{ __('Price') }}</label>
+                                        <input class="form-control @error('price') is-invalid @enderror" type="text" name="price" id="price" value="{{ old('price', $product->price) }}">
 
-                                    @error('price')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                        @error('price')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
 
-                                </div>
+                                    <div class="form-group">
+                                        <label class="required" for="catalog">{{ __('Catalog') }}</label>
+                                        <select class="js-select-multiple form-control w-100" id="catalog" name="catalog[]" multiple data-placeholder="Choose anything" data-allow-clear="1">
+                                            @if (!empty($catalog))
+                                                @foreach($catalog as $catalogOptions)
+                                                    <option value="{{ $catalogOptions->id }}" @if ($product->catalog->containsStrict('id', $catalogOptions->id)) selected @endif>{{ $catalogOptions->title }}</option>
+                                                @endforeach
+                                            @endif
+                                        </select>
 
-{{--                                @dd($product->catalog)--}}
-
-                                <div class="form-group">
-                                    <label class="required" for="catalog">{{ __('Catalog') }}</label>
-                                    <select class="js-select-multiple form-control w-100" id="catalog" name="catalog[]" multiple data-placeholder="Choose anything" data-allow-clear="1">
-                                        @if (!empty($catalog))
-                                            @foreach($catalog as $catalogOptions)
-                                                <option value="{{ $catalogOptions->id }}" @if ($product->catalog->containsStrict('id', $catalogOptions->id)) selected @endif>{{ $catalogOptions->title }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-
-                                </div>
+                                    </div>
+                                @endif
 
                                 <!-- Save changes button-->
                                 <button class="btn btn-primary" type="submit">{{ __('Save changes') }}</button>

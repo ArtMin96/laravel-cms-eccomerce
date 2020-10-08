@@ -98,50 +98,51 @@
 
                                         </div>
 
-                                        <div class="form-group">
-                                            <label class="required" for="{{ $locale }}_description">{{ __('Description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                            <textarea class="form-control @error($locale.'.description') is-invalid @enderror" name="{{ $locale }}[description]" id="{{ $locale }}_description">
-                                                {{ old($locale.'.description') }}
-                                            </textarea>
+                                        @if(request()->route('id') == 1)
+                                            <div class="form-group">
+                                                <label class="required" for="{{ $locale }}_description">{{ __('Description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
+                                                <textarea class="form-control @error($locale.'.description') is-invalid @enderror" name="{{ $locale }}[description]" id="{{ $locale }}_description">
+                                                    {{ old($locale.'.description') }}
+                                                </textarea>
 
-                                            @error($locale.'.description')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-
-                                        </div>
+                                                @error($locale.'.description')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        @endif
 
                                     </div>
                                 @endforeach
                             </div>
                             <!-- .end Name translations -->
 
-                            <hr class="my-5">
+                            @if(request()->route('id') == 1)
+                                <hr class="my-5">
 
-                            <div class="form-group">
-                                <label class="required" for="price">{{ __('Price') }}</label>
-                                <input class="form-control @error('price') is-invalid @enderror" type="text" name="price" id="price" value="{{ old('price') }}">
+                                <div class="form-group">
+                                    <label class="required" for="price">{{ __('Price') }}</label>
+                                    <input class="form-control @error('price') is-invalid @enderror" type="text" name="price" id="price" value="{{ old('price') }}">
 
-                                @error('price')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                    @error('price')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
 
-                            </div>
-
-                            <div class="form-group">
-                                <label class="required" for="catalog">{{ __('Catalog') }}</label>
-                                <select class="js-select-multiple form-control w-100" id="catalog" name="catalog[]" multiple data-placeholder="Choose anything" data-allow-clear="1">
-                                    @if (!empty($catalog))
-                                        @foreach($catalog as $catalogOptions)
-                                            <option value="{{ $catalogOptions->id }}">{{ $catalogOptions->title }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-
-                            </div>
+                                <div class="form-group">
+                                    <label class="required" for="catalog">{{ __('Catalog') }}</label>
+                                    <select class="js-select-multiple form-control w-100" id="catalog" name="catalog[]" multiple data-placeholder="Choose anything" data-allow-clear="1">
+                                        @if (!empty($catalog))
+                                            @foreach($catalog as $catalogOptions)
+                                                <option value="{{ $catalogOptions->id }}">{{ $catalogOptions->title }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                            @endif
 
                             <!-- Save changes button-->
                             <button class="btn btn-primary" type="submit">{{ __('Save changes') }}</button>

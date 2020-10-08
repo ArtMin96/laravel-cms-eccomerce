@@ -160,9 +160,10 @@ if (!function_exists('fileBaseNameOrExtension')) {
 
 if (!function_exists('checkFileMimeType')) {
     function checkFileMimeType($file) {
-        $allowedMimeTypes = ['image/jpeg','image/gif','image/png','image/bmp','image/svg+xml'];
-        $file = mime_content_type($file);
-        if(!in_array($file, $allowedMimeTypes) ){
+        $allowedMimeTypes = ['jpg', 'jpeg', 'gif', 'png', 'bmp', 'svg+xml'];
+        $contentType = pathinfo($file, PATHINFO_EXTENSION);
+
+        if(!in_array($contentType, $allowedMimeTypes) ){
             return false;
         } else {
             return true;

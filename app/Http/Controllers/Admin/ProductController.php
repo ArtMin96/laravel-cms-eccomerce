@@ -178,7 +178,7 @@ class ProductController extends AdminController
         $product->price = $request->input('price');
         $product->save();
 
-        $product->catalog()->attach($request->input('catalog'));
+        $product->catalog()->sync($request->input('catalog'));
 
         $translationProduct = Product::withTrashed()->findOrFail($product->id);
         $translationProduct->update([
