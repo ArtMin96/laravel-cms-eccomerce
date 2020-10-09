@@ -63,5 +63,7 @@ return [
     'Buy' => 'Buy',
 
     'There is no product' => 'There is no product',
+    'A wish list' => 'A wish list',
+    'send request' => 'send request',
 
 ];

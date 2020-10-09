@@ -42,10 +42,17 @@
                             </li>
                         </ul>
                     </div>
-            @endguest
-            <!-- .end Authentication Links -->
+                @endguest
+                <!-- .end Authentication Links -->
+
+                @if (Auth::check())
+                    <a href="{{ LaravelLocalization::localizeUrl('/wishlist') }}" class="g-btn g-link-2"><i class="fas fa-heart"></i></a>
+                @else
+                    <a href="{{ LaravelLocalization::localizeUrl('/login') }}" class="g-btn g-link-2"><i class="fas fa-heart"></i></a>
+                @endif
 
                 <a href="../user/basket.html" class="g-btn g-link-2"><i class="fas fa-shopping-cart"></i></a>
+
                 <div class="dropdown">
                     <button class="g-btn" type="button" id="dropdownLangButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="../../images/flag/{{ LaravelLocalization::getCurrentLocale() }}.png" class="g-lang-flag g-lang-flag-show" alt="flag">

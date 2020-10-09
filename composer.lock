@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4679fb2b16f1c082cedee2c5c06abd17",
+    "content-hash": "12d864e11b98dc866c6fdb812d249c75",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1460,6 +1460,58 @@
                 "watermark"
             ],
             "time": "2019-11-02T09:15:47+00:00"
+        },
+        {
+            "name": "lamalama/laravel-wishlist",
+            "version": "0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lamalamaNL/laravel-wishlist.git",
+                "reference": "596bf3d07435312f99388e9298153a21d9535261"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lamalamaNL/laravel-wishlist/zipball/596bf3d07435312f99388e9298153a21d9535261",
+                "reference": "596bf3d07435312f99388e9298153a21d9535261",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LamaLama\\Wishlist\\WishlistServiceProvider"
+                    ],
+                    "aliases": {
+                        "Wishlist": "LamaLama\\Wishlist\\WishlistFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LamaLama\\Wishlist\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lama Lama BV",
+                    "email": "info@lamalama.nl"
+                },
+                {
+                    "name": "Mark de Vries",
+                    "email": "mark@lamalama.nl"
+                }
+            ],
+            "description": "Make your models wishlistable",
+            "homepage": "https://github.com/lamalamaNL/laravel-wishlist",
+            "keywords": [
+                "laravel",
+                "wishlist"
+            ],
+            "time": "2020-08-21T14:23:07+00:00"
         },
         {
             "name": "laravel/framework",

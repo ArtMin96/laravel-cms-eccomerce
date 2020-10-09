@@ -5,6 +5,7 @@ namespace App;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use LamaLama\Wishlist\Wishlistable;
 
 /**
  * @property integer $id
@@ -26,7 +27,7 @@ class Product extends Model
     const RequestedDocument = 2;
     const RentEquipment = 3;
 
-    use Translatable, SoftDeletes;
+    use Translatable, SoftDeletes, Wishlistable;
 
     /**
      * @var string[]
