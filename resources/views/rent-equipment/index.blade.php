@@ -40,7 +40,7 @@
             <div class="col-12 mb-5">
                 <div class="d-flex justify-content-between align-items-center flex-column flex-sm-row">
                     <h1 class="g-title">{{ __('pages.Equipments') }}</h1>
-                    <a href="../wish_list.html" class="g-btn g-btn-blue mt-2">{{ __('pages.Wish list') }}</a>
+                    <a href="{{ LaravelLocalization::localizeUrl('/wishlist') }}" class="g-btn g-btn-blue mt-2">{{ __('pages.Wish list') }} ({{ count($wishlists) }})</a>
                 </div>
             </div>
         </div>
@@ -49,8 +49,8 @@
                 <div class="g-side-menu g-side-menu-3">
                     <div class="g-side-menu-title">Text</div>
                     <ul class="g-side-menu-list">
-                        <li class="g-side-menu-item g-side-menu-active"><a href="./equipments.html" class="g-side-menu-link">{{ __('pages.Equipments') }}</a></li>
-                        <li class="g-side-menu-item"><a href="../forms/expert.html" class="g-side-menu-link">{{ __('pages.Experts') }}</a></li>
+                        <li class="g-side-menu-item g-side-menu-active"><a href="{{ LaravelLocalization::localizeUrl('/rent-equipment') }}" class="g-side-menu-link">{{ __('pages.Equipments') }}</a></li>
+                        <li class="g-side-menu-item"><a href="{{ LaravelLocalization::localizeUrl('/experts') }}" class="g-side-menu-link">{{ __('pages.Experts') }}</a></li>
                     </ul>
                 </div>
             </div>
@@ -70,7 +70,7 @@
 
                                     <p class="g-card-product-text">{{ $product->title }}</p>
                                     <div class="mt-2 d-flex justify-content-center">
-                                        <a href="../forms/equipment_rent.html" class="g-btn g-btn-green g-btn-round mr-2">{{ __('pages.Rent now') }}</a>
+                                        <a href="{{ LaravelLocalization::localizeUrl('/rent-equipment/rent') }}" class="g-btn g-btn-green g-btn-round mr-2">{{ __('pages.Rent now') }}</a>
 
                                         @if (Auth::check())
                                             <button class="g-btn px-0 blue-color equipment-wish-btn" data-id="{{ $product->id }}" data-url="{{ LaravelLocalization::localizeUrl('/rent-equipment/add-wishlist') }}">

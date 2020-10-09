@@ -62,5 +62,7 @@ return [
     'Watch expert' => 'Смотреть эксперт',
     'Buy' => 'Купить',
 
-    'There is no product' => 'Нет товара'
+    'There is no product' => 'Нет товара',
+    'A wish list' => 'Список желаний',
+    'send request' => 'Послать запрос',
 ];
