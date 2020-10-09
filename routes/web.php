@@ -99,11 +99,13 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::resource('/profile', 'ProfileController');
 
     // Rent equipment routes
+    Route::get('/rent-equipment/search-product', ['uses' => 'RentEquipmentController@getSearch', 'as' => 'search-product']);
     Route::get('/rent-equipment', 'RentEquipmentController@index')->name('rent-equipment');
     Route::post('/rent-equipment/add-wishlist', 'RentEquipmentController@addWishlist')->name('rent-equipment.add-wishlist');
     Route::get('/document-shop', 'DocumentShopController@index')->name('document-shop');
     Route::get('/document-shop/catalog/{id}', 'DocumentShopController@catalog')->name('document-shop.catalog');
     Route::get('/wishlist', 'WishlistController@index')->name('wishlist');
+    Route::get('/wishlist/search', ['uses' => 'WishlistController@getSearch','as' => 'search']);
 
     // Ajax requests
     Route::post('/front-request/remove-user-image', 'FrontRequestController@removeUserImage')->name('front-request.remove.user.image');

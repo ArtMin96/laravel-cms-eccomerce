@@ -3,16 +3,22 @@
 @section('content')
 
     <div class="container">
-        <div class="row">
-            <div class="col-lg-3 d-none d-md-block"></div>
-            <div class="col-lg-6">
-                <div class="g-search-input">
-                    <input type="search" class="form-control g-form-control">
-                    <button class="search-input-btn">{{ __('pages.Search') }}</button>
+
+        <form action="{{ route('search') }}">
+            @csrf
+
+            <div class="row">
+                <div class="col-lg-3 d-none d-md-block"></div>
+                <div class="col-lg-6">
+                    <div class="g-search-input">
+                        <input type="text" name="q" class="form-control g-form-control" value="@if (!empty($searchTerm)) {{ $searchTerm }} @endif">
+                        <button type="submit" class="search-input-btn">{{ __('pages.Search') }}</button>
+                    </div>
                 </div>
+                <div class="col-lg-3 d-none d-md-block"></div>
             </div>
-            <div class="col-lg-3 d-none d-md-block"></div>
-        </div>
+        </form>
+
         <div class="row">
             <div class="col-12">
                 <h2 class="g-title text-center mb-5">{{ __('pages.A wish list') }}</h2>
