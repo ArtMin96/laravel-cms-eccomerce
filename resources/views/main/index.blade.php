@@ -6,6 +6,12 @@
 
 @push('style')
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+
+    <style>
+        .dropdown-image.dropdown-image-empty {
+            background-size: cover !important;
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -51,124 +57,44 @@
             </div>
         </section>
 
-        <section class="py-4">
-            <h2 class="font-size-1 blue-color text-center mb-3">Professional Translation Services for Any Industry</h2>
-            <div class="w-50 w-md-50 mx-auto mb-5">
-                <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, ea fuga fugit maxime odio harum incidunt libero mollitia nam natus, non obcaecati officiis quaerat reiciendis repudiandae sapiente sed soluta temporibus.</p>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-lg-3">
-                    <div class="dropdown g-dropdown mb-4">
-                        <div class="dropdown-toggle" type="button" id="g-dropdown-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="dropdown-image-box">
-                                <span class="dropdown-image" style="background-image: url(./images/industry/industry-1.png)"></span>
-                            </div>
-                            <span class="dropdown-text">Contrary to popular belief, Lorem Ipsum is not</span>
-                        </div>
-                        <div class="dropdown-menu" aria-labelledby="g-dropdown-1">
-                            <div>dropdown text</div>
-                        </div>
-                    </div>
+        @if(!empty($translationServices))
+            <section class="py-4">
+                <h2 class="font-size-1 blue-color text-center mb-3">{{ __('pages.Professional Translation Services for Any Industry') }}</h2>
+                <div class="w-50 w-md-50 mx-auto mb-5">
+                    <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, ea fuga fugit maxime odio harum incidunt libero mollitia nam natus, non obcaecati officiis quaerat reiciendis repudiandae sapiente sed soluta temporibus.</p>
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="dropdown g-dropdown mb-4">
-                        <div class="dropdown-toggle" type="button" id="g-dropdown-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="dropdown-image-box">
-                                <span class="dropdown-image" style="background-image: url(./images/industry/industry-2.png)"></span>
+                <div class="row">
+
+                    @foreach($translationServices as $translationService)
+                        <div class="col-md-6 col-lg-3">
+                            <div class="dropdown g-dropdown mb-4">
+                                <div class="dropdown-toggle" type="button" id="g-dropdown-{{ $translationService->id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div class="dropdown-image-box">
+
+                                        @if (!empty($translationService->icon))
+                                            <span class="dropdown-image" style="background-image: url({{ asset('storage/translation-services/'.$translationService->icon) }})"></span>
+                                        @else
+                                            <span class="dropdown-image dropdown-image-empty" style="background-image: url({{ asset('/images/svg/service.svg') }})"></span>
+                                        @endif
+
+                                    </div>
+                                    <span class="dropdown-text">{{ $translationService->title }}</span>
+                                </div>
+                                <div class="dropdown-menu" aria-labelledby="g-dropdown-{{ $translationService->id }}">
+                                    <div>{{ $translationService->description }}</div>
+                                </div>
                             </div>
-                            <span class="dropdown-text">Contrary to popular belief, Lorem Ipsum is not</span>
                         </div>
-                        <div class="dropdown-menu" aria-labelledby="g-dropdown-2">
-                            <div>dropdown text</div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="dropdown g-dropdown mb-4">
-                        <div class="dropdown-toggle" type="button" id="g-dropdown-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="dropdown-image-box">
-                                <span class="dropdown-image" style="background-image: url(./images/industry/industry-3.png)"></span>
-                            </div>
-                            <span class="dropdown-text">Contrary to popular belief, Lorem Ipsum is not</span>
-                        </div>
-                        <div class="dropdown-menu" aria-labelledby="g-dropdown-3">
-                            <div>dropdown text</div>
-                        </div>
-                    </div>
+                <div class="w-50 w-md-50 mx-auto mt-5">
+                    <p class="text-center">{{ __('pages.Don’t see your industry listed?') }} <button class="g-link g-link-2 green-color">{{ __('pages.Chat now') }}</button> {{ __('pages.to find out which of our professional translation services will reach your target clients.') }}</p>
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="dropdown g-dropdown mb-4">
-                        <div class="dropdown-toggle" type="button" id="g-dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="dropdown-image-box">
-                                <span class="dropdown-image" style="background-image: url(./images/industry/industry-4.png)"></span>
-                            </div>
-                            <span class="dropdown-text">Contrary to popular belief, Lorem Ipsum is not</span>
-                        </div>
-                        <div class="dropdown-menu" aria-labelledby="g-dropdown-4">
-                            <div>dropdown text</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="dropdown g-dropdown mb-4">
-                        <div class="dropdown-toggle" type="button" id="g-dropdown-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="dropdown-image-box">
-                                <span class="dropdown-image" style="background-image: url(./images/industry/industry-5.png)"></span>
-                            </div>
-                            <span class="dropdown-text">Contrary to popular belief, Lorem Ipsum is not</span>
-                        </div>
-                        <div class="dropdown-menu" aria-labelledby="g-dropdown-5">
-                            <div>dropdown text</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="dropdown g-dropdown mb-4">
-                        <div class="dropdown-toggle" type="button" id="g-dropdown-6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="dropdown-image-box">
-                                <span class="dropdown-image" style="background-image: url(./images/industry/industry-6.png)"></span>
-                            </div>
-                            <span class="dropdown-text">Contrary to popular belief, Lorem Ipsum is not</span>
-                        </div>
-                        <div class="dropdown-menu" aria-labelledby="g-dropdown-6">
-                            <div>dropdown text</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="dropdown g-dropdown mb-4">
-                        <div class="dropdown-toggle" type="button" id="g-dropdown-7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="dropdown-image-box">
-                                <span class="dropdown-image" style="background-image: url(./images/industry/industry-7.png)"></span>
-                            </div>
-                            <span class="dropdown-text">Contrary to popular belief, Lorem Ipsum is not</span>
-                        </div>
-                        <div class="dropdown-menu" aria-labelledby="g-dropdown-7">
-                            <div>dropdown text</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="dropdown g-dropdown mb-4">
-                        <div class="dropdown-toggle" type="button" id="g-dropdown-8" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="dropdown-image-box">
-                                <span class="dropdown-image" style="background-image: url(./images/industry/industry-8.png)"></span>
-                            </div>
-                            <span class="dropdown-text">Contrary to popular belief, Lorem Ipsum is not</span>
-                        </div>
-                        <div class="dropdown-menu" aria-labelledby="g-dropdown-8">
-                            <div>dropdown text</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="w-50 w-md-50 mx-auto mt-5">
-                <p class="text-center">Don’t see your industry listed? <button class="g-link g-link-2 green-color">Chat now</button> to find out which of our professional translation services will reach your target clients.</p>
-            </div>
-        </section>
+            </section>
+        @endif
 
         <section class="py-4">
-            <h2 class="font-size-1 blue-color text-center mb-3">All Our Professional Translation Services</h2>
+            <h2 class="font-size-1 blue-color text-center mb-3">{{ __('pages.All Our Professional Translation Services') }}</h2>
             <div class="w-50 w-md-50 mx-auto mb-5">
                 <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. non obcaecati officiis quaerat reiciendis repudiandae sapiente sed soluta temporibus.</p>
             </div>
@@ -313,9 +239,9 @@
         </section>
 
         <section class="py-4">
-            <h2 class="font-size-1 blue-color text-center mb-3">Thorough 5-Step Quality Control</h2>
+            <h2 class="font-size-1 blue-color text-center mb-3">{{ __('pages.Thorough 5-Step Quality Control') }}</h2>
             <div class=" w-50 w-md-50 mx-auto mb-5">
-                <p class="text-center">You will never suffer from mistranslation. We promise. We follow a strict 5-step review process to ensure that your translations are 100% accurate, every time. We so firmly stand behind this, that we give you our lifetime guarantee.</p>
+                <p class="text-center">{{ __('pages.You will never suffer from mistranslation. We promise. We follow a strict 5-step review process to ensure that your translations are 100% accurate, every time. We so firmly stand behind this, that we give you our lifetime guarantee.') }}</p>
             </div>
             <div class="g-steps-box">
                 <div class="row">
@@ -378,11 +304,11 @@
             </div>
 
             <div class="py-5">
-                <p class="text-center">The best part… if you ever find an error months, or even years down the road, just come back to us. We will fix it. We promise you 100% accurate professional translation services every time, no matter what. That’s our lifetime guarantee.</p>
+                <p class="text-center">{{ __('pages.The best part… if you ever find an error months, or even years down the road, just come back to us. We will fix it. We promise you 100% accurate professional translation services every time, no matter what. That’s our lifetime guarantee.') }}</p>
                 <div class="g-collapse">
                     <div class="text-center">
                         <button class="g-link g-link-2 green-color" type="button" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
-                            See more
+                            {{ __('pages.See more') }}
                         </button>
                     </div>
                     <div class="collapse" id="collapse-1">
@@ -393,44 +319,44 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <a href="#" class="g-btn g-btn-img w-100 mb-4">
-                <span>
-                    <img src="./images/steps/step-btn-1.png" alt="gaudeamus"><span></span>
-                </span>
+                                                <span>
+                                                    <img src="./images/steps/step-btn-1.png" alt="gaudeamus"><span></span>
+                                                </span>
                                             </a>
                                         </div>
                                         <div class="col-md-4">
                                             <a href="#" class="g-btn g-btn-img w-100 mb-4">
-                <span>
-                    <img src="./images/steps/step-btn-2.png" alt="gaudeamus"><span></span>
-                </span>
+                                                <span>
+                                                    <img src="./images/steps/step-btn-2.png" alt="gaudeamus"><span></span>
+                                                </span>
                                             </a>
                                         </div>
                                         <div class="col-md-4">
                                             <a href="#" class="g-btn g-btn-img w-100 mb-4">
-                <span>
-                    <img src="./images/steps/step-btn-3.png" alt="gaudeamus"><span></span>
-                </span>
+                                                <span>
+                                                    <img src="./images/steps/step-btn-3.png" alt="gaudeamus"><span></span>
+                                                </span>
                                             </a>
                                         </div>
                                         <div class="col-md-4">
                                             <a href="#" class="g-btn g-btn-img w-100 mb-4">
-                <span>
-                    <img src="./images/steps/step-btn-2.png" alt="gaudeamus"><span></span>
-                </span>
+                                                <span>
+                                                    <img src="./images/steps/step-btn-2.png" alt="gaudeamus"><span></span>
+                                                </span>
                                             </a>
                                         </div>
                                         <div class="col-md-4">
                                             <a href="#" class="g-btn g-btn-img w-100 mb-4">
-                <span>
-                    <img src="./images/steps/step-btn-1.png" alt="gaudeamus"><span></span>
-                </span>
+                                                <span>
+                                                    <img src="./images/steps/step-btn-1.png" alt="gaudeamus"><span></span>
+                                                </span>
                                             </a>
                                         </div>
                                         <div class="col-md-4">
                                             <a href="#" class="g-btn g-btn-img w-100 mb-4">
-                <span>
-                    <img src="./images/steps/step-btn-3.png" alt="gaudeamus"><span></span>
-                </span>
+                                                <span>
+                                                    <img src="./images/steps/step-btn-3.png" alt="gaudeamus"><span></span>
+                                                </span>
                                             </a>
                                         </div>
                                     </div>
@@ -448,19 +374,19 @@
                 <div class="g-scroll-nums-list">
                     <div class="g-scroll-num-item">
                         <div class="font-weight-bold font-size-1 blue-color"><span class="g-scroll-num" data-num="5000">0</span> <span>+</span></div>
-                        <div class="g-scroll-text">Happy Clients</div>
+                        <div class="g-scroll-text">{{ __('pages.Happy Clients') }}</div>
                     </div>
                     <div class="g-scroll-num-item">
                         <div class="font-weight-bold font-size-1 blue-color"><span class="g-scroll-num" data-num="30000">0</span> <span>+</span></div>
-                        <div class="g-scroll-text">Proffesional Linguists</div>
+                        <div class="g-scroll-text">{{ __('pages.Professional Linguists') }}</div>
                     </div>
                     <div class="g-scroll-num-item">
                         <div class="font-weight-bold font-size-1 blue-color"><span class="g-scroll-num" data-num="116">0</span> <span>+</span></div>
-                        <div class="g-scroll-text">Languages</div>
+                        <div class="g-scroll-text">{{ __('pages.Languages') }}</div>
                     </div>
                     <div class="g-scroll-num-item">
                         <div class="font-weight-bold font-size-1 blue-color"><span class="g-scroll-num" data-num="1500000">0</span> <span>Million+</span></div>
-                        <div class="g-scroll-text">Words Translated</div>
+                        <div class="g-scroll-text">{{ __('pages.Words Translated') }}</div>
                     </div>
                 </div>
             </div>

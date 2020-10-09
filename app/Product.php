@@ -54,6 +54,13 @@ class Product extends Model
     protected $fillable = ['user_id', 'sale_type_id', 'price', 'deleted_at'];
 
     /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
+
+    /**
      * The attributes that should be cast to native types.
      *
      * @var array

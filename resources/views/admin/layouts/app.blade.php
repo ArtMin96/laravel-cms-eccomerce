@@ -150,6 +150,11 @@ use Illuminate\Support\Facades\Auth;
                                     {{ __('Ratings') }}
                                 </a>
 
+                                <a class="nav-link" href="{{ url('/admin/translation-services') }}">
+                                    <div class="nav-link-icon"><i data-feather="columns"></i></div>
+                                    {{ __('Translation Services') }}
+                                </a>
+
                                 <a class="nav-link" href="{{ url('/admin/settings') }}">
                                     <div class="nav-link-icon"><i data-feather="settings"></i></div>
                                     {{ __('Settings') }}
