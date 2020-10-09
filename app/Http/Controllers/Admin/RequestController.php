@@ -12,6 +12,7 @@ use App\PaymentGateways;
 use App\PhoneNumbers;
 use App\ProductFiles;
 use App\Settings;
+use App\TranslationServices;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -204,6 +205,28 @@ class RequestController extends AdminController
             if (!empty($files)) {
                 unlink(storage_path('app/public/products/'.$files->file));
                 $files->delete();
+
+                return response()->json(['status' => true, 'title' => 'Success', 'message' => 'File successfully removed!']);
+            } else {
+                return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+            }
+        } else {
+            return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function removeTranslationServiceImage(Request $request)
+    {
+        if (!empty($request->post('file_id'))) {
+            $translationServices = TranslationServices::findOrFail($request->post('file_id'));
+
+            if (!empty($translationServices)) {
+                unlink(storage_path('app/public/translation-services/'.$translationServices->icon));
+                $translationServices->update(['icon' => null]);
 
                 return response()->json(['status' => true, 'title' => 'Success', 'message' => 'File successfully removed!']);
             } else {

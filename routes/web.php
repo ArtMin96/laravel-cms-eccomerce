@@ -45,6 +45,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::resource('/payment-gateways', 'PaymentGatewaysController');
         Route::resource('/ratings', 'RatingsController');
 
+        Route::delete('/translation-services/rollback', 'TranslationServicesController@rollback')->name('translation.services.rollback');
+        Route::get('/translation-services/{id}/duplicate', 'TranslationServicesController@duplicate');
+        Route::resource('/translation-services', 'TranslationServicesController');
+
         // Catalog routes
         Route::delete('/catalog/rollback', 'CatalogController@rollback')->name('catalog.rollback');
         Route::resource('/catalog', 'CatalogController');
@@ -76,6 +80,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::post('/request/remove-customers-image', 'RequestController@removeCustomersImage')->name('request.remove.customers.image');
         Route::delete('/request/remove-phone-number', 'RequestController@removePhoneNumber')->name('request.remove.phone.number');
 
+        Route::post('/request/remove-translation-service-image', 'RequestController@removeTranslationServiceImage')->name('request.remove.translation.service.image');
         Route::post('/request/remove-product-image', 'RequestController@removeProductImage')->name('request.remove.product.image');
     });
 

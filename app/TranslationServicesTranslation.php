@@ -6,15 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
- * @property integer $setting_id
+ * @property integer $services_id
  * @property string $locale
  * @property string $title
- * @property string $address
- * @property string $footer_title
- * @property string $footer_description
- * @property Settings $setting
+ * @property TranslationServices $translationServices
  */
-class SettingsTranslation extends Model
+class TranslationServicesTranslation extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
@@ -26,7 +23,7 @@ class SettingsTranslation extends Model
     /**
      * @var array
      */
-    protected $fillable = ['settings_id', 'locale', 'title', 'address', 'footer_title', 'footer_description'];
+    protected $fillable = ['services_id', 'locale', 'title', 'description'];
 
     /**
      * @var bool
@@ -36,8 +33,8 @@ class SettingsTranslation extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function setting()
+    public function translationService()
     {
-        return $this->belongsTo(Settings::class);
+        return $this->belongsTo(TranslationServices::class, 'services_id');
     }
 }

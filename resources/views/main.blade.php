@@ -47,121 +47,41 @@
             </div>
         </section>
 
-        <section class="py-4">
-            <h2 class="font-size-1 blue-color text-center mb-3">Professional Translation Services for Any Industry</h2>
-            <div class="w-50 w-md-50 mx-auto mb-5">
-                <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, ea fuga fugit maxime odio harum incidunt libero mollitia nam natus, non obcaecati officiis quaerat reiciendis repudiandae sapiente sed soluta temporibus.</p>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-lg-3">
-                    <div class="dropdown g-dropdown mb-4">
-                        <div class="dropdown-toggle" type="button" id="g-dropdown-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="dropdown-image-box">
-                                <span class="dropdown-image" style="background-image: url(./images/industry/industry-1.png)"></span>
-                            </div>
-                            <span class="dropdown-text">Contrary to popular belief, Lorem Ipsum is not</span>
-                        </div>
-                        <div class="dropdown-menu" aria-labelledby="g-dropdown-1">
-                            <div>dropdown text</div>
-                        </div>
-                    </div>
+        @if(!empty($translationServices))
+            <section class="py-4">
+                <h2 class="font-size-1 blue-color text-center mb-3">Professional Translation Services for Any Industry</h2>
+                <div class="w-50 w-md-50 mx-auto mb-5">
+                    <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, ea fuga fugit maxime odio harum incidunt libero mollitia nam natus, non obcaecati officiis quaerat reiciendis repudiandae sapiente sed soluta temporibus.</p>
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="dropdown g-dropdown mb-4">
-                        <div class="dropdown-toggle" type="button" id="g-dropdown-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="dropdown-image-box">
-                                <span class="dropdown-image" style="background-image: url(./images/industry/industry-2.png)"></span>
+                <div class="row">
+
+                    @foreach($translationServices as $translationService)
+                        <div class="col-md-6 col-lg-3">
+                            <div class="dropdown g-dropdown mb-4">
+                                <div class="dropdown-toggle" type="button" id="g-dropdown-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div class="dropdown-image-box">
+
+                                        @if (!empty($translationService->icon))
+                                            <span class="dropdown-image" style="background-image: url({{ asset('storage/translation-services/'.$translationService->icon) }})"></span>
+                                        @else
+                                            <span class="dropdown-image" style="background-image: url({{ asset('/images/svg/service.svg') }})"></span>
+                                        @endif
+
+                                    </div>
+                                    <span class="dropdown-text">{{ $translationService->title }}</span>
+                                </div>
+                                <div class="dropdown-menu" aria-labelledby="g-dropdown-1">
+                                    <div>{{ $translationService->description }}</div>
+                                </div>
                             </div>
-                            <span class="dropdown-text">Contrary to popular belief, Lorem Ipsum is not</span>
                         </div>
-                        <div class="dropdown-menu" aria-labelledby="g-dropdown-2">
-                            <div>dropdown text</div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="dropdown g-dropdown mb-4">
-                        <div class="dropdown-toggle" type="button" id="g-dropdown-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="dropdown-image-box">
-                                <span class="dropdown-image" style="background-image: url(./images/industry/industry-3.png)"></span>
-                            </div>
-                            <span class="dropdown-text">Contrary to popular belief, Lorem Ipsum is not</span>
-                        </div>
-                        <div class="dropdown-menu" aria-labelledby="g-dropdown-3">
-                            <div>dropdown text</div>
-                        </div>
-                    </div>
+                <div class="w-50 w-md-50 mx-auto mt-5">
+                    <p class="text-center">Don’t see your industry listed? <button class="g-link g-link-2 green-color">Chat now</button> to find out which of our professional translation services will reach your target clients.</p>
                 </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="dropdown g-dropdown mb-4">
-                        <div class="dropdown-toggle" type="button" id="g-dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="dropdown-image-box">
-                                <span class="dropdown-image" style="background-image: url(./images/industry/industry-4.png)"></span>
-                            </div>
-                            <span class="dropdown-text">Contrary to popular belief, Lorem Ipsum is not</span>
-                        </div>
-                        <div class="dropdown-menu" aria-labelledby="g-dropdown-4">
-                            <div>dropdown text</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="dropdown g-dropdown mb-4">
-                        <div class="dropdown-toggle" type="button" id="g-dropdown-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="dropdown-image-box">
-                                <span class="dropdown-image" style="background-image: url(./images/industry/industry-5.png)"></span>
-                            </div>
-                            <span class="dropdown-text">Contrary to popular belief, Lorem Ipsum is not</span>
-                        </div>
-                        <div class="dropdown-menu" aria-labelledby="g-dropdown-5">
-                            <div>dropdown text</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="dropdown g-dropdown mb-4">
-                        <div class="dropdown-toggle" type="button" id="g-dropdown-6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="dropdown-image-box">
-                                <span class="dropdown-image" style="background-image: url(./images/industry/industry-6.png)"></span>
-                            </div>
-                            <span class="dropdown-text">Contrary to popular belief, Lorem Ipsum is not</span>
-                        </div>
-                        <div class="dropdown-menu" aria-labelledby="g-dropdown-6">
-                            <div>dropdown text</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="dropdown g-dropdown mb-4">
-                        <div class="dropdown-toggle" type="button" id="g-dropdown-7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="dropdown-image-box">
-                                <span class="dropdown-image" style="background-image: url(./images/industry/industry-7.png)"></span>
-                            </div>
-                            <span class="dropdown-text">Contrary to popular belief, Lorem Ipsum is not</span>
-                        </div>
-                        <div class="dropdown-menu" aria-labelledby="g-dropdown-7">
-                            <div>dropdown text</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="dropdown g-dropdown mb-4">
-                        <div class="dropdown-toggle" type="button" id="g-dropdown-8" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="dropdown-image-box">
-                                <span class="dropdown-image" style="background-image: url(./images/industry/industry-8.png)"></span>
-                            </div>
-                            <span class="dropdown-text">Contrary to popular belief, Lorem Ipsum is not</span>
-                        </div>
-                        <div class="dropdown-menu" aria-labelledby="g-dropdown-8">
-                            <div>dropdown text</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="w-50 w-md-50 mx-auto mt-5">
-                <p class="text-center">Don’t see your industry listed? <button class="g-link g-link-2 green-color">Chat now</button> to find out which of our professional translation services will reach your target clients.</p>
-            </div>
-        </section>
+            </section>
+        @endif
 
         <section class="py-4">
             <h2 class="font-size-1 blue-color text-center mb-3">All Our Professional Translation Services</h2>

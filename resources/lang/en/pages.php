@@ -66,4 +66,18 @@ return [
     'A wish list' => 'A wish list',
     'send request' => 'send request',
 
+    'Professional Translation Services for Any Industry' => 'Professional Translation Services for Any Industry',
+    'Don’t see your industry listed?' => 'Don’t see your industry listed?',
+    'Chat now' => 'Chat now',
+    'to find out which of our professional translation services will reach your target clients.' => 'to find out which of our professional translation services will reach your target clients.',
+    'All Our Professional Translation Services' => 'All Our Professional Translation Services',
+    'Thorough 5-Step Quality Control' => 'Thorough 5-Step Quality Control',
+    'You will never suffer from mistranslation. We promise. We follow a strict 5-step review process to ensure that your translations are 100% accurate, every time. We so firmly stand behind this, that we give you our lifetime guarantee.' => 'You will never suffer from mistranslation. We promise. We follow a strict 5-step review process to ensure that your translations are 100% accurate, every time. We so firmly stand behind this, that we give you our lifetime guarantee.',
+    'The best part… if you ever find an error months, or even years down the road, just come back to us. We will fix it. We promise you 100% accurate professional translation services every time, no matter what. That’s our lifetime guarantee.' => 'The best part… if you ever find an error months, or even years down the road, just come back to us. We will fix it. We promise you 100% accurate professional translation services every time, no matter what. That’s our lifetime guarantee.',
+    'See more' => 'See more',
+    'Happy Clients' => 'Happy Clients',
+    'Professional Linguists' => 'Professional Linguists',
+    'Languages' => 'Languages',
+    'Words Translated' => 'Words Translated',
+
 ];

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Page;
+use App\TranslationServices;
 use Illuminate\Http\Request;
 
 class MainController extends FrontController
@@ -15,6 +16,8 @@ class MainController extends FrontController
     public function index()
     {
         $page = Page::where('page_number', '=', Page::Home)->first();
-        return view('main.index', compact('page'));
+        $translationServices = TranslationServices::all();
+
+        return view('main.index', compact('page', 'translationServices'));
     }
 }

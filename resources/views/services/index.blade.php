@@ -7,7 +7,7 @@
 @section('content')
 
     <section class="g-home-banner">
-        <div class="g-banner-bg" style="background-image: url({{ asset('storage/banner/'.$page->banners->image)  }});"></div>
+        <div class="g-banner-bg" style="background-image: url({{ asset('storage/banner/'.$page->banners->image) }});"></div>
         <div class="g-banner-content">
             <div class="g-banner-description">
                 <h1 class="g-title">{{ $page->banners->title }}</h1>
