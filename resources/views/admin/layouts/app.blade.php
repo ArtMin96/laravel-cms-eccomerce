@@ -77,14 +77,14 @@ use Illuminate\Support\Facades\Auth;
                         <div class="sidenav-menu">
                             <div class="nav accordion" id="accordionSidenav">
                                 <div class="sidenav-menu-heading"></div>
-                                <a class="nav-link" href="{{ url('/admin/dashboard') }}">
+                                <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/dashboard') }}">
                                     <div class="nav-link-icon"><i data-feather="activity"></i></div>
                                     {{ __('Dashboard') }}
                                 </a>
 
                                 <div class="sidenav-menu-heading">{{ __('Shop') }}</div>
 
-                                <a class="nav-link" href="{{ url('/admin/catalog') }}">
+                                <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/catalog') }}">
                                     <div class="nav-link-icon"><i data-feather="book-open"></i></div>
                                     {{ __('Catalog') }}
                                 </a>
@@ -98,27 +98,27 @@ use Illuminate\Support\Facades\Auth;
                                     <nav class="sidenav-menu-nested nav">
                                         @if(!empty(saleType()))
                                             @foreach(saleType() as $saleType)
-                                                <a class="nav-link" href="{{ url('/admin/product/'. $saleType->id) }}">{{ $saleType->name }}</a>
+                                                <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/product/'. $saleType->id) }}">{{ $saleType->name }}</a>
                                             @endforeach
                                         @endif
                                     </nav>
                                 </div>
 
-                                <a class="nav-link" href="{{ url('/admin/orders') }}">
+                                <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/orders') }}">
                                     <div class="nav-link-icon"><i data-feather="clipboard"></i></div>
                                     {{ __('Orders') }}
                                 </a>
-                                <a class="nav-link" href="{{ url('/admin/customers') }}">
+                                <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/customers') }}">
                                     <div class="nav-link-icon"><i data-feather="users"></i></div>
                                     {{ __('Customers') }}
                                 </a>
 
                                 <div class="sidenav-menu-heading">{{ __('CMS') }}</div>
-                                <a class="nav-link" href="{{ url('/admin/page') }}">
+                                <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/page') }}">
                                     <div class="nav-link-icon"><i data-feather="grid"></i></div>
                                     {{ __('Pages') }}
                                 </a>
-                                <a class="nav-link" href="{{ url('/admin/blog') }}">
+                                <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/blog') }}">
                                     <div class="nav-link-icon"><i data-feather="book"></i></div>
                                     {{ __('Blog') }}
                                 </a>
@@ -130,32 +130,45 @@ use Illuminate\Support\Facades\Auth;
                                 </a>
                                 <div class="collapse" id="collapseAboutUs" data-parent="#accordionSidenav">
                                     <nav class="sidenav-menu-nested nav">
-                                        <a class="nav-link" href="{{ url('/admin/our-team') }}">{{ __('Our Team') }}</a>
-                                        <a class="nav-link" href="{{ url('/admin/credentials') }}">{{ __('Credentials') }}</a>
-                                        <a class="nav-link" href="{{ url('/admin/customers') }}">{{ __('Customers') }}</a>
+                                        <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/our-team') }}">{{ __('Our Team') }}</a>
+                                        <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/credentials') }}">{{ __('Credentials') }}</a>
+                                        <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/customers') }}">{{ __('Customers') }}</a>
                                     </nav>
                                 </div>
 
-                                <a class="nav-link" href="{{ url('/admin/jobs') }}">
-                                    <div class="nav-link-icon"><i data-feather="dollar-sign"></i></div>
-                                    {{ __('Jobs') }}
-                                </a>
-                                <a class="nav-link" href="{{ url('/admin/faqs') }}">
-                                    <div class="nav-link-icon"><i data-feather="help-circle"></i></div>
-                                    {{ __('FAQs') }}
+                                <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseDynamicBlocks" aria-expanded="false" aria-controls="collapseDynamicBlocks">
+                                    <div class="nav-link-icon"><i data-feather="box"></i></div>
+                                    {{ __('Dynamic blocks') }}
+                                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
 
-                                <a class="nav-link" href="{{ url('/admin/ratings') }}">
+                                <div class="collapse" id="collapseDynamicBlocks" data-parent="#accordionSidenav">
+                                    <nav class="sidenav-menu-nested nav">
+                                        <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/jobs') }}">
+                                            <div class="nav-link-icon"><i data-feather="dollar-sign"></i></div>
+                                            {{ __('Jobs') }}
+                                        </a>
+                                        <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/faqs') }}">
+                                            <div class="nav-link-icon"><i data-feather="help-circle"></i></div>
+                                            {{ __('FAQs') }}
+                                        </a>
+                                        <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/translation-services') }}">
+                                            <div class="nav-link-icon"><i data-feather="columns"></i></div>
+                                            {{ __('Translation Services') }}
+                                        </a>
+                                        <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/company-logos') }}">
+                                            <div class="nav-link-icon"><i data-feather="layers"></i></div>
+                                            {{ __('Company logos') }}
+                                        </a>
+                                    </nav>
+                                </div>
+
+                                <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/ratings') }}">
                                     <div class="nav-link-icon"><i data-feather="star"></i></div>
                                     {{ __('Ratings') }}
                                 </a>
 
-                                <a class="nav-link" href="{{ url('/admin/translation-services') }}">
-                                    <div class="nav-link-icon"><i data-feather="columns"></i></div>
-                                    {{ __('Translation Services') }}
-                                </a>
-
-                                <a class="nav-link" href="{{ url('/admin/settings') }}">
+                                <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/settings') }}">
                                     <div class="nav-link-icon"><i data-feather="settings"></i></div>
                                     {{ __('Settings') }}
                                 </a>

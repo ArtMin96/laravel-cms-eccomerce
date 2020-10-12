@@ -44,6 +44,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::resource('/jobs', 'JobsController');
         Route::resource('/payment-gateways', 'PaymentGatewaysController');
         Route::resource('/ratings', 'RatingsController');
+        Route::resource('/company-logos', 'CompanyLogosController');
 
         Route::delete('/translation-services/rollback', 'TranslationServicesController@rollback')->name('translation.services.rollback');
         Route::get('/translation-services/{id}/duplicate', 'TranslationServicesController@duplicate');
