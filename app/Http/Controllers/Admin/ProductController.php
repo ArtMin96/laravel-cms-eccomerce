@@ -49,12 +49,14 @@ class ProductController extends AdminController
     {
         $rules = RuleFactory::make([
             '%title%' => 'required|string',
+            '%description%' => 'nullable|string',
             'price' => 'required|numeric',
         ]);
 
         if ($request->input('sale_type_id') == 3) {
             $rules = RuleFactory::make([
                 '%title%' => 'required|string',
+                '%description%' => 'nullable|string',
                 'price' => 'nullable|numeric',
                 'file.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:5000',
             ]);
@@ -63,6 +65,7 @@ class ProductController extends AdminController
         if ($request->input('sale_type_id') == 1) {
             $rules = RuleFactory::make([
                 '%title%' => 'required|string',
+                '%description%' => 'nullable|string',
                 'price' => 'required|numeric',
                 'file.*' => 'required|mimes:pdf|max:25000',
             ]);
@@ -82,15 +85,15 @@ class ProductController extends AdminController
         $translationProduct->update([
             'en' => [
                 'title' => $request->input('en')['title'],
-                'description' => $request->input('en')['description']
+                'description' => !empty($request->input('en')['description'])? $request->input('en')['description'] : null
             ],
             'ru' => [
                 'title' => $request->input('ru')['title'],
-                'description' => $request->input('ru')['description']
+                'description' => !empty($request->input('ru')['description'])? $request->input('ru')['description'] : null
             ],
             'hy' => [
                 'title' => $request->input('hy')['title'],
-                'description' => $request->input('hy')['description']
+                'description' => !empty($request->input('hy')['description'])? $request->input('hy')['description'] : null
             ]
         ]);
 
@@ -151,12 +154,14 @@ class ProductController extends AdminController
     {
         $rules = RuleFactory::make([
             '%title%' => 'required|string',
+            '%description%' => 'nullable|string',
             'price' => 'required|numeric',
         ]);
 
         if ($request->input('sale_type_id') == 3) {
             $rules = RuleFactory::make([
                 '%title%' => 'required|string',
+                '%description%' => 'nullable|string',
                 'price' => 'nullable|numeric',
                 'file.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:5000',
             ]);
@@ -165,6 +170,7 @@ class ProductController extends AdminController
         if ($request->input('sale_type_id') == 1) {
             $rules = RuleFactory::make([
                 '%title%' => 'required|string',
+                '%description%' => 'nullable|string',
                 'price' => 'required|numeric',
                 'file.*' => 'required|mimes:pdf|max:25000',
             ]);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Banner;
+use App\CompanyLogos;
 use App\Credentials;
 use App\Customers;
 use App\Http\Controllers\Controller;

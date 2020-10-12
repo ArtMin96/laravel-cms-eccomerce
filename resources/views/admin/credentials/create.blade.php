@@ -145,7 +145,6 @@
 
 @push('script')
     <script src="{{ asset('admin/js/switch-translatable.js') }}" type="text/javascript" defer></script>
-    <script src="{{ asset('admin/js/select2.min.js') }}" type="text/javascript" defer></script>
     <script src="{{ asset('admin/js/sweetalert2.all.min.js') }}" type="text/javascript" defer></script>
     <script src="{{ asset('admin/js/file-field.js') }}" type="text/javascript" defer></script>
 @endpush

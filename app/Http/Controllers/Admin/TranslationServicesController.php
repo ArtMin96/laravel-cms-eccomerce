@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 
-class TranslationServicesController extends Controller
+class TranslationServicesController extends AdminController
 {
     /**
      * Display a listing of the resource.

@@ -69,6 +69,20 @@
                 let title = $(this).attr('data-title');
                 let confirmText = $(this).attr('data-confirm-text');
                 let cancelText = $(this).attr('data-cancel-text');
+                let isEditable = false;
+
+                if ($('.img').hasClass('editable')) {
+                    isEditable = true;
+                }
+
+                if (isEditable === true) {
+                    $('.images').html($('<div class="pic">\n' +
+                        '                                        <span style="font-size: 1.25rem;">Upload</span>\n' +
+                        '                                        <input type="file" name="icon" accept="image/*" class="file-uploader d-none form-control @error(\'icon\') is-invalid @enderror" id="banner-image">\n' +
+                        '                                    </div>'));
+
+                    return false;
+                }
 
                 Swal.fire({
                     title: title,

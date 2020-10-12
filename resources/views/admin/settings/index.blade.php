@@ -87,9 +87,7 @@
 
                                         <div class="form-group">
                                             <label class="required" for="{{ $locale }}_footer_description">{{ trans('Site footer description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                            <textarea class="form-control @error($locale.'.footer_description') is-invalid @enderror" name="{{ $locale }}[footer_description]" id="{{ $locale }}_footer_description">
-                                                {{ old($locale.'.footer_description', $settings->footer_description) }}
-                                            </textarea>
+                                            <textarea class="form-control @error($locale.'.footer_description') is-invalid @enderror" name="{{ $locale }}[footer_description]" id="{{ $locale }}_footer_description">{{ old($locale.'.footer_description', $settings->footer_description) }}</textarea>
 
                                             @error($locale.'.footer_description')
                                                 <span class="invalid-feedback" role="alert">
@@ -144,9 +142,7 @@
 
                             <div class="form-group">
                                 <label class="required" for="map_html">{{ trans('Map HTML') }}</label>
-                                <textarea class="form-control @error('map_html') is-invalid @enderror" name="map_html" id="map_html" required>
-                                    {{ old('map_html', $settings->map_html) }}
-                                </textarea>
+                                <textarea class="form-control @error('map_html') is-invalid @enderror" name="map_html" id="map_html" required>{{ old('map_html', $settings->map_html) }}</textarea>
 
                                 @error('map_html')
                                     <span class="invalid-feedback" role="alert">
