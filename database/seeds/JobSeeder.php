@@ -14,14 +14,15 @@ class JobSeeder extends Seeder
         $jobs = [
             [
                 'en' => [
-                    'title' => 'Job title en',
+                    'title' => 'Translator',
                 ],
                 'ru' => [
-                    'title' => 'Job title ru',
+                    'title' => 'Переводчик',
                 ],
                 'hy' => [
-                    'title' => 'Job title hy',
-                ]
+                    'title' => 'Թարգմանիչ',
+                ],
+                'form_type' => 1
             ],
         ];
 

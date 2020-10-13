@@ -42,12 +42,12 @@ class JoinUsController extends Controller
         $request->validate([
             'name' => 'required|string',
             'last_name' => 'required|string',
-            'phone' => 'required|numeric',
+            'phone' => 'required|phone:AM', // Change AM to $this->getGeocodeCountryCode()
             'email' => 'required|email',
             'field_expertise' => 'required',
             'year_expertise' => 'required',
-            'translated_page_number' => 'required|numeric',
-            'daily_translation_capacity' => 'required|numeric',
+            'translated_page_number' => 'numeric',
+            'daily_translation_capacity' => 'numeric',
             'translation_rate_per_page' => 'required_if:translator_type, 0',
             'monthly_salary_expectation' => 'required_if:translator_type, 1',
             'cv' => 'required|file|max:5000|mimes:doc,pdf,docx',

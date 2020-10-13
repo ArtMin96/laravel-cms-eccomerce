@@ -46,7 +46,7 @@ class JobsController extends AdminController
 
         $jobs = Jobs::create($request->all());
 
-        return redirect()->route('admin.jobs.edit', $jobs->id);
+        return redirect()->route('admin.jobs.index');
     }
 
     /**
@@ -89,7 +89,7 @@ class JobsController extends AdminController
         $jobs = Jobs::findOrFail($id);
         $jobs->update($request->all());
 
-        return redirect()->route('admin.jobs.edit', $id);
+        return redirect()->route('admin.jobs.index');
     }
 
     /**

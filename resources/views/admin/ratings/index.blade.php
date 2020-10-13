@@ -56,7 +56,6 @@
                                 <th>{{ __('Name') }}</th>
                                 <th>{{ __('Email') }}</th>
                                 <th>{{ __('Comment') }}</th>
-                                <th>{{ __('Allow share') }}</th>
                                 <th>{{ __('Ratings') }}</th>
                                 <th>{{ __('Created date') }}</th>
                             </tr>
@@ -66,7 +65,6 @@
                                 <th>{{ __('Name') }}</th>
                                 <th>{{ __('Email') }}</th>
                                 <th>{{ __('Comment') }}</th>
-                                <th>{{ __('Allow share') }}</th>
                                 <th>{{ __('Ratings') }}</th>
                                 <th>{{ __('Created date') }}</th>
                             </tr>
@@ -79,7 +77,6 @@
                                         <a href="mailto:{{ $rating->email }}">{{ $rating->email }}</a>
                                     </td>
                                     <td>{{ \Illuminate\Support\Str::limit($rating->comment, 80, '...') }}</td>
-                                    <td>@if($rating->allow_share == 0) {{ __('No') }} @else {{ __('Yes') }} @endif</td>
                                     <td>
                                         <div class="d-flex flex-column">
                                             @if(!empty($rating->ratings))

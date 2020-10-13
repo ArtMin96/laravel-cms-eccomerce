@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Geocoder\Laravel\Facades\Geocoder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -127,7 +128,6 @@ class FrontController extends Controller
 
         return false;
     }
-
 
     /**
      * @return mixed

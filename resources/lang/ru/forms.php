@@ -32,4 +32,7 @@ return [
     'Confirm password' => 'Подтвердить Пароль',
     'Comments' => 'Комментарии',
 
+    'Select country' => 'Выберите страну',
+    'Select city' => 'Выберите город',
+
 ];

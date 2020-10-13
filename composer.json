@@ -24,6 +24,7 @@
         "toin0u/geocoder-laravel": "^4.4"
     },
     "require-dev": {
+        "dipeshsukhia/laravel-country-state-city-data": "^1.0",
         "facade/ignition": "^2.0",
         "fzaninotto/faker": "^1.9.1",
         "krlove/eloquent-model-generator": "^1.3",

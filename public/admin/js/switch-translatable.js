@@ -12,7 +12,7 @@ $(document).ready(function () {
         switchers.closest('form').find('.switch-translatable-fields').removeClass('d-block');
         $(`.switch-${locale}`).addClass('active');
         selectForm.removeClass('d-none');
-        $(this).closest('.translatable-form').find('input, textarea').focus();
+        $(this).closest('.translatable-form').find(selectForm).find('input, textarea').first().focus();
 
     });
 });

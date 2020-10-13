@@ -57,6 +57,17 @@
 
                                     </div>
                                 @endforeach
+
+                                <div class="form-group">
+                                    <div class="custom-control custom-radio custom-control-solid">
+                                        <input class="custom-control-input" id="other-job" type="radio" name="form_type" value="0" checked>
+                                        <label class="custom-control-label" for="other-job">{{ __('Other job') }}</label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-solid">
+                                        <input class="custom-control-input" id="translation-job" type="radio" name="form_type" value="1">
+                                        <label class="custom-control-label" for="translation-job">{{ __('Translation job') }}</label>
+                                    </div>
+                                </div>
                             </div>
                             <!-- .end Name translations -->
 

@@ -37,4 +37,5 @@ $(document).ready(function () {
             $('.message-dialog').fadeOut('slow', function(){ $(this).remove(); });
         }, 4000);
     }
+
 });
