@@ -138,6 +138,7 @@ return [
     |
     */
 
+    'phone' => 'Поле :attribute содержит недопустимый номер.',
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',

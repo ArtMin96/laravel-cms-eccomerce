@@ -138,22 +138,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <p class="text-center font-weight-bold">{{ __('pages.help_us_improve_share_feedback') }}</p>
-                                <p class="text-center light-color">{{ __('pages.help_us_improve_share_feedback') }}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="text-center">
-                                    <div class="form-group g-form-group">
-                                        <label class="g-radio label-row mr-3"><input type="radio" name="allow_share" value="1"><span>{{ __('pages.Yes') }}</span></label>
-                                        <label class="g-radio label-row"><input type="radio" name="allow_share" value="0"><span>{{ __('pages.No') }}</span></label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="row">
                             <div class="col-12">
                                 <div class="text-center">

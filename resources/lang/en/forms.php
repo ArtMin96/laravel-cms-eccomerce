@@ -31,5 +31,7 @@ return [
     'New password' => 'New password',
     'Confirm password' => 'Confirm password',
     'Comments' => 'Comments',
+    'Select country' => 'Select country',
+    'Select city' => 'Select city',
 
 ];

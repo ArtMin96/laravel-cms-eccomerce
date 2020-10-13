@@ -122,23 +122,36 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="col-md-6">
                                                 <div class="form-group g-form-group-sm">
                                                     <label for="country" class="personal-label">{{ __('forms.Country') }}</label>
                                                     <select class="form-control g-form-control-striped selectpicker" id="country" name="country">
-                                                        <option value="" selected>Armenia</option>
-                                                        <option value="">opt 2</option>
-                                                        <option value="">opt 3</option>
+                                                        <option value="" selected>{{ __('forms.Select country') }}</option>
+
+                                                        @if(!empty($countries))
+                                                            @foreach($countries as $country)
+                                                                <option value="{{ $country->id }}" @if (Auth::user()->country == $country->id) selected @endif>{{ ucfirst($country->name) }}</option>
+                                                            @endforeach
+                                                        @endif
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group g-form-group-sm">
                                                     <label for="city" class="personal-label">{{ __('forms.City') }}</label>
-                                                    <select class="form-control g-form-control-striped selectpicker" id="city" name="city">
-                                                        <option value="" selected>Yerevan</option>
-                                                        <option value="">opt 2</option>
-                                                        <option value="">opt 3</option>
+                                                    <select class="form-control g-form-control-striped selectpicker" id="city" name="city" data-live-search="true">
+
+                                                        @if (!empty($user->city))
+                                                            <option value="" selected>{{ __('forms.Select city') }}</option>
+
+                                                            @if(!empty($cities))
+                                                                @foreach($cities as $city)
+                                                                    <option value="{{ $city->id }}" @if (Auth::user()->city == $city->id) selected @endif>{{ ucfirst($city->name) }}</option>
+                                                                @endforeach
+                                                            @endif
+                                                        @endif
+
                                                     </select>
                                                 </div>
                                             </div>
@@ -169,7 +182,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group g-form-group-sm">
                                                     <label for="phone" class="personal-label">{{ __('forms.Phone') }}</label>
-                                                    <input type="text" class="form-control g-form-control-striped @error('phone') is-invalid @enderror" name="phone" id="phone" value="{{ old('phone', Auth::user()->phone) }}">
+                                                    <input type="text" class="form-control g-form-control-striped @error('phone') is-invalid @enderror" name="phone" id="phone" value="{{ old('phone', phone(Auth::user()->phone, 'AM')) }}">
 
                                                     @error('phone')
                                                         <span class="invalid-feedback" role="alert">
@@ -212,4 +225,5 @@
 @push('script')
     <script src="{{ asset('admin/js/sweetalert2.all.min.js') }}" type="text/javascript" defer></script>
     <script src="{{ asset('admin/js/file-field.js') }}" type="text/javascript" defer></script>
+    <script src="{{ asset('js/requests.js') }}" type="text/javascript" defer></script>
 @endpush

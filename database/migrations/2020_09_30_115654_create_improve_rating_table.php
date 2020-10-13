@@ -19,7 +19,6 @@ class CreateImproveRatingTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('comment');
-            $table->integer('allow_share')->default(0);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

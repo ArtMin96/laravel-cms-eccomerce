@@ -297,6 +297,8 @@ $( document ).ready(function() {
 
         jobPlaceBtn.on('click', function (){
             const $this = $(this);
+            $this.closest('.job-place-box').find('[type="radio"]').attr('checked', false);
+            $this.closest('.job-place-item').find('[type="radio"]').attr('checked', 'checked');
             $this.closest('.job-place-box').find('.job-place-input').attr('disabled', true);
             $this.closest('.job-place-item').find('.job-place-input').removeAttr('disabled');
             $this.closest('.job-place-box').find('.job-place-btn').removeClass('g-btn-green').addClass('g-btn-green-ol');

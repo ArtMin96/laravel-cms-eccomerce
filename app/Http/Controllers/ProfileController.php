@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\City;
+use App\Country;
 use App\Rules\MatchOldPassword;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rule;
 use Intervention\Image\Facades\Image;
-use function GuzzleHttp\Promise\all;
 
 class ProfileController extends Controller
 {
@@ -66,7 +66,10 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        return view('profile.show');
+        $countries = Country::all();
+        $cities = City::all();
+        $user = $this->user();
+        return view('profile.show', compact('countries', 'cities', 'user'));
     }
 
     /**
@@ -93,8 +96,7 @@ class ProfileController extends Controller
             'name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,'.\Auth::user()->id.',id',
-            'phone' => 'numeric|digits_between:8,20',
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:5000',
+            'phone' => 'phone:AM', // AM Change to $this->getGeocodeCountryCode()
         ]);
 
         $user = User::findOrFail($id);
@@ -114,6 +116,10 @@ class ProfileController extends Controller
         $user->person_type = $request->person_type;
 
         if ($request->hasFile('image')) {
+
+            $request->validate([
+                'image' => 'image|mimes:jpeg,png,jpg,gif|max:5000',
+            ]);
 
             if (!empty($user->image)) {
                 unlink(storage_path('app/public/users/'.$user->image));

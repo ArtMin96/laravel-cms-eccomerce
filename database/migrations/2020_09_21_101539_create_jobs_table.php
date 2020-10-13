@@ -15,6 +15,7 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
+            $table->integer('form_type')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });

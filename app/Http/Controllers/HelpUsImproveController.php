@@ -52,7 +52,6 @@ class HelpUsImproveController extends Controller
             $improveRating->name = $request->input('name');
             $improveRating->email = $request->input('email_address');
             $improveRating->comment = $request->input('comment');
-            $improveRating->allow_share = $request->input('allow_share');
 
             if ($improveRating->save()) {
                 foreach ($request->input('star') as $key => $star) {

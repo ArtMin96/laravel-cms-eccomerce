@@ -34,7 +34,7 @@ class Jobs extends Model
     /**
      * @var array
      */
-    protected $fillable = ['deleted_at'];
+    protected $fillable = ['form_type', 'deleted_at'];
 
     /**
      * The attributes that should be cast to native types.
