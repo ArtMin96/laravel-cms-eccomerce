@@ -41,6 +41,7 @@
                 <h1 class="g-title mb-5">{{ __('pages.Document Shop') }}</h1>
             </div>
         </div>
+
         <div class="row">
             <div class="col-lg-3">
                 <div class="g-side-menu g-side-menu-3">
@@ -48,8 +49,12 @@
                     <ul class="g-side-menu-list">
                         @if(!empty($catalog))
                             @foreach($catalog as $catalogs)
-                                <li class="g-side-menu-item">
-                                    <a href="{{ LaravelLocalization::localizeUrl('/document-shop/catalog/'.$catalogs->id) }}" class="g-side-menu-link">{{ $catalogs->title }}</a>
+                                <li class="g-side-menu-item @if(request()->catalog == $catalogs->id) g-side-menu-active @endif">
+                                    @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'filter-product')
+                                        <a href="{{ route('filter-product', request()->all() + ['catalog' => $catalogs->id]) }}" class="g-side-menu-link">{{ $catalogs->title }}</a>
+                                    @else
+                                        <a href="{{ route('filter-product', ['catalog' => $catalogs->id]) }}" class="g-side-menu-link">{{ $catalogs->title }}</a>
+                                    @endif
                                 </li>
                             @endforeach
                         @endif
@@ -60,41 +65,55 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="g-filter-bar mb-4">
-                            <form>
+                            <form action="{{ route('filter-product') }}" method="GET">
+                                @csrf
+
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="g-filter-bar-col g-card-wrap">
                                             <div class="text-center font-weight-bold font-size-5 mb-3">{{ __('pages.Filter') }}</div>
                                             <div>
-                                                <label class="g-radio label-row d-block"><input type="radio" name="name_alphabet"><span>{{ __('pages.By name') }}</span></label>
-                                                <label class="g-radio label-row d-block"><input type="radio" name="name_alphabet"><span>{{ __('pages.Alphabetically') }}</span></label>
+                                                <label class="g-checkbox" for="title">
+                                                    <input class="form-check-input" type="checkbox" name="title" id="title">
+                                                    <span>{{ __('pages.By name') }}</span>
+                                                </label>
+{{--                                                <label class="g-radio label-row d-block">--}}
+{{--                                                    <input type="radio" name="title" value="0"><span>{{ __('pages.By name') }}</span>--}}
+{{--                                                </label>--}}
+{{--                                                <label class="g-radio label-row d-block"><input type="radio" name="title" value="1"><span>{{ __('pages.Alphabetically') }}</span></label>--}}
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="col-md-4">
                                         <div class="g-filter-bar-col g-card-wrap">
                                             <div class="text-center font-weight-bold font-size-5 mb-3">{{ __('pages.Time') }}</div>
                                             <div>
-                                                <label for="filter-time-input" class="light-color">{{ __('pages.By time') }}</label>
-                                                <input type="date" class="form-control g-form-control g-form-control-sm" id="filter-time-input" aria-describedby="filterTimeHelp">
+                                                <label for="filter-time" class="light-color">{{ __('pages.By time') }}</label>
+                                                <input type="date" class="form-control g-form-control g-form-control-sm" id="filter-time" name="created" aria-describedby="filterTimeHelp" value="{{ request()->created_at }}">
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="col-md-4">
                                         <div class="g-filter-bar-col g-card-wrap">
                                             <div class="text-center font-weight-bold font-size-5 mb-3">{{ __('pages.Filter') }}</div>
                                             <div>
                                                 <label for="filter-lang-select" class="light-color">{{ __('pages.By language') }}</label>
-                                                <select id="filter-lang-select" class="form-control g-form-control g-form-control-sm selectpicker" aria-describedby="filterLangHelp">
-                                                    <option value="">English</option>
-                                                    <option value="">Հայերեն</option>
-                                                    <option value="">русский</option>
+                                                <select id="filter-lang-select" class="form-control g-form-control g-form-control-sm selectpicker" name="language" aria-describedby="filterLangHelp">
+                                                    <option value="">{{ __('Choose language') }}</option>
+
+                                                    @if(!empty($languages))
+                                                        @foreach($languages as $locale)
+                                                            <option value="{{ $locale->id }}">{{ $locale->name }}</option>
+                                                        @endforeach
+                                                    @endif
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12 text-right">
-                                        <button class="g-btn g-btn-blue-ol"><i class="fas fa-filter"></i> Filter</button>
+                                        <button type="submit" class="g-btn g-btn-blue-ol"><i class="fas fa-filter"></i> Filter</button>
                                     </div>
                                 </div>
                             </form>
@@ -103,7 +122,7 @@
                 </div>
                 <div id="document-shop-cards-list">
 
-                    @if(!empty($products))
+                    @if(count($products) > 0)
                         @foreach($products as $product)
                             <div class="g-card-product-basket g-card-wrap">
                                 <div class="g-card-product-basket-image-box">

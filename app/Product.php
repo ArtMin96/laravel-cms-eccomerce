@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Filters\QueryFilter;
+use Illuminate\Database\Eloquent\Builder;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,6 +14,7 @@ use LamaLama\Wishlist\Wishlistable;
  * @property integer $user_id
  * @property integer $sale_type_id
  * @property float $price
+ * @property float $language
  * @property string $deleted_at
  * @property string $created_at
  * @property string $updated_at
@@ -51,7 +54,7 @@ class Product extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'sale_type_id', 'price', 'deleted_at'];
+    protected $fillable = ['user_id', 'sale_type_id', 'price', 'language', 'deleted_at'];
 
     /**
      * The attributes that should be mutated to dates.
@@ -95,7 +98,7 @@ class Product extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function productFiles()
     {
@@ -108,5 +111,13 @@ class Product extends Model
     public function catalog()
     {
         return $this->belongsToMany(Catalog::class);
+    }
+
+    /**
+     * @return Builder
+     */
+    public function scopeFilter(Builder $builder, QueryFilter $filters)
+    {
+        return $filters->apply($builder);
     }
 }

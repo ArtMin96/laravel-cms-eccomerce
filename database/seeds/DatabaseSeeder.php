@@ -25,5 +25,7 @@ class DatabaseSeeder extends Seeder
          $this->call(LanguagesSeeder::class);
          $this->call(RateServiceSeeder::class);
          $this->call(CatalogSeeder::class);
+         $this->call(ProductSeeder::class);
+         $this->call(DocumentLanguagesSeeder::class);
     }
 }

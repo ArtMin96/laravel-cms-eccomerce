@@ -174,6 +174,19 @@
                                         </select>
 
                                     </div>
+
+                                    <div class="form-group">
+                                        <label class="required" for="language">{{ __('Language') }}</label>
+                                        <select class="js-select-multiple form-control w-100" id="language" name="language" data-placeholder="Choose anything" data-allow-clear="1">
+                                            <option value="">{{ __('Choose language') }}</option>
+
+                                            @if(!empty($languages))
+                                                @foreach($languages as $locale)
+                                                    <option value="{{ $locale->id }}" @if ($product->language == $locale->id) selected @endif>{{ $locale->name }}</option>
+                                                @endforeach
+                                            @endif
+                                        </select>
+                                    </div>
                                 @endif
 
                                 <!-- Save changes button-->
