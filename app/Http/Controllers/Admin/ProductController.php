@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Catalog;
+use App\DocumentLanguages;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\ProductFiles;
@@ -36,7 +37,8 @@ class ProductController extends AdminController
     {
         $saleType = SaleType::where('id', $id)->first();
         $catalog = Catalog::all();
-        return view('admin.product.create', ['id' => $id, 'saleType' => $saleType, 'catalog' => $catalog]);
+        $languages = DocumentLanguages::all();
+        return view('admin.product.create', compact('id', 'saleType', 'catalog', 'languages'));
     }
 
     /**
@@ -77,6 +79,7 @@ class ProductController extends AdminController
         $product->user_id = \Auth::check() ? \Auth::user()->id : null;
         $product->sale_type_id = $request->input('sale_type_id');
         $product->price = $request->input('price');
+        $product->language = $request->input('language');
         $product->save();
 
         $product->catalog()->attach($request->input('catalog'));
@@ -136,11 +139,8 @@ class ProductController extends AdminController
         $product = Product::find($id);
         $saleType = SaleType::where('id', $id)->first();
         $catalog = Catalog::all();
-        return view('admin.product.edit', [
-            'product' => $product,
-            'saleType' => $saleType,
-            'catalog' => $catalog
-        ]);
+        $languages = DocumentLanguages::all();
+        return view('admin.product.edit', compact('product', 'saleType', 'catalog', 'languages'));
     }
 
     /**
@@ -182,6 +182,7 @@ class ProductController extends AdminController
         $product->user_id = \Auth::check() ? \Auth::user()->id : null;
         $product->sale_type_id = $request->input('sale_type_id');
         $product->price = $request->input('price');
+        $product->language = $request->input('language');
         $product->save();
 
         $product->catalog()->sync($request->input('catalog'));
