@@ -11,13 +11,13 @@ class ProductFilters extends QueryFilter
     {
         return $this->builder->whereHas('catalog', function ($query) use ($catalog) {
             $query->where('id', $catalog);
-        });
+        })->where('sale_type_id', '=', 1);
     }
 
     public function created($created_at = null)
     {
         if (!is_null($created_at)) {
-            return $this->builder->whereDate('created_at', '=', $created_at);
+            return $this->builder->whereDate('created_at', '=', $created_at)->where('sale_type_id', '=', 1);
         }
     }
 
