@@ -17,9 +17,9 @@ class DocumentShopController extends Controller
         if (request()->catalog) {
             $products = Product::where('sale_type_id', Product::DocumentShop)->whereHas('catalog', function ($query) {
                 $query->where('id', request()->catalog);
-            })->paginate(20);
+            })->paginate(2);
         } else {
-            $products = Product::where('sale_type_id', Product::DocumentShop)->paginate(20);
+            $products = Product::where('sale_type_id', Product::DocumentShop)->paginate(2);
         }
 
         $catalog = Catalog::all();
@@ -30,7 +30,7 @@ class DocumentShopController extends Controller
     public function getFilter(ProductFilters $filters)
     {
         $page = Page::where('page_number', '=', Page::DocumentShop)->first();
-        $products = Product::filter($filters)->paginate(20);
+        $products = Product::filter($filters)->paginate(2);
 
         $catalog = Catalog::all();
         $languages = DocumentLanguages::all();

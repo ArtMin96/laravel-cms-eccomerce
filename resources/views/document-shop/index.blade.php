@@ -90,7 +90,7 @@
                                             <div class="text-center font-weight-bold font-size-5 mb-3">{{ __('pages.Time') }}</div>
                                             <div>
                                                 <label for="filter-time" class="light-color">{{ __('pages.By time') }}</label>
-                                                <input type="date" class="form-control g-form-control g-form-control-sm" id="filter-time" name="created" aria-describedby="filterTimeHelp" value="{{ request()->created_at }}">
+                                                <input type="date" class="form-control g-form-control g-form-control-sm" id="filter-time" name="created" aria-describedby="filterTimeHelp" value="{{ request()->created }}">
                                             </div>
                                         </div>
                                     </div>
@@ -105,7 +105,7 @@
 
                                                     @if(!empty($languages))
                                                         @foreach($languages as $locale)
-                                                            <option value="{{ $locale->id }}">{{ $locale->name }}</option>
+                                                            <option value="{{ $locale->id }}" @if(request()->language == $locale->id) selected @endif>{{ $locale->name }}</option>
                                                         @endforeach
                                                     @endif
                                                 </select>
@@ -158,7 +158,8 @@
         </div>
     </div>
 
-    @if(!empty($product))
+    @if(!empty($products))
+        {{ $products->appends(request()->input())->links() }}
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
