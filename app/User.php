@@ -38,8 +38,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function getCountry()
     {
         return $this->belongsTo(Country::class, 'country');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function cart()
+    {
+        return $this->belongsToMany(Cart::class, 'user_id');
     }
 }

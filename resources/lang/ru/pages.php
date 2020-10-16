@@ -78,4 +78,11 @@ return [
     'Professional Linguists' => 'Профессиональные лингвисты',
     'Languages' => 'Языки',
     'Words Translated' => 'Слова переведены',
+
+    'Basket' => 'Корзина',
+    'Amount' => 'Количество',
+    'Products' => 'Продукты',
+    'Total' => 'Всего',
+    'Clear basket' => 'Очистить корзину',
+    'go to order' => 'перейти к заказу',
 ];

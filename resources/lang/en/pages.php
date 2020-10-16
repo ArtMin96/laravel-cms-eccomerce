@@ -79,4 +79,11 @@ return [
     'Languages' => 'Languages',
     'Words Translated' => 'Words Translated',
 
+    'Basket' => 'Basket',
+    'Amount' => 'Amount',
+    'Products' => 'Products',
+    'Total' => 'Total',
+    'Clear basket' => 'Clear basket',
+    'go to order' => 'go to order',
+
 ];
