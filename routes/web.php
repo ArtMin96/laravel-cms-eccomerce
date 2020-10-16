@@ -115,6 +115,12 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/wishlist', 'WishlistController@index')->name('wishlist');
     Route::get('/wishlist/search', ['uses' => 'WishlistController@getSearch','as' => 'search']);
 
+    Route::get('/cart', 'CartController@index')->name('cart.index');
+    Route::post('/cart', 'CartController@store')->name('cart.store');
+    Route::patch('/cart', 'CartController@update')->name('cart.update');
+    Route::delete('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
+//    Route::resource('/cart', 'CartController');
+
     // Ajax requests
     Route::post('/front-request/remove-user-image', 'FrontRequestController@removeUserImage')->name('front-request.remove.user.image');
 

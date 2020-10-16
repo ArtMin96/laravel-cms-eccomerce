@@ -143,7 +143,17 @@
                                     <div class="text-right">
                                         <div class="black-color font-size-5 font-weight-bold mt-2 pr-5">{{ number_format($product->price, 0, '.', '') }} <span>AMD</span></div>
                                         <button class="g-btn g-btn-grey g-btn-round text-capitalize">buy</button>
-                                        <button class="g-btn blue-color"><i class="fas fa-shopping-cart"></i></button>
+
+                                        @if(auth()->check())
+                                            <form action="{{ route('cart.store') }}" method="POST" class="js--add-cart">
+                                                @csrf
+
+                                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                <button class="g-btn blue-color"><i class="fas fa-shopping-cart"></i></button>
+                                            </form>
+                                        @else
+                                            <button class="g-btn blue-color" style="cursor: pointer" data-toggle="modal" data-target="#loginModal"><i class="fas fa-shopping-cart"></i></button>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -175,4 +185,46 @@
 
     <div class="g-message-btn-box"><a href="#" class="g-message-btn"></a></div>
 
+    @include('partials.Login')
+
 @endsection
+
+@push('script')
+
+    <!-- Scripts -->
+    <script defer>
+
+        window.addEventListener('load', function () {
+
+            $('body').on('submit', '.js--add-cart', function (e) {
+                e.preventDefault();
+
+                let id = $(this).closest('form').find('[name=product_id]').val();
+
+                axios.post('{{ route('cart.store') }}', {
+                    id: id
+                })
+                .then(function (response) {
+
+                    $(`
+                        <div class="message-dialog g-card-wrap">
+                            <span>${response.data.message}</span>
+                        </div>
+                    `).appendTo('body').slideToggle('slow');
+
+                    setTimeout(()=>{
+                        $('.message-dialog').fadeOut('slow', function(){ $(this).remove(); });
+                    }, 4000);
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+
+            });
+
+        });
+
+    </script>
+
+@endpush

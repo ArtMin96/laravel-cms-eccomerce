@@ -51,7 +51,7 @@
                     <a href="{{ LaravelLocalization::localizeUrl('/login') }}" class="g-btn g-link-2"><i class="fas fa-heart"></i></a>
                 @endif
 
-                <a href="../user/basket.html" class="g-btn g-link-2"><i class="fas fa-shopping-cart"></i></a>
+                <a href="{{ LaravelLocalization::localizeUrl('cart') }}" class="g-btn g-link-2"><i class="fas fa-shopping-cart"></i></a>
 
                 <div class="dropdown">
                     <button class="g-btn" type="button" id="dropdownLangButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

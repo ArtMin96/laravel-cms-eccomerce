@@ -348,16 +348,16 @@ $( document ).ready(function() {
     (function (){
         $('body').on('click', '.g-card-toggle-btn', function (){
            const togglePoint = $(this).closest('.g-card-toggle-buttons').find('.g-card-toggle-point');
-           let pointText = parseInt( togglePoint.text().trim() );
+           let pointText = parseInt( togglePoint.val().trim() );
 
             switch ( $(this).data('role') ) {
                 case 'plus':
                     pointText ++;
-                    togglePoint.text(pointText);
+                    togglePoint.val(pointText);
                     break;
                 case 'minus':
                     pointText --;
-                    pointText >= 1 ? togglePoint.text(pointText) : null;
+                    pointText >= 1 ? togglePoint.val(pointText) : null;
                     break;
             }
         });
@@ -417,11 +417,11 @@ $( document ).ready(function() {
     /**
      * basket document download
      */
-    (function (){
-        $('#basket-cards-list').on('click', '.basket-link', function (){
-            console.log(this);
-        });
-    })();
+    // (function (){
+    //     $('#basket-cards-list').on('click', '.basket-link', function (){
+    //         console.log(this);
+    //     });
+    // })();
 
     /**
      * delete online shop card
@@ -453,20 +453,35 @@ $( document ).ready(function() {
     /**
      * delete basket card
      */
-    (function (){
-        $('#basket-cards-list').on('click', '.del-basket-card-btn', function (){
-            console.log(this);
-        });
-    })();
+    // (function (){
+    //     $('#basket-cards-list').on('click', '.del-basket-card-btn', function (){
+    //         console.log(this);
+    //     });
+    // })();
 
     /**
      * clear basket cards
      */
-    (function (){
-        $('.clear-basket-cards-btn').click(function (){
-            console.log(this);
-        });
-    })();
+    // (function (){
+    //     $('.clear-basket-cards-btn').click(function (){
+    //         console.log(this);
+    //     });
+    // })();
+
+    /**
+     * show message dialog alert
+     */
+    function messageDialog(messageText){
+        $(`
+            <div class="message-dialog g-card-wrap">
+                <span>${messageText}</span>
+            </div>
+        `).appendTo('body').slideToggle('slow');
+
+        setTimeout(()=>{
+            $('.message-dialog').fadeOut('slow', function(){ $(this).remove(); });
+        }, 4000);
+    }
 
 });
 
