@@ -25,7 +25,7 @@
                     <div class="col-auto mb-3">
                         <h1 class="page-header-title">
                             <div class="page-header-icon"><i data-feather="book-open"></i></div>
-                            {{ __('Create product') }} - {{ $saleType->name }}
+                            {{ __('admin.Create product') }} - {{ $saleType->name }}
                         </h1>
                     </div>
                 </div>
@@ -46,12 +46,12 @@
                 <div class="col-xl-4">
                     <!-- Profile picture card-->
                     <div class="card">
-                        <div class="card-header">{{ __('Product file') }}</div>
+                        <div class="card-header">{{ __('admin.Product file') }}</div>
                         <div class="card-body text-center">
 
                             <div class="images">
                                 <div class="pic">
-                                    <span style="font-size: 1.25rem;">Upload</span>
+                                    <span style="font-size: 1.25rem;">{{ __('admin.File') }}</span>
                                     <input type="file" name="file" class="file-uploader d-none form-control @error('file') is-invalid @enderror" id="file">
                                 </div>
                             </div>
@@ -62,8 +62,31 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                            <div class="small font-italic text-muted mb-4">{{ __('Rent Equipment: JPG or PNG no larger than 5 MB') }}</div>
-                            <div class="small font-italic text-muted mb-4">{{ __('Document Shop: PDF no larger than 25 MB') }}</div>
+
+                            @if(request()->id == 1)
+                                <div class="small font-italic text-muted mb-4">{{ __('admin.PDF no larger than 25 MB') }}</div>
+                            @elseif(request()->id == 3)
+                                <div class="small font-italic text-muted mb-4">{{ __('admin.JPG, JPEG, PNG no larger than 5 MB') }}</div>
+                            @endif
+
+                            @if(request()->id == 1)
+
+                                <div class="images">
+                                    <div class="pic">
+                                        <span style="font-size: 1.25rem;">{{ __('admin.Preview image') }}</span>
+                                        <input type="file" name="preview_image" accept="image/*" class="file-uploader d-none form-control @error('preview_image') is-invalid @enderror" id="preview-image">
+                                    </div>
+                                </div>
+
+                                @error('preview_image')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                                <div class="small font-italic text-muted mb-4">{{ __('admin.JPG, JPEG, PNG no larger than 5 MB') }}</div>
+
+                            @endif
+
                         </div>
                     </div>
                 </div>
@@ -101,9 +124,7 @@
                                         @if(request()->route('id') == 1)
                                             <div class="form-group">
                                                 <label class="required" for="{{ $locale }}_description">{{ __('Description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                <textarea class="form-control @error($locale.'.description') is-invalid @enderror" name="{{ $locale }}[description]" id="{{ $locale }}_description">
-                                                    {{ old($locale.'.description') }}
-                                                </textarea>
+                                                <textarea class="form-control @error($locale.'.description') is-invalid @enderror" name="{{ $locale }}[description]" id="{{ $locale }}_description">{{ old($locale.'.description') }}</textarea>
 
                                                 @error($locale.'.description')
                                                     <span class="invalid-feedback" role="alert">

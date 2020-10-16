@@ -61,7 +61,7 @@ return [
     'Watch expert' => 'Смотреть эксперт',
     'Buy' => 'Купить',
 
-    'There is no product' => 'Нет товара',
+    'There is no item' => 'Нет пункта',
     'A wish list' => 'Список желаний',
     'send request' => 'Послать запрос',
 
@@ -85,4 +85,5 @@ return [
     'Total' => 'Всего',
     'Clear basket' => 'Очистить корзину',
     'go to order' => 'перейти к заказу',
+    'All' => 'Все',
 ];

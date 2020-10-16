@@ -44,8 +44,8 @@ class ProductController extends AdminController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
@@ -70,6 +70,7 @@ class ProductController extends AdminController
                 '%description%' => 'nullable|string',
                 'price' => 'required|numeric',
                 'file.*' => 'required|mimes:pdf|max:25000',
+                'preview_image.*' => 'image|mimes:jpeg,png,jpg,gif|max:5000',
             ]);
         }
 
@@ -100,15 +101,28 @@ class ProductController extends AdminController
             ]
         ]);
 
-        if ($request->hasFile('file')) {
+        if ($request->hasFile('file') || $request->hasFile('preview_image')) {
 
             $fileModel = new ProductFiles();
-            $fileName = time().'_'.str_replace(' ', '_', $request->file->getClientOriginalName());
-            $filePath = $request->file('file')->storeAs('products', $fileName, 'public');
 
-            $fileModel->product_id = $product->id;
-            $fileModel->file = $fileName;
-            $fileModel->url = '/storage/' . $filePath;
+            if ($request->hasFile('file')) {
+
+                $fileName = time().'_'.str_replace(' ', '_', $request->file->getClientOriginalName());
+                $filePath = $request->file('file')->storeAs('products', $fileName, 'public');
+
+                $fileModel->product_id = $product->id;
+                $fileModel->file = $fileName;
+                $fileModel->url = '/storage/' . $filePath;
+            }
+
+            if ($request->hasFile('preview_image')) {
+
+                $previewFileName = time().'_'.str_replace(' ', '_', $request->preview_image->getClientOriginalName());
+                $previewFilePath = $request->file('preview_image')->storeAs('products', $previewFileName, 'public');
+
+                $fileModel->preview_image = $previewFilePath;
+            }
+
             $fileModel->save();
         }
 
@@ -173,6 +187,7 @@ class ProductController extends AdminController
                 '%description%' => 'nullable|string',
                 'price' => 'required|numeric',
                 'file.*' => 'required|mimes:pdf|max:25000',
+                'preview_image.*' => 'image|mimes:jpeg,png,jpg,gif|max:5000',
             ]);
         }
 
@@ -203,15 +218,31 @@ class ProductController extends AdminController
             ]
         ]);
 
-        if ($request->hasFile('file')) {
+        if ($request->hasFile('file') || $request->hasFile('preview_image')) {
+            $fileModel = ProductFiles::where('product_id', $product->id)->first();
 
-            $fileModel = new ProductFiles();
-            $fileName = time().'_'.str_replace(' ', '_', $request->file->getClientOriginalName());
-            $filePath = $request->file('file')->storeAs('products', $fileName, 'public');
+            if (empty($fileModel) || is_null($fileModel)) {
+                $fileModel = new ProductFiles();
+            }
 
-            $fileModel->product_id = $product->id;
-            $fileModel->file = $fileName;
-            $fileModel->url = '/storage/' . $filePath;
+            if ($request->hasFile('file')) {
+
+                $fileModel = new ProductFiles();
+                $fileName = time().'_'.str_replace(' ', '_', $request->file->getClientOriginalName());
+                $filePath = $request->file('file')->storeAs('products', $fileName, 'public');
+
+                $fileModel->product_id = $product->id;
+                $fileModel->file = $fileName;
+                $fileModel->url = '/storage/' . $filePath;
+            }
+
+            if ($request->hasFile('preview_image')) {
+                $previewFileName = time().'_'.str_replace(' ', '_', $request->preview_image->getClientOriginalName());
+                $previewFilePath = $request->file('preview_image')->storeAs('products', $previewFileName, 'public');
+                $fileModel->product_id = $product->id;
+                $fileModel->preview_image = $previewFilePath;
+            }
+
             $fileModel->save();
         }
 

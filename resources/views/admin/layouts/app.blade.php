@@ -51,13 +51,13 @@ use Illuminate\Support\Facades\Auth;
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#!">
                                 <div class="dropdown-item-icon"><i data-feather="settings"></i></div>
-                                Account
+                                {{ __('admin.Account') }}
                             </a>
                             <a class="dropdown-item" href="{{ route('admin.logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                 <div class="dropdown-item-icon"><i data-feather="log-out"></i></div>
-                                {{ __('Logout') }}
+                                {{ __('admin.Logout') }}
 
                                 <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="d-none">
                                     @csrf
@@ -79,19 +79,19 @@ use Illuminate\Support\Facades\Auth;
                                 <div class="sidenav-menu-heading"></div>
                                 <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/dashboard') }}">
                                     <div class="nav-link-icon"><i data-feather="activity"></i></div>
-                                    {{ __('Dashboard') }}
+                                    {{ __('admin.Dashboard') }}
                                 </a>
 
                                 <div class="sidenav-menu-heading">{{ __('Shop') }}</div>
 
                                 <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/catalog') }}">
                                     <div class="nav-link-icon"><i data-feather="book-open"></i></div>
-                                    {{ __('Catalog') }}
+                                    {{ __('admin.Catalog') }}
                                 </a>
 
                                 <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseProducts" aria-expanded="false" aria-controls="collapseProducts">
                                     <div class="nav-link-icon"><i data-feather="box"></i></div>
-                                    {{ __('Products') }}
+                                    {{ __('admin.Products') }}
                                     <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
                                 <div class="collapse" id="collapseProducts" data-parent="#accordionSidenav">
@@ -106,39 +106,39 @@ use Illuminate\Support\Facades\Auth;
 
                                 <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/orders') }}">
                                     <div class="nav-link-icon"><i data-feather="clipboard"></i></div>
-                                    {{ __('Orders') }}
+                                    {{ __('admin.Orders') }}
                                 </a>
                                 <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/customers') }}">
                                     <div class="nav-link-icon"><i data-feather="users"></i></div>
-                                    {{ __('Customers') }}
+                                    {{ __('admin.Customers') }}
                                 </a>
 
                                 <div class="sidenav-menu-heading">{{ __('CMS') }}</div>
                                 <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/page') }}">
                                     <div class="nav-link-icon"><i data-feather="grid"></i></div>
-                                    {{ __('Pages') }}
+                                    {{ __('admin.Pages') }}
                                 </a>
                                 <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/blog') }}">
                                     <div class="nav-link-icon"><i data-feather="book"></i></div>
-                                    {{ __('Blog') }}
+                                    {{ __('admin.Blog') }}
                                 </a>
 
                                 <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseAboutUs" aria-expanded="false" aria-controls="collapseAboutUs">
                                     <div class="nav-link-icon"><i data-feather="briefcase"></i></div>
-                                    {{ __('Company') }}
+                                    {{ __('admin.Company') }}
                                     <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
                                 <div class="collapse" id="collapseAboutUs" data-parent="#accordionSidenav">
                                     <nav class="sidenav-menu-nested nav">
-                                        <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/our-team') }}">{{ __('Our Team') }}</a>
-                                        <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/credentials') }}">{{ __('Credentials') }}</a>
-                                        <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/customers') }}">{{ __('Customers') }}</a>
+                                        <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/our-team') }}">{{ __('admin.Our Team') }}</a>
+                                        <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/credentials') }}">{{ __('admin.Credentials') }}</a>
+                                        <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/customers') }}">{{ __('admin.Customers') }}</a>
                                     </nav>
                                 </div>
 
                                 <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseDynamicBlocks" aria-expanded="false" aria-controls="collapseDynamicBlocks">
                                     <div class="nav-link-icon"><i data-feather="box"></i></div>
-                                    {{ __('Dynamic blocks') }}
+                                    {{ __('admin.Dynamic blocks') }}
                                     <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
 
@@ -146,37 +146,37 @@ use Illuminate\Support\Facades\Auth;
                                     <nav class="sidenav-menu-nested nav">
                                         <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/jobs') }}">
                                             <div class="nav-link-icon"><i data-feather="dollar-sign"></i></div>
-                                            {{ __('Jobs') }}
+                                            {{ __('admin.Jobs') }}
                                         </a>
                                         <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/faqs') }}">
                                             <div class="nav-link-icon"><i data-feather="help-circle"></i></div>
-                                            {{ __('FAQs') }}
+                                            {{ __('admin.FAQs') }}
                                         </a>
                                         <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/translation-services') }}">
                                             <div class="nav-link-icon"><i data-feather="columns"></i></div>
-                                            {{ __('Translation Services') }}
+                                            {{ __('admin.Translation Services') }}
                                         </a>
                                         <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/company-logos') }}">
                                             <div class="nav-link-icon"><i data-feather="layers"></i></div>
-                                            {{ __('Company logos') }}
+                                            {{ __('admin.Company logos') }}
                                         </a>
                                     </nav>
                                 </div>
 
                                 <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/ratings') }}">
                                     <div class="nav-link-icon"><i data-feather="star"></i></div>
-                                    {{ __('Ratings') }}
+                                    {{ __('admin.Ratings') }}
                                 </a>
 
                                 <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/settings') }}">
                                     <div class="nav-link-icon"><i data-feather="settings"></i></div>
-                                    {{ __('Settings') }}
+                                    {{ __('admin.Settings') }}
                                 </a>
                             </div>
                         </div>
                         <div class="sidenav-footer">
                             <div class="sidenav-footer-content">
-                                <div class="sidenav-footer-subtitle">{{ __('Logged in as') }}:</div>
+                                <div class="sidenav-footer-subtitle">{{ __('admin.Logged in as:') }}</div>
                                 <div class="sidenav-footer-title">{{ Auth::user()->name }}</div>
                             </div>
                         </div>

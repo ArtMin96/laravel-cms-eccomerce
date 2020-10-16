@@ -31,7 +31,7 @@ class ProductFilters extends QueryFilter
     public function title()
     {
         return $this->builder->whereHas('productTranslations', function ($q) {
-            $q->orderBy('title');
+            $q->orderBy('title', 'asc');
         });
     }
 

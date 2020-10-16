@@ -46,9 +46,8 @@
                         <div class="card-body text-center">
 
                             <div class="images">
-                            @if(!empty($credentials->image))
+                                @if(!empty($credentials->image))
 
-                                <!-- Profile picture image-->
                                     <div class="img">
                                         <img src="{{ asset('storage/credentials/'.$credentials->image) }}" alt="{{ $credentials->name }}">
                                         <span class="remove-pic result_file"
@@ -72,7 +71,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                            <div class="small font-italic text-muted mb-4">{{ __('JPG or PNG no larger than 5 MB') }}</div>
+                            <div class="small font-italic text-muted mb-4">{{ __('admin.JPG or PNG no larger than 5 MB') }}</div>
                         </div>
                     </div>
                 </div>

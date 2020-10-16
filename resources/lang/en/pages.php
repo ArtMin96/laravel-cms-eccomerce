@@ -61,7 +61,7 @@ return [
     'Watch expert' => 'Watch expert',
     'Buy' => 'Buy',
 
-    'There is no product' => 'There is no product',
+    'There is no item' => 'There is no item',
     'A wish list' => 'A wish list',
     'send request' => 'send request',
 
@@ -85,5 +85,6 @@ return [
     'Total' => 'Total',
     'Clear basket' => 'Clear basket',
     'go to order' => 'go to order',
+    'All' => 'All',
 
 ];

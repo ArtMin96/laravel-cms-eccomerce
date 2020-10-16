@@ -22,20 +22,20 @@ $( document ).ready(function() {
      * bootstrap modal,
      * toggle modal image
      */
-    (function (){
-        const cardImageModal = $('#card-image-modal');
-        if( !cardImageModal.length){ return }
-
-        cardImageModal.on('show.bs.modal', function (event) {
-            let button = $(event.relatedTarget) // Button that triggered the modal
-            const imageSrc = $(button).closest('.g-card-product-basket-image-box').find('.g-card-product-basket-image').attr('src');
-            $(this).find('.modal-image').attr('src', imageSrc);
-        });
-
-        cardImageModal.on('hidden.bs.modal', function () {
-            $(this).find('.modal-image').attr('src', '');
-        })
-    })();
+    // (function (){
+    //     const cardImageModal = $('#card-image-modal');
+    //     if( !cardImageModal.length){ return }
+    //
+    //     cardImageModal.on('show.bs.modal', function (event) {
+    //         let button = $(event.relatedTarget) // Button that triggered the modal
+    //         const imageSrc = $(button).closest('.g-card-product-basket-image-box').find('.g-card-product-basket-image').attr('src');
+    //         $(this).find('.modal-image').attr('src', imageSrc);
+    //     });
+    //
+    //     cardImageModal.on('hidden.bs.modal', function () {
+    //         $(this).find('.modal-image').attr('src', '');
+    //     })
+    // })();
 
     animateNumbersChange();
 
