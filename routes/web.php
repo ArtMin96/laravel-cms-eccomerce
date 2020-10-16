@@ -83,6 +83,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
         Route::post('/request/remove-translation-service-image', 'RequestController@removeTranslationServiceImage')->name('request.remove.translation.service.image');
         Route::post('/request/remove-product-image', 'RequestController@removeProductImage')->name('request.remove.product.image');
+        Route::post('/request/remove-product-preview-image', 'RequestController@removeProductPreviewImage')->name('request.remove.product.preview.image');
     });
 
     // Dynamic pages
@@ -109,17 +110,19 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/rent-equipment', 'RentEquipmentController@index')->name('rent-equipment');
     Route::post('/rent-equipment/add-wishlist', 'RentEquipmentController@addWishlist')->name('rent-equipment.add-wishlist');
 
+    Route::get('/document-shop/search', ['uses' => 'DocumentShopController@getSearch', 'as' => 'search-document-shop']);
     Route::get('/document-shop/filter', ['uses' => 'DocumentShopController@getFilter', 'as' => 'filter-product']);
     Route::get('/document-shop', 'DocumentShopController@index')->name('document-shop');
 
     Route::get('/wishlist', 'WishlistController@index')->name('wishlist');
     Route::get('/wishlist/search', ['uses' => 'WishlistController@getSearch','as' => 'search']);
 
+    Route::get('/cart/search', ['uses' => 'CartController@getSearch', 'as' => 'search-cart']);
     Route::get('/cart', 'CartController@index')->name('cart.index');
     Route::post('/cart', 'CartController@store')->name('cart.store');
     Route::patch('/cart', 'CartController@update')->name('cart.update');
     Route::delete('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
-//    Route::resource('/cart', 'CartController');
+    Route::post('/cart/clear', 'CartController@clear')->name('cart.clear');
 
     // Ajax requests
     Route::post('/front-request/remove-user-image', 'FrontRequestController@removeUserImage')->name('front-request.remove.user.image');

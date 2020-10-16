@@ -42,12 +42,12 @@ class RequestController extends AdminController
                 unlink(storage_path('app/public/banner/'.$banner->image));
                 $banner->update(['image' => null]);
 
-                return response()->json(['status' => true, 'title' => 'Success', 'message' => 'File successfully removed!']);
+                return response()->json(['status' => true, 'title' => 'Success', 'message' => __('admin.File successfully removed!')]);
             } else {
-                return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+                return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
             }
         } else {
-            return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+            return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
         }
     }
 
@@ -64,12 +64,12 @@ class RequestController extends AdminController
                 unlink(storage_path('app/public/site/'.$settings->logo));
                 $settings->update(['logo' => 'logo.png']);
 
-                return response()->json(['status' => true, 'title' => 'Success', 'message' => 'File successfully removed!']);
+                return response()->json(['status' => true, 'title' => 'Success', 'message' => __('admin.File successfully removed!')]);
             } else {
-                return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+                return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
             }
         } else {
-            return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+            return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
         }
     }
 
@@ -86,12 +86,12 @@ class RequestController extends AdminController
                 unlink(storage_path('app/public/site/'.$settings->logo_sm));
                 $settings->update(['logo_sm' => 'logo_sm.png']);
 
-                return response()->json(['status' => true, 'title' => 'Success', 'message' => 'File successfully removed!']);
+                return response()->json(['status' => true, 'title' => 'Success', 'message' => __('admin.File successfully removed!')]);
             } else {
-                return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+                return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
             }
         } else {
-            return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+            return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
         }
     }
 
@@ -107,12 +107,12 @@ class RequestController extends AdminController
                 unlink(storage_path('app/public/member/'.$ourTeam->image));
                 $ourTeam->update(['image' => null]);
 
-                return response()->json(['status' => true, 'title' => 'Success', 'message' => 'File successfully removed!']);
+                return response()->json(['status' => true, 'title' => 'Success', 'message' => __('admin.File successfully removed!')]);
             } else {
-                return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+                return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
             }
         } else {
-            return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+            return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
         }
     }
 
@@ -128,12 +128,12 @@ class RequestController extends AdminController
                 unlink(storage_path('app/public/credentials/'.$credential->image));
                 $credential->update(['image' => null]);
 
-                return response()->json(['status' => true, 'title' => 'Success', 'message' => 'File successfully removed!']);
+                return response()->json(['status' => true, 'title' => 'Success', 'message' => __('admin.File successfully removed!')]);
             } else {
-                return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+                return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
             }
         } else {
-            return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+            return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
         }
     }
 
@@ -149,12 +149,12 @@ class RequestController extends AdminController
                 unlink(storage_path('app/public/customers/'.$customers->image));
                 $customers->update(['image' => 'customer-default.png']);
 
-                return response()->json(['status' => true, 'title' => 'Success', 'message' => 'File successfully removed!']);
+                return response()->json(['status' => true, 'title' => 'Success', 'message' => __('admin.File successfully removed!')]);
             } else {
-                return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+                return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
             }
         } else {
-            return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+            return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
         }
     }
 
@@ -169,12 +169,12 @@ class RequestController extends AdminController
             if (!empty($number)) {
                 $number->delete();
 
-                return response()->json(['status' => true, 'title' => 'Success', 'message' => 'File successfully removed!']);
+                return response()->json(['status' => true, 'title' => 'Success', 'message' => __('admin.File successfully removed!')]);
             } else {
-                return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+                return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
             }
         } else {
-            return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+            return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
         }
     }
 
@@ -186,12 +186,12 @@ class RequestController extends AdminController
                 unlink(storage_path('app/public/payment-gateway/'.$paymentGateway->icon));
                 $paymentGateway->update(['image' => 'payment-gateway.png']);
 
-                return response()->json(['status' => true, 'title' => 'Success', 'message' => 'Icon successfully removed!']);
+                return response()->json(['status' => true, 'title' => 'Success', 'message' => __('admin.File successfully removed!')]);
             } else {
-                return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find icon!']);
+                return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
             }
         } else {
-            return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find icon!']);
+            return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
         }
     }
 
@@ -201,18 +201,48 @@ class RequestController extends AdminController
      */
     public function removeProductImage(Request $request) {
         if (!empty($request->post('file_id'))) {
-            $files = ProductFiles::findOrFail($request->post('file_id'));
+            $files = ProductFiles::where('id', $request->post('file_id'))->firstOrFail();
 
             if (!empty($files)) {
-                unlink(storage_path('app/public/products/'.$files->file));
-                $files->delete();
 
-                return response()->json(['status' => true, 'title' => 'Success', 'message' => 'File successfully removed!']);
+                if (!empty($files->preview_image)) {
+                    unlink(storage_path('app/public/products/'.$files->file));
+                    $files->update(['url' => null, 'file' => null]);
+                } else {
+                    ProductFiles::destroy($request->post('file_id'));
+                }
+
+                return response()->json(['status' => true, 'title' => 'Success', 'message' => __('admin.File successfully removed!')]);
             } else {
-                return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+                return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
             }
         } else {
-            return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+            return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function removeProductPreviewImage(Request $request) {
+        if (!empty($request->post('file_id'))) {
+            $files = ProductFiles::where('id', $request->post('file_id'))->firstOrFail();
+
+            if (!empty($files)) {
+                if (!empty($files->file)) {
+                    unlink(storage_path('app/public/'.$files->preview_image));
+                    $files->update(['preview_image' => null]);
+                } else {
+                    ProductFiles::destroy($request->post('file_id'));
+                }
+
+                return response()->json(['status' => true, 'title' => 'Success', 'message' => __('admin.File successfully removed!')]);
+            } else {
+                return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
+            }
+        } else {
+            return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
         }
     }
 
@@ -229,12 +259,12 @@ class RequestController extends AdminController
                 unlink(storage_path('app/public/translation-services/'.$translationServices->icon));
                 $translationServices->update(['icon' => null]);
 
-                return response()->json(['status' => true, 'title' => 'Success', 'message' => 'File successfully removed!']);
+                return response()->json(['status' => true, 'title' => 'Success', 'message' => __('admin.File successfully removed!')]);
             } else {
-                return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+                return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
             }
         } else {
-            return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Cannot find image!']);
+            return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
         }
     }
 }

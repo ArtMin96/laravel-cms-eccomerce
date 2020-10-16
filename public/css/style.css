@@ -1471,7 +1471,7 @@ label.label-row:hover{
 .g-pagination-1 .g-pagination-item{
     border-color: #C3CBCD;
 }
-.g-pagination-item span{
+.g-pagination-item a, .g-pagination-item span{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1479,6 +1479,7 @@ label.label-row:hover{
     padding: 4px;
     border-radius: 50%;
     background-color: #FFF;
+    color: inherit;
 }
 .g-pagination-1 .g-pagination-active{
     border-color: #B4BF18;

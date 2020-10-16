@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property integer $product_id
  * @property string $url
  * @property string $file
+ * @property string $preview_image
  * @property string $deleted_at
  * @property string $created_at
  * @property string $updated_at
@@ -29,7 +30,7 @@ class ProductFiles extends Model
     /**
      * @var array
      */
-    protected $fillable = ['product_id', 'url', 'file', 'deleted_at'];
+    protected $fillable = ['product_id', 'url', 'file', 'preview_image', 'deleted_at'];
 
     /**
      * The attributes that should be mutated to dates.

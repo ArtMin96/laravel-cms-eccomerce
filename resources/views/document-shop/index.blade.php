@@ -31,10 +31,20 @@
     @endif
 
     <div class="container">
-        <div class="g-search-input">
-            <input type="search" class="form-control g-form-control">
-            <button class="search-input-btn">{{ __('pages.Search') }}</button>
-        </div>
+        <form action="{{ route('search-document-shop') }}">
+            @csrf
+
+            <div class="row">
+                <div class="col-lg-3 d-none d-md-block"></div>
+                <div class="col-lg-6">
+                    <div class="g-search-input">
+                        <input type="text" name="q" class="form-control g-form-control" value="@if (!empty($searchTerm)) {{ $searchTerm }} @endif">
+                        <button type="submit" class="search-input-btn">{{ __('pages.Search') }}</button>
+                    </div>
+                </div>
+                <div class="col-lg-3 d-none d-md-block"></div>
+            </div>
+        </form>
 
         <div class="row">
             <div class="col-12">
@@ -48,11 +58,24 @@
                     <div class="g-side-menu-title">{{ __('pages.Catalog') }}</div>
                     <ul class="g-side-menu-list">
                         @if(!empty($catalog))
-                            @foreach($catalog as $catalogs)
+
+                            <li class="g-side-menu-item @if(request()->catalog == null) g-side-menu-active @endif">
+                                @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'filter-product')
+                                    {{ request()->query->remove('catalog') }}
+                                    <a href="{{ route('filter-product', request()->all() + ['catalog' => null]) }}" class="g-side-menu-link">{{ __('pages.All') }}</a>
+                                @else
+                                    {{ request()->query->remove('catalog') }}
+                                    <a href="{{ route('filter-product', ['catalog' => null]) }}" class="g-side-menu-link">{{ $catalogs->title }}</a>
+                                @endif
+                            </li>
+
+                            @foreach($catalog as $key => $catalogs)
                                 <li class="g-side-menu-item @if(request()->catalog == $catalogs->id) g-side-menu-active @endif">
                                     @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'filter-product')
+                                        {{ request()->query->remove('catalog') }}
                                         <a href="{{ route('filter-product', request()->all() + ['catalog' => $catalogs->id]) }}" class="g-side-menu-link">{{ $catalogs->title }}</a>
                                     @else
+                                        {{ request()->query->remove('catalog') }}
                                         <a href="{{ route('filter-product', ['catalog' => $catalogs->id]) }}" class="g-side-menu-link">{{ $catalogs->title }}</a>
                                     @endif
                                 </li>
@@ -131,11 +154,33 @@
                                             <div class="img-file-info g-card-product-basket-image text-uppercase d-flex justify-content-center align-items-center"
                                                  style="background-image: url({{ asset('images/svg/document.svg') }}); background-color: #fff; background-size: auto; font-size: 20px;">{{ fileBaseNameOrExtension($product->productFiles[0]->file) }}</div>
 {{--                                            <img src="{{ asset('storage/products/'.$product->productFiles[0]->file) }}" class="g-card-product-basket-image" alt="{{ $product->title }}">--}}
-                                            <button class="g-link g-link-1 font-size-7" data-toggle="modal" data-target="#card-image-modal">Watch excerpt</button>
                                         @endif
                                     @else
                                         <img src="{{ asset('images/products/default-product.jpg') }}" class="g-card-product-basket-image" alt="{{ $product->title }}">
                                     @endif
+
+                                    @if(!empty($product->productFiles[0]->preview_image))
+
+                                        <!-- Preview Modal -->
+                                        <div class="modal fade" id="card-image-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <p class="mb-0">{{ $product->title }}</p>
+                                                        <button type="button" class="close m-0 p-0 font-size-6" data-dismiss="modal" aria-label="Close">
+                                                            <i class="fas fa-times"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body text-center">
+                                                        <img src="{{ asset('storage/'.$product->productFiles[0]->preview_image) }}" class="modal-image w-100" alt="{{ $product->title }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <button class="g-link g-link-1 font-size-7" data-toggle="modal" data-target="#card-image-modal">{{ __('pages.Watch expert') }}</button>
+                                    @endif
+
                                 </div>
                                 <div class="flex-grow-1">
                                     <div class="black-color font-weight-bold">{{ $product->title }}</div>
@@ -145,7 +190,7 @@
                                         <button class="g-btn g-btn-grey g-btn-round text-capitalize">buy</button>
 
                                         @if(auth()->check())
-                                            <form action="{{ route('cart.store') }}" method="POST" class="js--add-cart">
+                                            <form action="{{ route('cart.store') }}" method="POST" class="js--add-cart d-inline-block">
                                                 @csrf
 
                                                 <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -160,7 +205,7 @@
                         @endforeach
                     @else
                         <div class="d-flex align-items-center justify-content-center">
-                            <h3 class="text-muted">{{ __('pages.There is no product') }}</h3>
+                            <h3 class="text-muted">{{ __('pages.There is no item') }}</h3>
                         </div>
                     @endif
                 </div>
@@ -169,15 +214,11 @@
     </div>
 
     @if(!empty($products))
-        {{ $products->appends(request()->input())->links() }}
+
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <div class="g-pagination g-pagination-2">
-                        <span class="g-pagination-item g-pagination-active"><span>1</span></span>
-                        <span class="g-pagination-item"><span>2</span></span>
-                        <span class="g-pagination-item"><span>3</span></span>
-                    </div>
+                    {{ $products->appends(request()->input())->links() }}
                 </div>
             </div>
         </div>

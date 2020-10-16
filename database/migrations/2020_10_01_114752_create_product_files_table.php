@@ -18,6 +18,7 @@ class CreateProductFilesTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->string('url')->nullable();
             $table->string('file')->nullable();
+            $table->string('preview_image')->nullable();
             $table->softDeletes();
             $table->timestamps();
 

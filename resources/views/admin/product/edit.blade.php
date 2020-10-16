@@ -25,7 +25,7 @@
                     <div class="col-auto mb-3">
                         <h1 class="page-header-title">
                             <div class="page-header-icon"><i data-feather="box"></i></div>
-                            {{ __('Product') }}
+                            {{ __($product->title) }}
                         </h1>
                     </div>
                 </div>
@@ -36,8 +36,6 @@
     <!-- Main page content-->
     <div class="container mt-4">
 
-{{--        @dd($product)--}}
-
         <form action="{{ route('admin.product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -47,23 +45,23 @@
                 <div class="row">
 
                     <div class="col-xl-4">
-                        <!-- Profile picture card-->
+
                         <div class="card">
-                            <div class="card-header">{{ __('Product file') }}</div>
+                            <div class="card-header">{{ __('admin.Product file') }}</div>
                             <div class="card-body text-center">
 
                                 <div class="images">
-                                    @if(!empty($product->productFiles[0]))
+                                    @if(!empty($product->productFiles[0]->file))
 
 
                                         @if(checkFileMimeType($product->productFiles[0]->file) === false)
                                             <div class="img" style="background-image: url({{ asset('images/svg/document.svg') }}); background-color: #fff; background-size: auto; font-size: 32px;">
                                                 <span class="remove-pic result_file"
-                                                      data-file-id="{{ $product->id }}"
+                                                      data-file-id="{{ $product->productFiles[0]->id }}"
                                                       data-file-url="{{ LaravelLocalization::localizeUrl('/admin/request/remove-product-image') }}"
-                                                      data-title="Are you sure you want to remove this file?"
-                                                      data-confirm-text="Delete"
-                                                      data-cancel-text="Cancel"><i class="fal fa-times"></i></span>
+                                                      data-title="{{ __('admin.Are you sure you want to remove this file?') }}"
+                                                      data-confirm-text="{{ __('admin.Delete') }}"
+                                                      data-cancel-text="{{ __('admin.Cancel') }}"><i class="fal fa-times"></i></span>
 
                                                 <div class="img-file-info text-uppercase">{{ fileBaseNameOrExtension($product->productFiles[0]->file) }}</div>
                                             </div>
@@ -71,37 +69,65 @@
                                             <div class="img">
                                                 <img src="{{ asset('storage/products/'.$product->productFiles[0]->file) }}" alt="{{ $product->title }}">
                                                 <span class="remove-pic result_file"
-                                                      data-file-id="{{ $product->id }}"
+                                                      data-file-id="{{ $product->productFiles[0]->id }}"
                                                       data-file-url="{{ LaravelLocalization::localizeUrl('/admin/request/remove-product-image') }}"
-                                                      data-title="Are you sure you want to remove this file?"
-                                                      data-confirm-text="Delete"
-                                                      data-cancel-text="Cancel"><i class="fal fa-times"></i></span>
+                                                      data-title="{{ __('admin.Are you sure you want to remove this file?') }}"
+                                                      data-confirm-text="{{ __('admin.Delete') }}"
+                                                      data-cancel-text="{{ __('admin.Cancel') }}"><i class="fal fa-times"></i></span>
                                             </div>
                                         @endif
                                     @else
                                         <div class="pic">
-                                            <span style="font-size: 1.25rem;">Upload</span>
+                                            <span style="font-size: 1.25rem;">{{ __('admin.File') }}</span>
                                             <input type="file" name="file" class="file-uploader d-none form-control @error('file') is-invalid @enderror" id="file">
-
                                         </div>
                                     @endif
                                 </div>
 
-                                <!-- Profile picture help block-->
                                 @error('file')
                                     <span class="invalid-feedback d-block" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
 
-                                <div class="small font-italic text-muted mb-4">{{ __('Rent Equipment: JPG or PNG no larger than 5 MB') }}</div>
-                                <div class="small font-italic text-muted mb-4">{{ __('Document Shop: PDF no larger than 25 MB') }}</div>
+                                @if($product->saleType->id == 1)
+                                    <div class="small font-italic text-muted mb-4">{{ __('admin.PDF no larger than 25 MB') }}</div>
+                                @elseif($product->saleType->id == 3)
+                                    <div class="small font-italic text-muted mb-4">{{ __('admin.JPG, JPEG, PNG no larger than 5 MB') }}</div>
+                                @endif
+
+                                <div class="images">
+                                    @if(!empty($product->productFiles[0]->preview_image))
+
+                                        <div class="img">
+                                            <img src="{{ asset('storage/'.$product->productFiles[0]->preview_image) }}" alt="{{ $product->title }}">
+                                            <span class="remove-pic result_file"
+                                                  data-file-id="{{ $product->productFiles[0]->id }}"
+                                                  data-file-url="{{ LaravelLocalization::localizeUrl('/admin/request/remove-product-preview-image') }}"
+                                                  data-title="{{ __('admin.Are you sure you want to remove this file?') }}"
+                                                  data-confirm-text="{{ __('admin.Delete') }}"
+                                                  data-cancel-text="{{ __('admin.Cancel') }}"><i class="fal fa-times"></i></span>
+                                        </div>
+                                    @else
+                                        <div class="pic">
+                                            <span style="font-size: 1.25rem;">{{ __('admin.Preview image') }}</span>
+                                            <input type="file" name="preview_image" accept="image/*" class="file-uploader d-none form-control @error('preview_image') is-invalid @enderror" id="preview-image">
+                                        </div>
+                                    @endif
+                                </div>
+
+                                @error('preview_image')
+                                    <span class="invalid-feedback d-block" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                                <div class="small font-italic text-muted mb-4">{{ __('admin.JPG, JPEG, PNG no larger than 5 MB') }}</div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-xl-8">
-                        <!-- Account details card-->
+
                         <div class="card mb-4">
 
                             <div class="card-body">
@@ -133,9 +159,7 @@
                                             @if($product->sale_type_id == 1)
                                                 <div class="form-group">
                                                     <label class="required" for="{{ $locale }}_description">{{ __('Description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                    <textarea class="form-control @error($locale.'.description') is-invalid @enderror" name="{{ $locale }}[description]" id="{{ $locale }}_description">
-                                                        {{ old($locale.'.description', $product->translate($locale)->description) }}
-                                                    </textarea>
+                                                    <textarea class="form-control @error($locale.'.description') is-invalid @enderror" name="{{ $locale }}[description]" id="{{ $locale }}_description">{{ old($locale.'.description', $product->translate($locale)->description) }}</textarea>
 
                                                     @error($locale.'.description')
                                                         <span class="invalid-feedback" role="alert">
@@ -152,6 +176,9 @@
                                 <!-- .end Name translations -->
 
                                 @if($product->sale_type_id == 1)
+
+                                    <hr class="my-5">
+
                                     <div class="form-group">
                                         <label class="required" for="price">{{ __('Price') }}</label>
                                         <input class="form-control @error('price') is-invalid @enderror" type="text" name="price" id="price" value="{{ old('price', $product->price) }}">
