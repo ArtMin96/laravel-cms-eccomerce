@@ -48,4 +48,12 @@ return [
     'File successfully removed!' => 'Файл успешно удален!',
     'Cannot find image!' => 'Не могу найти изображение!',
 
+    'Full name' => 'Полное имя',
+    'Email' => 'Эл. адрес',
+    'Status' => 'Статус',
+    'Created date' => 'Дата создания',
+    'Actions' => 'Действия',
+
+    'User status updated successfully.' => 'Статус пользователя успешно обновлен.',
+
 ];

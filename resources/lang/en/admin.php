@@ -48,4 +48,12 @@ return [
     'File successfully removed!' => 'File successfully removed!',
     'Cannot find image!' => 'Cannot find image!',
 
+    'Full name' => 'Full name',
+    'Email' => 'Email',
+    'Status' => 'Status',
+    'Created date' => 'Created date',
+    'Actions' => 'Actions',
+
+    'User status updated successfully.' => 'User status updated successfully.',
+
 ];

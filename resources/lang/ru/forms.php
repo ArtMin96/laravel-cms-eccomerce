@@ -34,5 +34,8 @@ return [
 
     'Select country' => 'Выберите страну',
     'Select city' => 'Выберите город',
+    'Delivery address' => 'Адресс доставки',
+    'Show' => 'Показать',
+    'Place order' => 'Разместить заказ',
 
 ];

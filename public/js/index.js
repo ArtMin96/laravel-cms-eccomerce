@@ -483,6 +483,31 @@ $( document ).ready(function() {
         }, 4000);
     }
 
+    /**
+     * toggle delivery textarea in checkout
+     */
+    (function(){
+        const deliveryToggleCheck = $('.delivery-toggle-check');
+        if( ! deliveryToggleCheck.length ){ return }
+
+        deliveryToggleCheck.on('change', ()=>{
+            $('.delivery-toggle-col').toggle('blind');
+        })
+    })();
+
+    /**
+     * toggle payment type buttons
+     */
+    (function (){
+        $('.payment-type-btn').click(function (){
+            const _this = $(this);
+            _this.closest('.payment-type-row').find('.payment-type-btn').removeClass('g-btn-img-active');
+            _this.addClass('g-btn-img-active');
+            _this.closest('.payment-type-row').find('.payment-radio').removeAttr('checked').prop('checked', false);
+            _this.closest('.payment-type-col').find('.payment-radio').prop('checked', true).attr('checked', 'checked');
+        });
+    })();
+
 });
 
 

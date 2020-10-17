@@ -121,12 +121,15 @@
                         <div class="g-card-sum-index">{{ __('pages.Total') }}</div>
                         <div class="g-card-sum-point"><span>{{ $sum }}</span><span>AMD</span></div>
                     </div>
-                    <div class="d-flex justify-content-between mt-3">
-                        <button class="g-btn red-color p-0 card-hidden-elem clear-basket-cards-btn js--clear-cart" @if(count($carts) < 1) disabled @endif>
-                            <i class="fas fa-times"></i> {{ __('pages.Clear basket') }}
-                        </button>
-                        <a href="#" class="g-btn g-btn-green g-btn-round text-uppercase">{{ __('pages.go to order') }}</a>
-                    </div>
+
+                    @if(count($carts) > 0)
+                        <div class="d-flex justify-content-between mt-3">
+                            <button class="g-btn red-color p-0 card-hidden-elem clear-basket-cards-btn js--clear-cart">
+                                <i class="fas fa-times"></i> {{ __('pages.Clear basket') }}
+                            </button>
+                            <a href="{{ LaravelLocalization::localizeUrl('checkout') }}" class="g-btn g-btn-green g-btn-round text-uppercase">{{ __('pages.go to order') }}</a>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
