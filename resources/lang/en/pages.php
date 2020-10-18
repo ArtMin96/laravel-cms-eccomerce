@@ -87,4 +87,8 @@ return [
     'go to order' => 'go to order',
     'All' => 'All',
 
+    'Checkout' => 'Checkout',
+    'Order summary' => 'Order summary',
+    'Total:' => 'Total:',
+
 ];

@@ -33,5 +33,8 @@ return [
     'Comments' => 'Comments',
     'Select country' => 'Select country',
     'Select city' => 'Select city',
+    'Delivery address' => 'Delivery address',
+    'Show' => 'Show',
+    'Place order' => 'Place order',
 
 ];

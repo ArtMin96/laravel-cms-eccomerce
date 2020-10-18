@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'last_name', 'username', 'email', 'password', 'phone', 'company', 'address', 'contact_person', 'tax_code', 'person_type'
+        'name', 'last_name', 'username', 'email', 'password', 'phone', 'company', 'address', 'contact_person', 'tax_code', 'person_type', 'status', 'last_auth'
     ];
 
     /**
@@ -36,6 +36,17 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'created_at'
     ];
 
     /**

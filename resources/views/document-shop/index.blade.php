@@ -65,7 +65,7 @@
                                     <a href="{{ route('filter-product', request()->all() + ['catalog' => null]) }}" class="g-side-menu-link">{{ __('pages.All') }}</a>
                                 @else
                                     {{ request()->query->remove('catalog') }}
-                                    <a href="{{ route('filter-product', ['catalog' => null]) }}" class="g-side-menu-link">{{ $catalogs->title }}</a>
+                                    <a href="{{ route('filter-product', ['catalog' => null]) }}" class="g-side-menu-link">{{ __('pages.All') }}</a>
                                 @endif
                             </li>
 

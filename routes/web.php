@@ -69,6 +69,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get('/settings', 'SettingsController@index')->name('settings');
         Route::post('/settings/{id}', 'SettingsController@update')->name('settings.update');
 
+        // Customers
+        Route::get('/users', 'UserController@index');
+        Route::get('/users/status/update', 'UserController@updateStatus')->name('users.update.status');
+
         // Check slug
         Route::get('/request/slug', 'RequestController@slug')->name('request.slug');
 
@@ -87,7 +91,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     });
 
     // Dynamic pages
-//    Route::get('/{slug}', ['as' => 'pages.show', 'uses' => 'PagesController@show']);
     Route::get('/services/{slug}', ['as' => 'services.show', 'uses' => 'ServicesController@show']);
     Route::get('/industry/{slug}', ['as' => 'industry.show', 'uses' => 'IndustryController@show']);
 
@@ -123,6 +126,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::patch('/cart', 'CartController@update')->name('cart.update');
     Route::delete('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
     Route::post('/cart/clear', 'CartController@clear')->name('cart.clear');
+
+    Route::group(['middleware' => ['auth']], function () {
+        Route::get('/checkout', 'CheckoutController@getCheckout')->name('checkout.index');
+        Route::post('/checkout/order', 'CheckoutController@placeOrder')->name('checkout.place.order');
+    });
 
     // Ajax requests
     Route::post('/front-request/remove-user-image', 'FrontRequestController@removeUserImage')->name('front-request.remove.user.image');

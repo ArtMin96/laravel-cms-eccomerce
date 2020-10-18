@@ -31,6 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('contact_person')->nullable();
             $table->string('tax_code')->nullable();
             $table->string('person_type')->nullable();
+            $table->boolean('status')->default(0);
             $table->string('last_auth')->nullable();
             $table->rememberToken();
             $table->timestamps();

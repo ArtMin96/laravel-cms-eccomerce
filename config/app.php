@@ -183,6 +183,7 @@ return [
         App\Providers\HelperServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Geocoder\Laravel\Providers\GeocoderService::class,
+        App\Providers\RepositoryServiceProvider::class,
 
     ],
 

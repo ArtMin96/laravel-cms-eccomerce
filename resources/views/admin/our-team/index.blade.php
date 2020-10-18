@@ -63,7 +63,7 @@
                                 <td>{{ $team->last_name }}</td>
                                 <td>{{ $team->position }}</td>
                                 <td>{{ \Illuminate\Support\Str::limit($team->description, 80, '...') }}</td>
-                                <td>@if(!empty($team->deleted_at)) ? <div class="badge badge-danger badge-pill">{{ __('Inactive') }}</div> @else <div class="badge badge-success badge-pill">{{ __('Active') }}</div> @endif</td>
+                                <td>@if(!empty($team->deleted_at)) <div class="badge badge-danger badge-pill">{{ __('Inactive') }}</div> @else <div class="badge badge-success badge-pill">{{ __('Active') }}</div> @endif</td>
                                 <td>{{ date('Y-m-d H:i', strtotime($team->created_at)) }}</td>
                                 <td>{{ date('Y-m-d H:i', strtotime($team->updated_at)) }}</td>
                                 <td>

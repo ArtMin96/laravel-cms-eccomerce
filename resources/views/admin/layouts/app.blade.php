@@ -108,7 +108,7 @@ use Illuminate\Support\Facades\Auth;
                                     <div class="nav-link-icon"><i data-feather="clipboard"></i></div>
                                     {{ __('admin.Orders') }}
                                 </a>
-                                <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/customers') }}">
+                                <a class="nav-link" href="{{ LaravelLocalization::localizeUrl('/admin/users') }}">
                                     <div class="nav-link-icon"><i data-feather="users"></i></div>
                                     {{ __('admin.Customers') }}
                                 </a>
