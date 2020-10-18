@@ -21,9 +21,9 @@ class OrderRepository extends BaseRepository implements OrderContract
         $items = Cart::where('user_id', \auth()->user()->id)->get();
 
         $order = Order::create([
-            'order_number'      =>  'ORD-'.strtoupper(uniqid()),
+            'order_number'      =>  strtoupper(bin2hex(random_bytes(3))),
             'user_id'           =>  auth()->user()->id,
-            'status'            =>  'pending',
+            'status'            =>  1,
             'grand_total'       =>  $params['grand_total'],
             'item_count'        =>  count($items),
             'payment_status'    =>  0,
@@ -57,5 +57,20 @@ class OrderRepository extends BaseRepository implements OrderContract
         }
 
         return $order;
+    }
+
+    public function listOrders(string $order = 'id', string $sort = 'desc', array $columns = ['*'])
+    {
+        return $this->all($columns, $order, $sort);
+    }
+
+    public function listOrdersByUser(string $order = 'id', string $sort = 'desc', array $columns = ['*'], $user = 'user_id')
+    {
+        return $this->all($columns, $order, $sort, $user);
+    }
+
+    public function findOrderByNumber($orderNumber)
+    {
+        return Order::where('order_number', $orderNumber)->first();
     }
 }

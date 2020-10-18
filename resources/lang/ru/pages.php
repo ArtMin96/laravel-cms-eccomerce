@@ -90,4 +90,8 @@ return [
     'Checkout' => 'Оформить заказ',
     'Order summary' => 'Итог заказа',
     'Total:' => 'Всего:',
+
+    'My Orders' => 'Mои заказы',
+    'Order' => 'Заказ',
+    'Status' => 'Статус',
 ];
