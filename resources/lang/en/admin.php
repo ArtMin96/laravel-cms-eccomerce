@@ -38,6 +38,9 @@ return [
 
     // Product
     'Product file' => 'Product file',
+    'Title' => 'Title',
+    'Quantity' => 'Quantity',
+    'Amount' => 'Amount',
     'Create product' => 'Create product',
     'PDF no larger than 25 MB' => 'PDF no larger than 25 MB',
     'JPG, JPEG, PNG no larger than 5 MB' => 'JPG, JPEG, PNG no larger than 5 MB',
@@ -55,5 +58,16 @@ return [
     'Actions' => 'Actions',
 
     'User status updated successfully.' => 'User status updated successfully.',
+
+    'Order Number' => 'Order Number',
+    'Placed By' => 'Placed By',
+    'Total Amount' => 'Total Amount',
+    'Items Qty' => 'Items Qty',
+    'Payment Method' => 'Payment Method',
+    'Payment Status' => 'Payment Status',
+    'Paid' => 'Paid',
+    'Not paid' => 'Not paid',
+    'Phone number' => 'Phone number',
+    'Address' => 'Address',
 
 ];

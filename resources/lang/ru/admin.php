@@ -38,6 +38,9 @@ return [
 
     // Product
     'Product file' => 'Файл продукта',
+    'Title' => 'Заглавие',
+    'Quantity' => 'Количество',
+    'Amount' => 'Оумма',
     'Create product' => 'Создать продукт',
     'PDF no larger than 25 MB' => 'PDF не более 25 МБ',
     'JPG, JPEG, PNG no larger than 5 MB' => 'JPG, JPEG, PNG не более 5 МБ',
@@ -55,5 +58,16 @@ return [
     'Actions' => 'Действия',
 
     'User status updated successfully.' => 'Статус пользователя успешно обновлен.',
+
+    'Order Number' => 'Номер заказа',
+    'Placed By' => 'Размещено',
+    'Total Amount' => 'Общая сумма',
+    'Items Qty' => 'Количество',
+    'Payment Method' => 'Способ оплаты',
+    'Payment Status' => 'Статус платежа',
+    'Paid' => 'Платный',
+    'Not paid' => 'Не оплачено',
+    'Phone number' => 'Телефонный номер',
+    'Address' => 'Адрес',
 
 ];

@@ -91,4 +91,8 @@ return [
     'Order summary' => 'Order summary',
     'Total:' => 'Total:',
 
+    'My Orders' => 'My Orders',
+    'Order' => 'Order',
+    'Status' => 'Status',
+
 ];

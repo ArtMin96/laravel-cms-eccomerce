@@ -1853,7 +1853,7 @@ label.label-row:hover{
 }
 .g-card-orderlist-left,
 .g-card-orderlist-right{
-    width: 120px;
+    width: 140px;
     min-width: 120px;
     flex: none;
     display: flex;

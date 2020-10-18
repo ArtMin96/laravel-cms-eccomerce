@@ -40,7 +40,7 @@ class CheckoutController extends Controller
         $order = $this->orderRepository->storeOrderDetails($request->all());
 
         if ($order) {
-            return view('/');
+            return redirect('/');
         }
     }
 }

@@ -22,4 +22,14 @@ class Order extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
+
+    public function orderStatus()
+    {
+        return $this->belongsTo(OrderStatus::class, 'status');
+    }
+
+    public function paymentGateway()
+    {
+        return $this->belongsTo(PaymentGateways::class, 'payment_method');
+    }
 }
