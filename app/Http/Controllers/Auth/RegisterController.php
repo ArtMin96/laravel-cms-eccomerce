@@ -50,12 +50,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255'],
+            'name' => ['required_if:person_type,0', 'string', 'max:255'],
+            'last_name' => ['required_if:person_type,0', 'string', 'max:255'],
+            'username' => ['required_if:person_type,0', 'string', 'max:255'],
+            'company' => ['required_if:person_type,1', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phone' => ['numeric', 'min:8', 'max:20'],
+            'phone' => ['required_if:person_type,1', 'phone:AM'], // AM Change to $this->getGeocodeCountryCode()
         ]);
     }
 
@@ -69,9 +70,9 @@ class RegisterController extends Controller
     {
 
         return User::create([
-            'name' => $data['name'],
-            'last_name' => $data['last_name'],
-            'username' => $data['username'],
+            'name' => !empty($data['name'])? $data['name'] : null,
+            'last_name' => !empty($data['last_name'])? $data['last_name'] : null,
+            'username' => !empty($data['username'])? $data['username'] : null,
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'phone' => !empty($data['phone'])? $data['phone'] : null,
