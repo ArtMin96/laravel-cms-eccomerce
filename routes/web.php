@@ -17,7 +17,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
              'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
 ], function () {
 
-    Auth::routes();
+    Route::post('/second/register', 'Auth\RegisterController@register')->name('second.register');
+    Auth::routes(['verify' => true]);
 
     Route::get('/', 'MainController@index')->name('main');
     Route::get('/home', 'HomeController@index')->name('home');
