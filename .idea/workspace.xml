@@ -21,10 +21,25 @@
   <component name="ChangeListManager">
     <list default="true" id="188bee73-7fda-407a-a0b3-1cea2f9f01e2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MainController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/forms.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/forms.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/pages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/pages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hy/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hy/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/forms.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/forms.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/pages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/pages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/menu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -252,6 +267,8 @@
       <workItem from="1602585886302" duration="9635000" />
       <workItem from="1602762307919" duration="24660000" />
       <workItem from="1602968694134" duration="16242000" />
+      <workItem from="1603191648668" duration="2382000" />
+      <workItem from="1603200495959" duration="2832000" />
     </task>
     <servers />
   </component>

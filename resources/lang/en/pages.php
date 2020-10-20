@@ -95,4 +95,10 @@ return [
     'Order' => 'Order',
     'Status' => 'Status',
 
+    'Sign Up' => 'Sign Up',
+    'Forgot Your Password?' => 'Forgot Your Password?',
+
+    'Physical person' => 'Physical person',
+    'Legal person' => 'Legal person',
+
 ];

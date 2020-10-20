@@ -35,6 +35,7 @@
                                 <th>{{ __('admin.Full name') }}</th>
                                 <th>{{ __('admin.Email') }}</th>
                                 <th>{{ __('admin.Status') }}</th>
+                                <th>{{ __('admin.Email verified') }}</th>
                                 <th>{{ __('admin.Created date') }}</th>
                                 <th>{{ __('admin.Actions') }}</th>
                             </tr>
@@ -44,6 +45,7 @@
                                 <th>{{ __('admin.Full name') }}</th>
                                 <th>{{ __('admin.Email') }}</th>
                                 <th>{{ __('admin.Status') }}</th>
+                                <th>{{ __('admin.Email verified') }}</th>
                                 <th>{{ __('admin.Created date') }}</th>
                                 <th>{{ __('admin.Actions') }}</th>
                             </tr>
@@ -51,12 +53,25 @@
                         <tbody>
                             @foreach($users as $user)
                                 <tr>
-                                    <td>{{ $user->name }} {{ $user->last_name }}</td>
+                                    <td>
+                                        @if(!empty($user->name))
+                                            {{ $user->name }} {{ $user->last_name }} - {{ __('admin.Client') }}
+                                        @else
+                                            {{ $user->company }} - {{ __('admin.Company') }}
+                                        @endif
+                                    </td>
                                     <td>
                                         <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
                                     </td>
                                     <td>
                                         <input type="checkbox" data-id="{{ $user->id }}" name="status" class="js-switch" {{ $user->status == 1 ? 'checked' : '' }}>
+                                    </td>
+                                    <td>
+                                        @if($user->hasVerifiedEmail())
+                                            <i data-feather="check" class="text-success"></i>
+                                        @else
+                                            <i data-feather="x" class="text-danger"></i>
+                                        @endif
                                     </td>
                                     <td>{{ !empty($user->created_at) ? $user->created_at->diffForHumans() : '-' }}</td>
                                     <td>
