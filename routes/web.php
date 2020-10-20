@@ -17,7 +17,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
              'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
 ], function () {
 
-    Route::post('/second/register', 'Auth\RegisterController@register')->name('second.register');
     Auth::routes(['verify' => true]);
 
     Route::get('/', 'MainController@index')->name('main');
@@ -108,10 +107,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::resource('/join-us', 'JoinUsController');
     Route::resource('/help-us-improve', 'HelpUsImproveController');
 
-    // Profile routes
-    Route::get('/profile/change-password', 'ProfileController@changePassword')->name('profile.change-password');
-    Route::resource('/profile', 'ProfileController');
-
     // Rent equipment routes
     Route::get('/rent-equipment/search-product', ['uses' => 'RentEquipmentController@getSearch', 'as' => 'search-product']);
     Route::get('/rent-equipment', 'RentEquipmentController@index')->name('rent-equipment');
@@ -132,9 +127,16 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::post('/cart/clear', 'CartController@clear')->name('cart.clear');
 
     Route::group(['middleware' => ['auth']], function () {
+
+        // Profile routes
+        Route::get('/profile/change-password', 'ProfileController@changePassword')->name('profile.change-password');
+        Route::resource('/profile', 'ProfileController');
+
+        // Checkout
         Route::get('/checkout', 'CheckoutController@getCheckout')->name('checkout.index');
         Route::post('/checkout/order', 'CheckoutController@placeOrder')->name('checkout.place.order');
 
+        // Orders
         Route::get('/orders', 'OrderController@index')->name('orders.index');
         Route::get('/orders/{order}/show', 'OrderController@show')->name('orders.show');
     });

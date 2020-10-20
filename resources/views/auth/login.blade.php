@@ -11,8 +11,8 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="mb-3 text-center">
-                                <a href="{{ route('login') }}" class="g-btn g-link g-link-2 text-capitalize green-color">{{ __('Login') }}</a>
-                                <a href="{{ route('register') }}" class="g-btn g-link g-link-2 text-capitalize">{{ __('Sign Up') }}</a>
+                                <a href="{{ route('login') }}" class="g-btn g-link g-link-2 text-capitalize green-color">{{ __('pages.Login') }}</a>
+                                <a href="{{ route('register') }}" class="g-btn g-link g-link-2 text-capitalize">{{ __('pages.Sign Up') }}</a>
                             </div>
                         </div>
                     </div>
@@ -24,7 +24,7 @@
 
                             <div class="col-12">
                                 <div class="form-group g-form-group">
-                                    <label for="email">{{ __('Username / E-mail') }}</label>
+                                    <label for="email">{{ __('forms.E-mail') }}</label>
                                     <input type="text" class="form-control g-form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                     @error('email')
@@ -37,7 +37,7 @@
 
                             <div class="col-12">
                                 <div class="form-group g-form-group">
-                                    <label for="password">{{ __('Password') }}</label>
+                                    <label for="password">{{ __('forms.Password') }}</label>
                                     <input type="password" class="form-control g-form-control @error('password') is-invalid @enderror" id="password" name="password" required autocomplete="current-password">
 
                                     @error('password')
@@ -53,7 +53,7 @@
 
                                     <label class="g-checkbox" for="remember">
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                        <span>{{ __('Remember Me') }}</span>
+                                        <span>{{ __('forms.Remember me') }}</span>
                                     </label>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
                             <div class="col-12">
                                 <div class="form-group g-form-group mb-3">
                                     <div class="text-center">
-                                        <button type="submit" class="g-btn g-btn-blue g-btn-round text-uppercase">{{ __('Login') }}</button>
+                                        <button type="submit" class="g-btn g-btn-blue g-btn-round text-uppercase">{{ __('pages.Login') }}</button>
                                     </div>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="text-center">
-                                    <a href="{{ route('password.request') }}" class="g-link g-link-2 font-weight-bold" type="button">{{ __('Forgot Your Password?') }}</a>
+                                    <a href="{{ route('password.request') }}" class="g-link g-link-2 font-weight-bold" type="button">{{ __('pages.Forgot Your Password?') }}</a>
                                 </div>
                             </div>
                         </div>

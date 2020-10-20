@@ -69,5 +69,7 @@ return [
     'Not paid' => 'Не оплачено',
     'Phone number' => 'Телефонный номер',
     'Address' => 'Адрес',
+    'Email verified' => 'Эл. почта подтверждена',
+    'Client' => 'Клиент',
 
 ];

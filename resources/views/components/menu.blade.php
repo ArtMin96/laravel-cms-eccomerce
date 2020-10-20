@@ -27,7 +27,7 @@
                         <ul class="dropdown-menu dropdown-menu-right g-navbar-buttons-drop" aria-labelledby="dropdownUsergButton">
                             <li>
                                 <a class="dropdown-item" href="{{ route('profile.show', Auth::user()->id) }}">
-                                    <i class="fas fa-sign-in-alt"></i> {{ Auth::user()->name }}
+                                    <i class="fas fa-sign-in-alt"></i> @if(!empty(Auth::user()->name))  {{ Auth::user()->name }} @else {{ Auth::user()->company }} @endif
                                 </a>
                             </li>
                             <li>

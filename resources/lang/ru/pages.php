@@ -94,4 +94,10 @@ return [
     'My Orders' => 'Mои заказы',
     'Order' => 'Заказ',
     'Status' => 'Статус',
+
+    'Sign Up' => 'Регистрация',
+    'Forgot Your Password?' => 'Забыли Ваш пароль?',
+
+    'Physical person' => 'Физическое лицо',
+    'Legal person' => 'Законопослушный гражданин',
 ];

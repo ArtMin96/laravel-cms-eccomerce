@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class MainController extends FrontController
 {
+
     /**
      * Show the application dashboard.
      *

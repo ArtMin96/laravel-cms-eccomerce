@@ -69,5 +69,7 @@ return [
     'Not paid' => 'Not paid',
     'Phone number' => 'Phone number',
     'Address' => 'Address',
+    'Email verified' => 'Email verified',
+    'Client' => 'Client',
 
 ];
