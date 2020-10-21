@@ -55,7 +55,7 @@ class ProfileController extends Controller
 
         User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
 
-        return back()->with('message', __('Password updated successfully.'));
+        return back()->with('message', __('pages.Password updated successfully.'));
     }
 
     /**

@@ -20,7 +20,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Auth::routes(['verify' => true]);
 
     Route::get('/', 'MainController@index')->name('main');
-    Route::get('/home', 'HomeController@index')->name('home');
+//    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', function () {
+        return redirect('/');
+    });
 
     // Admin routes
     Route::prefix('/admin')->name('admin.')->namespace('Admin')->group(function () {

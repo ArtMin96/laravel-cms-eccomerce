@@ -399,4 +399,30 @@
 
 @push('script')
     <script src="{{ asset('js/owl.carousel.min.js') }}" defer></script>
+
+    <script>
+
+        /**
+         * show message dialog alert
+         */
+        function messageDialog(messageText){
+            $(`
+            <div class="message-dialog g-card-wrap">
+                <span>${messageText}</span>
+            </div>
+        `).appendTo('body').slideToggle('slow');
+
+            setTimeout(()=>{
+                $('.message-dialog').fadeOut('slow', function(){ $(this).remove(); });
+            }, 4000);
+        }
+
+        window.addEventListener('load', function () {
+
+            @if (session('status'))
+                messageDialog('{{ session('status') }}');
+            @endif
+
+        });
+    </script>
 @endpush
