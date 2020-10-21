@@ -115,7 +115,7 @@
                 <div class="g-card-sum g-card-wrap">
                     <div class="g-card-sum-title">{{ __('pages.Amount') }}</div>
                     <div class="g-card-sum-row g-card-sum-row-product">
-                        <div class="g-card-sum-index">{{ __('pages.Products') }} <span>{{ $carts->total() }}</span></div>
+                        <div class="g-card-sum-index">{{ __('pages.Products') }} <span>@if(count($carts) > 0) {{ $carts->total() }} @else 0 @endif</span></div>
                     </div>
                     <div class="g-card-sum-row g-card-sum-row-total">
                         <div class="g-card-sum-index">{{ __('pages.Total') }}</div>

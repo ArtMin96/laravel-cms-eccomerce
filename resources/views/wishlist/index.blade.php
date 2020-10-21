@@ -28,9 +28,10 @@
             <div class="col-lg-3 d-none d-md-block"></div>
             <div class="col-lg-6">
                 <div class="wish-list-box">
-                    <div id="wish-cards-list">
 
-                        @if (!empty($wishlists))
+                    @if (count($wishlists) > 0)
+                        <div id="wish-cards-list">
+
                             @foreach($wishlists as $wishlist)
 
                                 <div class="g-card-wish g-card-wrap">
@@ -64,33 +65,33 @@
                                 </div>
 
                             @endforeach
-                        @else
 
-                        @endif
-
-                    </div>
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <a href="forms/equipment_rent.html" class="g-btn g-btn-grey-ol g-btn-round text-capitalize wish-cards-list-send disabled-link">{{ __('pages.send request') }}</a>
                         </div>
-                    </div>
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <a href="forms/equipment_rent.html" class="g-btn g-btn-grey-ol g-btn-round text-capitalize wish-cards-list-send disabled-link">{{ __('pages.send request') }}</a>
+                            </div>
+                        </div>
+                    @else
+                        <div class="d-flex align-items-center justify-content-center h-100">
+                            <h3 class="text-muted">{{ __('pages.There is no item') }}</h3>
+                        </div>
+                    @endif
                 </div>
             </div>
             <div class="col-lg-3 d-none d-md-block"></div>
         </div>
     </div>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <div class="g-pagination g-pagination-2">
-                    <span class="g-pagination-item g-pagination-active"><span>1</span></span>
-                    <span class="g-pagination-item"><span>2</span></span>
-                    <span class="g-pagination-item"><span>3</span></span>
+    @if (count($wishlists) > 0)
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    {{ $wishlists->appends(request()->input())->links() }}
                 </div>
             </div>
         </div>
-    </div>
+    @endif
 
     <div class="g-message-btn-box"><a href="#" class="g-message-btn"></a></div>
 

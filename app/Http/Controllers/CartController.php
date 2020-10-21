@@ -17,8 +17,14 @@ class CartController extends Controller
      */
     public function index()
     {
-        $carts = Cart::where('user_id', \auth()->user()->id)->orderBy('id', 'DESC')->paginate(2);
-        $sum = Cart::where('user_id', \auth()->user()->id)->sum('total');
+
+        if (Auth::check()) {
+            $carts = Cart::where('user_id', \auth()->user()->id)->orderBy('id', 'DESC')->paginate(2);
+            $sum = Cart::where('user_id', \auth()->user()->id)->sum('total');
+        } else {
+            $carts = [];
+            $sum = 0;
+        }
 
         return view('cart.index', compact('carts', 'sum'));
     }
