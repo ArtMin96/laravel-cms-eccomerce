@@ -62,4 +62,20 @@ class Cart extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    /**
+     * @return mixed
+     */
+    public static function total()
+    {
+        return Cart::where('user_id', auth()->user()->id)->sum('total');
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function getItems()
+    {
+        return Cart::where('user_id', auth()->user()->id)->get();
+    }
 }

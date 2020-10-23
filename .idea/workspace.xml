@@ -20,17 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="188bee73-7fda-407a-a0b3-1cea2f9f01e2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/config/paypal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gaudeamus.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gaudeamus.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ru/passwords.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/passwords.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cart/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/wishlist/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wishlist/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -193,6 +190,7 @@
       <path value="$PROJECT_DIR$/vendor/sven/artisan-view" />
       <path value="$PROJECT_DIR$/vendor/lamalama/laravel-wishlist" />
       <path value="$PROJECT_DIR$/vendor/dipeshsukhia/laravel-country-state-city-data" />
+      <path value="$PROJECT_DIR$/vendor/srmklive/paypal" />
     </include_path>
   </component>
   <component name="ProjectId" id="1h6PMQwNhcA420JmFe3jcTAleYy" />
@@ -204,7 +202,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../e_erp" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
@@ -298,11 +296,11 @@
     </state>
     <state x="712" y="248" width="485" height="537" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602897478167" />
     <state x="712" y="248" width="380" height="537" key="NewPhpClassDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1602748139387" />
-    <state x="778" y="445" width="354" height="147" key="NewPhpFileDialog" timestamp="1603031758443">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="778" y="445" width="354" height="147" key="NewPhpFileDialog" timestamp="1603379101579">
+      <screen x="0" y="0" width="1920" height="1041" />
     </state>
     <state x="778" y="445" width="354" height="147" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603031758443" />
-    <state x="778" y="445" width="354" height="147" key="NewPhpFileDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1602848879515" />
+    <state x="778" y="445" width="354" height="147" key="NewPhpFileDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1603379101579" />
     <state x="775" y="225" width="359" height="583" key="RollbackChangesDialog" timestamp="1602592605440">
       <screen x="0" y="0" width="1920" height="1041" />
     </state>

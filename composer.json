@@ -21,6 +21,7 @@
         "laravel/ui": "^2.2",
         "mcamara/laravel-localization": "^1.6",
         "propaganistas/laravel-phone": "^4.2",
+        "srmklive/paypal": "~1.0",
         "toin0u/geocoder-laravel": "^4.4"
     },
     "require-dev": {

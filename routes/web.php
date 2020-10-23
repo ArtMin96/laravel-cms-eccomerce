@@ -142,7 +142,18 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         // Orders
         Route::get('/orders', 'OrderController@index')->name('orders.index');
         Route::get('/orders/{order}/show', 'OrderController@show')->name('orders.show');
+
+        // Paypal
+        Route::get('paypal/express-checkout', 'PayPalController@expressCheckout')->name('paypal.express-checkout');
+        Route::get('paypal/express-checkout-success', 'PayPalController@expressCheckoutSuccess');
+        Route::post('paypal/notify', 'PayPalController@notify');
+
+//        Route::get('paypal/checkout', 'PayPalController@getExpressCheckout');
+//        Route::get('paypal/checkout-success', 'PayPalController@getExpressCheckoutSuccess')->name('paypal.success');
+//        Route::get('paypal/checkout-cancel', 'PayPalController@cancelPage')->name('paypal.cancel');
     });
+
+//    Route::get('paypal/checkout', 'PayPalController@getExpressCheckout');
 
     // Ajax requests
     Route::post('/front-request/remove-user-image', 'FrontRequestController@removeUserImage')->name('front-request.remove.user.image');
