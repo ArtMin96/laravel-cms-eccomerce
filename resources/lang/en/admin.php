@@ -42,7 +42,7 @@ return [
     'Quantity' => 'Quantity',
     'Amount' => 'Amount',
     'Create product' => 'Create product',
-    'PDF no larger than 25 MB' => 'PDF no larger than 25 MB',
+    'PDF, DOC, DOCX no larger than 25 MB' => 'PDF, DOC, DOCX no larger than 25 MB',
     'JPG, JPEG, PNG no larger than 5 MB' => 'JPG, JPEG, PNG no larger than 5 MB',
 
     'Are you sure you want to remove this file?' => 'Are you sure you want to remove this file?',

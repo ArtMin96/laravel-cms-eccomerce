@@ -46,11 +46,23 @@
             } else { // Single
                 let reader = new FileReader();
                 reader.onload = function(event) {
+
+                    if (checkFile(_this.get(0).files[0].name) === false) {
+                        _this.closest('.images').append('<div class="img" style="background-image: url(http://gaudeamus.loc/images/svg/document.svg); background-color: #fff; background-size: auto; font-size: 32px;">' +
+                            '<span class="remove-pic"><i class="fal fa-times"></i></span>' +
+                            '<div class="img-file-info text-uppercase">' + CheckFileExtension(_this.get(0).files[0].name) + '</div>' +
+                            '</div>');
+                    } else {
+                        _this.closest('.images').append('<div class="img">' +
+                            '<img src="'+reader.result+'" rel="'+ reader.result  +'" />' +
+                            '<span class="remove-pic"><i class="fal fa-times"></i></span>' +
+                            '</div>');
+                    }
                     // _this.closest('.images').prepend('<div class="img" style="background-image: url(\'' + event.target.result + '\');" rel="'+ event.target.result  +'"><span class="remove-pic"><i class="fal fa-times"></i></span></div>');
-                    _this.closest('.images').append('<div class="img">' +
-                        '<img src="'+reader.result+'" rel="'+ reader.result  +'" />' +
-                        '<span class="remove-pic"><i class="fal fa-times"></i></span>' +
-                        '</div>');
+                    // _this.closest('.images').append('<div class="img">' +
+                    //     '<img src="'+reader.result+'" rel="'+ reader.result  +'" />' +
+                    //     '<span class="remove-pic"><i class="fal fa-times"></i></span>' +
+                    //     '</div>');
                     _this.closest('.images').find('.pic').hide();
                 }
                 reader.readAsDataURL(_this.get(0).files[0]);
@@ -152,5 +164,28 @@
         });
 
     });
+
+    /**
+     * Check file extension
+     *
+     * @param file
+     * @returns {boolean}
+     */
+    function checkFile(file) {
+        let extension = file.substr((file.lastIndexOf('.') +1));
+        return /(jpg|jpeg|jpe|gif|png|bmp)$/ig.test(extension);
+    }
+
+    /**
+     * Return file extension from string
+     *
+     * @param filename
+     * @returns {T}
+     * @constructor
+     */
+    function CheckFileExtension(filename) {
+        let ext = filename.split('.').pop();
+        return ext;
+    }
 
 })(jQuery);

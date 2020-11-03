@@ -59,10 +59,10 @@
                     <ul class="g-side-menu-list">
                         @if(!empty($catalog))
 
-                            <li class="g-side-menu-item @if(request()->catalog == null) g-side-menu-active @endif">
+                            <li class="g-side-menu-item @if(isset($_GET['catalog']) && $_GET['catalog'] == null) g-side-menu-active @endif">
                                 @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'filter-product')
                                     {{ request()->query->remove('catalog') }}
-                                    <a href="{{ route('filter-product', request()->all() + ['catalog' => null]) }}" class="g-side-menu-link">{{ __('pages.All') }}</a>
+                                    <a href="{{ route('filter-product', ['catalog' => null] + request()->all()) }}" class="g-side-menu-link">{{ __('pages.All') }}</a>
                                 @else
                                     {{ request()->query->remove('catalog') }}
                                     <a href="{{ route('filter-product', ['catalog' => null]) }}" class="g-side-menu-link">{{ __('pages.All') }}</a>
@@ -70,10 +70,10 @@
                             </li>
 
                             @foreach($catalog as $key => $catalogs)
-                                <li class="g-side-menu-item @if(request()->catalog == $catalogs->id) g-side-menu-active @endif">
+                                <li class="g-side-menu-item @if(isset($_GET['catalog']) && $_GET['catalog'] == $catalogs->id) g-side-menu-active @endif">
                                     @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'filter-product')
                                         {{ request()->query->remove('catalog') }}
-                                        <a href="{{ route('filter-product', request()->all() + ['catalog' => $catalogs->id]) }}" class="g-side-menu-link">{{ $catalogs->title }}</a>
+                                        <a href="{{ route('filter-product', ['catalog' => $catalogs->id] + request()->all()) }}" class="g-side-menu-link">{{ $catalogs->title }}</a>
                                     @else
                                         {{ request()->query->remove('catalog') }}
                                         <a href="{{ route('filter-product', ['catalog' => $catalogs->id]) }}" class="g-side-menu-link">{{ $catalogs->title }}</a>

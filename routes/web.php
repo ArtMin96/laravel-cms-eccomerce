@@ -119,6 +119,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/document-shop/filter', ['uses' => 'DocumentShopController@getFilter', 'as' => 'filter-product']);
     Route::get('/document-shop', 'DocumentShopController@index')->name('document-shop');
 
+//    Route::get('/document-template/search', ['uses' => 'DocumentTemplateController@getSearch', 'as' => 'search-document-template']);
+//    Route::get('/document-template/search/{catalog}/{language}', ['uses' => 'DocumentTemplateController@getSearch', 'as' => 'search-document-template']);
+    Route::get('/document-template/search', 'DocumentTemplateController@getSearch')->name('search-document-template');
+    Route::get('/document-template', 'DocumentTemplateController@index')->name('document-template');
+
     Route::get('/wishlist', 'WishlistController@index')->name('wishlist');
     Route::get('/wishlist/search', ['uses' => 'WishlistController@getSearch','as' => 'search']);
 

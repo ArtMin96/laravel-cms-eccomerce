@@ -96,32 +96,41 @@
                                     <div class="small font-italic text-muted mb-4">{{ __('admin.JPG, JPEG, PNG no larger than 5 MB') }}</div>
                                 @endif
 
-                                <div class="images">
-                                    @if(!empty($product->productFiles[0]->preview_image))
+                                @if($product->sale_type_id == 1 || $product->sale_type_id == 2)
+                                    <div class="images">
+                                        @if(!empty($product->productFiles[0]->preview_image))
 
-                                        <div class="img">
-                                            <img src="{{ asset('storage/'.$product->productFiles[0]->preview_image) }}" alt="{{ $product->title }}">
-                                            <span class="remove-pic result_file"
-                                                  data-file-id="{{ $product->productFiles[0]->id }}"
-                                                  data-file-url="{{ LaravelLocalization::localizeUrl('/admin/request/remove-product-preview-image') }}"
-                                                  data-title="{{ __('admin.Are you sure you want to remove this file?') }}"
-                                                  data-confirm-text="{{ __('admin.Delete') }}"
-                                                  data-cancel-text="{{ __('admin.Cancel') }}"><i class="fal fa-times"></i></span>
-                                        </div>
-                                    @else
-                                        <div class="pic">
-                                            <span style="font-size: 1.25rem;">{{ __('admin.Preview image') }}</span>
-                                            <input type="file" name="preview_image" accept="image/*" class="file-uploader d-none form-control @error('preview_image') is-invalid @enderror" id="preview-image">
-                                        </div>
-                                    @endif
-                                </div>
+                                            <div class="img">
+                                                <img src="{{ asset('storage/'.$product->productFiles[0]->preview_image) }}" alt="{{ $product->title }}">
+                                                <span class="remove-pic result_file"
+                                                      data-file-id="{{ $product->productFiles[0]->id }}"
+                                                      data-file-url="{{ LaravelLocalization::localizeUrl('/admin/request/remove-product-preview-image') }}"
+                                                      data-title="{{ __('admin.Are you sure you want to remove this file?') }}"
+                                                      data-confirm-text="{{ __('admin.Delete') }}"
+                                                      data-cancel-text="{{ __('admin.Cancel') }}"><i class="fal fa-times"></i></span>
+                                            </div>
+                                        @else
+                                            <div class="pic">
+                                                <span style="font-size: 1.25rem;">{{ __('admin.Preview image') }}</span>
+                                                <input type="file" name="preview_image" accept="image/*" class="file-uploader d-none form-control @error('preview_image') is-invalid @enderror" id="preview-image">
+                                            </div>
+                                        @endif
+                                    </div>
 
-                                @error('preview_image')
-                                    <span class="invalid-feedback d-block" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                                <div class="small font-italic text-muted mb-4">{{ __('admin.JPG, JPEG, PNG no larger than 5 MB') }}</div>
+                                    @error('preview_image')
+                                        <span class="invalid-feedback d-block" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                @endif
+
+                                @if($product->sale_type_id == 1 || $product->sale_type_id == 2)
+                                    <div class="small font-italic text-muted mb-4">{{ __('admin.PDF, DOC, DOCX no larger than 25 MB') }}</div>
+                                @elseif($product->sale_type_id == 3)
+                                    <div class="small font-italic text-muted mb-4">{{ __('admin.JPG, JPEG, PNG no larger than 5 MB') }}</div>
+                                @endif
+
+{{--                                <div class="small font-italic text-muted mb-4">{{ __('admin.JPG, JPEG, PNG no larger than 5 MB') }}</div>--}}
                             </div>
                         </div>
                     </div>
@@ -190,6 +199,9 @@
                                         @enderror
                                     </div>
 
+                                @endif
+
+                                @if($product->sale_type_id == 1 || $product->sale_type_id == 2)
                                     <div class="form-group">
                                         <label class="required" for="catalog">{{ __('Catalog') }}</label>
                                         <select class="js-select-multiple form-control w-100" id="catalog" name="catalog[]" multiple data-placeholder="Choose anything" data-allow-clear="1">
