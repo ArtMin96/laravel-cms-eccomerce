@@ -27,7 +27,7 @@ use LamaLama\Wishlist\Wishlistable;
 class Product extends Model
 {
     const DocumentShop = 1;
-    const RequestedDocument = 2;
+    const DocumentTemplate = 2;
     const RentEquipment = 3;
 
     use Translatable, SoftDeletes, Wishlistable;
@@ -98,6 +98,14 @@ class Product extends Model
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function documentLanguage()
+    {
+        return $this->belongsTo(DocumentLanguages::class, 'language');
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function productTranslations()
@@ -127,5 +135,31 @@ class Product extends Model
     public function scopeFilter(Builder $builder, QueryFilter $filters)
     {
         return $filters->apply($builder);
+    }
+
+    public function scopeProducts($query)
+    {
+        $catalog = request()->catalog;
+        $language = request()->language;
+
+        return $query
+            ->with(['catalog' => function ($q) use ($catalog) {
+                $q->where('id', $catalog);
+            }])
+            ->with(['documentLanguage' => function ($q) use ($language) {
+                $q->where('id', $language);
+            }]);
+//        return $query
+//            ->when(request()->catalog, function ($q) {
+//                return $q->whereHas('catalog');
+//                return $q->whereHas('catalog', function ($relationQuery) {
+//                    $relationQuery->where('id', request()->catalog);
+//                });
+//            });
+//            ->when(request()->language, function ($q) {
+//                return $q->whereHas('documentLanguage', function ($relationQuery) {
+//                    $relationQuery->where('id', request()->language);
+//                });
+//            });
     }
 }

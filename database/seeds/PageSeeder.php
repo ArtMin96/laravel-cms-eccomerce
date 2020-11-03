@@ -1148,7 +1148,7 @@ class PageSeeder extends Seeder
                     'name' => 'Փաստաթղթի ձևանմուշներ'
                 ],
                 'parent_id' => 15,
-                'alias' => 'document-templates',
+                'alias' => 'document-template',
                 'sort_order' => 2,
                 'page_number' => 16,
                 'route_number' => 0,

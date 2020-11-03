@@ -18,7 +18,6 @@ class CreateProductTable extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('sale_type_id')->nullable();
             $table->decimal('price', 10, 2)->nullable();
-            $table->integer('language')->nullable(); // 0 English, 1 Russian, 2 Armenian
             $table->softDeletes();
             $table->timestamps();
 

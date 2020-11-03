@@ -65,4 +65,12 @@ class DocumentLanguages extends Model
     {
         return $this->hasMany(DocumentLanguagesTranslation::class, 'lang_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function product()
+    {
+        return $this->hasMany(Product::class, 'language');
+    }
 }

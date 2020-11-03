@@ -63,13 +63,13 @@
                                 </span>
                             @enderror
 
-                            @if(request()->id == 1)
-                                <div class="small font-italic text-muted mb-4">{{ __('admin.PDF no larger than 25 MB') }}</div>
+                            @if(request()->id == 1 || request()->id == 2)
+                                <div class="small font-italic text-muted mb-4">{{ __('admin.PDF, DOC, DOCX no larger than 25 MB') }}</div>
                             @elseif(request()->id == 3)
                                 <div class="small font-italic text-muted mb-4">{{ __('admin.JPG, JPEG, PNG no larger than 5 MB') }}</div>
                             @endif
 
-                            @if(request()->id == 1)
+                            @if(request()->id == 1 || request()->id == 2)
 
                                 <div class="images">
                                     <div class="pic">
@@ -152,7 +152,9 @@
                                         </span>
                                     @enderror
                                 </div>
+                            @endif
 
+                            @if(request()->route('id') == 1 || request()->route('id') == 2)
                                 <div class="form-group">
                                     <label class="required" for="catalog">{{ __('Catalog') }}</label>
                                     <select class="js-select-multiple form-control w-100" id="catalog" name="catalog[]" multiple data-placeholder="Choose anything" data-allow-clear="1">
