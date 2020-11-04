@@ -21,11 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="188bee73-7fda-407a-a0b3-1cea2f9f01e2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/pages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/pages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ru/pages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/pages.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/document-template/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/document-template/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,6 +260,7 @@
       <workItem from="1604046758373" duration="599000" />
       <workItem from="1604298754475" duration="599000" />
       <workItem from="1604318359124" duration="21283000" />
+      <workItem from="1604480296752" duration="10646000" />
     </task>
     <servers />
   </component>
@@ -279,11 +280,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="663" y="0" width="662" height="693" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1603030673703">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="663" y="0" width="662" height="693" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604481709286">
+      <screen x="0" y="0" width="1920" height="1041" />
     </state>
     <state x="663" y="0" width="574" height="1035" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603030673703" />
-    <state x="663" y="0" width="662" height="693" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1601390527306" />
+    <state x="663" y="0" width="662" height="693" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1604481709286" />
     <state x="693" y="277" width="524" height="479" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604399383597">
       <screen x="0" y="0" width="1920" height="1041" />
     </state>

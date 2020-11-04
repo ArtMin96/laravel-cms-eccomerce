@@ -1,23 +1,143 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Admin Dashboard') }}</div>
+    <div class="container mt-5">
 
+        <div class="d-flex justify-content-between align-items-sm-center flex-column flex-sm-row mb-4">
+            <div class="mr-4 mb-3 mb-sm-0">
+                <h1 class="mb-0">Dashboard</h1>
+                <div class="small">
+                    <span class="font-weight-500 text-primary">Friday</span>
+                    · September 20, 2020 · 12:16 PM
+                </div>
+            </div>
+            <!-- Date range picker example button-->
+            <button class="btn btn-white btn-sm line-height-normal p-3" id="reportrange">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar mr-2 text-primary"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>October 6, 2020 - November 4, 2020</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down ml-1"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-3 col-md-6 mb-4">
+                <!-- Dashboard info widget 1-->
+                <div class="card border-top-0 border-bottom-0 border-right-0 border-left-lg border-primary h-100">
                     <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <div class="small font-weight-bold text-primary mb-1">Earnings (monthly)</div>
+                                <div class="h5">$4,390</div>
+                                <div class="text-xs font-weight-bold text-success d-inline-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up mr-1"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                                    12%
+                                </div>
                             </div>
-                        @endif
-
-                        {{ __('You are logged in as Administrator!') }}
+                            <div class="ml-2"><svg class="svg-inline--fa fa-dollar-sign fa-w-9 fa-2x text-gray-200" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="dollar-sign" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 512" data-fa-i2svg=""><path fill="currentColor" d="M209.2 233.4l-108-31.6C88.7 198.2 80 186.5 80 173.5c0-16.3 13.2-29.5 29.5-29.5h66.3c12.2 0 24.2 3.7 34.2 10.5 6.1 4.1 14.3 3.1 19.5-2l34.8-34c7.1-6.9 6.1-18.4-1.8-24.5C238 74.8 207.4 64.1 176 64V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48h-2.5C45.8 64-5.4 118.7.5 183.6c4.2 46.1 39.4 83.6 83.8 96.6l102.5 30c12.5 3.7 21.2 15.3 21.2 28.3 0 16.3-13.2 29.5-29.5 29.5h-66.3C100 368 88 364.3 78 357.5c-6.1-4.1-14.3-3.1-19.5 2l-34.8 34c-7.1 6.9-6.1 18.4 1.8 24.5 24.5 19.2 55.1 29.9 86.5 30v48c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-48.2c46.6-.9 90.3-28.6 105.7-72.7 21.5-61.6-14.6-124.8-72.5-141.7z"></path></svg><!-- <i class="fas fa-dollar-sign fa-2x text-gray-200"></i> --></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <!-- Dashboard info widget 2-->
+                <div class="card border-top-0 border-bottom-0 border-right-0 border-left-lg border-secondary h-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <div class="small font-weight-bold text-secondary mb-1">Average sale price</div>
+                                <div class="h5">$27.00</div>
+                                <div class="text-xs font-weight-bold text-danger d-inline-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-down mr-1"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>
+                                    3%
+                                </div>
+                            </div>
+                            <div class="ml-2"><svg class="svg-inline--fa fa-tag fa-w-16 fa-2x text-gray-200" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tag" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"></path></svg><!-- <i class="fas fa-tag fa-2x text-gray-200"></i> --></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <!-- Dashboard info widget 3-->
+                <div class="card border-top-0 border-bottom-0 border-right-0 border-left-lg border-success h-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <div class="small font-weight-bold text-success mb-1">Clicks</div>
+                                <div class="h5">11,291</div>
+                                <div class="text-xs font-weight-bold text-success d-inline-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up mr-1"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                                    12%
+                                </div>
+                            </div>
+                            <div class="ml-2"><svg class="svg-inline--fa fa-mouse-pointer fa-w-10 fa-2x text-gray-200" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="mouse-pointer" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M302.189 329.126H196.105l55.831 135.993c3.889 9.428-.555 19.999-9.444 23.999l-49.165 21.427c-9.165 4-19.443-.571-23.332-9.714l-53.053-129.136-86.664 89.138C18.729 472.71 0 463.554 0 447.977V18.299C0 1.899 19.921-6.096 30.277 5.443l284.412 292.542c11.472 11.179 3.007 31.141-12.5 31.141z"></path></svg><!-- <i class="fas fa-mouse-pointer fa-2x text-gray-200"></i> --></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <!-- Dashboard info widget 4-->
+                <div class="card border-top-0 border-bottom-0 border-right-0 border-left-lg border-info h-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <div class="small font-weight-bold text-info mb-1">Conversion rate</div>
+                                <div class="h5">1.23%</div>
+                                <div class="text-xs font-weight-bold text-danger d-inline-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-down mr-1"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>
+                                    1%
+                                </div>
+                            </div>
+                            <div class="ml-2"><svg class="svg-inline--fa fa-percentage fa-w-12 fa-2x text-gray-200" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="percentage" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M109.25 173.25c24.99-24.99 24.99-65.52 0-90.51-24.99-24.99-65.52-24.99-90.51 0-24.99 24.99-24.99 65.52 0 90.51 25 25 65.52 25 90.51 0zm256 165.49c-24.99-24.99-65.52-24.99-90.51 0-24.99 24.99-24.99 65.52 0 90.51 24.99 24.99 65.52 24.99 90.51 0 25-24.99 25-65.51 0-90.51zm-1.94-231.43l-22.62-22.62c-12.5-12.5-32.76-12.5-45.25 0L20.69 359.44c-12.5 12.5-12.5 32.76 0 45.25l22.62 22.62c12.5 12.5 32.76 12.5 45.25 0l274.75-274.75c12.5-12.49 12.5-32.75 0-45.25z"></path></svg><!-- <i class="fas fa-percentage fa-2x text-gray-200"></i> --></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-lg-8 mb-4">
+                <div class="card mb-4">
+                    <div class="card-header">{{ __('admin.Revenue Summary') }}</div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            {!! $chart->container() !!}
+{{--                            <canvas id="myAreaChart" width="874" height="240" style="display: block; width: 874px; height: 240px;" class="chartjs-render-monitor"></canvas>--}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+{{--            <div class="col-md-8">--}}
+{{--                <div class="card">--}}
+{{--                    <div class="card-header">{{ __('Admin Dashboard') }}</div>--}}
+
+{{--                    <div class="card-body">--}}
+{{--                        @if (session('status'))--}}
+{{--                            <div class="alert alert-success" role="alert">--}}
+{{--                                {{ session('status') }}--}}
+{{--                            </div>--}}
+{{--                        @endif--}}
+
+{{--                        {{ __('You are logged in as Administrator!') }}--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+
+        </div>
     </div>
 @endsection
+
+@push('script')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8" defer></script>
+    {!! $chart->script() !!}
+@endpush
