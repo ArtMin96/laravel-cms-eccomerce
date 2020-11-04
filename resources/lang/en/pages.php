@@ -101,4 +101,6 @@ return [
     'Physical person' => 'Physical person',
     'Legal person' => 'Legal person',
 
+    'Download' => 'Download',
+
 ];

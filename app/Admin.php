@@ -10,6 +10,8 @@ class Admin extends Authenticatable
 {
     use Notifiable;
 
+    protected $table = 'admins';
+
     protected $guard = 'admin';
 
     /**
