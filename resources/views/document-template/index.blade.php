@@ -124,8 +124,43 @@
                             @foreach($products as $product)
                                 <div class="col-xl-3 col-lg-4 col-md-6">
                                     <div class="g-card-document g-card-wrap">
-                                        <img src="../../images/document/document.png" alt="gaudeamus">
-                                        <a href="#" class="g-btn g-btn-blue g-btn-round mt-3 text-capitalize document-template-link">download</a>
+
+                                        @if (!empty($product->productFiles[0]))
+                                            @if(checkFileMimeType($product->productFiles[0]->file) === false)
+                                                <div class="img-file-info g-card-product-basket-image text-uppercase d-flex justify-content-center align-items-center mx-auto"
+                                                     style="background-image: url({{ asset('images/svg/document.svg') }}); background-color: #fff; background-size: auto; font-size: 20px;">{{ fileBaseNameOrExtension($product->productFiles[0]->file) }}</div>
+                                            @endif
+                                        @else
+                                            <img src="{{ asset('images/products/default-product.jpg') }}" class="g-card-product-basket-image" alt="{{ $product->title }}">
+                                        @endif
+
+                                            @if(!empty($product->productFiles[0]->preview_image))
+
+                                                <!-- Preview Modal -->
+                                                <div class="modal fade" id="card-image-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <p class="mb-0">{{ $product->title }}</p>
+                                                                <button type="button" class="close m-0 p-0 font-size-6" data-dismiss="modal" aria-label="Close">
+                                                                    <i class="fas fa-times"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body text-center">
+                                                                <img src="{{ asset('storage/'.$product->productFiles[0]->preview_image) }}" class="modal-image w-100" alt="{{ $product->title }}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <button class="g-link g-link-1 font-size-7" data-toggle="modal" data-target="#card-image-modal">{{ __('pages.Watch expert') }}</button>
+                                            @endif
+
+                                        @if(auth()->check())
+                                            <a href="{{ route('download-template', $product->productFiles[0]->file) }}" class="g-btn g-btn-blue g-btn-round mt-3 text-capitalize document-template-link">{{ __('pages.Download') }}</a>
+                                        @else
+                                            <a class="g-btn g-btn-blue g-btn-round mt-3 text-capitalize document-template-link" style="cursor: pointer;" data-toggle="modal" data-target="#loginModal">{{ __('pages.Download') }}</a>
+                                        @endif
                                     </div>
                                 </div>
                             @endforeach
@@ -146,7 +181,15 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    {{ $products->appends(['catalog' => isset($_GET['catalog'])? $_GET['catalog'] : null, 'language' => isset($_GET['language'])? $_GET['language'] : null], request()->input())->links() }}
+
+                    @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'document-template')
+                        {{ $products->appends(['catalog' => isset($_GET['catalog'])? $_GET['catalog'] : null, 'language' => isset($_GET['language'])? $_GET['language'] : null], request()->input())->links() }}
+                    @endif
+
+                    @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'search-document-template')
+                        {{ $products->appends(['_token' => csrf_token(), 'q' => $_GET['q'], 'catalog' => isset($_GET['catalog'])? $_GET['catalog'] : null, 'language' => isset($_GET['language'])? $_GET['language'] : null], request()->input())->links() }}
+                    @endif
+
                 </div>
             </div>
         </div>

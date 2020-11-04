@@ -100,4 +100,6 @@ return [
 
     'Physical person' => 'Физическое лицо',
     'Legal person' => 'Законопослушный гражданин',
+
+    'Download' => 'Скачать',
 ];
