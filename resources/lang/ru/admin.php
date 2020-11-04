@@ -72,4 +72,7 @@ return [
     'Email verified' => 'Эл. почта подтверждена',
     'Client' => 'Клиент',
 
+    'Grand total' => 'Общая сумма',
+    'Revenue Summary' => 'Сводка доходов',
+
 ];

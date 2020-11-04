@@ -72,4 +72,7 @@ return [
     'Email verified' => 'Email verified',
     'Client' => 'Client',
 
+    'Grand total' => 'Grand total',
+    'Revenue Summary' => 'Revenue Summary',
+
 ];
