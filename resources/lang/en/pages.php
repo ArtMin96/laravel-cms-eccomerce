@@ -77,6 +77,7 @@ return [
     'Happy Clients' => 'Happy Clients',
     'Professional Linguists' => 'Professional Linguists',
     'Languages' => 'Languages',
+    'Language' => 'Language',
     'Words Translated' => 'Words Translated',
 
     'Basket' => 'Basket',

@@ -50,47 +50,8 @@
         </form>
 
         <div class="row">
-            <div class="col-lg-3">
-                <div class="g-side-menu g-side-menu-3">
-                    <div class="g-side-menu-title">{{ __('pages.Catalog') }}</div>
-                    <ul class="g-side-menu-list">
 
-                        @if(!empty($catalog))
-
-                            <li class="g-side-menu-item @if(isset($_GET['catalog']) && $_GET['catalog'] == null) g-side-menu-active @endif">
-                                @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'document-template')
-                                    {{ request()->query->remove('catalog') }}
-                                    <a href="{{ route('document-template', request()->all() + ['catalog' => null]) }}" class="g-side-menu-link">{{ __('pages.All') }}</a>
-                                @endif
-
-                                @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'search-document-template')
-                                    {{ request()->query->remove('catalog') }}
-                                    <a href="{{ route('search-document-template', ['_token' => csrf_token(), 'q' => $_GET['q'], 'catalog' => null]) }}" class="g-side-menu-link">{{ __('pages.All') }}</a>
-                                @endif
-                            </li>
-
-                            @foreach($catalog as $key => $catalogs)
-                                <li class="g-side-menu-item @if(isset($_GET['catalog']) && $_GET['catalog'] == $catalogs->id) g-side-menu-active @endif">
-
-                                    @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'document-template')
-                                        {{ request()->query->remove('catalog') }}
-                                        <a href="{{ route('document-template', request()->all() + ['catalog' => $catalogs->id]) }}" class="g-side-menu-link">{{ $catalogs->title }}</a>
-                                    @endif
-
-                                    @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'search-document-template')
-                                        {{ request()->query->remove('catalog') }}
-                                        <a href="{{ route('search-document-template', request()->all() + ['_token' => csrf_token(), 'q' => $_GET['q'], 'catalog' => $catalogs->id]) }}" class="g-side-menu-link">{{ $catalogs->title }}</a>
-                                    @endif
-
-                                </li>
-                            @endforeach
-                        @endif
-
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-lg-9">
+            <div class="col-lg-12">
                 <div class="g-tabs g-tabs-2">
 
                     @if(count($languages) > 0)
@@ -100,15 +61,20 @@
                                 <a class="nav-item nav-link @if(!isset($_GET['language']) && empty($_GET['language'])) active @endif" href="{{ route('document-template', ['catalog' => isset($_GET['catalog'])? $_GET['catalog'] : null]) }}">{{ __('pages.All') }}</a>
 
                                 @foreach($languages as $key => $lang)
+
+                                    @if($lang->id == 3)
+                                        @continue
+                                    @endif
+
                                     {{ request()->query->remove('language') }}
 
                                     @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'search-document-template')
                                         <a class="nav-item nav-link @if(isset($_GET['language']) && $_GET['language'] == $lang->id) active @endif"
-                                           href="{{ route('search-document-template', ['_token' => csrf_token(), 'q' => $_GET['q'], 'language' => $lang->id, 'catalog' => isset($_GET['catalog'])? $_GET['catalog'] : null]) }}"
+                                           href="{{ route('search-document-template', ['_token' => csrf_token(), 'q' => $_GET['q'], 'language' => $lang->id]) }}"
                                         >{{ $lang->name }}</a>
                                     @else
                                         <a class="nav-item nav-link @if(isset($_GET['language']) && $_GET['language'] == $lang->id) active @endif"
-                                           href="{{ route('document-template', ['language' => $lang->id, 'catalog' => isset($_GET['catalog'])? $_GET['catalog'] : null]) }}"
+                                           href="{{ route('document-template', ['language' => $lang->id]) }}"
                                         >{{ $lang->name }}</a>
                                     @endif
 
@@ -126,35 +92,16 @@
                                     <div class="g-card-document g-card-wrap">
 
                                         @if (!empty($product->productFiles[0]))
-                                            @if(checkFileMimeType($product->productFiles[0]->file) === false)
-                                                <div class="img-file-info g-card-product-basket-image text-uppercase d-flex justify-content-center align-items-center mx-auto"
-                                                     style="background-image: url({{ asset('images/svg/document.svg') }}); background-color: #fff; background-size: auto; font-size: 20px;">{{ fileBaseNameOrExtension($product->productFiles[0]->file) }}</div>
-                                            @endif
+                                            <img src="{{ asset('storage/document-templates/'.$product->productFiles[0]->preview_image) }}" class="g-card-product-basket-image" alt="{{ $product->title }}">
                                         @else
                                             <img src="{{ asset('images/products/default-product.jpg') }}" class="g-card-product-basket-image" alt="{{ $product->title }}">
                                         @endif
 
-                                            @if(!empty($product->productFiles[0]->preview_image))
+                                        @if(!empty($product->language))
+                                            <p class="g-card-product-text my-3 h-auto">{{ __('pages.Language') }}: {{ $product->documentLanguage->name }}</p>
+                                        @endif
 
-                                                <!-- Preview Modal -->
-                                                <div class="modal fade" id="card-image-modal" tabindex="-1" role="dialog" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <p class="mb-0">{{ $product->title }}</p>
-                                                                <button type="button" class="close m-0 p-0 font-size-6" data-dismiss="modal" aria-label="Close">
-                                                                    <i class="fas fa-times"></i>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body text-center">
-                                                                <img src="{{ asset('storage/'.$product->productFiles[0]->preview_image) }}" class="modal-image w-100" alt="{{ $product->title }}">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <button class="g-link g-link-1 font-size-7" data-toggle="modal" data-target="#card-image-modal">{{ __('pages.Watch expert') }}</button>
-                                            @endif
+                                        <p class="g-card-product-text mt-3 mb-0 h-auto">{{ $product->title }}</p>
 
                                         @if(auth()->check())
                                             <a href="{{ route('download-template', $product->productFiles[0]->file) }}" class="g-btn g-btn-blue g-btn-round mt-3 text-capitalize document-template-link">{{ __('pages.Download') }}</a>
@@ -183,11 +130,11 @@
                 <div class="col-12">
 
                     @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'document-template')
-                        {{ $products->appends(['catalog' => isset($_GET['catalog'])? $_GET['catalog'] : null, 'language' => isset($_GET['language'])? $_GET['language'] : null], request()->input())->links() }}
+                        {{ $products->appends(['language' => isset($_GET['language'])? $_GET['language'] : null], request()->input())->links() }}
                     @endif
 
                     @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'search-document-template')
-                        {{ $products->appends(['_token' => csrf_token(), 'q' => $_GET['q'], 'catalog' => isset($_GET['catalog'])? $_GET['catalog'] : null, 'language' => isset($_GET['language'])? $_GET['language'] : null], request()->input())->links() }}
+                        {{ $products->appends(['_token' => csrf_token(), 'q' => $_GET['q'], 'language' => isset($_GET['language'])? $_GET['language'] : null], request()->input())->links() }}
                     @endif
 
                 </div>
