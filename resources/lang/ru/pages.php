@@ -77,6 +77,7 @@ return [
     'Happy Clients' => 'Счастливые клиенты',
     'Professional Linguists' => 'Профессиональные лингвисты',
     'Languages' => 'Языки',
+    'Language' => 'Язык',
     'Words Translated' => 'Слова переведены',
 
     'Basket' => 'Корзина',

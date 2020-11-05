@@ -27,7 +27,7 @@ class AddLanguageToProductTable extends Migration
     public function down()
     {
         Schema::table('product', function (Blueprint $table) {
-            $table->dropForeign('language');
+//            $table->dropForeign('language');
         });
     }
 }
