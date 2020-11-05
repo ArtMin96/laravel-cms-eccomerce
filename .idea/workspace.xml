@@ -22,9 +22,8 @@
     <list default="true" id="188bee73-7fda-407a-a0b3-1cea2f9f01e2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ru/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -260,7 +259,7 @@
       <workItem from="1604046758373" duration="599000" />
       <workItem from="1604298754475" duration="599000" />
       <workItem from="1604318359124" duration="21283000" />
-      <workItem from="1604480296752" duration="10646000" />
+      <workItem from="1604480296752" duration="20894000" />
     </task>
     <servers />
   </component>
