@@ -7,16 +7,10 @@
             <div class="mr-4 mb-3 mb-sm-0">
                 <h1 class="mb-0">Dashboard</h1>
                 <div class="small">
-                    <span class="font-weight-500 text-primary">Friday</span>
-                    · September 20, 2020 · 12:16 PM
+                    <span class="font-weight-500 text-primary">{{ \Carbon\Carbon::today()->locale(app()->getLocale())->dayName }}</span>
+                    · {{ \Carbon\Carbon::today()->locale(app()->getLocale())->monthName }} {{ \Carbon\Carbon::today()->day }}, {{ \Carbon\Carbon::today()->year }} · {{ \Carbon\Carbon::now()->format('H:i') }}
                 </div>
             </div>
-            <!-- Date range picker example button-->
-            <button class="btn btn-white btn-sm line-height-normal p-3" id="reportrange">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar mr-2 text-primary"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                <span>October 6, 2020 - November 4, 2020</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down ml-1"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
         </div>
 
         <div class="row">
@@ -108,8 +102,8 @@
                                     <div class=""></div>
                                 </div>
                             </div>
-                            {!! $chart->container() !!}
-{{--                            <canvas id="myAreaChart" width="874" height="240" style="display: block; width: 874px; height: 240px;" class="chartjs-render-monitor"></canvas>--}}
+{{--                            {!! $chart->container() !!}--}}
+                            <canvas id="myAreaChart" width="874" height="240" style="display: block; width: 874px; height: 240px;" class="chartjs-render-monitor"></canvas>
                         </div>
                     </div>
                 </div>
@@ -138,6 +132,127 @@
 @endsection
 
 @push('script')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8" defer></script>
-    {!! $chart->script() !!}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" charset="utf-8" defer></script>
+    <script type="text/javascript">
+
+        function number_format(number, decimals, dec_point, thousands_sep) {
+            // *     example: number_format(1234.56, 2, ',', ' ');
+            // *     return: '1 234,56'
+            number = (number + "").replace(",", "").replace(" ", "");
+            var n = !isFinite(+number) ? 0 : +number,
+                prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+                sep = typeof thousands_sep === "undefined" ? "," : thousands_sep,
+                dec = typeof dec_point === "undefined" ? "." : dec_point,
+                s = "",
+                toFixedFix = function(n, prec) {
+                    var k = Math.pow(10, prec);
+                    return "" + Math.round(n * k) / k;
+                };
+            // Fix for IE parseFloat(0.55).toFixed(0) = 0;
+            s = (prec ? toFixedFix(n, prec) : "" + Math.round(n)).split(".");
+            if (s[0].length > 3) {
+                s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+            }
+            if ((s[1] || "").length < prec) {
+                s[1] = s[1] || "";
+                s[1] += new Array(prec - s[1].length + 1).join("0");
+            }
+            return s.join(dec);
+        }
+
+        window.addEventListener('load', function () {
+
+            var ctx = document.getElementById("myAreaChart");
+            var myLineChart = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: {!! collect($orders)->keys() !!},
+                    datasets: [{
+                        label: '{{ __('admin.Grand total') }}',
+                        lineTension: 0.3,
+                        backgroundColor: "rgba(0, 97, 242, 0.05)",
+                        borderColor: "rgba(0, 97, 242, 1)",
+                        pointRadius: 3,
+                        pointBackgroundColor: "rgba(0, 97, 242, 1)",
+                        pointBorderColor: "rgba(0, 97, 242, 1)",
+                        pointHoverRadius: 3,
+                        pointHoverBackgroundColor: "rgba(0, 97, 242, 1)",
+                        pointHoverBorderColor: "rgba(0, 97, 242, 1)",
+                        pointHitRadius: 10,
+                        pointBorderWidth: 2,
+                        data: {!! collect($orders)->values() !!}
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    layout: {
+                        padding: {
+                            left: 10,
+                            right: 25,
+                            top: 25,
+                            bottom: 0
+                        }
+                    },
+                    scales: {
+                        xAxes: [{
+                            time: {
+                                unit: "date"
+                            },
+                            gridLines: {
+                                display: false,
+                                drawBorder: false
+                            },
+                            ticks: {
+                                maxTicksLimit: 7
+                            }
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                maxTicksLimit: 5,
+                                padding: 10,
+                                // Include a dollar sign in the ticks
+                                callback: function(value, index, values) {
+                                    return "$" + number_format(value);
+                                }
+                            },
+                            gridLines: {
+                                color: "rgb(234, 236, 244)",
+                                zeroLineColor: "rgb(234, 236, 244)",
+                                drawBorder: false,
+                                borderDash: [2],
+                                zeroLineBorderDash: [2]
+                            }
+                        }]
+                    },
+                    legend: {
+                        display: false
+                    },
+                    tooltips: {
+                        backgroundColor: "rgb(255,255,255)",
+                        bodyFontColor: "#858796",
+                        titleMarginBottom: 10,
+                        titleFontColor: "#6e707e",
+                        titleFontSize: 14,
+                        borderColor: "#dddfeb",
+                        borderWidth: 1,
+                        xPadding: 15,
+                        yPadding: 15,
+                        displayColors: false,
+                        intersect: false,
+                        mode: "index",
+                        caretPadding: 10,
+                        callbacks: {
+                            label: function(tooltipItem, chart) {
+                                var datasetLabel =
+                                    chart.datasets[tooltipItem.datasetIndex].label || "";
+                                return datasetLabel + ": $" + number_format(tooltipItem.yLabel);
+                            }
+                        }
+                    }
+                }
+            });
+
+        });
+    </script>
+{{--    {!! $chart->script() !!}--}}
 @endpush
