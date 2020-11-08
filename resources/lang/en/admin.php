@@ -75,4 +75,12 @@ return [
     'Grand total' => 'Grand total',
     'Revenue Summary' => 'Revenue Summary',
 
+    'product_created_success' => 'The product was created successfully.',
+    'product_created_success_bx_error' => 'The product was created successfully but there was a problem sending to Bitrix. You can resend by going to the product page.',
+
+    'product_updated_success' => 'The product was updated successfully.',
+    'product_updated_success_bx_error' => 'The product was updated successfully but there was a problem sending to Bitrix. You can resend by going to the product page.',
+
+    'success' => 'Success',
+    'error' => 'Error',
 ];
