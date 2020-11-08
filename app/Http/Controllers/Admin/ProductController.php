@@ -134,9 +134,29 @@ class ProductController extends AdminController
             $fileModel->save();
         }
 
-        return redirect()
-            ->route('admin.product.index', $request->input('sale_type_id'))
-            ->with('message', __('messages.product_created_success'));
+        $bxProduct = $this->productAdd([
+            'NAME' => $translationProduct->title,
+            'SECTION_ID' => 6,
+            'CURRENCY_ID' => 'AMD',
+            'PRICE' => $request->input('price'),
+            'PROPERTY_58' => [
+                'VALUE' => $product->id
+            ],
+            'PROPERTY_56' => [
+                'VALUE' => $translationProduct->description
+            ]
+        ]);
+
+        if (isset($bxProduct['result'])) {
+            return redirect()
+                ->route('admin.product.index', $request->input('sale_type_id'))
+                ->with('success', __('admin.product_created_success'));
+        } else {
+            return redirect()
+                ->route('admin.product.index', $request->input('sale_type_id'))
+                ->with('error', __('admin.product_created_success_bx_error') . ' Error: ' . $bxProduct['error_description']);
+        }
+
     }
 
     /**
@@ -260,6 +280,29 @@ class ProductController extends AdminController
             }
 
             $fileModel->save();
+        }
+
+        $bxProduct = $this->productUpdate([
+            'NAME' => $translationProduct->title,
+            'SECTION_ID' => 6,
+            'CURRENCY_ID' => 'AMD',
+            'PRICE' => $request->input('price'),
+            'PROPERTY_58' => [
+                'VALUE' => $id
+            ],
+            'PROPERTY_56' => [
+                'VALUE' => $translationProduct->description
+            ]
+        ]);
+
+        if (isset($bxProduct['result'])) {
+            return redirect()
+                ->route('admin.product.index', $request->input('sale_type_id'))
+                ->with('success', __('messages.product_created_success'));
+        } else {
+            return redirect()
+                ->route('admin.product.index', $request->input('sale_type_id'))
+                ->with('error', __('messages.product_created_success_bx_error') . ' Error: ' . $bxProduct['error_description']);
         }
 
         return redirect()

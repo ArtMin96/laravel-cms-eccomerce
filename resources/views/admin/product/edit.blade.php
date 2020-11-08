@@ -184,7 +184,7 @@
                                 </div>
                                 <!-- .end Name translations -->
 
-                                @if($product->sale_type_id == 1)
+                                @if($product->sale_type_id == 1 || request()->route('id') == 3)
 
                                     <hr class="my-5">
 

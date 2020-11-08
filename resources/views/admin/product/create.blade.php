@@ -121,7 +121,7 @@
 
                                         </div>
 
-                                        @if(request()->route('id') == 1)
+                                        @if(request()->route('id') == 1 || request()->route('id') == 3)
                                             <div class="form-group">
                                                 <label class="required" for="{{ $locale }}_description">{{ __('Description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
                                                 <textarea class="form-control @error($locale.'.description') is-invalid @enderror" name="{{ $locale }}[description]" id="{{ $locale }}_description">{{ old($locale.'.description') }}</textarea>
@@ -139,7 +139,7 @@
                             </div>
                             <!-- .end Name translations -->
 
-                            @if(request()->route('id') == 1)
+                            @if(request()->route('id') == 1 || request()->route('id') == 3)
                                 <hr class="my-5">
 
                                 <div class="form-group">
