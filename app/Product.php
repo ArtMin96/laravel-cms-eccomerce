@@ -11,6 +11,7 @@ use LamaLama\Wishlist\Wishlistable;
 
 /**
  * @property integer $id
+ * @property integer $bx_product_id
  * @property integer $user_id
  * @property integer $sale_type_id
  * @property float $price
@@ -54,7 +55,7 @@ class Product extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'sale_type_id', 'price', 'language', 'deleted_at'];
+    protected $fillable = ['bx_product_id', 'user_id', 'sale_type_id', 'price', 'language', 'deleted_at'];
 
     /**
      * The attributes that should be mutated to dates.

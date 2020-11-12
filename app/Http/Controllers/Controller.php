@@ -111,7 +111,7 @@ class Controller extends BaseController
         }
 
         $response = Http::get($this->bx24webhook . 'crm.deal.list', $params);
-        return $response;
+        return json_decode($response->getBody()->getContents(), true);
     }
 
     /**
@@ -123,7 +123,7 @@ class Controller extends BaseController
         $response =  Http::get($this->bx24webhook .'crm.deal.get', array(
             'id' => $id
         ));
-        return $response;
+        return json_decode($response->getBody()->getContents(), true);
     }
 
     /**
@@ -133,7 +133,7 @@ class Controller extends BaseController
     public function DealAdd($params = array())
     {
         $response = Http::post($this->bx24webhook .'crm.deal.add', $params);
-        return $response;
+        return json_decode($response->getBody()->getContents(), true);
     }
 
     /**
@@ -152,7 +152,7 @@ class Controller extends BaseController
                     //'params' => ['REGISTER_SONET_EVENT' => 'Y']
                 )
             );
-            return $response;
+            return json_decode($response->getBody()->getContents(), true);
         }
 
         return false;
@@ -172,7 +172,65 @@ class Controller extends BaseController
                 ]
             );
 
-            return $response;
+            return json_decode($response->getBody()->getContents(), true);
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Обновляет товар
+     * @param  int|string $productId ID товара
+     * @param  array $fields Список полей товара
+     * @return int
+     */
+    public function productUpdate($productId, array $fields = [])
+    {
+        if (!empty($productId) && !empty($fields)) {
+            $response = Http::post(
+                $this->bx24webhook .'crm.product.update',
+                [
+                    'id' => $productId,
+                    'fields' => $fields
+                ]
+            );
+
+            return json_decode($response->getBody()->getContents(), true);
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Удаляет товар по ID
+     * @param  string|int $productId ID товара
+     * @return array
+     */
+    public function productDelete($productId)
+    {
+        $result = Http::post(
+            'crm.product.delete',
+            [ 'id' => $productId ]
+        );
+
+        return json_decode($result->getBody()->getContents(), true);
+    }
+
+    /**
+     * @param $id
+     * @return false|mixed
+     */
+    public function productGet($id)
+    {
+        if (!empty($id)) {
+            $response = Http::post(
+                $this->bx24webhook .'crm.product.get',
+                [
+                    'id' => $id
+                ]
+            );
+
+            return json_decode($response->getBody()->getContents(), true);
         } else {
             return false;
         }
@@ -180,23 +238,176 @@ class Controller extends BaseController
 
     /**
      * @param $id
-     * @param array $params
-     * @return false|\Illuminate\Http\Client\Response
+     * @param $data
+     * @return mixed|null
      */
-    public function productUpdate($id, $params = [])
+    public function diskStorageAddFolder($id, $data)
     {
-        if (!empty($id) && !empty($params)) {
+        if (!empty($id) && !empty($data)) {
             $response = Http::post(
-                $this->bx24webhook .'crm.product.update',
+                $this->bx24webhook . 'disk.storage.addfolder',
                 [
                     'id' => $id,
-                    'fields' => $params
+                    'data' => $data
                 ]
             );
 
-            return $response;
+            return json_decode($response->getBody()->getContents(), true);
         } else {
-            return false;
+            return null;
         }
+    }
+
+    /**
+     * @param $id
+     * @param $data
+     * @return mixed|null
+     */
+    public function diskStorageDeleteFolderTree($id)
+    {
+        if (!empty($id)) {
+            $response = Http::post(
+                $this->bx24webhook . 'disk.folder.deletetree',
+                [
+                    'id' => $id
+                ]
+            );
+
+            return json_decode($response->getBody()->getContents(), true);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * @param $id
+     * @return mixed|null
+     */
+    public function diskFolderGet($id)
+    {
+        if (!empty($id)) {
+            $response = Http::post(
+                $this->bx24webhook . 'disk.folder.get',
+                [
+                    'id' => $id,
+                ]
+            );
+
+            return json_decode($response->getBody()->getContents(), true);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * @param $id
+     * @return mixed|null
+     */
+    public function diskStorageDeleteFile($id)
+    {
+        if (!empty($id)) {
+            $response = Http::post(
+                $this->bx24webhook . 'disk.file.delete',
+                [
+                    'id' => $id,
+                ]
+            );
+
+            return json_decode($response->getBody()->getContents(), true);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * @param $fileId
+     * @return mixed
+     */
+    public function diskFileDelete($fileId)
+    {
+        $response = Http::post(
+            $this->bx24webhook . 'disk.file.delete',
+            [
+                'id' => $fileId
+            ]
+        );
+
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
+    /**
+     * Возвращает список файлов и папок, которые находятся непосредственно в корне хранилища
+     * @param  int|string $storageId Id хранилища
+     * @param  array  $filter Параметры фильтрации
+     * @return array
+     */
+    public function getDiskStorageChildren($storageId, array $filter = [])
+    {
+        $response = Http::post(
+            $this->bx24webhook . 'disk.storage.getchildren',
+            [
+                'id'     => $storageId,
+                'filter' => $filter
+            ]
+        );
+
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
+    /**
+     * Загружает новый файл в указанную папку на Диск
+     * @param int|string $folderId Id папки
+     * @param string $fileContent Raw данные файла
+     * @param array $data Массив параметров, описывающих файл (обязательное поле NAME - имя нового файла)
+     * @param bool $isBase64FileData Raw данные файла закодированны base64?
+     * @return mixed
+     * @see https://dev.1c-bitrix.ru/rest_help/disk/folder/disk_folder_uploadfile.php
+     */
+    public function uploadfileDiskFolder(
+        $folderId,
+        string $fileContent,
+        array $data,
+        bool $isBase64FileData = true
+    ) {
+
+        if (! $isBase64FileData) {
+            $fileContent = base64_encode($fileContent);
+        }
+
+        $response = Http::post(
+            $this->bx24webhook . 'disk.folder.uploadfile',
+            [
+                'id'          => $folderId,
+                'fileContent' => $fileContent,
+                'data'        => $data
+            ]
+        );
+
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
+    /**
+     * @param $file
+     * @param false $base64
+     * @return |null
+     */
+    protected function makeFileArray($file, $base64 = false){
+
+        if(!empty($file)) {
+            if($base64 == true) {
+                $fileContent = base64_encode(file_get_contents($file->path()));
+            } else {
+                $fileContent = file_get_contents($file->path());
+            }
+
+            $fileData['fileData'] = [
+                $file->getClientOriginalName(),
+                $fileContent
+            ];
+
+            return $fileData;
+        }
+
+        return null;
     }
 }
