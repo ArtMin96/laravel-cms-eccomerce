@@ -103,7 +103,7 @@
                                             <div class="img">
                                                 <img src="{{ asset('storage/'.$product->productFiles[0]->preview_image) }}" alt="{{ $product->title }}">
                                                 <span class="remove-pic result_file"
-                                                      data-file-id="{{ $product->productFiles[0]->id }}"
+                                                      data-file-id="@if(!empty($product->productFiles[0]->bx_file_id)) {{ $product->productFiles[0]->bx_file_id }} @else {{ $product->productFiles[0]->id }} @endif"
                                                       data-file-url="{{ LaravelLocalization::localizeUrl('/admin/request/remove-product-preview-image') }}"
                                                       data-title="{{ __('admin.Are you sure you want to remove this file?') }}"
                                                       data-confirm-text="{{ __('admin.Delete') }}"
@@ -126,8 +126,6 @@
 
                                 @if($product->sale_type_id == 1 || $product->sale_type_id == 2)
                                     <div class="small font-italic text-muted mb-4">{{ __('admin.PDF, DOC, DOCX no larger than 25 MB') }}</div>
-                                @elseif($product->sale_type_id == 3)
-                                    <div class="small font-italic text-muted mb-4">{{ __('admin.JPG, JPEG, PNG no larger than 5 MB') }}</div>
                                 @endif
 
 {{--                                <div class="small font-italic text-muted mb-4">{{ __('admin.JPG, JPEG, PNG no larger than 5 MB') }}</div>--}}
@@ -165,7 +163,7 @@
 
                                             </div>
 
-                                            @if($product->sale_type_id == 1)
+                                            @if($product->sale_type_id == 1 || $product->sale_type_id == 3)
                                                 <div class="form-group">
                                                     <label class="required" for="{{ $locale }}_description">{{ __('Description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
                                                     <textarea class="form-control @error($locale.'.description') is-invalid @enderror" name="{{ $locale }}[description]" id="{{ $locale }}_description">{{ old($locale.'.description', $product->translate($locale)->description) }}</textarea>
@@ -184,7 +182,7 @@
                                 </div>
                                 <!-- .end Name translations -->
 
-                                @if($product->sale_type_id == 1 || request()->route('id') == 3)
+                                @if($product->sale_type_id == 1 || $product->sale_type_id == 3)
 
                                     <hr class="my-5">
 

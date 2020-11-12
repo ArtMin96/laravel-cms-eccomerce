@@ -25,6 +25,7 @@ class ProductController extends AdminController
     {
         $products = Product::withTrashed()->where('sale_type_id', $id)->get();
         $saleType = SaleType::where('id', $id)->first();
+
         return view('admin.product.index', compact('products', 'saleType'));
     }
 
@@ -109,54 +110,70 @@ class ProductController extends AdminController
             ]
         ]);
 
-        if ($request->hasFile('file') || $request->hasFile('preview_image')) {
+        // Upload files
+        $createFile = ProductFiles::createFile($product->id, $request);
 
-            $fileModel = new ProductFiles();
+        if ($request->input('sale_type_id') == 3) {
+            // Create new folder in bitrix24 disk
+            $newFolder = $this->diskStorageAddFolder(5, ['NAME' => $product->id . '_prod']);
+            $bxProductPreview = null;
 
-            if ($request->hasFile('file')) {
+            if ($createFile !== null) {
 
-                $fileName = time().'_'.str_replace(' ', '_', $request->file->getClientOriginalName());
-                $filePath = $request->file('file')->storeAs('products', $fileName, 'public');
+                $findFile = ProductFiles::where('id', $createFile->id)->first();
 
-                $fileModel->product_id = $product->id;
-                $fileModel->file = $fileName;
-                $fileModel->url = '/storage/' . $filePath;
+                // Send files to Bitrix
+                $bxProductPreview = $this->uploadfileDiskFolder(
+                    isset($newFolder['result']) ? $newFolder['result']['ID'] : null,
+                    $_FILES['file']['name'],
+                    ['NAME' => $findFile->file]
+                );
+
+                $findFile->bx_file_id = isset($bxProductPreview['result'])? $bxProductPreview['result']['ID'] : null;
+
+                if (isset($newFolder['result'])) {
+                    $findFile->bx_folder_id = $newFolder['result']['ID'];
+                }
+
+                $findFile->save();
             }
 
-            if ($request->hasFile('preview_image')) {
+            // Add product to bitrix24
+            $bxProduct = $this->productAdd([
+                'NAME' => $translationProduct->title,
+                'SECTION_ID' => 6,
+                'CURRENCY_ID' => 'AMD',
+                'PRICE' => $request->input('price'),
+                'PROPERTY_58' => [
+                    'VALUE' => $product->id
+                ],
+                'PROPERTY_56' => [
+                    'VALUE' => $translationProduct->description
+                ],
+                'PREVIEW_PICTURE' => $bxProductPreview,
+                'PROPERTY_59' => isset($newFolder['result']) ? $newFolder['result']['ID'] : null
+            ]);
 
-                $previewFileName = time().'_'.str_replace(' ', '_', $request->preview_image->getClientOriginalName());
-                $previewFilePath = $request->file('preview_image')->storeAs('products', $previewFileName, 'public');
+            if (isset($bxProduct['result'])) {
 
-                $fileModel->preview_image = $previewFilePath;
+                $product->bx_product_id = $bxProduct['result'];
+
+                if ($product->save()) {
+                    return redirect()
+                        ->route('admin.product.index', $request->input('sale_type_id'))
+                        ->with('success', __('admin.product_created_success'));
+                }
+
+            } else {
+                return redirect()
+                    ->route('admin.product.index', $request->input('sale_type_id'))
+                    ->with('error', __('admin.product_created_success_bx_error') . ' Error: ' . $bxProduct['error_description']);
             }
-
-            $fileModel->save();
-        }
-
-        $bxProduct = $this->productAdd([
-            'NAME' => $translationProduct->title,
-            'SECTION_ID' => 6,
-            'CURRENCY_ID' => 'AMD',
-            'PRICE' => $request->input('price'),
-            'PROPERTY_58' => [
-                'VALUE' => $product->id
-            ],
-            'PROPERTY_56' => [
-                'VALUE' => $translationProduct->description
-            ]
-        ]);
-
-        if (isset($bxProduct['result'])) {
-            return redirect()
-                ->route('admin.product.index', $request->input('sale_type_id'))
-                ->with('success', __('admin.product_created_success'));
         } else {
             return redirect()
                 ->route('admin.product.index', $request->input('sale_type_id'))
-                ->with('error', __('admin.product_created_success_bx_error') . ' Error: ' . $bxProduct['error_description']);
+                ->with('success', __('admin.product_created_success'));
         }
-
     }
 
     /**
@@ -179,6 +196,11 @@ class ProductController extends AdminController
     public function edit($id)
     {
         $product = Product::find($id);
+
+        if (empty($product)) {
+            abort(404);
+        }
+
         $saleType = SaleType::where('id', $id)->first();
         $catalog = Catalog::all();
         $languages = DocumentLanguages::all();
@@ -188,9 +210,9 @@ class ProductController extends AdminController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
@@ -254,60 +276,71 @@ class ProductController extends AdminController
             ]
         ]);
 
-        if ($request->hasFile('file') || $request->hasFile('preview_image')) {
-            $fileModel = ProductFiles::where('product_id', $product->id)->first();
+        // Upload files
+        $updateFile = ProductFiles::createFile($product->id, $request);
 
-            if (empty($fileModel) || is_null($fileModel)) {
-                $fileModel = new ProductFiles();
+        if ($request->input('sale_type_id') == 3) {
+
+            $newFolder = $this->diskStorageAddFolder(5, ['NAME' => $product->id . '_prod']);
+            $bxProductPreview = null;
+
+            if ($updateFile !== null) {
+
+                $findFile = ProductFiles::where('product_id', $updateFile->product_id)->first();
+
+                // Send files to Bitrix
+                $bxProductPreview = $this->uploadfileDiskFolder(
+                    isset($newFolder['result']) ? $newFolder['result']['ID'] : null,
+                    $_FILES['file']['name'],
+                    ['NAME' => $findFile->file]
+                );
+
+                $findFile->bx_file_id = isset($bxProductPreview['result'])? $bxProductPreview['result']['ID'] : null;
+
+                if (isset($newFolder['result'])) {
+                    $findFile->bx_folder_id = $newFolder['result']['ID'];
+                }
+
+                $findFile->save();
             }
 
-            if ($request->hasFile('file')) {
+            $bxProduct = $this->productUpdate($product->bx_product_id, [
+                'NAME' => $translationProduct->title,
+                'SECTION_ID' => 6,
+                'CURRENCY_ID' => 'AMD',
+                'PRICE' => $request->input('price'),
+                'PROPERTY_58' => [
+                    'VALUE' => $id
+                ],
+                'PROPERTY_56' => [
+                    'VALUE' => $translationProduct->description
+                ],
+                'PREVIEW_PICTURE' => $bxProductPreview,
+                'PROPERTY_59' => isset($newFolder['result']) ? $newFolder['result']['ID'] : null
+            ]);
 
-                $fileModel = new ProductFiles();
-                $fileName = time().'_'.str_replace(' ', '_', $request->file->getClientOriginalName());
-                $filePath = $request->file('file')->storeAs('products', $fileName, 'public');
+            if (isset($bxProduct['result'])) {
 
-                $fileModel->product_id = $product->id;
-                $fileModel->file = $fileName;
-                $fileModel->url = '/storage/' . $filePath;
+                $product->bx_product_id = $bxProduct['result'];
+
+                if ($product->save()) {
+                    return redirect()
+                        ->route('admin.product.index', $request->input('sale_type_id'))
+                        ->with('success', __('admin.product_updated_success'));
+                }
+
+            } else {
+                return redirect()
+                    ->route('admin.product.index', $request->input('sale_type_id'))
+                    ->with('error', __('admin.product_updated_success_bx_error') . ' Error: ' . $bxProduct['error_description']);
             }
 
-            if ($request->hasFile('preview_image')) {
-                $previewFileName = time().'_'.str_replace(' ', '_', $request->preview_image->getClientOriginalName());
-                $previewFilePath = $request->file('preview_image')->storeAs('products', $previewFileName, 'public');
-                $fileModel->product_id = $product->id;
-                $fileModel->preview_image = $previewFilePath;
-            }
-
-            $fileModel->save();
-        }
-
-        $bxProduct = $this->productUpdate([
-            'NAME' => $translationProduct->title,
-            'SECTION_ID' => 6,
-            'CURRENCY_ID' => 'AMD',
-            'PRICE' => $request->input('price'),
-            'PROPERTY_58' => [
-                'VALUE' => $id
-            ],
-            'PROPERTY_56' => [
-                'VALUE' => $translationProduct->description
-            ]
-        ]);
-
-        if (isset($bxProduct['result'])) {
-            return redirect()
-                ->route('admin.product.index', $request->input('sale_type_id'))
-                ->with('success', __('messages.product_created_success'));
         } else {
             return redirect()
                 ->route('admin.product.index', $request->input('sale_type_id'))
-                ->with('error', __('messages.product_created_success_bx_error') . ' Error: ' . $bxProduct['error_description']);
+                ->with('success', __('admin.product_updated_success'));
         }
 
-        return redirect()
-            ->route('admin.product.index', $request->input('sale_type_id'))
-            ->with('message', __('messages.product_created_success'));
     }
 
     /**
@@ -322,6 +355,22 @@ class ProductController extends AdminController
         $product->productFiles()->delete();
 
         if ($product->delete()) {
+            return response()->json(['status' => true]);
+        } else {
+            return response()->json(['status' => false]);
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function delete(Request $request)
+    {
+        $product = Product::with('productFiles')->where('id', $request->id)->first();
+        $product->productFiles()->destroy();
+
+        if ($product->destroy()) {
             return response()->json(['status' => true]);
         } else {
             return response()->json(['status' => false]);

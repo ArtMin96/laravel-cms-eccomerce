@@ -18,9 +18,11 @@
                         </h1>
                     </div>
 
-                    <div class="col-12 col-xl-auto mb-3">
-                        <a href="{{ url('admin/product/'. $saleType->id .'/create') }}" class="btn btn-sm btn-primary">{{ __('Create Product') }}</a>
-                    </div>
+                    @if(request()->route('id') != 2)
+                        <div class="col-12 col-xl-auto mb-3">
+                            <a href="{{ url('admin/product/'. $saleType->id .'/create') }}" class="btn btn-sm btn-primary">{{ __('Create Product') }}</a>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

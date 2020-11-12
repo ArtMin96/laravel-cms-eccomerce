@@ -83,6 +83,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+
                                 <div class="small font-italic text-muted mb-4">{{ __('admin.JPG, JPEG, PNG no larger than 5 MB') }}</div>
 
                             @endif

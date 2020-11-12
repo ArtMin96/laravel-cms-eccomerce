@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * @property integer $id
  * @property integer $product_id
+ * @property integer $bx_file_id
+ * @property integer $bx_folder_id
  * @property string $url
  * @property string $file
  * @property string $preview_image
@@ -55,5 +57,38 @@ class ProductFiles extends Model
     public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+
+    /**
+     * @param $productId
+     * @param $file
+     * @param null $preview
+     * @return ProductFiles|null
+     */
+    public static function createFile($productId, $file)
+    {
+        $productFiles = new ProductFiles();
+
+        if ($file->hasFile('file')) {
+            $fileName = time().'_'.str_replace(' ', '_', $file->file->getClientOriginalName());
+            $filePath = $file->file('file')->storeAs('products', $fileName, 'public');
+
+            $productFiles->product_id = $productId;
+            $productFiles->file = $fileName;
+            $productFiles->url = '/storage/' . $filePath;
+        }
+
+        if ($file->hasFile('preview_image')) {
+            $previewFileName = time().'_'.str_replace(' ', '_', $file->preview_image->getClientOriginalName());
+            $previewFilePath = $file->file('preview_image')->storeAs('products', $previewFileName, 'public');
+
+            $productFiles->preview_image = $previewFilePath;
+        }
+
+        if ($productFiles->save()) {
+            return $productFiles;
+        } else {
+            return null;
+        }
     }
 }

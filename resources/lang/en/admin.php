@@ -80,6 +80,7 @@ return [
 
     'product_updated_success' => 'The product was updated successfully.',
     'product_updated_success_bx_error' => 'The product was updated successfully but there was a problem sending to Bitrix. You can resend by going to the product page.',
+    'There was a problem with bitrix file deletion' => 'There was a problem with bitrix file deletion',
 
     'success' => 'Success',
     'error' => 'Error',

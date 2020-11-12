@@ -11,6 +11,7 @@ use App\OurTeam;
 use App\Page;
 use App\PaymentGateways;
 use App\PhoneNumbers;
+use App\Product;
 use App\ProductFiles;
 use App\Settings;
 use App\TranslationServices;
@@ -202,20 +203,29 @@ class RequestController extends AdminController
     public function removeProductImage(Request $request) {
         if (!empty($request->post('file_id'))) {
             $files = ProductFiles::where('id', $request->post('file_id'))->firstOrFail();
+            $bxFileDelete = $this->diskFileDelete($files->bx_file_id);
 
-            if (!empty($files)) {
-
+            if (isset($bxFileDelete['result']) && !empty($bxFileDelete['result'])) {
                 if (!empty($files->preview_image)) {
                     unlink(storage_path('app/public/products/'.$files->file));
-                    $files->update(['url' => null, 'file' => null]);
+                    $files->update(['bx_file_id' => null, 'bx_folder_id' => null, 'url' => null, 'file' => null]);
                 } else {
-                    ProductFiles::destroy($request->post('file_id'));
+
+                    // Check folder in bitrix24 disk
+                    $checkFolderExisting = $this->diskFolderGet($files->bx_folder_id);
+
+                    if (isset($checkFolderExisting['result'])) {
+                        $deleteFolder = $this->diskStorageDeleteFolderTree($checkFolderExisting['result']['ID']);
+                    }
+
+                    $files->forceDelete();
                 }
 
                 return response()->json(['status' => true, 'title' => 'Success', 'message' => __('admin.File successfully removed!')]);
             } else {
-                return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
+                return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.There was a problem with bitrix file deletion') . ' Error: ' . $bxFileDelete['error_description']]);
             }
+
         } else {
             return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
         }
