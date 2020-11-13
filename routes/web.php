@@ -125,17 +125,17 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/document-template/search', 'DocumentTemplateController@getSearch')->name('search-document-template');
     Route::get('/document-template', 'DocumentTemplateController@index')->name('document-template');
 
-    Route::get('/wishlist', 'WishlistController@index')->name('wishlist');
-    Route::get('/wishlist/search', ['uses' => 'WishlistController@getSearch','as' => 'search']);
-
-    Route::get('/cart/search', ['uses' => 'CartController@getSearch', 'as' => 'search-cart']);
-    Route::get('/cart', 'CartController@index')->name('cart.index');
-    Route::post('/cart', 'CartController@store')->name('cart.store');
-    Route::patch('/cart', 'CartController@update')->name('cart.update');
-    Route::delete('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
-    Route::post('/cart/clear', 'CartController@clear')->name('cart.clear');
-
     Route::group(['middleware' => ['auth']], function () {
+
+        Route::get('/wishlist', 'WishlistController@index')->name('wishlist');
+        Route::get('/wishlist/search', ['uses' => 'WishlistController@getSearch','as' => 'search']);
+
+        Route::get('/cart/search', ['uses' => 'CartController@getSearch', 'as' => 'search-cart']);
+        Route::get('/cart', 'CartController@index')->name('cart.index');
+        Route::post('/cart', 'CartController@store')->name('cart.store');
+        Route::patch('/cart', 'CartController@update')->name('cart.update');
+        Route::delete('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
+        Route::post('/cart/clear', 'CartController@clear')->name('cart.clear');
 
         // Profile routes
         Route::get('/profile/change-password', 'ProfileController@changePassword')->name('profile.change-password');
@@ -167,6 +167,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
                 exit('Requested file does not exist on our server!');
             }
         })->where('filename', '[A-Za-z0-9\-\_\.]+')->name('download-template');
+
+        Route::get('/rent-equipment/rent/{id}', 'RentEquipmentController@rent')->name('rent-equipment.rent');
+        Route::post('/rent-equipment/place', 'RentEquipmentController@placeRent')->name('rent-equipment.place.rent');
     });
 
     // Ajax requests
@@ -182,5 +185,5 @@ Route::get('/clear-all', function() {
     Artisan::call('config:cache');
     Artisan::call('cache:clear');
     Artisan::call('view:clear');
-    return 'Routes cache cleared';
+    return 'Cache cleared';
 });

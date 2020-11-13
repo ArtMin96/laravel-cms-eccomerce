@@ -237,6 +237,30 @@ class Controller extends BaseController
     }
 
     /**
+     * @param $dealId
+     * @param array $fields
+     * @return false|mixed
+     */
+    public function productRowsSet($dealId, array $fields = [])
+    {
+        if (!empty($dealId) && !empty($fields)) {
+            $response = Http::post(
+                $this->bx24webhook .'crm.deal.productrows.set',
+                [
+                    'id' => $dealId,
+                    'rows' => [
+                        $fields
+                    ]
+                ]
+            );
+
+            return json_decode($response->getBody()->getContents(), true);
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * @param $id
      * @param $data
      * @return mixed|null
@@ -409,5 +433,176 @@ class Controller extends BaseController
         }
 
         return null;
+    }
+
+    /**
+     * Get list of company items.
+     * @link http://www.bitrixsoft.com/rest_help/crm/company/crm_company_list.php
+     * @param array $order - order of task items
+     * @param array $filter - filter array
+     * @param array $select - array of collumns to select
+     * @param integer $start - entity number to start from (usually returned in 'next' field of previous 'crm.company.list' API call)
+     * @return array
+     */
+    public function getCompanyList($order = array(), $filter = array(), $select = array(), $start = 0)
+    {
+        $fullResult = Http::post(
+            $this->bx24webhook . 'crm.company.list',
+            [
+                'order' => $order,
+                'filter'=> $filter,
+                'select'=> $select,
+                'start'	=> $start
+            ]
+        );
+
+        return json_decode($fullResult->getBody()->getContents(), true);
+    }
+
+    /**
+     * Add a new company to CRM
+     * @param array $fields array of fields
+     * @link http://www.bitrixsoft.com/rest_help/crm/company/crm_company_add.php
+     * @return array
+     *
+     */
+    public function companyAdd($fields = array())
+    {
+        $fullResult = Http::post(
+            $this->bx24webhook . 'crm.company.add',
+            ['fields' => $fields]
+        );
+
+        return json_decode($fullResult->getBody()->getContents(), true);
+    }
+
+    /**
+     * Updates the specified (existing) company.
+     * @param array $bitrix24CompanyId integer
+     * @param array $fields array of fields
+     * @link http://www.bitrixsoft.com/rest_help/crm/company/crm_company_add.php
+     * @return array
+     *
+     */
+    public function companyUpdate($bitrix24CompanyId, $fields = array())
+    {
+        $fullResult = Http::post(
+            $this->bx24webhook . 'crm.company.update',
+            [
+                'id' => $bitrix24CompanyId,
+                'fields' => $fields,
+            ]
+        );
+
+        return json_decode($fullResult->getBody()->getContents(), true);
+    }
+
+    /**
+     * Returns a company associated with the specified company ID.
+     * @link http://www.bitrixsoft.com/rest_help/crm/company/crm_company_get.php
+     * @param integer $bitrix24CompanyId company identifier
+     * @return array
+     */
+    public function companyGet($bitrix24CompanyId)
+    {
+        $fullResult = Http::post(
+            $this->bx24webhook . 'crm.company.get',
+            ['id' => $bitrix24CompanyId]
+        );
+
+        return json_decode($fullResult->getBody()->getContents(), true);
+    }
+
+    /**
+     * Deletes the specified company and all the associated objects.
+     * @link http://www.bitrixsoft.com/rest_help/crm/company/crm_company_delete.php
+     * @param integer $bitrix24CompanyId company identifier
+     * @return array
+     */
+    public function companyDelete($bitrix24CompanyId)
+    {
+        $fullResult = Http::post(
+            $this->bx24webhook . 'crm.company.delete',
+            ['id' => $bitrix24CompanyId]
+        );
+
+        return json_decode($fullResult->getBody()->getContents(), true);
+    }
+
+    /**
+     * Get list of contact items.
+     * @link http://dev.1c-bitrix.ru/rest_help/crm/contacts/crm_contact_list.php
+     * @param array $order - order of task items
+     * @param array $filter - filter array
+     * @param array $select - array of collumns to select
+     * @param integer $start - entity number to start from (usually returned in 'next' field of previous 'crm.contact.list' API call)
+     * @return array
+     *
+     */
+    public function getContactList($order = array(), $filter = array(), $select = array(), $start = 0)
+    {
+        $fullResult = Http::post(
+            $this->bx24webhook . 'crm.contact.list',
+            [
+                'order' => $order,
+                'filter'=> $filter,
+                'select'=> $select,
+                'start'	=> $start
+            ]
+        );
+
+        return json_decode($fullResult->getBody()->getContents(), true);
+    }
+
+    /**
+     * Add a new contact to CRM
+     * @param array $fields array of fields
+     * @param array $params array of params
+     * @link http://dev.1c-bitrix.ru/rest_help/crm/contacts/crm_contact_add.php
+     * @return array
+     */
+    public function contactAdd($fields = array(), $params = array())
+    {
+        $fullResult = Http::post(
+            $this->bx24webhook . 'crm.contact.add',
+            [
+                'fields' => $fields,
+                'params' => $params
+            ]
+        );
+
+        return json_decode($fullResult->getBody()->getContents(), true);
+    }
+
+    /**
+     * Get contact by identifier
+     * @link http://dev.1c-bitrix.ru/rest_help/crm/contacts/crm_contact_get.php
+     * @param integer $bitrix24UserId contact identifier
+     * @return array
+     */
+    public function contactGet($bitrix24UserId)
+    {
+        $fullResult = Http::post(
+            $this->bx24webhook . 'crm.contact.get',
+            ['id' => $bitrix24UserId]
+        );
+
+        return json_decode($fullResult->getBody()->getContents(), true);
+    }
+
+    /**
+     * Deletes the specified contact
+     * @link http://dev.1c-bitrix.ru/rest_help/crm/contacts/crm_contact_delete.php
+     * @param integer $bitrix24UserId contact identifier
+     * @return array
+     */
+    public function contactDelete($bitrix24UserId)
+    {
+        $fullResult = Http::post(
+            $this->bx24webhook . 'crm.contact.delete',
+            ['id' => $bitrix24UserId]
+        );
+
+        return json_decode($fullResult->getBody()->getContents(), true);
     }
 }

@@ -39,7 +39,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-        $this->redirectTo = redirect('/');
+//        $this->redirectTo = redirect('/');
     }
 
     /**
@@ -64,13 +64,41 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \App\User
      */
     protected function create(array $data)
     {
+        if ($data['person_type'] == 0) {
+            $createBx24User = $this->contactAdd([
+                'NAME' => $data['name'],
+                'LAST_NAME' => $data['last_name'],
+                'TYPE_ID' => 'CLIENT',
+                'PHONE' => [
+                    ['VALUE' => !empty($data['phone']) ? $data['phone'] : null, 'VALUE_TYPE' => 'WORK']
+                ],
+                'EMAIL' => [
+                    ['VALUE' => $data['email'], 'VALUE_TYPE' => 'WORK']
+                ],
+            ], [
+                'REGISTER_SONET_EVENT' => 'Y'
+            ]);
+        } else {
+            $createBx24User = $this->companyAdd([
+                'TITLE' => $data['company'],
+                'COMPANY_TYPE' => 'CUSTOMER',
+                'OPENED' => 'Y',
+                'PHONE' => [
+                    ['VALUE' => $data['phone'], 'VALUE_TYPE' => 'WORK']
+                ],
+                'EMAIL' => [
+                    ['VALUE' => $data['email'], 'VALUE_TYPE' => 'WORK']
+                ],
+            ]);
+        }
 
         return User::create([
+            'bx_user_id' => $createBx24User['result'],
             'name' => !empty($data['name'])? $data['name'] : null,
             'last_name' => !empty($data['last_name'])? $data['last_name'] : null,
             'username' => !empty($data['username'])? $data['username'] : null,
