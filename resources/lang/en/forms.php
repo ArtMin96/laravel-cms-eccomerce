@@ -49,4 +49,7 @@ return [
     'Create an account' => 'Create an account',
     'Remember me' => 'Remember me',
 
+    'Event day' => 'Event day',
+    'Event venue' => 'Event venue',
+
 ];

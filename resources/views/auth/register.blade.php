@@ -17,6 +17,22 @@
             <div class="row">
                 <div class="col-12">
                     <div class="g-list-group">
+
+                        <div class="row">
+                            <div class="col-12">
+
+                                @if (\Session::has('error'))
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <strong>{{ __('admin.error') }}</strong> {!! \Session::get('error') !!}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                @endif
+
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col-12">
                                 <div class="list-group flex-column justify-content-center flex-sm-row mb-2" id="list-tab" role="tablist">

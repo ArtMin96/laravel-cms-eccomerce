@@ -65,6 +65,25 @@
                 </div>
             </div>
             <div class="col-lg-9">
+
+                @if (\Session::has('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{ __('admin.success') }}</strong> {!! \Session::get('success') !!}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+
+                @if (\Session::has('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>{{ __('admin.error') }}</strong> {!! \Session::get('error') !!}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+
                 <div class="row" id="equipment-cards-list">
 
                     @if(!empty($products))
@@ -80,7 +99,7 @@
 
                                     <p class="g-card-product-text">{{ $product->title }}</p>
                                     <div class="mt-2 d-flex justify-content-center">
-                                        <a href="{{ LaravelLocalization::localizeUrl('/rent-equipment/rent') }}" class="g-btn g-btn-green g-btn-round mr-2">{{ __('pages.Rent now') }}</a>
+                                        <a href="{{ route('rent-equipment.rent', $product->id) }}" class="g-btn g-btn-green g-btn-round mr-2">{{ __('pages.Rent now') }}</a>
 
                                         @if (Auth::check())
                                             <button class="g-btn px-0 blue-color equipment-wish-btn" data-id="{{ $product->id }}" data-url="{{ LaravelLocalization::localizeUrl('/rent-equipment/add-wishlist') }}">
@@ -101,17 +120,24 @@
         </div>
     </div>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <div class="g-pagination g-pagination-2">
-                    <span class="g-pagination-item g-pagination-active"><span>1</span></span>
-                    <span class="g-pagination-item"><span>2</span></span>
-                    <span class="g-pagination-item"><span>3</span></span>
+    @if(!empty($products))
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+
+                    @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'document-template')
+                        {{ $products->links() }}
+                    @endif
+
+                    @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'search-document-template')
+                        {{ $products->links() }}
+                    @endif
+
                 </div>
             </div>
         </div>
-    </div>
+    @endif
 
     <div class="container">
         <div class="row">
