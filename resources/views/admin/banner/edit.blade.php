@@ -6,8 +6,6 @@
 
 @section('content')
 
-{{--    @dd($page->banners[0]->translate('en')->title)--}}
-
     <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
         <div class="container">
             <div class="page-header-content pt-4">
@@ -144,10 +142,10 @@
                                                     <img src="{{ asset('storage/banner/'.$banner->image) }}" alt="{{ $banner->translate($locale)->title }}">
                                                     <span class="remove-pic result_file"
                                                           data-file-id="{{ $banner->id }}"
-                                                          data-file-url="/admin/request/remove-banner-image"
-                                                          data-title="Are you sure you want to remove this file?"
-                                                          data-confirm-text="Delete"
-                                                          data-cancel-text="Cancel"><i class="fal fa-times"></i></span>
+                                                          data-file-url="{{ LaravelLocalization::localizeUrl('/admin/request/remove-banner-image') }}"
+                                                          data-title="{{ __('admin.Are you sure you want to remove this file?') }}"
+                                                          data-confirm-text="{{ __('admin.Delete') }}"
+                                                          data-cancel-text="{{ __('admin.Cancel') }}"><i class="fal fa-times"></i></span>
                                                 </div>
 
                                                 <div class="pic" style="display: none;">
@@ -176,100 +174,6 @@
                                     </div>
                                     <!-- .end Banner image -->
 
-                                    <hr class="my-3">
-
-                                    <!-- Banner links -->
-                                    <h3>Banner Links</h3>
-
-                                    <div class="translatable-form mt-3">
-                                        <ul class="nav nav-tabs translatable-switcher mb-4">
-                                            @foreach(config('app.locales') as $key => $locale)
-                                                <li class="nav-item">
-                                                    <a class="nav-link locale-{{ $locale }} switch-{{ $locale }} @if($key == 0) active @endif" href="javascript:void(0);" data-locale="{{ $locale }}">{{ \Illuminate\Support\Str::upper($locale) }}</a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-
-                                        @foreach(config('app.locales') as $key => $locale)
-                                            <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
-                                                <div class="form-group">
-                                                    <label class="required" for="{{ $locale }}_link_title">{{ trans('Banner link title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                    <input class="form-control @error($locale.'.link_title') is-invalid @enderror" type="text" name="{{ $locale }}[link_title][]" id="{{ $locale }}_link_title" value="{{ old($locale.'.link_title', $banner->translate($locale)->link_title) }}">
-
-                                                    @error($locale.'.link_title')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
-
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-
-                                    <label class="required" for="link">{{ trans('Link URL') }}</label>
-                                    <div class="input-group input-group-joined mb-5">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">
-                                                <i data-feather="link-2"></i>
-                                            </span>
-                                        </div>
-
-                                        <input class="form-control @error('link') is-invalid @enderror" type="text" name="link[]" id="link" value="{{ old('link', $banner->link) }}">
-
-                                        @error('link')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-
-                                    </div>
-
-                                    <div class="translatable-form">
-                                        <ul class="nav nav-tabs translatable-switcher mb-4">
-                                            @foreach(config('app.locales') as $key => $locale)
-                                                <li class="nav-item">
-                                                    <a class="nav-link locale-{{ $locale }} switch-{{ $locale }} @if($key == 0) active @endif" href="javascript:void(0);" data-locale="{{ $locale }}">{{ \Illuminate\Support\Str::upper($locale) }}</a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-
-                                        @foreach(config('app.locales') as $key => $locale)
-                                            <div class="card-body switch-translatable-fields p-0 d-none {{ $locale }}-form @if($key == 0) d-block @endif">
-                                                <div class="form-group">
-                                                    <label class="required" for="{{ $locale }}_link_title">{{ trans('Banner link title') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
-                                                    <input class="form-control @error($locale.'_link_title') is-invalid @enderror" type="text" name="{{ $locale }}_link_title[]" id="{{ $locale }}_link_title" value="{{ old($locale.'_link_title', $banner->translate($locale)->link_title) }}">
-
-                                                    @error($locale.'_link_title')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
-
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-
-                                    <label class="required" for="link">{{ trans('Link URL') }}</label>
-                                    <div class="input-group input-group-joined mb-5">
-                                        <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i data-feather="link-2"></i>
-                                        </span>
-                                        </div>
-
-                                        <input class="form-control @error('link') is-invalid @enderror" type="text" name="link[]" id="link" value="{{ old('link', $banner->link) }}">
-
-                                        @error('link')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-
-                                    </div>
-                                    <!-- .end Banner links -->
-
                                     <button type="submit" class="btn btn-primary">{{ __('Update') }}</button>
 
                                 </form>
@@ -287,7 +191,6 @@
 
 @push('script')
     <script src="{{ asset('admin/js/switch-translatable.js') }}" type="text/javascript" defer></script>
-    <script src="{{ asset('admin/js/select2.min.js') }}" type="text/javascript" defer></script>
     <script src="{{ asset('admin/js/sweetalert2.all.min.js') }}" type="text/javascript" defer></script>
     <script src="{{ asset('admin/js/file-field.js') }}" type="text/javascript" defer></script>
 @endpush

@@ -6,6 +6,7 @@ use App\Page;
 use App\Product;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 
 class RentEquipmentController extends Controller
@@ -45,6 +46,8 @@ class RentEquipmentController extends Controller
 
     public function placeRent(Request $request)
     {
+
+
         $request->validate([
             'first_name' => 'required|min:2',
             'company' => 'required_if:person_type,1|min:2',
@@ -52,12 +55,18 @@ class RentEquipmentController extends Controller
             'phone' => 'phone:AM', // AM Change to $this->getGeocodeCountryCode()
         ]);
 
+//        dd(auth()->user()->bx_user_id);
+
         $product = Product::find($request->input('product_id'));
 
         $bxDealAdd = $this->DealAdd([
             'NAME' => $request->input('first_name'),
             'STAGE_ID' => 'PREPARATION',
-            'UF_CRM_1570173600' => 65
+            'CONTACT_ID' => auth()->user()->person_type == 0 ? auth()->user()->bx_user_id : null,
+            'COMPANY_ID' => auth()->user()->person_type == 1 ? auth()->user()->bx_user_id : null,
+            'UF_CRM_1570173600' => 65,
+            'UF_CRM_1605255628778' => $request->input('event_day'),
+            'UF_CRM_1605255644992' => $request->input('event_venue'),
         ]);
 
         if (isset($bxDealAdd['result'])) {

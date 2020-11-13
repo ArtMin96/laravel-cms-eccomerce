@@ -8,6 +8,7 @@
                 <h2 class="g-title text-center my-5">Equipment rent</h2>
             </div>
         </div>
+{{--        @dd(auth()->user()->person_type)--}}
         <div class="g-wrapper">
             <form action="{{ route('rent-equipment.place.rent') }}" method="POST" role="form">
                 @csrf

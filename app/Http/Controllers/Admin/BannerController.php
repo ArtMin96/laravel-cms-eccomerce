@@ -108,69 +108,39 @@ class BannerController extends AdminController
         $inputs = $request->all();
 
         // Banner
-//        $bannerTranslationData = [
-//            'en' => [
-//                'title' => $request->input('en')['title'],
-//                'description' => $request->input('en')['description']
-//            ],
-//            'ru' => [
-//                'title' => $request->input('ru')['title'],
-//                'description' => $request->input('ru')['description']
-//            ],
-//            'hy' => [
-//                'title' => $request->input('hy')['title'],
-//                'description' => $request->input('hy')['description']
-//            ],
-//        ];
+        $bannerTranslationData = [
+            'en' => [
+                'title' => $request->input('en')['title'],
+                'description' => $request->input('en')['description']
+            ],
+            'ru' => [
+                'title' => $request->input('ru')['title'],
+                'description' => $request->input('ru')['description']
+            ],
+            'hy' => [
+                'title' => $request->input('hy')['title'],
+                'description' => $request->input('hy')['description']
+            ],
+        ];
 
-//        if ($request->hasFile('image')) {
-//
-//            $image = $request->file('image');
-//            $input['imagename'] = time().'.'.$image->extension();
-//            $destinationPath = storage_path('app/public/banner');
-//
-//            File::isDirectory($destinationPath) or File::makeDirectory($destinationPath, 0777, true, true);
-//
-//            $img = Image::make($image->path());
-//            $img->save($destinationPath.'/'.$input['imagename'], 90);
-//
-//            $inputs['image'] = $input['imagename'];
-//        }
+        if ($request->hasFile('image')) {
+
+            $image = $request->file('image');
+            $input['imagename'] = time().'.'.$image->extension();
+            $destinationPath = storage_path('app/public/banner');
+
+            File::isDirectory($destinationPath) or File::makeDirectory($destinationPath, 0777, true, true);
+
+            $img = Image::make($image->path());
+            $img->save($destinationPath.'/'.$input['imagename'], 90);
+
+            $inputs['image'] = $input['imagename'];
+        }
 
         $banner = Banner::findOrFail($id);
         $banner->update($inputs);
 
-        // Banner links
-        if (!empty($request->input('en_link_title'))) {
-
-            $this->validate($request, [
-                'link' => 'required_if:en_link_title,ru_link_title,hy_link_title',
-            ]);
-
-            foreach ($request->input('en_link_title') as $key => $link) {
-
-                $bannerLinks = BannerLinks::where('banner_id', $id)->first();
-
-                if (empty($bannerLinks)) {
-                    $bannerLinks = new BannerLinks();
-                }
-
-                $bannerLinks->banner_id = $id;
-                $bannerLinks->link = $request->input('link')[$key];
-                $bannerLinks->save();
-
-                foreach (['en', 'ru', 'hy'] as $locale) {
-                  if(!empty($request->input("{$locale}_link_title")[$key])){
-                     $bannerLinks->translateOrNew($locale)->link_title = $request->input("{$locale}_link_title")[$key];
-                  }
-                }
-
-                $bannerLinks->save();
-
-            }
-        }
-
-        return redirect()->back();
+        return redirect()->route('admin.page.index')->with('success', __('admin.page_updated_successfully'));
     }
 
     /**
