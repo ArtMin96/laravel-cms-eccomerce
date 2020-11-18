@@ -28,6 +28,7 @@
                         @csrf
 
                         <input type="hidden" name="grand_total" value="{{ $sum }}">
+                        <input type="hidden" name="cart" value="@if(request()->id) 1 @else 0 @endif">
 
                         <div class="row">
                             <div class="col-lg-6">
@@ -127,32 +128,33 @@
                     <h2 class="blue-color font-size-3 mb-4">{{ __('pages.Order summary') }}</h2>
                     <div class="checkout-products-cards-list">
 
-                        @if(count($carts) > 0)
-                            @foreach($carts as $cart)
+                        @if(request()->id)
+                            @if(!empty($carts))
+
                                 <div class="g-card-product g-card-product-2 g-card-wrap text-center">
-                                    @if (!empty($cart->product->productFiles[0]))
-                                        @if(checkFileMimeType($cart->product->productFiles[0]->file) === false)
+                                    @if (!empty($carts->productFiles[0]))
+                                        @if(checkFileMimeType($carts->productFiles[0]->file) === false)
                                             <div class="g-card-product-image text-uppercase d-flex justify-content-center align-items-center"
-                                                 style="background-image: url({{ asset('images/svg/document.svg') }}); background-color: #fff; background-size: auto; font-size: 20px;">{{ fileBaseNameOrExtension($cart->product->productFiles[0]->file) }}</div>
+                                                 style="background-image: url({{ asset('images/svg/document.svg') }}); background-color: #fff; background-size: auto; font-size: 20px;">{{ fileBaseNameOrExtension($carts->productFiles[0]->file) }}</div>
                                         @endif
                                     @else
                                         <span style="background-image: url({{ asset('images/products/default-product.jpg') }})" class="g-card-product-image"></span>
                                     @endif
 
-                                    @if(!empty($cart->product->productFiles[0]->preview_image))
+                                    @if(!empty($carts->productFiles[0]->preview_image))
 
-                                        <!-- Preview Modal -->
+                                    <!-- Preview Modal -->
                                         <div class="modal fade" id="card-image-modal" tabindex="-1" role="dialog" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <p class="mb-0">{{ $cart->product->title }}</p>
+                                                        <p class="mb-0">{{ $carts->title }}</p>
                                                         <button type="button" class="close m-0 p-0 font-size-6" data-dismiss="modal" aria-label="Close">
                                                             <i class="fas fa-times"></i>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body text-center">
-                                                        <img src="{{ asset('storage/'.$cart->product->productFiles[0]->preview_image) }}" class="modal-image w-100" alt="{{ $cart->product->title }}">
+                                                        <img src="{{ asset('storage/'.$carts->productFiles[0]->preview_image) }}" class="modal-image w-100" alt="{{ $carts->title }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -160,10 +162,50 @@
 
                                         <button class="g-link g-link-1 font-size-7 mb-3" data-toggle="modal" data-target="#card-image-modal">{{ __('pages.Watch expert') }}</button>
                                     @endif
-{{--                                    <span class="g-card-product-image" style="background-image: url(../images/products/product-1.png)"></span>--}}
-                                    <p class="g-card-product-text">{{ $cart->product->title }}</p>
+                                    {{--                                    <span class="g-card-product-image" style="background-image: url(../images/products/product-1.png)"></span>--}}
+                                    <p class="g-card-product-text">{{ $carts->title }}</p>
                                 </div>
-                            @endforeach
+
+                            @endif
+                        @else
+                            @if(count($carts) > 0)
+                                @foreach($carts as $cart)
+                                    <div class="g-card-product g-card-product-2 g-card-wrap text-center">
+                                        @if (!empty($cart->product->productFiles[0]))
+                                            @if(checkFileMimeType($cart->product->productFiles[0]->file) === false)
+                                                <div class="g-card-product-image text-uppercase d-flex justify-content-center align-items-center"
+                                                     style="background-image: url({{ asset('images/svg/document.svg') }}); background-color: #fff; background-size: auto; font-size: 20px;">{{ fileBaseNameOrExtension($cart->product->productFiles[0]->file) }}</div>
+                                            @endif
+                                        @else
+                                            <span style="background-image: url({{ asset('images/products/default-product.jpg') }})" class="g-card-product-image"></span>
+                                        @endif
+
+                                        @if(!empty($cart->product->productFiles[0]->preview_image))
+
+                                        <!-- Preview Modal -->
+                                            <div class="modal fade" id="card-image-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <p class="mb-0">{{ $cart->product->title }}</p>
+                                                            <button type="button" class="close m-0 p-0 font-size-6" data-dismiss="modal" aria-label="Close">
+                                                                <i class="fas fa-times"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body text-center">
+                                                            <img src="{{ asset('storage/'.$cart->product->productFiles[0]->preview_image) }}" class="modal-image w-100" alt="{{ $cart->product->title }}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <button class="g-link g-link-1 font-size-7 mb-3" data-toggle="modal" data-target="#card-image-modal">{{ __('pages.Watch expert') }}</button>
+                                        @endif
+                                        {{--                                    <span class="g-card-product-image" style="background-image: url(../images/products/product-1.png)"></span>--}}
+                                        <p class="g-card-product-text">{{ $cart->product->title }}</p>
+                                    </div>
+                                @endforeach
+                            @endif
                         @endif
 
                     </div>

@@ -82,6 +82,9 @@ return [
     'product_updated_success_bx_error' => 'The product was updated successfully but there was a problem sending to Bitrix. You can resend by going to the product page.',
     'There was a problem with bitrix file deletion' => 'There was a problem with bitrix file deletion',
 
+    'page_created_successfully' => 'Page Created Successfully',
+    'page_updated_successfully' => 'Page Updated Successfully',
+
     'success' => 'Success',
     'error' => 'Error',
 ];

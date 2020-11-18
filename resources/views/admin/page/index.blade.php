@@ -26,6 +26,23 @@
         </div>
     </header>
 
+    @if (\Session::has('success'))
+        <div class="container">
+            <div class="alert alert-success alert-icon" role="alert">
+                <button class="close" type="button" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <div class="alert-icon-aside">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="alert-icon-content">
+                    <h6 class="alert-heading">{{ __('admin.success') }}</h6>
+                    {!! \Session::get('success') !!}
+                </div>
+            </div>
+        </div>
+    @endif
+
     <!-- Main page content-->
     <div class="container">
         <div class="card mb-4">

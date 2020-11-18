@@ -51,7 +51,7 @@
                 </div>
                 <div class="col-md-6 rectangle-image-box">
                     <div class="g-page-description-image-box">
-                        <img src="./images/description/description-46.png" alt="gaudeamus" class="g-page-description-image">
+                        <img src="./images/GEV6198.jpg" alt="gaudeamus" class="g-page-description-image">
                     </div>
                 </div>
             </div>

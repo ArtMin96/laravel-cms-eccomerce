@@ -819,7 +819,8 @@ label.label-row:hover{
     height: inherit;
     background-image: url("../images/banner/banner.png");
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
+    background-position: center;
 }
 .g-home-banner .g-banner-content{
     position: absolute;

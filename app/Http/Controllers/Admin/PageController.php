@@ -77,7 +77,9 @@ class PageController extends AdminController
         PageContent::create(['page_id' => $resource->id]);
         Seo::create(['page_id' => $resource->id]);
 
-        return redirect()->route('admin.page.edit', $resource->id);
+        return redirect()
+            ->route('admin.page.index')
+            ->with('success', __('admin.page_created_successfully'));
     }
 
     /**
@@ -116,17 +118,17 @@ class PageController extends AdminController
 
         $rules = RuleFactory::make([
             '%name%' => 'required|string',
-        ]);
-        $request->validate($rules);
-        $request->validate([
             'alias' => 'required|string',
             'sort_order' => 'numeric|min:0|max:600',
         ]);
+        $request->validate($rules);
 
         $resource = Page::findOrFail($id);
         $resource->update($request->all());
 
-        return redirect()->route('admin.page.index');
+        return redirect()
+            ->route('admin.page.index')
+            ->with('success', __('admin.page_updated_successfully'));
     }
 
     /**

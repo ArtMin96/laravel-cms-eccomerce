@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Cart;
 use App\Contracts\OrderContract;
 use App\PaymentGateways;
+use App\Product;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
@@ -18,8 +19,15 @@ class CheckoutController extends Controller
 
     public function getCheckout()
     {
-        $carts = Cart::where('user_id', \auth()->user()->id)->orderBy('id', 'DESC')->get();
-        $sum = Cart::where('user_id', \auth()->user()->id)->sum('total');
+
+        if (!empty(request()->id)) {
+            $carts = Product::find(request()->id);
+            $sum = $carts->price;
+        } else {
+            $carts = Cart::where('user_id', \auth()->user()->id)->orderBy('id', 'DESC')->get();
+            $sum = Cart::where('user_id', \auth()->user()->id)->sum('total');
+        }
+
         $paymentGateways = PaymentGateways::all();
 
         return view('checkout.index', compact('paymentGateways', 'carts', 'sum'));
