@@ -9,6 +9,13 @@
           </advancedOptions>
         </fileTransfer>
       </webServer>
+      <webServer id="ce17c902-9b99-415e-96fe-d3324b0fce02" name="gaud">
+        <fileTransfer rootFolder="/home/bitrix/www/gaudeamus" accessType="SFTP" host="bitrix.gaudeamus.am" port="22" sshConfigId="0fffa7ae-0480-47a9-a926-dbf27a6bf38c" sshConfig="root@bitrix.gaudeamus.am:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>

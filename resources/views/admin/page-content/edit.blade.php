@@ -87,9 +87,6 @@
                                             </div>
 
                                             <div class="ml-auto">
-                                                <button type="button" class="btn btn-blue btn-icon add-new-row">
-                                                    <i data-feather="plus"></i>
-                                                </button>
                                                 <button type="button" class="btn btn-pink btn-icon mr-2 remove-row">
                                                     <i data-feather="trash-2"></i>
                                                 </button>
@@ -144,55 +141,44 @@
 
                                                     <hr />
 
-                                                    <!-- Has link -->
+                                                    <!-- Button types -->
                                                     <div class="form-group">
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input class="custom-control-input toggle-page-content-buttons" type="checkbox" name="has_link[]" id="has_link" {{ ($pageContent->has_link == 1) ? 'checked' : '' }} />
-                                                            <label class="custom-control-label" for="has_link">{{ __('Has link') }}</label>
-                                                        </div>
+                                                        <label class="required" for="button_type">{{ __('Button type') }}</label>
+                                                        <select class="form-control" type="text" name="button_type[]" id="button_type">
+                                                            <option value="">{{ __('Select button type') }}</option>
+                                                            <option value="0">{{ __('Basic') }}</option>
+                                                            <option value="1">{{ __('Filled') }}</option>
+                                                        </select>
                                                     </div>
-                                                    <!-- .end Has link -->
+                                                    <!-- .end Button types -->
 
-                                                    <div class="page-content-create-button-group {{ ($pageContent->has_link == 1) ? '' : 'd-none' }}">
-                                                        <!-- Button types -->
-                                                        <div class="form-group">
-                                                            <label class="required" for="button_type">{{ __('Button type') }}</label>
-                                                            <select class="form-control" type="text" name="button_type[]" id="button_type">
-                                                                <option value="">{{ __('Select button type') }}</option>
-                                                                <option value="0">{{ __('Basic') }}</option>
-                                                                <option value="1">{{ __('Filled') }}</option>
-                                                            </select>
-                                                        </div>
-                                                        <!-- .end Button types -->
+                                                    <!-- Link title -->
+                                                    <div class="form-group">
+                                                        <label class="required" for="url">{{ __('URL') }}</label>
+                                                        <input class="form-control @error('url') is-invalid @enderror" type="text" name="url[]" id="url" value="{{ old('url', $pageContent->url) }}">
 
-                                                        <!-- Link title -->
-                                                        <div class="form-group">
-                                                            <label class="required" for="url">{{ __('URL') }}</label>
-                                                            <input class="form-control @error('url') is-invalid @enderror" type="text" name="url[]" id="url" value="{{ old('url', $pageContent->url) }}">
-
-                                                            @error('url')
-                                                                <span class="invalid-feedback" role="alert">
+                                                        @error('url')
+                                                        <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
                                                                 </span>
-                                                            @enderror
+                                                        @enderror
 
-                                                        </div>
-                                                        <!-- .end Link -->
+                                                    </div>
+                                                    <!-- .end Link -->
 
-                                                        <!-- Link title -->
-                                                        <div class="form-group">
-                                                            <label class="required" for="link_title">{{ __('Button title') }}</label>
-                                                            <input class="form-control @error('link_title') is-invalid @enderror" type="text" name="link_title[]" id="link_title" value="{{ old('link_title', $pageContent->link_title) }}">
+                                                    <!-- Link title -->
+                                                    <div class="form-group">
+                                                        <label class="required" for="link_title">{{ __('Button title') }}</label>
+                                                        <input class="form-control @error('link_title') is-invalid @enderror" type="text" name="link_title[]" id="link_title" value="{{ old('link_title', $pageContent->link_title) }}">
 
-                                                            @error('link_title')
-                                                                <span class="invalid-feedback" role="alert">
+                                                        @error('link_title')
+                                                        <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
                                                                 </span>
-                                                            @enderror
+                                                        @enderror
 
-                                                        </div>
-                                                        <!-- .end Link -->
                                                     </div>
+                                                    <!-- .end Link -->
 
                                                 </div>
                                                 <div class="col-sm-12 col-md-5">

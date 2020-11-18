@@ -152,25 +152,21 @@
                                                     <span style="font-size: 1.25rem;">Upload</span>
                                                     <input type="file" name="image" accept="image/*" class="file-uploader d-none form-control @error('image') is-invalid @enderror" id="banner-image">
 
-                                                    @error('image')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
                                                 </div>
                                             @else
                                                 <div class="pic">
                                                     <span style="font-size: 1.25rem;">Upload</span>
                                                     <input type="file" name="image" accept="image/*" class="file-uploader d-none form-control @error('image') is-invalid @enderror" id="banner-image">
 
-                                                    @error('image')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
                                                 </div>
                                             @endif
                                         </div>
+
+                                        @error('image')
+                                            <span class="invalid-feedback d-block mb-3" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                     <!-- .end Banner image -->
 

@@ -187,7 +187,12 @@
                                     <p class="green-color">{{ \Illuminate\Support\Str::limit($product->description, 80, '...') }}</p>
                                     <div class="text-right">
                                         <div class="black-color font-size-5 font-weight-bold mt-2 pr-5">{{ number_format($product->price, 0, '.', '') }} <span>AMD</span></div>
-                                        <button class="g-btn g-btn-grey g-btn-round text-capitalize">buy</button>
+
+                                        @if(auth()->check())
+                                            <a href="{{ route('checkout.index', ['id' => $product->id]) }}" class="g-btn g-btn-grey g-btn-round text-capitalize">buy</a>
+                                        @else
+                                            <button class="g-btn g-btn-grey g-btn-round text-capitalize" style="cursor: pointer" data-toggle="modal" data-target="#loginModal">buy</button>
+                                        @endif
 
                                         @if(auth()->check())
                                             <form action="{{ route('cart.store') }}" method="POST" class="js--add-cart d-inline-block">

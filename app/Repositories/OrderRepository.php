@@ -51,7 +51,9 @@ class OrderRepository extends BaseRepository implements OrderContract
                 ]);
 
                 if ($order->items()->save($orderItem)) {
-                    $item->delete();
+                    if ($params['cart'] == 0) {
+                        $item->delete();
+                    }
                 }
             }
         }

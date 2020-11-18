@@ -95,14 +95,8 @@ class BannerController extends AdminController
      */
     public function update(Request $request, $id)
     {
-//        dd($request);
-        $rules = RuleFactory::make([
-            '%title%' => 'required',
-            '%description%' => 'required',
-        ]);
-        $request->validate($rules);
         $request->validate([
-            'image' => 'file|max:5000|mimes:png,jpg,jpeg,gif',
+            'image' => 'file|mimes:png,jpg,jpeg,gif',
         ]);
 
         $inputs = $request->all();
