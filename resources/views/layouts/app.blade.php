@@ -7,6 +7,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    @if(Session::has('download.in.the.next.request'))
+        <meta http-equiv="refresh" content="1;url={{ Session::get('download.in.the.next.request') }}">
+    @endif
+
     @yield('seo')
 
     <!-- Scripts -->
