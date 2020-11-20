@@ -53,6 +53,9 @@ class PageController extends AdminController
             'sort_order' => 'numeric|min:0|max:600',
         ]);
 
+        $getRouteNumber = Page::find($request->input('parent_id'));
+        $request->merge(['route_number' => $getRouteNumber->route_number]);
+
         $resource = Page::create($request->all());
 
         // Banner

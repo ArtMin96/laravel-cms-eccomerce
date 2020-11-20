@@ -45,12 +45,12 @@ if (!function_exists('menuItems')) {
 }
 
 /**
- * Wrap menu recursively with childs.
+ * Wrap menu recursively with child's.
  */
 if (!function_exists('wrapMenu')) {
     function wrapMenu($menu, $level = 0) {
         if (!empty($menu)) {
-            foreach ($menu as $items) {
+            foreach ($menu as $key => $items) {
                 if (isset($items) && !empty($items)) {
 
                     if (!empty($items['childrenPages'][0])) {
@@ -68,19 +68,23 @@ if (!function_exists('wrapMenu')) {
                         if ($level === 0) {
                             echo '<li class="nav-item">';
                         } else {
+                           if($key == 0 && $level == 2){
+                               echo '<ul class="p-0 list-unstyled">';
+                           }elseif(($key) % 5 == 0 && $level == 2 ){
+                               echo '</ul>';
+                               if($key != (count($menu) - 1))
+                               echo '<ul class="p-0 list-unstyled">';
+                           }
+
                             echo '<li>';
                         }
                     }
 
                     if ($items['route_number'] == \App\Page::ServiceRoute) {
                         $route = '/services/'.$items['alias'];
-                    }
-
-                    if ($items['route_number'] == \App\Page::IndustryRoute) {
+                    }elseif($items['route_number'] == \App\Page::IndustryRoute) {
                         $route = '/industry/'.$items['alias'];
-                    }
-
-                    if ($items['route_number'] == \App\Page::DefaultRoute) {
+                    }elseif ($items['route_number'] == \App\Page::DefaultRoute) {
                         $route = '/'.$items['alias'];
                     }
 
@@ -100,13 +104,17 @@ if (!function_exists('wrapMenu')) {
 
                         if (!empty($items['childrenPages'][0]) && $level != 0) {
                             echo '<div class="d-flex">';
-                            echo '<ul class="p-0 list-unstyled">';
+
+
+
                         }
+
 
                         wrapMenu($items['childrenPages'], $level + 1);
 
                         if (!empty($items['childrenPages'][0]) && $level != 0) {
-                            echo '</ul>';
+
+
                             echo '</div>';
                         }
 

@@ -69,7 +69,7 @@ class Page extends Model
      * @var array
      */
     protected $fillable = [
-        'parent_id', 'alias', 'sort_order', 'active', 'deleted_at'
+        'parent_id', 'alias', 'sort_order', 'route_number', 'active', 'deleted_at'
     ];
 
     /**
