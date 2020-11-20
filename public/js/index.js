@@ -405,6 +405,18 @@ $( document ).ready(function() {
         });
     })();
 
+    (function (){
+        $('body').on('click', '.download-document', function (){
+            let modalStatus = ($(this).closest('.modal').data('bs.modal') || {})._isShown;
+
+            if (modalStatus === true) {
+                setTimeout(function () {
+                    location.reload();
+                }, 500);
+            }
+        });
+    })();
+
     /**
      * document shop document download
      */

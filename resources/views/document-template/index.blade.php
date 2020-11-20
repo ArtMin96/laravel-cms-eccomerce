@@ -92,7 +92,7 @@
                                     <div class="g-card-document g-card-wrap">
 
                                         @if (!empty($product->productFiles[0]))
-                                            <img src="{{ asset('storage/document-templates/'.$product->productFiles[0]->preview_image) }}" class="g-card-product-basket-image" alt="{{ $product->title }}">
+                                            <img src="{{ asset('document-templates/'.$product->productFiles[0]->preview_image) }}" class="g-card-product-basket-image" alt="{{ $product->title }}">
                                         @else
                                             <img src="{{ asset('images/products/default-product.jpg') }}" class="g-card-product-basket-image" alt="{{ $product->title }}">
                                         @endif
@@ -104,9 +104,12 @@
                                         <p class="g-card-product-text mt-3 mb-0 h-auto">{{ $product->title }}</p>
 
                                         @if(auth()->check())
-                                            <a href="{{ route('download-template', $product->productFiles[0]->file) }}" class="g-btn g-btn-blue g-btn-round mt-3 text-capitalize document-template-link">{{ __('pages.Download') }}</a>
+                                            <button class="g-btn g-btn-blue g-btn-round mt-3 text-capitalize document-template-link" data-toggle="modal" data-target="#document-{{ $product->id }}-modal"><i class="fas fa-edit"></i></button>
+
+                                            <!-- Modals -->
+                                            @include('partials.modals.Modals', ['id' => $product->id, 'language' => $product->language])
                                         @else
-                                            <a class="g-btn g-btn-blue g-btn-round mt-3 text-capitalize document-template-link" style="cursor: pointer;" data-toggle="modal" data-target="#loginModal">{{ __('pages.Download') }}</a>
+                                            <button class="g-btn g-btn-blue g-btn-round mt-3 text-capitalize document-template-link" data-toggle="modal" data-target="#loginModal"><i class="fas fa-edit"></i></button>
                                         @endif
                                     </div>
                                 </div>

@@ -167,6 +167,20 @@ body{
     margin-bottom: 3rem;
 }
 
+.g-fieldset{
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 24px;
+}
+
+.g-fieldset legend{
+    width: unset;
+    font-size: 1rem;
+    margin: 0 6px;
+    padding: 0 6px;
+}
+
 /* ********** end global ********** */
 
 /* ********** form ********** */
@@ -184,6 +198,9 @@ body{
     min-width: 140px;
     padding: .375rem 20px;
     height: calc(1.5em + .75rem + 21px);
+}
+textarea.g-form-control{
+    min-height: calc(1.5em + .75rem + 21px);
 }
 .g-form-control:focus{
     box-shadow: 4px 3px 10px rgba(0, 0, 0, 0.4), -4px -4px 10px #F1EFEF;
