@@ -104,4 +104,13 @@ return [
 
     'Download' => 'Download',
 
+    'Translator' => 'Translator',
+    'Interpreting' => 'Interpreting',
+    'Transcription' => 'Transcription',
+    'Localization' => 'Localization',
+    'Request a translation' => 'Request a translation',
+    'Book an interpreter' => 'Book an interpreter',
+    'Request a transcription' => 'Request a transcription',
+    'Get a Quote' => 'Get a Quote'
+
 ];

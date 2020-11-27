@@ -103,4 +103,13 @@ return [
     'Legal person' => 'Законопослушный гражданин',
 
     'Download' => 'Скачать',
+
+    'Translator' => 'Переводчик',
+    'Interpreting' => 'Устный перевод',
+    'Transcription' => 'Транскрипция',
+    'Localization' => 'Локализация',
+    'Request a translation' => 'Запросить перевод',
+    'Book an interpreter' => 'Заказать переводчика',
+    'Request a transcription' => 'Запросить стенограмму',
+    'Get a Quote' => 'Получить цитату'
 ];

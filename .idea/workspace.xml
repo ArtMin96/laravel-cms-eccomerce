@@ -20,10 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="188bee73-7fda-407a-a0b3-1cea2f9f01e2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/event/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/interpretation/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/localization/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/translation/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PageController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Page.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Page.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/PageSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PageSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/pages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/pages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru/pages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/pages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,25 +214,25 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../akcern" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views" />
+      <recent name="$PROJECT_DIR$/resources/views/rent-equipment" />
+      <recent name="$PROJECT_DIR$/resources/lang/hy" />
+      <recent name="$PROJECT_DIR$/resources/views/admin" />
+      <recent name="$PROJECT_DIR$/resources/lang/ru" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/admin" />
       <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/rent-equipment" />
-      <recent name="$PROJECT_DIR$/resources/lang/hy" />
-      <recent name="$PROJECT_DIR$/resources/views/admin" />
-      <recent name="$PROJECT_DIR$/resources/lang/ru" />
-      <recent name="$PROJECT_DIR$/app" />
     </key>
   </component>
   <component name="RunManager">
@@ -326,11 +333,11 @@
     </state>
     <state x="712" y="248" width="485" height="537" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602897478167" />
     <state x="712" y="248" width="380" height="537" key="NewPhpClassDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1602748139387" />
-    <state x="778" y="445" width="354" height="147" key="NewPhpFileDialog" timestamp="1605689002268">
+    <state x="778" y="445" width="354" height="147" key="NewPhpFileDialog" timestamp="1606406560967">
       <screen x="0" y="0" width="1920" height="1041" />
     </state>
     <state x="778" y="445" width="354" height="147" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603031758443" />
-    <state x="778" y="445" width="354" height="147" key="NewPhpFileDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1605689002268" />
+    <state x="778" y="445" width="354" height="147" key="NewPhpFileDialog/0.0.1920.1041@0.0.1920.1041" timestamp="1606406560967" />
     <state x="775" y="225" width="359" height="583" key="RollbackChangesDialog" timestamp="1605776157554">
       <screen x="0" y="0" width="1920" height="1041" />
     </state>

@@ -103,6 +103,10 @@ class Page extends Model
     const Experts = 14;
     const DocumentShop = 15;
     const DocumentTemplates = 16;
+    const Translation = 17;
+    const Localization = 18;
+    const Event = 19;
+    const Interpretation = 20;
 
     /**
      * Default route numbers for router separation.

@@ -152,26 +152,13 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         // Download Route
         Route::post('/document-template/download/{id}/{language}', 'DocumentTemplateController@download')->name('download-template.download');
 
-//        Route::get('/document-template/download/{filename}', function($filename)
-//        {
-//            // Check if file exists in app/storage/file folder
-//            $file_path = storage_path('app/public/products') . '/' . $filename;
-//            if (file_exists($file_path))
-//            {
-//                // Send Download
-//                return Response::download($file_path, $filename, [
-//                    'Content-Length: '. filesize($file_path)
-//                ]);
-//            }
-//            else
-//            {
-//                // Error
-//                exit('Requested file does not exist on our server!');
-//            }
-//        })->where('filename', '[A-Za-z0-9\-\_\.]+')->name('download-template');
-
         Route::get('/rent-equipment/rent/{id}', 'RentEquipmentController@rent')->name('rent-equipment.rent');
         Route::post('/rent-equipment/place', 'RentEquipmentController@placeRent')->name('rent-equipment.place.rent');
+
+        Route::get('/translation', 'TranslationController@index')->name('translation.index');
+        Route::get('/interpretation', 'InterpretationController@index')->name('interpretation.index');
+        Route::get('/event', 'EventController@index')->name('event.index');
+        Route::get('/localization', 'LocalizationController@index')->name('localization.index');
     });
 
     // Ajax requests

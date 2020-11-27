@@ -1156,6 +1156,90 @@ class PageSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 57
+            [
+                'id' => 58,
+                'en' => [
+                    'name' => 'Translation'
+                ],
+                'ru' => [
+                    'name' => 'Перевод'
+                ],
+                'hy' => [
+                    'name' => 'Թարգմանություն'
+                ],
+                'parent_id' => null,
+                'alias' => 'translation',
+                'sort_order' => 0,
+                'page_number' => 17,
+                'route_number' => 0,
+                'base_page' => 1,
+                'visible_for_menu' => 0,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 58
+            [
+                'id' => 59,
+                'en' => [
+                    'name' => 'Localization'
+                ],
+                'ru' => [
+                    'name' => 'Локализация'
+                ],
+                'hy' => [
+                    'name' => 'Տեղայնացում'
+                ],
+                'parent_id' => null,
+                'alias' => 'localization',
+                'sort_order' => 0,
+                'page_number' => 18,
+                'route_number' => 0,
+                'base_page' => 1,
+                'visible_for_menu' => 0,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 59
+            [
+                'id' => 60,
+                'en' => [
+                    'name' => 'Event'
+                ],
+                'ru' => [
+                    'name' => 'Событие'
+                ],
+                'hy' => [
+                    'name' => 'Իրադարձություն'
+                ],
+                'parent_id' => null,
+                'alias' => 'event',
+                'sort_order' => 0,
+                'page_number' => 19,
+                'route_number' => 0,
+                'base_page' => 1,
+                'visible_for_menu' => 0,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 60
+            [
+                'id' => 61,
+                'en' => [
+                    'name' => 'Interpretation'
+                ],
+                'ru' => [
+                    'name' => 'Интерпретация'
+                ],
+                'hy' => [
+                    'name' => 'Մեկնաբանություն'
+                ],
+                'parent_id' => null,
+                'alias' => 'interpretation',
+                'sort_order' => 0,
+                'page_number' => 20,
+                'route_number' => 0,
+                'base_page' => 1,
+                'visible_for_menu' => 0,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 61
         ];
 
         foreach ($pages as $key => $value) {
