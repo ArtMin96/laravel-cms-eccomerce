@@ -102,10 +102,10 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="text-center mb-5 d-flex flex-sm-row flex-column justify-content-center">
-                            <button class="g-btn g-btn-simple font-size-4 dot-point menu-cards-btn" data-target="translator">Translator</button>
-                            <button class="g-btn g-btn-simple font-size-4 dot-point menu-cards-btn" data-target="interpreting">Interpreting</button>
-                            <button class="g-btn g-btn-simple font-size-4 dot-point menu-cards-btn" data-target="transcription">Transcription</button>
-                            <button class="g-btn g-btn-simple font-size-4 dot-point menu-cards-btn" data-target="localization">Localization</button>
+                            <button class="g-btn g-btn-simple font-size-4 dot-point menu-cards-btn" data-target="translator">{{ __('pages.Translator') }}</button>
+                            <button class="g-btn g-btn-simple font-size-4 dot-point menu-cards-btn" data-target="interpreting">{{ __('pages.Interpreting') }}</button>
+                            <button class="g-btn g-btn-simple font-size-4 dot-point menu-cards-btn" data-target="transcription">{{ __('pages.Transcription') }}</button>
+                            <button class="g-btn g-btn-simple font-size-4 dot-point menu-cards-btn" data-target="localization">{{ __('pages.Localization') }}</button>
                         </div>
                     </div>
                 </div>
@@ -113,40 +113,40 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="g-card-simple g-card-simple-2 g-card-wrap" data-role="translator">
                             <span class="g-card-simple-image" style="background-image: url(./images/services/service-1.png)"></span>
-                            <div class="font-weight-bold font-size-5 text-center">Translator</div>
+                            <div class="font-weight-bold font-size-5 text-center">{{ __('pages.Translator') }}</div>
                             <p class="g-card-simple-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum esse maxime, minus nobis similique. Accusantium culpa delectus ea eaque eveniet illum iure laborum maiores, officiis quos rem reprehenderit sint, sunt tempore, ut! Commodi est harum ipsa nesciunt quod totam unde? Dolorum enim ipsum libero maiores nobis quasi ratione repudiandae?</p>
                             <div class="mt-3 font-size-5 font-weight-bold text-center">
-                                <a href="./pages/forms/translation.html" class="g-link g-link-2">Request a translation</a>
+                                <a href="{{ LaravelLocalization::localizeUrl('/translation') }}" class="g-link g-link-2">{{ __('pages.Request a translation') }}</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="g-card-simple g-card-simple-2 g-card-wrap" data-role="interpreting">
                             <span class="g-card-simple-image" style="background-image: url(./images/services/service-2.png)"></span>
-                            <div class="font-weight-bold font-size-5 text-center">Interpreting</div>
+                            <div class="font-weight-bold font-size-5 text-center">{{ __('pages.Interpreting') }}</div>
                             <p class="g-card-simple-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum esse maxime, minus nobis similique. Accusantium culpa delectus ea eaque eveniet illum iure laborum maiores, officiis quos rem reprehenderit sint, sunt tempore, ut! Commodi est harum ipsa nesciunt quod totam unde? Dolorum enim ipsum libero maiores nobis quasi ratione repudiandae?</p>
                             <div class="mt-3 font-size-5 font-weight-bold text-center">
-                                <a href="./pages/forms/interpretation.html" class="g-link g-link-2">Book an interpreter</a>
+                                <a href="{{ LaravelLocalization::localizeUrl('/interpretation') }}" class="g-link g-link-2">{{ __('pages.Book an interpreter') }}</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="g-card-simple g-card-simple-2 g-card-wrap" data-role="transcription">
                             <span class="g-card-simple-image" style="background-image: url(./images/services/service-3.png)"></span>
-                            <div class="font-weight-bold font-size-5 text-center">Transcription</div>
+                            <div class="font-weight-bold font-size-5 text-center">{{ __('pages.Transcription') }}</div>
                             <p class="g-card-simple-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum esse maxime, minus nobis similique. Accusantium culpa delectus ea eaque eveniet illum iure laborum maiores, officiis quos rem reprehenderit sint, sunt tempore, ut! Commodi est harum ipsa nesciunt quod totam unde? Dolorum enim ipsum libero maiores nobis quasi ratione repudiandae?</p>
                             <div class="mt-3 font-size-5 font-weight-bold text-center">
-                                <a href="./pages/forms/event.html" class="g-link g-link-2">Request a transcription</a>
+                                <a href="{{ LaravelLocalization::localizeUrl('/event') }}" class="g-link g-link-2">{{ __('pages.Request a transcription') }}</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="g-card-simple g-card-simple-2 g-card-wrap" data-role="localization">
                             <span class="g-card-simple-image" style="background-image: url(./images/services/service-4.png)"></span>
-                            <div class="font-weight-bold font-size-5 text-center">Localization</div>
+                            <div class="font-weight-bold font-size-5 text-center">{{ __('pages.Localization') }}</div>
                             <p class="g-card-simple-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum esse maxime, minus nobis similique. Accusantium culpa delectus ea eaque eveniet illum iure laborum maiores, officiis quos rem reprehenderit sint, sunt tempore, ut! Commodi est harum ipsa nesciunt quod totam unde? Dolorum enim ipsum libero maiores nobis quasi ratione repudiandae?</p>
                             <div class="mt-3 font-size-5 font-weight-bold text-center">
-                                <a href="./pages/forms/localization.html" class="g-link g-link-2">Get a Quote</a>
+                                <a href="{{ LaravelLocalization::localizeUrl('/localization') }}" class="g-link g-link-2">{{ __('pages.Get a Quote') }}</a>
                             </div>
                         </div>
                     </div>
