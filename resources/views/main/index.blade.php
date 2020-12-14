@@ -24,8 +24,8 @@
                 <p class="font-size-2 g-banner-text">{{ $page->banners->description }}</p>
             </div>
             <div class="g-banner-buttons mt-5">
-                <a href="../user/document_shop.html" class="g-btn g-btn-green">Get your ready translation</a>
-                <a href="../user/document_templates.html" class="g-btn g-btn-green">Translate yourself</a>
+                <a href="{{ LaravelLocalization::localizeUrl('/document-shop') }}" class="g-btn g-btn-green">{{ __('pages.Get your ready translation') }}</a>
+                <a href="{{ LaravelLocalization::localizeUrl('/document-template') }}" class="g-btn g-btn-green">{{ __('pages.Translate yourself') }}</a>
             </div>
         </div>
 
@@ -61,7 +61,7 @@
             <section class="py-4">
                 <h2 class="font-size-1 blue-color text-center mb-3">{{ __('pages.Professional Translation Services for Any Industry') }}</h2>
                 <div class="w-50 w-md-50 mx-auto mb-5">
-                    <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, ea fuga fugit maxime odio harum incidunt libero mollitia nam natus, non obcaecati officiis quaerat reiciendis repudiandae sapiente sed soluta temporibus.</p>
+                    <p class="text-center">{{ __('pages.professional_translation_description') }}</p>
                 </div>
                 <div class="row">
 
@@ -96,7 +96,7 @@
         <section class="py-4">
             <h2 class="font-size-1 blue-color text-center mb-3">{{ __('pages.All Our Professional Translation Services') }}</h2>
             <div class="w-50 w-md-50 mx-auto mb-5">
-                <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. non obcaecati officiis quaerat reiciendis repudiandae sapiente sed soluta temporibus.</p>
+                <p class="text-center">{{ __('pages.our_professional_translation_description') }}</p>
             </div>
             <div class="menu-cards">
                 <div class="row">
@@ -114,7 +114,7 @@
                         <div class="g-card-simple g-card-simple-2 g-card-wrap" data-role="translator">
                             <span class="g-card-simple-image" style="background-image: url(./images/services/service-1.png)"></span>
                             <div class="font-weight-bold font-size-5 text-center">{{ __('pages.Translator') }}</div>
-                            <p class="g-card-simple-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum esse maxime, minus nobis similique. Accusantium culpa delectus ea eaque eveniet illum iure laborum maiores, officiis quos rem reprehenderit sint, sunt tempore, ut! Commodi est harum ipsa nesciunt quod totam unde? Dolorum enim ipsum libero maiores nobis quasi ratione repudiandae?</p>
+                            <p class="g-card-simple-text">{{ __('pages.translation_services_description') }}</p>
                             <div class="mt-3 font-size-5 font-weight-bold text-center">
                                 <a href="{{ LaravelLocalization::localizeUrl('/translation') }}" class="g-link g-link-2">{{ __('pages.Request a translation') }}</a>
                             </div>
@@ -124,7 +124,7 @@
                         <div class="g-card-simple g-card-simple-2 g-card-wrap" data-role="interpreting">
                             <span class="g-card-simple-image" style="background-image: url(./images/services/service-2.png)"></span>
                             <div class="font-weight-bold font-size-5 text-center">{{ __('pages.Interpreting') }}</div>
-                            <p class="g-card-simple-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum esse maxime, minus nobis similique. Accusantium culpa delectus ea eaque eveniet illum iure laborum maiores, officiis quos rem reprehenderit sint, sunt tempore, ut! Commodi est harum ipsa nesciunt quod totam unde? Dolorum enim ipsum libero maiores nobis quasi ratione repudiandae?</p>
+                            <p class="g-card-simple-text">{{ __('pages.interpretation_services_description') }}</p>
                             <div class="mt-3 font-size-5 font-weight-bold text-center">
                                 <a href="{{ LaravelLocalization::localizeUrl('/interpretation') }}" class="g-link g-link-2">{{ __('pages.Book an interpreter') }}</a>
                             </div>
@@ -134,7 +134,7 @@
                         <div class="g-card-simple g-card-simple-2 g-card-wrap" data-role="transcription">
                             <span class="g-card-simple-image" style="background-image: url(./images/services/service-3.png)"></span>
                             <div class="font-weight-bold font-size-5 text-center">{{ __('pages.Transcription') }}</div>
-                            <p class="g-card-simple-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum esse maxime, minus nobis similique. Accusantium culpa delectus ea eaque eveniet illum iure laborum maiores, officiis quos rem reprehenderit sint, sunt tempore, ut! Commodi est harum ipsa nesciunt quod totam unde? Dolorum enim ipsum libero maiores nobis quasi ratione repudiandae?</p>
+                            <p class="g-card-simple-text">{{ __('pages.transcription_services_description') }}</p>
                             <div class="mt-3 font-size-5 font-weight-bold text-center">
                                 <a href="{{ LaravelLocalization::localizeUrl('/event') }}" class="g-link g-link-2">{{ __('pages.Request a transcription') }}</a>
                             </div>
@@ -144,7 +144,7 @@
                         <div class="g-card-simple g-card-simple-2 g-card-wrap" data-role="localization">
                             <span class="g-card-simple-image" style="background-image: url(./images/services/service-4.png)"></span>
                             <div class="font-weight-bold font-size-5 text-center">{{ __('pages.Localization') }}</div>
-                            <p class="g-card-simple-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum esse maxime, minus nobis similique. Accusantium culpa delectus ea eaque eveniet illum iure laborum maiores, officiis quos rem reprehenderit sint, sunt tempore, ut! Commodi est harum ipsa nesciunt quod totam unde? Dolorum enim ipsum libero maiores nobis quasi ratione repudiandae?</p>
+                            <p class="g-card-simple-text">{{ __('pages.localization_services_description') }}</p>
                             <div class="mt-3 font-size-5 font-weight-bold text-center">
                                 <a href="{{ LaravelLocalization::localizeUrl('/localization') }}" class="g-link g-link-2">{{ __('pages.Get a Quote') }}</a>
                             </div>
@@ -238,136 +238,7 @@
             </div>
         </section>
 
-        <section class="py-4">
-            <h2 class="font-size-1 blue-color text-center mb-3">{{ __('pages.Thorough 5-Step Quality Control') }}</h2>
-            <div class=" w-50 w-md-50 mx-auto mb-5">
-                <p class="text-center">{{ __('pages.You will never suffer from mistranslation. We promise. We follow a strict 5-step review process to ensure that your translations are 100% accurate, every time. We so firmly stand behind this, that we give you our lifetime guarantee.') }}</p>
-            </div>
-            <div class="g-steps-box">
-                <div class="row">
-                    <div class="col-lg-2">
-                        <div class="g-step-item">
-                            <img src="./images/steps/step-1.png" class="g-step-image" alt="gaudeamus">
-                            <span class="mb-2">Professional Translations</span>
-                            <span>Your document receives perfect translating & accurate formatting, while preserving the meaning.</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 g-step-line-col">
-                        <div class="g-step-line g-step-line-1"></div>
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="g-step-item">
-                            <img src="./images/steps/step-2.png" class="g-step-image" alt="gaudeamus">
-                            <span class="mb-2">Meticulous Proofreading</span>
-                            <span>Your Proofreader checks verbiage, syntax, spelling, & grammar</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 g-step-line-col">
-                        <div class="g-step-line g-step-line-1"></div>
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="g-step-item">
-                            <img src="./images/steps/step-3.png" class="g-step-image" alt="gaudeamus">
-                            <span class="mb-2">Precision Editing</span>
-                            <span>Your Editor compares the original & translated documents to assure symmetry.</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 g-step-line-col">
-                        <div class="g-step-line-2-box">
-                            <div class="g-step-line-2 g-step-line-2-1"></div>
-                            <div class="g-step-line-2 g-step-line-2-2"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-3"></div>
-                    <div class="col-lg-2">
-                        <div class="g-step-item">
-                            <img src="./images/steps/step-4.png" class="g-step-image" alt="gaudeamus">
-                            <span class="mb-2">Project Manager Review</span>
-                            <span>Your Project Manager reviews the final copy to guarantee it meets your requests.</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 g-step-line-col">
-                        <div class="g-step-line g-step-line-1"></div>
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="g-step-item">
-                            <img src="./images/steps/step-5.png" class="g-step-image" alt="gaudeamus">
-                            <span class="mb-2">Speedy Delivery</span>
-                            <span>Your approval is the last step. Once approved, your final documents are delivered instantly.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="py-5">
-                <p class="text-center">{{ __('pages.The best part… if you ever find an error months, or even years down the road, just come back to us. We will fix it. We promise you 100% accurate professional translation services every time, no matter what. That’s our lifetime guarantee.') }}</p>
-                <div class="g-collapse">
-                    <div class="text-center">
-                        <button class="g-link g-link-2 green-color" type="button" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
-                            {{ __('pages.See more') }}
-                        </button>
-                    </div>
-                    <div class="collapse" id="collapse-1">
-                        <div class="card card-body">
-                            <div class="text-center">
-                                <p>riatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
-                                <div class="py-5">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <a href="#" class="g-btn g-btn-img w-100 mb-4">
-                                                <span>
-                                                    <img src="./images/steps/step-btn-1.png" alt="gaudeamus"><span></span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a href="#" class="g-btn g-btn-img w-100 mb-4">
-                                                <span>
-                                                    <img src="./images/steps/step-btn-2.png" alt="gaudeamus"><span></span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a href="#" class="g-btn g-btn-img w-100 mb-4">
-                                                <span>
-                                                    <img src="./images/steps/step-btn-3.png" alt="gaudeamus"><span></span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a href="#" class="g-btn g-btn-img w-100 mb-4">
-                                                <span>
-                                                    <img src="./images/steps/step-btn-2.png" alt="gaudeamus"><span></span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a href="#" class="g-btn g-btn-img w-100 mb-4">
-                                                <span>
-                                                    <img src="./images/steps/step-btn-1.png" alt="gaudeamus"><span></span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a href="#" class="g-btn g-btn-img w-100 mb-4">
-                                                <span>
-                                                    <img src="./images/steps/step-btn-3.png" alt="gaudeamus"><span></span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </section>
+        <x-five-step-check class="py-4" />
 
         <section class="pb-4 pt-0">
             <div class="g-scroll-nums-box g-card-wrap">

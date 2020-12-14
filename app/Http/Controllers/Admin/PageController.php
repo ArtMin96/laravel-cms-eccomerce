@@ -74,6 +74,7 @@ class PageController extends AdminController
             ],
             'image' => '',
             'page_id' => $resource->id,
+            'visible_for_menu' => 1
         ];
 
         Banner::create($bannerTranslationData);

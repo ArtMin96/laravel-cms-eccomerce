@@ -40,7 +40,7 @@ if (!function_exists('saleType')) {
  */
 if (!function_exists('menuItems')) {
     function menuItems() {
-        return \App\Page::where('deleted_at', '=', null)->where('parent_id', '=', null)->with('childrenPages')->get();
+        return \App\Page::where('deleted_at', '=', null)->where('parent_id', '=', null)->where('visible_for_menu', '=', 1)->with('childrenPages')->get();
     }
 }
 

@@ -69,7 +69,7 @@ class Page extends Model
      * @var array
      */
     protected $fillable = [
-        'parent_id', 'alias', 'sort_order', 'route_number', 'active', 'deleted_at'
+        'parent_id', 'alias', 'sort_order', 'route_number', 'active', 'visible_for_menu', 'deleted_at'
     ];
 
     /**
@@ -107,6 +107,7 @@ class Page extends Model
     const Localization = 18;
     const Event = 19;
     const Interpretation = 20;
+    const TranslateNow = 21;
 
     /**
      * Default route numbers for router separation.

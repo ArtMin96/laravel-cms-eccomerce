@@ -21,6 +21,7 @@ class CreatePagesTable extends Migration
             $table->integer('page_number')->nullable();
             $table->integer('route_number')->nullable();
             $table->integer('base_page')->default(0);
+            $table->integer('visible_for_menu')->default(0);
             $table->softDeletes();
             $table->timestamps();
 

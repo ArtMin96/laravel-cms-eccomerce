@@ -33,6 +33,7 @@ class PageSeeder extends Seeder
                 'page_number' => 1,
                 'route_number' => 0,
                 'base_page' => 1,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 1
@@ -53,6 +54,7 @@ class PageSeeder extends Seeder
                 'page_number' => 2,
                 'route_number' => 0,
                 'base_page' => 1,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 2
@@ -73,6 +75,7 @@ class PageSeeder extends Seeder
                 'page_number' => 3,
                 'route_number' => 0,
                 'base_page' => 1,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 3
@@ -93,6 +96,7 @@ class PageSeeder extends Seeder
                 'page_number' => 4,
                 'route_number' => 0,
                 'base_page' => 1,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 4
@@ -113,6 +117,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 0,
                 'base_page' => 1,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 5
@@ -133,6 +138,7 @@ class PageSeeder extends Seeder
                 'page_number' => 5,
                 'route_number' => 0,
                 'base_page' => 1,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 6
@@ -153,6 +159,7 @@ class PageSeeder extends Seeder
                 'page_number' => 6,
                 'route_number' => 0,
                 'base_page' => 1,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 7
@@ -173,6 +180,7 @@ class PageSeeder extends Seeder
                 'page_number' => 7,
                 'route_number' => 0,
                 'base_page' => 1,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 8
@@ -193,6 +201,7 @@ class PageSeeder extends Seeder
                 'page_number' => 8,
                 'route_number' => 0,
                 'base_page' => 1,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 9
@@ -213,6 +222,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 0,
                 'base_page' => 1,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 10
@@ -233,6 +243,7 @@ class PageSeeder extends Seeder
                 'page_number' => 11,
                 'route_number' => 0,
                 'base_page' => 1,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 11
@@ -253,6 +264,7 @@ class PageSeeder extends Seeder
                 'page_number' => 12,
                 'route_number' => 0,
                 'base_page' => 1,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 12
@@ -273,6 +285,7 @@ class PageSeeder extends Seeder
                 'page_number' => 9,
                 'route_number' => 0,
                 'base_page' => 1,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 13
@@ -293,6 +306,7 @@ class PageSeeder extends Seeder
                 'page_number' => 10,
                 'route_number' => 0,
                 'base_page' => 1,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 14
@@ -313,6 +327,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 0,
                 'base_page' => 1,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 15
@@ -333,6 +348,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 16
@@ -353,6 +369,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 17
@@ -373,6 +390,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 18
@@ -393,6 +411,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 19
@@ -413,6 +432,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 20
@@ -433,6 +453,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 21
@@ -453,6 +474,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 22
@@ -473,6 +495,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 23
@@ -493,6 +516,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 24
@@ -513,6 +537,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 25
@@ -533,6 +558,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 26
@@ -553,6 +579,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 27
@@ -573,6 +600,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 28
@@ -593,6 +621,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 29
@@ -613,6 +642,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 30
@@ -633,6 +663,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 31
@@ -653,6 +684,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 32
@@ -673,6 +705,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 33
@@ -693,6 +726,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 34
@@ -713,6 +747,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 35
@@ -733,6 +768,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 36
@@ -753,6 +789,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 37
@@ -773,6 +810,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 38
@@ -793,6 +831,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 39
@@ -813,6 +852,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 40
@@ -833,6 +873,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 41
@@ -853,6 +894,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 42
@@ -873,6 +915,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 43
@@ -893,6 +936,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 44
@@ -913,6 +957,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 45
@@ -933,6 +978,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 1,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 46
@@ -953,6 +999,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 2,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 47
@@ -973,6 +1020,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 2,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 48
@@ -993,6 +1041,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 2,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 49
@@ -1013,6 +1062,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 2,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 50
@@ -1033,6 +1083,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 2,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 51
@@ -1053,6 +1104,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 2,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 52
@@ -1073,6 +1125,7 @@ class PageSeeder extends Seeder
                 'page_number' => null,
                 'route_number' => 2,
                 'base_page' => 0,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 53
@@ -1093,6 +1146,7 @@ class PageSeeder extends Seeder
                 'page_number' => 14,
                 'route_number' => 0,
                 'base_page' => 1,
+                'visible_for_menu' => 0,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 54
@@ -1113,6 +1167,7 @@ class PageSeeder extends Seeder
                 'page_number' => 13,
                 'route_number' => 0,
                 'base_page' => 1,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 55
@@ -1133,6 +1188,7 @@ class PageSeeder extends Seeder
                 'page_number' => 15,
                 'route_number' => 0,
                 'base_page' => 1,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 56
@@ -1153,6 +1209,7 @@ class PageSeeder extends Seeder
                 'page_number' => 16,
                 'route_number' => 0,
                 'base_page' => 1,
+                'visible_for_menu' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 57
@@ -1240,6 +1297,27 @@ class PageSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 61
+            [
+                'id' => 62,
+                'en' => [
+                    'name' => 'Translate Now'
+                ],
+                'ru' => [
+                    'name' => 'Перевести сейчас'
+                ],
+                'hy' => [
+                    'name' => 'Թարգմանիր հիմա'
+                ],
+                'parent_id' => null,
+                'alias' => 'translate-now',
+                'sort_order' => 0,
+                'page_number' => 21,
+                'route_number' => 0,
+                'base_page' => 1,
+                'visible_for_menu' => 0,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 62
         ];
 
         foreach ($pages as $key => $value) {

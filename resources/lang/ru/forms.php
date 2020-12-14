@@ -10,6 +10,7 @@ return [
     */
 
     'Name' => 'Имя',
+    'Surname' => 'Фамилия',
     'Last Name' => 'Фамилия',
     'Phone Number' => 'Телефонный номер',
     'Phone' => 'Телефон',
@@ -33,6 +34,7 @@ return [
     'Female' => 'Женский',
     'Address' => 'Адрес',
     'Company' => 'Компания',
+    'Note' => 'Заметка',
     'Current password' => 'Текущий пароль',
     'New password' => 'Новый пароль',
     'Confirm password' => 'Подтвердить Пароль',
@@ -52,5 +54,13 @@ return [
 
     'Event day' => 'День мероприятия',
     'Event venue' => 'Место проведения мероприятия',
+
+    'Source Language' => 'Язык источника',
+    'Target Language' => 'Язык перевода',
+    'Due Date' => 'Срок сдачи',
+    'Do you need certification?' => 'Вам нужна сертификация?',
+    'Notarized' => 'Нотариально заверенный',
+    'Translation' => 'Перевод',
+    'Add files' => 'Добавить файлы'
 
 ];
