@@ -125,6 +125,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/document-template/search', 'DocumentTemplateController@getSearch')->name('search-document-template');
     Route::get('/document-template', 'DocumentTemplateController@index')->name('document-template');
 
+    Route::get('/translate-now', 'TranslateNowController@index')->name('translate-now');
+
     Route::group(['middleware' => ['auth']], function () {
 
         Route::get('/wishlist', 'WishlistController@index')->name('wishlist');

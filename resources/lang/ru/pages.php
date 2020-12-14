@@ -108,8 +108,32 @@ return [
     'Interpreting' => 'Устный перевод',
     'Transcription' => 'Транскрипция',
     'Localization' => 'Локализация',
+    'Event' => 'Событие',
     'Request a translation' => 'Запросить перевод',
     'Book an interpreter' => 'Заказать переводчика',
     'Request a transcription' => 'Запросить стенограмму',
-    'Get a Quote' => 'Получить цитату'
+    'Get a Quote' => 'Получить цитату',
+
+    'Get your ready translation' => 'Получите готовый перевод',
+    'Translate yourself' => 'Переведи сам',
+
+    'Select A Service' => 'Выберите услугу',
+
+    'Professional Translations' => 'Профессиональные переводы',
+    'Your document receives perfect translating & accurate formatting, while preserving the meaning.' => 'Ваш документ получает идеальный перевод и точное форматирование, сохраняя при этом смысл.',
+    'Meticulous Proofreading' => 'Тщательная корректура',
+    'Your Proofreader checks verbiage, syntax, spelling, & grammar' => 'Ваш корректор проверяет словоблудие, синтаксис, орфографию и грамматику',
+    'Precision Editing' => 'Точное редактирование',
+    'Your Editor compares the original & translated documents to assure symmetry.' => 'Ваш редактор сравнивает исходный и переведенный документы для обеспечения симметрии.',
+    'Project Manager Review' => 'Обзор менеджера проекта',
+    'Your Project Manager reviews the final copy to guarantee it meets your requests.' => 'Ваш менеджер проекта просматривает окончательную копию, чтобы гарантировать, что она соответствует вашим запросам.',
+    'Speedy Delivery' => 'Быстрая доставка',
+    'Your approval is the last step. Once approved, your final documents are delivered instantly.' => 'Ваше одобрение - последний шаг. После утверждения ваши окончательные документы будут доставлены мгновенно.',
+
+    'professional_translation_description' => '“Gaudeamus” translation services provides high quality translation services for anyfield and for any industry by complying with your needs no matter the volume.',
+    'our_professional_translation_description' => 'A successful and accurate translation requires a professional translator with a perfect command of both the source and target language. If you’re looking for a professional translation company, specialized in any kind of translation services, look no further. Simply get in touch with us and get an immediate response for your translations!',
+    'translation_services_description' => 'Gaudeamus translation services, with its mastery in 50+ languages, provides best translation solutionsfor all industries and fields by showing high professionalism that the wide range of our clients can attest to. Whether for your business or personal use, our team specializes in providing translations thatmeet the evolving needs of the industry with focus to your specific requirements. Our responsive teamis always ready for the clients to deliver accurate translations by sustaining the quality of our services.',
+    'interpretation_services_description' => 'Gaudeamus offers simultaneous and consecutive interpretation services in over50+ languages. Our professional interpreters maintain strict standards of professionalism and possess exceptional linguistic and interpersonal skills to help facilitate interactions between different languages and cultures. Gaudeamus team provides everything you need for your meetings to make them run smoothly and accomplish their objectives, including interpretation equipment rental.',
+    'transcription_services_description' => 'If you are looking for a quality transcription company, you are in the right place. Gaudeamus offers audio/video and human transcription services (converting live or recorded speech into a written or electronic text document). Our specialists, having excellent focus and attention to details, always deliverthe most accuratetranscriptionspossible by ensuring the best quality.',
+    'localization_services_description' => 'Whenever you want to have an expansion of business or audience, we are here to help you. Unlike a direct translation process, localization takes everything a step further by focusing on the cultural aspect and adapting the content. Our skillful specialists use their experience in multilingual projects and professional localization to deliver sophisticated services to clients across the globe.',
 ];

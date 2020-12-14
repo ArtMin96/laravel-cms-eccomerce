@@ -10,6 +10,7 @@ return [
     */
 
     'Name' => 'Name',
+    'Surname' => 'Surname',
     'Last Name' => 'Last Name',
     'Phone Number' => 'Phone Number',
     'Phone' => 'Phone',
@@ -33,6 +34,7 @@ return [
     'Female' => 'Female',
     'Address' => 'Address',
     'Company' => 'Company',
+    'Note' => 'Note',
     'Current password' => 'Current password',
     'New password' => 'New password',
     'Confirm password' => 'Confirm password',
@@ -51,5 +53,13 @@ return [
 
     'Event day' => 'Event day',
     'Event venue' => 'Event venue',
+
+    'Source Language' => 'Source Language',
+    'Target Language' => 'Target Language',
+    'Due Date' => 'Due Date',
+    'Do you need certification?' => 'Do you need certification?',
+    'Notarized' => 'Notarized',
+    'Translation' => 'Translation',
+    'Add files' => 'Add files'
 
 ];
