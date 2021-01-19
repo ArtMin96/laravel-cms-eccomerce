@@ -1318,6 +1318,468 @@ class PageSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ], // 62
+            [
+                'id' => 63,
+                'en' => [
+                    'name' => 'Armenian'
+                ],
+                'ru' => [
+                    'name' => 'Армянский'
+                ],
+                'hy' => [
+                    'name' => 'Հայերեն'
+                ],
+                'parent_id' => 4,
+                'alias' => 'javascript:void(0);',
+                'sort_order' => 0,
+                'page_number' => null,
+                'route_number' => 0,
+                'base_page' => 0,
+                'visible_for_menu' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 63
+            [
+                'id' => 64,
+                'en' => [
+                    'name' => 'Arabic'
+                ],
+                'ru' => [
+                    'name' => 'Арабский'
+                ],
+                'hy' => [
+                    'name' => 'Արաբերեն'
+                ],
+                'parent_id' => 4,
+                'alias' => 'javascript:void(0);',
+                'sort_order' => 0,
+                'page_number' => null,
+                'route_number' => 0,
+                'base_page' => 0,
+                'visible_for_menu' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 64
+            [
+                'id' => 65,
+                'en' => [
+                    'name' => 'Bulgarian'
+                ],
+                'ru' => [
+                    'name' => 'Болгарский'
+                ],
+                'hy' => [
+                    'name' => 'Բուլղարերեն'
+                ],
+                'parent_id' => 4,
+                'alias' => 'javascript:void(0);',
+                'sort_order' => 0,
+                'page_number' => null,
+                'route_number' => 0,
+                'base_page' => 0,
+                'visible_for_menu' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 65
+            [
+                'id' => 66,
+                'en' => [
+                    'name' => 'Chinese'
+                ],
+                'ru' => [
+                    'name' => 'Китайский'
+                ],
+                'hy' => [
+                    'name' => 'Չինարեն'
+                ],
+                'parent_id' => 4,
+                'alias' => 'javascript:void(0);',
+                'sort_order' => 0,
+                'page_number' => null,
+                'route_number' => 0,
+                'base_page' => 0,
+                'visible_for_menu' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 66
+            [
+                'id' => 67,
+                'en' => [
+                    'name' => 'Czech'
+                ],
+                'ru' => [
+                    'name' => 'Чешский'
+                ],
+                'hy' => [
+                    'name' => 'Չեխերեն'
+                ],
+                'parent_id' => 4,
+                'alias' => 'javascript:void(0);',
+                'sort_order' => 0,
+                'page_number' => null,
+                'route_number' => 0,
+                'base_page' => 0,
+                'visible_for_menu' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 67
+            [
+                'id' => 68,
+                'en' => [
+                    'name' => 'English'
+                ],
+                'ru' => [
+                    'name' => 'Английский'
+                ],
+                'hy' => [
+                    'name' => 'Անգլերեն'
+                ],
+                'parent_id' => 4,
+                'alias' => 'javascript:void(0);',
+                'sort_order' => 0,
+                'page_number' => null,
+                'route_number' => 0,
+                'base_page' => 0,
+                'visible_for_menu' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 68
+            [
+                'id' => 69,
+                'en' => [
+                    'name' => 'French'
+                ],
+                'ru' => [
+                    'name' => 'Французский'
+                ],
+                'hy' => [
+                    'name' => 'Ֆրանսերեն'
+                ],
+                'parent_id' => 4,
+                'alias' => 'javascript:void(0);',
+                'sort_order' => 0,
+                'page_number' => null,
+                'route_number' => 0,
+                'base_page' => 0,
+                'visible_for_menu' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 69
+            [
+                'id' => 70,
+                'en' => [
+                    'name' => 'Georgian'
+                ],
+                'ru' => [
+                    'name' => 'Грузинский'
+                ],
+                'hy' => [
+                    'name' => 'Վրացերեն'
+                ],
+                'parent_id' => 4,
+                'alias' => 'javascript:void(0);',
+                'sort_order' => 0,
+                'page_number' => null,
+                'route_number' => 0,
+                'base_page' => 0,
+                'visible_for_menu' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 70
+            [
+                'id' => 71,
+                'en' => [
+                    'name' => 'German'
+                ],
+                'ru' => [
+                    'name' => 'Немецкий'
+                ],
+                'hy' => [
+                    'name' => 'Գերմաներեն'
+                ],
+                'parent_id' => 4,
+                'alias' => 'javascript:void(0);',
+                'sort_order' => 0,
+                'page_number' => null,
+                'route_number' => 0,
+                'base_page' => 0,
+                'visible_for_menu' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 71
+            [
+                'id' => 72,
+                'en' => [
+                    'name' => 'Greek'
+                ],
+                'ru' => [
+                    'name' => 'Греческий'
+                ],
+                'hy' => [
+                    'name' => 'Հունարեն'
+                ],
+                'parent_id' => 4,
+                'alias' => 'javascript:void(0);',
+                'sort_order' => 0,
+                'page_number' => null,
+                'route_number' => 0,
+                'base_page' => 0,
+                'visible_for_menu' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 72
+            [
+                'id' => 73,
+                'en' => [
+                    'name' => 'Indian'
+                ],
+                'ru' => [
+                    'name' => 'Индийский'
+                ],
+                'hy' => [
+                    'name' => 'Հնդկերեն'
+                ],
+                'parent_id' => 4,
+                'alias' => 'javascript:void(0);',
+                'sort_order' => 0,
+                'page_number' => null,
+                'route_number' => 0,
+                'base_page' => 0,
+                'visible_for_menu' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 73
+            [
+                'id' => 74,
+                'en' => [
+                    'name' => 'Italian'
+                ],
+                'ru' => [
+                    'name' => 'Итальянский'
+                ],
+                'hy' => [
+                    'name' => 'Իտալերեն'
+                ],
+                'parent_id' => 4,
+                'alias' => 'javascript:void(0);',
+                'sort_order' => 0,
+                'page_number' => null,
+                'route_number' => 0,
+                'base_page' => 0,
+                'visible_for_menu' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 74
+            [
+                'id' => 75,
+                'en' => [
+                    'name' => 'Japanese'
+                ],
+                'ru' => [
+                    'name' => 'Японский'
+                ],
+                'hy' => [
+                    'name' => 'Ճապոներեն'
+                ],
+                'parent_id' => 4,
+                'alias' => 'javascript:void(0);',
+                'sort_order' => 0,
+                'page_number' => null,
+                'route_number' => 0,
+                'base_page' => 0,
+                'visible_for_menu' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 75
+            [
+                'id' => 76,
+                'en' => [
+                    'name' => 'Lithuanian'
+                ],
+                'ru' => [
+                    'name' => 'Литовский'
+                ],
+                'hy' => [
+                    'name' => 'Լիտվերեն'
+                ],
+                'parent_id' => 4,
+                'alias' => 'javascript:void(0);',
+                'sort_order' => 0,
+                'page_number' => null,
+                'route_number' => 0,
+                'base_page' => 0,
+                'visible_for_menu' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 76
+            [
+                'id' => 77,
+                'en' => [
+                    'name' => 'Dutch'
+                ],
+                'ru' => [
+                    'name' => 'Нидерландский'
+                ],
+                'hy' => [
+                    'name' => 'Հոլանդերեն'
+                ],
+                'parent_id' => 4,
+                'alias' => 'javascript:void(0);',
+                'sort_order' => 0,
+                'page_number' => null,
+                'route_number' => 0,
+                'base_page' => 0,
+                'visible_for_menu' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 77
+            [
+                'id' => 78,
+                'en' => [
+                    'name' => 'Polish'
+                ],
+                'ru' => [
+                    'name' => 'Польский'
+                ],
+                'hy' => [
+                    'name' => 'Լեհերեն'
+                ],
+                'parent_id' => 4,
+                'alias' => 'javascript:void(0);',
+                'sort_order' => 0,
+                'page_number' => null,
+                'route_number' => 0,
+                'base_page' => 0,
+                'visible_for_menu' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 78
+            [
+                'id' => 79,
+                'en' => [
+                    'name' => 'Portuguese'
+                ],
+                'ru' => [
+                    'name' => 'Португальский'
+                ],
+                'hy' => [
+                    'name' => 'Պորտուգալերեն'
+                ],
+                'parent_id' => 4,
+                'alias' => 'javascript:void(0);',
+                'sort_order' => 0,
+                'page_number' => null,
+                'route_number' => 0,
+                'base_page' => 0,
+                'visible_for_menu' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 79
+            [
+                'id' => 80,
+                'en' => [
+                    'name' => 'Romanian'
+                ],
+                'ru' => [
+                    'name' => 'Румынский'
+                ],
+                'hy' => [
+                    'name' => 'Ռումիներեն'
+                ],
+                'parent_id' => 4,
+                'alias' => 'javascript:void(0);',
+                'sort_order' => 0,
+                'page_number' => null,
+                'route_number' => 0,
+                'base_page' => 0,
+                'visible_for_menu' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 80
+            [
+                'id' => 81,
+                'en' => [
+                    'name' => 'Russian'
+                ],
+                'ru' => [
+                    'name' => 'Русский'
+                ],
+                'hy' => [
+                    'name' => 'Ռուսերեն'
+                ],
+                'parent_id' => 4,
+                'alias' => 'javascript:void(0);',
+                'sort_order' => 0,
+                'page_number' => null,
+                'route_number' => 0,
+                'base_page' => 0,
+                'visible_for_menu' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 81
+            [
+                'id' => 82,
+                'en' => [
+                    'name' => 'Korean'
+                ],
+                'ru' => [
+                    'name' => 'Корейский'
+                ],
+                'hy' => [
+                    'name' => 'Կորեերեն'
+                ],
+                'parent_id' => 4,
+                'alias' => 'javascript:void(0);',
+                'sort_order' => 0,
+                'page_number' => null,
+                'route_number' => 0,
+                'base_page' => 0,
+                'visible_for_menu' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 82
+            [
+                'id' => 83,
+                'en' => [
+                    'name' => 'Spanish'
+                ],
+                'ru' => [
+                    'name' => 'Испанский'
+                ],
+                'hy' => [
+                    'name' => 'Իսպաներեն'
+                ],
+                'parent_id' => 4,
+                'alias' => 'javascript:void(0);',
+                'sort_order' => 0,
+                'page_number' => null,
+                'route_number' => 0,
+                'base_page' => 0,
+                'visible_for_menu' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 83
+            [
+                'id' => 84,
+                'en' => [
+                    'name' => 'Ukrainian'
+                ],
+                'ru' => [
+                    'name' => 'Украинский'
+                ],
+                'hy' => [
+                    'name' => 'Ուկրաիներեն'
+                ],
+                'parent_id' => 4,
+                'alias' => 'javascript:void(0);',
+                'sort_order' => 0,
+                'page_number' => null,
+                'route_number' => 0,
+                'base_page' => 0,
+                'visible_for_menu' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ], // 84
         ];
 
         foreach ($pages as $key => $value) {
