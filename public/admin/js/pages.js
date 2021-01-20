@@ -53,31 +53,6 @@ $(document).ready(function() {
       });
   });
 
-    // Add new row
-    $('body').on('click', '.add-new-row', function () {
-
-        let firstRow = $(this).closest('form').find('.card:first');
-        let clone = firstRow.clone(true);
-
-        clone.find(':input:not([type=hidden])').val('');
-        clone.addClass('mt-5');
-
-        let rowCount = $(this).closest('form').find('.card').length + 1;
-
-        clone.find('input').attr('id', function () {
-            return $(this).attr('id') + '_' + (rowCount);
-        });
-
-        clone.find('.custom-control-label').attr('for', function () {
-            return $(this).attr('for') + '_' + (rowCount);
-        });
-
-        clone.find('.card-header-row-count').text(rowCount);
-
-        clone.insertAfter($(this).closest('form').find('.card').last());
-
-    });
-
     $('body').on('change', '.toggle-page-content-buttons', function () {
         $(this).closest('.row').find('.page-content-create-button-group').toggleClass('d-none');
     });

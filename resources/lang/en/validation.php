@@ -182,6 +182,11 @@ return [
         'available'             => 'Available',
         'size'                  => 'Size',
         'image'                 => 'Image',
+
+        'inputs.*.pageTitle_*' => 'Title',
+        'inputs.*.pageDescription_*' => 'Description',
+        'inputs.*.image' => 'Image',
+        'inputs.*.buttonText_*' => 'Button title',
     ],
 
 ];

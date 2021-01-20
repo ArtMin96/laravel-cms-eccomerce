@@ -26,6 +26,9 @@ use Illuminate\Support\Facades\Auth;
     <link href="{{ asset('admin/css/styles.css') }}" rel="stylesheet">
 
     @stack('style')
+
+    @livewireStyles
+
 </head>
 <body class="nav-fixed">
     <div id="app">
@@ -190,7 +193,12 @@ use Illuminate\Support\Facades\Auth;
                 </main>
             </div>
         </div>
+
+        <livewire:toast />
+
     </div>
+
+    @livewireScripts
 
     @stack('script')
 </body>

@@ -1821,7 +1821,8 @@ class PageSeeder extends Seeder
                   'description' => 'Test desc',
                   'link_title' => 'Test',
               ],
-              'image' => ''
+              'image' => '',
+              'button_type' => 0,
           ]);
         }
     }
