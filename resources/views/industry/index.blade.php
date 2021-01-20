@@ -28,4 +28,45 @@
         </div>
     </section>
 
+    <div class="container">
+        <section class="g-page-description-1">
+
+            @if(!empty($page->pageContent))
+                @foreach($page->pageContent as $content)
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="g-page-description-text-box">
+                                <h2 class="font-size-4 ">{{ $content->title }}</h2>
+                                <div class="g-page-description-text">
+                                    <p>{{ $content->description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="g-page-description-image-box">
+                                <img src="{{ asset('storage/page-content/'.$content->image) }}" alt="{{ $content->title }}" class="g-page-description-image">
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center mt-5">
+                        <h3 class="g-title">Request a Quote</h3>
+                        <p>Press the button below, submit the necessary information, and receive a Free Quote in just 10 minutes</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="g-description-btn-box">
+                        <a href="../forms.html" class="g-btn g-btn-green text-uppercase">get my free quote</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
 @endsection

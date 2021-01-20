@@ -20,6 +20,7 @@
         "laravel/framework": "^7.24",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.2",
+        "livewire/livewire": "^2.3",
         "mcamara/laravel-localization": "^1.6",
         "phpoffice/phpword": "^0.17.0",
         "propaganistas/laravel-phone": "^4.2",

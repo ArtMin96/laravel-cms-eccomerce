@@ -39,23 +39,30 @@
     </section>
 
     <div class="container">
-        <section class="g-page-description-1">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="g-page-description-text-box">
-                        <h2 class="font-size-4 ">The Translation Company You Need</h2>
-                        <div class="g-page-description-text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap intoLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap intoLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+        @if(!empty($page->pageContent->first()))
+            @php
+                $firstElement = $page->pageContent->first();
+            @endphp
+
+            <section class="g-page-description-1">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="g-page-description-text-box">
+                            <h2 class="font-size-4 ">{{ $firstElement->title }}</h2>
+                            <div class="g-page-description-text">
+                                <p>{{ $firstElement->description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 rectangle-image-box">
+                        <div class="g-page-description-image-box">
+                            <img src="{{ asset('/storage/page-content/' . $firstElement->image) }}" alt="{{ $firstElement->title }}" class="g-page-description-image">
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 rectangle-image-box">
-                    <div class="g-page-description-image-box">
-                        <img src="./images/GEV6198.jpg" alt="gaudeamus" class="g-page-description-image">
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+        @endif
 
         @if(!empty($translationServices))
             <section class="py-4">

@@ -30,6 +30,9 @@
     <link rel="stylesheet" href="{{ asset('css/rating.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/media.css') }}">
+
+    @livewireStyles
+
 </head>
 <body>
     <div id="app">
@@ -108,9 +111,8 @@
     </div>
 </body>
 
-{{--<script src="{{ asset('js/jquery.js') }}" defer></script>--}}
-{{--<script src="{{ asset('js/popper.min.js') }}" defer></script>--}}
-{{--<script src="{{ asset('js/bootstrap.min.js') }}" defer></script>--}}
+@livewireScripts
+
 <script src="{{ asset('js/bootstrap-select.min.js') }}" defer></script>
 
 @stack('script')
