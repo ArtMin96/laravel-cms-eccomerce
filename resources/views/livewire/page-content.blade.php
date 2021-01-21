@@ -49,7 +49,7 @@
                                             <input class="form-control @error('inputs.' . $i . '.pageTitle_' . $locale) is-invalid @enderror" type="text" wire:model.lazy="inputs.{{ $i }}.pageTitle_{{ $locale }}">
 
                                             @error('inputs.' . $i . '.pageTitle_' . $locale)
-                                            <span class="invalid-feedback" role="alert">
+                                                <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
@@ -61,7 +61,7 @@
                                             <input class="form-control @error('inputs.' . $i . '.pageDescription_' . $locale) is-invalid @enderror" type="text" wire:model.lazy="inputs.{{ $i }}.pageDescription_{{ $locale }}">
 
                                             @error('inputs.' . $i . '.pageDescription_' . $locale)
-                                            <span class="invalid-feedback" role="alert">
+                                                <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror

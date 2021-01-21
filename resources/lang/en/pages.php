@@ -105,6 +105,7 @@ return [
     'Download' => 'Download',
 
     'Translator' => 'Translator',
+    'Translation' => 'Translation',
     'Interpreting' => 'Interpreting',
     'Transcription' => 'Transcription',
     'Localization' => 'Localization',

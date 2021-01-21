@@ -120,7 +120,7 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="g-card-simple g-card-simple-2 g-card-wrap" data-role="translator">
                             <span class="g-card-simple-image" style="background-image: url(./images/services/service-1.png)"></span>
-                            <div class="font-weight-bold font-size-5 text-center">{{ __('pages.Translator') }}</div>
+                            <div class="font-weight-bold font-size-5 text-center">{{ __('pages.Translation') }}</div>
                             <p class="g-card-simple-text">{{ __('pages.translation_services_description') }}</p>
                             <div class="mt-3 font-size-5 font-weight-bold text-center">
                                 <a href="{{ LaravelLocalization::localizeUrl('/translation') }}" class="g-link g-link-2">{{ __('pages.Request a translation') }}</a>
