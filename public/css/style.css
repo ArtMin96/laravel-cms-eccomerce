@@ -894,6 +894,7 @@ label.label-row:hover{
 }
 .g-page-description-1 .g-page-description-text-box{
     display: flex;
+    flex-direction: column;
     height: 100%;
     flex-wrap: wrap;
     align-content: center;

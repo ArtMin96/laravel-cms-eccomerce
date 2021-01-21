@@ -6,7 +6,7 @@
             </a>
 
             <div class="g-navbar-buttons">
-                <a href="{{ LaravelLocalization::localizeUrl('/translate-now') }}" class="g-btn g-btn-green-ol">{{ __('pages.TRANSLATE NOW') }}</a>
+                <a href="{{ LaravelLocalization::localizeUrl('/translate-now') }}" class="g-btn g-btn-green">{{ __('pages.TRANSLATE NOW') }}</a>
 
                 <!-- Authentication Links -->
                 @guest
