@@ -34,7 +34,7 @@ class SettingsSeeder extends Seeder
             ],
             'logo' => 'logo.png',
             'logo_sm' => 'logo-sm.png',
-            'email' => 'info@gaudeamus.com',
+            'email' => 'info@gaudeamus.am',
             'viber' => '+37411 56 16 78',
             'whatsapp' => '+37411 56 16 78',
             'map_html' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3047.9728804019132!2d44.508568315831866!3d40.18741697939238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406abd1db4502f61%3A0x6e9670a2876e4843!2zR2F1ZGVhbXVzIFRyYW5zbGF0aW9uICYgSW50ZXJwcmV0YXRpb24v1LnVodaA1aPVtNWh1bbVudWh1a_VodW2INWu1aHVvNWh1bXVuNaC1anVtdW41oLVttW21aXWgA!5e0!3m2!1sru!2s!4v1600120477745!5m2!1sru!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>',

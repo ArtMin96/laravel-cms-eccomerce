@@ -161,89 +161,59 @@
             </div>
         </section>
 
-        <section class="g-page-description-1">
-            <div class="row">
-                <div class="col-md-6 rectangle-image-box">
-                    <div class="g-page-description-image-box">
-                        <img src="./images/description/description-47.png" alt="gaudeamus" class="g-page-description-image">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="g-page-description-text-box">
-                        <h2 class="font-size-4 ">What is lorem ipsum</h2>
-                        <div class="g-page-description-text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap intoLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap intoLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                        </div>
-                        <div class="g-description-list-btn-box text-left">
-                            <a href="#" class="g-btn g-btn-green text-uppercase">Get your ready translation</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        {{-- Page contents --}}
+        @if(!empty($page->pageContent))
+            @foreach($page->pageContent as $key => $content)
 
-        <section class="g-page-description-1">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="g-page-description-text-box">
-                        <h2 class="font-size-4 ">What is lorem ipsum</h2>
-                        <div class="g-page-description-text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap intoLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap intoLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                        </div>
-                        <div class="g-description-list-btn-box">
-                            <a href="#" class="g-btn g-btn-green text-uppercase">Translate yourself</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 rectangle-image-box">
-                    <div class="g-page-description-image-box">
-                        <img src="./images/description/description-48.png" alt="gaudeamus" class="g-page-description-image">
-                    </div>
-                </div>
-            </div>
-        </section>
+                @if($key == 0)
+                    @continue
+                @endif
 
-        <section class="g-page-description-1">
-            <div class="row">
-                <div class="col-md-6 rectangle-image-box">
-                    <div class="g-page-description-image-box">
-                        <img src="./images/description/description-49.png" alt="gaudeamus" class="g-page-description-image">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="g-page-description-text-box">
-                        <h2 class="font-size-4 ">What is lorem ipsum</h2>
-                        <div class="g-page-description-text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap intoLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap intoLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                @if(($key % 2) == 0)
+                    <section class="g-page-description-1">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="g-page-description-text-box">
+                                    <h2 class="font-size-4 ">{{ $content->title }}</h2>
+                                    <div class="g-page-description-text">
+                                        <p>{{ $content->description }}</p>
+                                    </div>
+                                    <div class="g-description-list-btn-box">
+                                        <a href="@if($content->url) {{ $content->url }} @else javascript:void(0) @endif" class="g-btn g-btn-green text-uppercase">@if($content->url) {{ $content->link_title }} @else {{ __('pages.event_button_title') }} @endif</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 rectangle-image-box">
+                                <div class="g-page-description-image-box">
+                                    <img src="{{ asset('/storage/page-content/' . $content->image) }}" alt="{{ $content->title }}" class="g-page-description-image">
+                                </div>
+                            </div>
                         </div>
-                        <div class="g-description-list-btn-box text-left">
-                            <a href="#" class="g-link g-link-3 text-uppercase">CONNECT ME TO CUSTOMER SUPPORT</a>
+                    </section>
+                @else
+                    <section class="g-page-description-1">
+                        <div class="row">
+                            <div class="col-md-6 rectangle-image-box">
+                                <div class="g-page-description-image-box">
+                                    <img src="{{ asset('/storage/page-content/' . $content->image) }}" alt="{{ $content->title }}" class="g-page-description-image">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="g-page-description-text-box">
+                                    <h2 class="font-size-4 ">{{ $content->title }}</h2>
+                                    <div class="g-page-description-text">
+                                        <p>{{ $content->description }}</p>
+                                    </div>
+                                    <div class="g-description-list-btn-box text-left">
+                                        <a href="@if($content->url) {{ $content->url }} @else javascript:void(0) @endif" class="g-btn g-btn-green text-uppercase">@if($content->url) {{ $content->link_title }} @else {{ __('pages.odd_button_title') }} @endif</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="g-page-description-1">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="g-page-description-text-box">
-                        <h2 class="font-size-4">The Fastest Translation company</h2>
-                        <div class="g-page-description-text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap intoLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap intoLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                        </div>
-                        <div class="g-description-list-btn-box">
-                            <a href="#" class="g-link g-link-3 text-uppercase">TRANSLATE MY DOCUMENTS NOW!</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 rectangle-image-box">
-                    <div class="g-page-description-image-box">
-                        <img src="./images/description/description-50.png" alt="gaudeamus" class="g-page-description-image">
-                    </div>
-                </div>
-            </div>
-        </section>
+                    </section>
+                @endif
+            @endforeach
+        @endif
 
         <x-five-step-check class="py-4" />
 
