@@ -72,19 +72,6 @@
                             </div>
                             <!-- .end Title translations -->
 
-                            <hr />
-
-                            <!-- Button types -->
-                            <div class="form-group">
-                                <label class="required">{{ __('Button type') }}</label>
-                                <select class="form-control" wire:model="inputs.{{ $i }}.buttonType">
-                                    <option value="">{{ __('Select button type') }}</option>
-                                    <option value="0">{{ __('Basic') }}</option>
-                                    <option value="1">{{ __('Filled') }}</option>
-                                </select>
-                            </div>
-                            <!-- .end Button types -->
-
                             <!-- Link -->
                             <div class="form-group">
                                 <label class="required" for="url">{{ __('URL') }}</label>
@@ -141,21 +128,21 @@
                                         <img src="{{ $image->temporaryUrl() }}">
                                     @endif
 
-                                    @if(!empty($inputs[0]['image']))
+                                    @if(!empty($inputs[$i]['image']))
                                         <div class="img">
-                                            <img src="{{ asset('storage/page-content/' . $inputs[0]['image']) }}" alt="{{ $inputs[0]['pageTitle_en'] }}">
+                                            <img src="{{ asset('storage/page-content/' . $inputs[$i]['image']) }}" alt="{{ $inputs[$i]['pageTitle_en'] }}">
                                             <span class="result_file"
-                                                  wire:click.prevent="removeImage({{ $inputs[0]['pageId'] }})"><i class="fal fa-times"></i></span>
+                                                  wire:click.prevent="removeImage({{ 'inputs.' . $i . '.pageId' }})"><i class="fal fa-times"></i></span>
                                         </div>
 
                                         <div class="pic" style="display: none;">
                                             <span style="font-size: 1.25rem;">Upload</span>
-                                            <input type="file" wire:model="inputs.{{ $i }}.image" accept="image/*" class="file-uploader d-none form-control @error('inputs.' . $i . '.image') is-invalid @enderror" id="page-content-image">
+                                            <input type="file" wire:model.defer="inputs.{{ $i }}.image" accept="image/*" class="file-uploader d-none form-control @error('inputs.' . $i . '.image') is-invalid @enderror" id="page-content-image">
                                         </div>
                                     @else
                                         <div class="pic">
                                             <span style="font-size: 1.25rem;">Upload</span>
-                                            <input type="file" wire:model="inputs.{{ $i }}.image" accept="image/*" class="file-uploader d-none form-control @error('inputs.' . $i . '.image') is-invalid @enderror" id="page-content-image">
+                                            <input type="file" wire:model.defer="inputs.{{ $i }}.image" accept="image/*" class="file-uploader d-none form-control @error('inputs.' . $i . '.image') is-invalid @enderror" id="page-content-image">
                                         </div>
                                     @endif
                                 </div>

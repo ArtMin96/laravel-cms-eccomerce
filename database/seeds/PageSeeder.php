@@ -1807,18 +1807,18 @@ class PageSeeder extends Seeder
           $pageContent->create([
               'page_id' => $value['id'],
               'en' => [
-                  'title' => 'Test',
-                  'description' => 'Test desc',
+                  'title' => 'The Translation Company You Need',
+                  'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap intoLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
                   'link_title' => 'Test',
               ],
               'ru' => [
-                  'title' => 'Test',
-                  'description' => 'Test desc',
+                  'title' => 'Нужная вам переводческая компания',
+                  'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap intoLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
                   'link_title' => 'Test',
               ],
               'hy' => [
-                  'title' => 'Test',
-                  'description' => 'Test desc',
+                  'title' => 'Ձեզ անհրաժեշտ թարգմանչական ընկերությունը',
+                  'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap intoLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
                   'link_title' => 'Test',
               ],
               'image' => '',

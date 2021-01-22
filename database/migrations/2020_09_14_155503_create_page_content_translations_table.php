@@ -22,7 +22,7 @@ class CreatePageContentTranslationsTable extends Migration
             $table->foreign('page_content_id')->references('id')->on('page_content')->onDelete('cascade');
 
             $table->string('title');
-            $table->string('description');
+            $table->longText('description');
             $table->string('link_title')->nullable();
         });
     }

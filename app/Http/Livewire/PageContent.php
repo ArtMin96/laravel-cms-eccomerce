@@ -36,9 +36,6 @@ class PageContent extends Component
     /** @var string $pageDescription_hy */
     public $pageDescription_hy;
 
-    /** @var int $buttonType */
-    public $buttonType = 0;
-
     /** @var string $url */
     public $url;
 
@@ -82,7 +79,6 @@ class PageContent extends Component
                 $this->inputs[$key]['buttonText_ru'] = $content->translate('ru')->link_title;
                 $this->inputs[$key]['buttonText_hy'] = $content->translate('hy')->link_title;
 
-                $this->inputs[$key]['buttonType'] = $content->button_type;
                 $this->inputs[$key]['url'] = $content->url;
                 $this->inputs[$key]['image'] = $content->image;
             }
@@ -116,7 +112,7 @@ class PageContent extends Component
 
             $translatedFields = [
                 'url' => !empty($value['url'])? $value['url'] : null,
-                'button_type' => !empty($value['buttonType']) ? $value['buttonType'] : 0,
+                'button_type' => 0,
                 'en' => [
                     'title' => $value['pageTitle_en'],
                     'description' => !empty($value['pageDescription_en'])? $value['pageDescription_en'] : null,
@@ -134,9 +130,10 @@ class PageContent extends Component
                 ]
             ];
 
-            if ($value['image']) {
-
-                $this->rules = array_merge(['inputs.*.image' => ['image', 'max:1024']]);
+            if (isset($this->inputs[$key]['image']) && is_object($this->inputs[$key]['image'])) {
+                $this->validate([
+                    'inputs.' . $key . '.image' => ['image', 'max:3000']
+                ]);
 
                 // Remove existing file
                 if (!empty($pageContent->image)) {
@@ -155,11 +152,12 @@ class PageContent extends Component
                 $translatedFields['image'] = $fileName;
             }
 
-            if (!empty($this->pageId)) {
-                $this->page->pageContent()->create($translatedFields);
-            } else {
+            if (isset($value['pageId'])) {
                 $pageContent = \App\PageContent::find($value['pageId']);
                 $pageContent->update($translatedFields);
+
+            } else {
+                $this->page->pageContent()->create($translatedFields);
             }
         }
 
