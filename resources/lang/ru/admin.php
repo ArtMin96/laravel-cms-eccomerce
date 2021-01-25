@@ -44,6 +44,7 @@ return [
     'Create product' => 'Создать продукт',
     'PDF no larger than 25 MB' => 'PDF не более 25 МБ',
     'JPG, JPEG, PNG no larger than 5 MB' => 'JPG, JPEG, PNG не более 5 МБ',
+    'JPG, JPEG, PNG no larger than 3 MB' => 'JPG, JPEG, PNG не более 3 МБ',
 
     'Are you sure you want to remove this file?' => 'Вы уверены, что хотите удалить этот файл?',
     'Delete' => 'Удалить',
@@ -56,6 +57,13 @@ return [
     'Status' => 'Статус',
     'Created date' => 'Дата создания',
     'Actions' => 'Действия',
+    'Details' => 'Подробности',
+    'Picture' => 'Изображение',
+    'Upload' => 'Загрузить',
+    'Create' => 'Создайте',
+    'Edit' => 'Редактировать',
+    'image_card' => 'Карточка с изображением',
+    'Save changes' => 'Сохранить изменения',
 
     'User status updated successfully.' => 'Статус пользователя успешно обновлен.',
 

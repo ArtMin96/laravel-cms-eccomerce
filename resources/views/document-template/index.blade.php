@@ -15,8 +15,8 @@
                     <p class="font-size-2 g-banner-text">{{ $page->banners->description }}</p>
                 </div>
                 <div class="g-banner-buttons mt-5">
-                    <a href="../user/document_shop.html" class="g-btn g-btn-green">Get your ready translation</a>
-                    <a href="../user/document_templates.html" class="g-btn g-btn-green">Translate yourself</a>
+                    <a href="{{ LaravelLocalization::localizeUrl('/document-shop') }}" class="g-btn g-btn-green">{{ __('pages.Get your ready translation') }}</a>
+                    <a href="{{ LaravelLocalization::localizeUrl('/document-template') }}" class="g-btn g-btn-green">{{ __('pages.Translate yourself') }}</a>
                 </div>
             </div>
 

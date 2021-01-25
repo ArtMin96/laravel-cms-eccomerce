@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Banner;
+use App\Blog;
 use App\CompanyLogos;
 use App\Credentials;
 use App\Customers;
@@ -42,6 +43,24 @@ class RequestController extends AdminController
             if (!empty($banner)) {
                 unlink(storage_path('app/public/banner/'.$banner->image));
                 $banner->update(['image' => null]);
+
+                return response()->json(['status' => true, 'title' => 'Success', 'message' => __('admin.File successfully removed!')]);
+            } else {
+                return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
+            }
+        } else {
+            return response()->json(['status' => false, 'title' => 'Error', 'message' => __('admin.Cannot find image!')]);
+        }
+    }
+
+    public function removeBlogImage(Request $request): \Illuminate\Http\JsonResponse
+    {
+        if (!empty($request->post('file_id'))) {
+            $blog = Blog::findOrFail($request->post('file_id'));
+
+            if (!empty($blog)) {
+                unlink(storage_path('app/public/blog/'.$blog->image));
+                $blog->update(['image' => null]);
 
                 return response()->json(['status' => true, 'title' => 'Success', 'message' => __('admin.File successfully removed!')]);
             } else {

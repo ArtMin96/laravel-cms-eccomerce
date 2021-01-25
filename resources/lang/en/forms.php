@@ -60,6 +60,27 @@ return [
     'Do you need certification?' => 'Do you need certification?',
     'Notarized' => 'Notarized',
     'Translation' => 'Translation',
-    'Add files' => 'Add files'
+    'Add files' => 'Add files',
+
+    'Start date' => 'Start date',
+    'End date' => 'End date',
+    'Number of attendees' => 'Number of attendees',
+    'Event types' => 'Event types',
+    'Translation needed' => 'Translation needed',
+    'Equipment needed' => 'Equipment needed',
+    'Interpretation method' => 'Interpretation method',
+    'Interpretation type' => 'Interpretation type',
+    'Date of interpretation' => 'Date of interpretation',
+    'Expected Duration hours/days' => 'Expected Duration hours/days',
+
+    'Project file' => 'Project file',
+    'select file' => 'select file',
+    'or / and' => 'or / and',
+    'Project link' => 'Project link',
+    'Duration' => 'Duration',
+    'Day' => 'Day',
+    'Full day' => 'Full day',
+    'Half day' => 'Half day',
+    'Hour' => 'Hour',
 
 ];

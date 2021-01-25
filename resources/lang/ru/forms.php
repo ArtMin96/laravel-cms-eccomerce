@@ -61,6 +61,27 @@ return [
     'Do you need certification?' => 'Вам нужна сертификация?',
     'Notarized' => 'Нотариально заверенный',
     'Translation' => 'Перевод',
-    'Add files' => 'Добавить файлы'
+    'Add files' => 'Добавить файлы',
+
+    'Start date' => 'Дата начала',
+    'End date' => 'Дата окончания',
+    'Number of attendees' => 'Количество участников',
+    'Event types' => 'Типы событий',
+    'Translation needed' => 'Требуется перевод',
+    'Equipment needed' => 'Необходимое оборудование',
+    'Interpretation method' => 'Метод интерпретации',
+    'Interpretation type' => 'Тип интерпретации',
+    'Date of interpretation' => 'Дата интерпретации',
+    'Expected Duration hours/days' => 'Ожидаемая продолжительность часов/дней',
+
+    'Project file' => 'Файлы проекта',
+    'select file' => 'выбрать файл',
+    'or / and' => 'или / и',
+    'Project link' => 'Ссылка на проект',
+    'Duration' => 'Продолжительность',
+    'Day' => 'День',
+    'Full day' => 'Полный день',
+    'Half day' => 'Полдня',
+    'Hour' => 'Час',
 
 ];
