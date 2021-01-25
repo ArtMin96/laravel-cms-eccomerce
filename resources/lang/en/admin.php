@@ -44,6 +44,7 @@ return [
     'Create product' => 'Create product',
     'PDF, DOC, DOCX no larger than 25 MB' => 'PDF, DOC, DOCX no larger than 25 MB',
     'JPG, JPEG, PNG no larger than 5 MB' => 'JPG, JPEG, PNG no larger than 5 MB',
+    'JPG, JPEG, PNG no larger than 3 MB' => 'JPG, JPEG, PNG no larger than 3 MB',
 
     'Are you sure you want to remove this file?' => 'Are you sure you want to remove this file?',
     'Delete' => 'Delete',
@@ -55,7 +56,17 @@ return [
     'Email' => 'Email',
     'Status' => 'Status',
     'Created date' => 'Created date',
+    'Updated date' => 'Updated date',
     'Actions' => 'Actions',
+    'Details' => 'Details',
+    'Picture' => 'Picture',
+    'Upload' => 'Upload',
+    'Create' => 'Create',
+    'Edit' => 'Edit',
+    'image_card' => 'Image card',
+    'Save changes' => 'Save changes',
+
+    'remove_confirmation' => 'Are you sure you want to remove?',
 
     'User status updated successfully.' => 'User status updated successfully.',
 
@@ -71,6 +82,7 @@ return [
     'Address' => 'Address',
     'Email verified' => 'Email verified',
     'Client' => 'Client',
+    'Description' => 'Description',
 
     'Grand total' => 'Grand total',
     'Revenue Summary' => 'Revenue Summary',
@@ -84,6 +96,8 @@ return [
 
     'page_created_successfully' => 'Page Created Successfully',
     'page_updated_successfully' => 'Page Updated Successfully',
+
+    'create_blog' => 'Create blog',
 
     'success' => 'Success',
     'error' => 'Error',

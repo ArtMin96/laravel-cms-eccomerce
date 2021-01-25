@@ -21,7 +21,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Auth::routes(['verify' => true]);
 
     Route::get('/', 'MainController@index')->name('main');
-//    Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/home', function () {
         return redirect('/');
     });
@@ -49,6 +48,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::resource('/payment-gateways', 'PaymentGatewaysController');
         Route::resource('/ratings', 'RatingsController');
         Route::resource('/company-logos', 'CompanyLogosController');
+
+        /** Blog routes */
+        Route::resource('/blog', 'BlogController');
 
         Route::delete('/translation-services/rollback', 'TranslationServicesController@rollback')->name('translation.services.rollback');
         Route::get('/translation-services/{id}/duplicate', 'TranslationServicesController@duplicate');
@@ -85,6 +87,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
         // Ajax requests
         Route::post('/request/remove-banner-image', 'RequestController@removeBannerImage')->name('request.remove.banner.image');
+        Route::post('/request/remove-blog-image', 'RequestController@removeBlogImage')->name('request.remove.blog.image');
         Route::post('/request/remove-site-logo-image', 'RequestController@removeSiteLogoImage')->name('request.remove.site.logo.image');
         Route::post('/request/remove-site-logo-sm-image', 'RequestController@removeSiteLogoSmImage')->name('request.remove.site.logo.sm.image');
         Route::post('/request/remove-our-team-image', 'RequestController@removeOurTeamImage')->name('request.remove.our.team.image');
@@ -126,6 +129,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/document-template', 'DocumentTemplateController@index')->name('document-template');
 
     Route::get('/translate-now', 'TranslateNowController@index')->name('translate-now');
+    Route::get('/blog', 'BlogController@index')->name('blog.index');
 
     Route::group(['middleware' => ['auth']], function () {
 

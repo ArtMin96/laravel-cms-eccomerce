@@ -97,10 +97,6 @@ if (!function_exists('wrapMenu')) {
                     } else if ($level != 0 && !empty($items['childrenPages'][0])) {
                         $setLinkType = '<a class="dropdown-item dropdown-toggle" href="' . $route . '">' . $items['name'] . '</a>';
                     } else {
-                        // If count > 5 break
-//                        if ($i > 5) {
-//
-//                        }
                         $setLinkType = '<a class="dropdown-item" href="' . $route . '" ' . $attributes . '>' . $items['name'] . '</a>';
                     }
 

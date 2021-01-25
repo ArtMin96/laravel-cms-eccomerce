@@ -28,5 +28,6 @@ class DatabaseSeeder extends Seeder
          $this->call(DocumentLanguagesSeeder::class);
          $this->call(ProductSeeder::class);
          $this->call(OrderStatusSeeder::class);
+         $this->call(EventTypesSeeder::class);
     }
 }
