@@ -54,7 +54,7 @@
                                         <img src="{{ asset('storage/customers/'.$customers->image) }}" alt="Customer">
                                         <span class="remove-pic result_file"
                                               data-file-id="{{ $customers->id }}"
-                                              data-file-url="/admin/request/remove-customers-image"
+                                              data-file-url="{{ LaravelLocalization::localizeUrl('/admin/request/remove-customers-image') }}"
                                               data-title="Are you sure you want to remove this file?"
                                               data-confirm-text="Delete"
                                               data-cancel-text="Cancel"><i class="fal fa-times"></i></span>

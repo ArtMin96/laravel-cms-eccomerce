@@ -31,7 +31,7 @@
     <div class="container mt-5">
         <div class="row">
 
-            @if(!empty($credentials))
+            @if(count($credentials) > 0)
                 @foreach($credentials as $credential)
                     <div class="col-lg-4 col-md-6">
                         <div class="g-card-simple g-card-simple-1 g-card-wrap">
@@ -41,13 +41,19 @@
                         </div>
                     </div>
                 @endforeach
+            @else
+                <div class="col-12">
+                    <div class="d-flex align-items-center justify-content-center h-100">
+                        <h3 class="text-muted">{{ __('pages.There is no item') }}</h3>
+                    </div>
+                </div>
             @endif
 
         </div>
         <div class="row">
             <div class="col-12">
                 <div class="text-center mt-4">
-                    <a href="#" class="g-btn g-btn-green text-uppercase">{{ __('pages.get my free quote') }}</a>
+                    <a href="{{ LaravelLocalization::localizeUrl('/translate-now') }}" class="g-btn g-btn-green text-uppercase">{{ __('pages.get my free quote') }}</a>
                 </div>
             </div>
         </div>

@@ -89,7 +89,11 @@ if (!function_exists('wrapMenu')) {
                     }elseif($items['route_number'] == \App\Page::IndustryRoute) {
                         $route = '/industry/'.$items['alias'];
                     }elseif ($items['route_number'] == \App\Page::DefaultRoute) {
-                        $route = '/'.$items['alias'];
+                        if ($items['page_number'] == \App\Page::Home) {
+                            $route = $items['alias'];
+                        } else {
+                            $route = '/'.$items['alias'];
+                        }
                     }
 
                     if ($level === 0) {

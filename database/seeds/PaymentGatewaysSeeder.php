@@ -14,13 +14,13 @@ class PaymentGatewaysSeeder extends Seeder
         $gateways = [
             [
                 'name' => 'PayPal',
-                'icon' => '1601301689.png',
+                'icon' => 'paypal.png',
                 'public_key' => 'Khjdi878dhjsiaaA4oosdEee%6uhsj',
                 'private_key' => 'Khjdi878dhjsiaaA4oosdEee%6uhsj',
             ],
             [
                 'name' => 'Ineco Bank',
-                'icon' => '1601301697.jpeg',
+                'icon' => 'visa-master.png',
                 'public_key' => 'Khjdi878dhjsiaaA4oosdEee%6uhsj',
                 'private_key' => 'Khjdi878dhjsiaaA4oosdEee%6uhsj',
             ],

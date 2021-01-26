@@ -93,9 +93,9 @@ class PageContent extends Component
     public function removeImage($imageId)
     {
         $content = \App\PageContent::find($imageId);
-        if (file_exists(asset('storage/page-content/' . $content->image))) {
-            unlink(storage_path('app/public/page-content/' . $content->image));
-        }
+//        if (file_exists(asset('storage/page-content/' . $content->image))) {
+//            unlink(storage_path('app/public/page-content/' . $content->image));
+//        }
 
         $content->image = null;
         $content->save();
@@ -135,9 +135,9 @@ class PageContent extends Component
                 ]);
 
                 // Remove existing file
-                if (!empty($pageContent->image)) {
-                    unlink(storage_path('app/public/page-content/' . $pageContent->image));
-                }
+//                if (!empty($pageContent->image)) {
+//                    unlink(storage_path('app/public/page-content/' . $pageContent->image));
+//                }
 
                 $fileName = time() . '.' . $this->inputs[$key]['image']->extension();
                 $destinationPath = storage_path('app/public/page-content');

@@ -179,7 +179,17 @@
                                         <p>{{ $content->description }}</p>
                                     </div>
                                     <div class="g-description-list-btn-box">
-                                        <a href="@if($content->url) {{ $content->url }} @else {{ LaravelLocalization::localizeUrl('/translation') }} @endif" class="g-btn g-btn-green text-uppercase">@if($content->url) {{ $content->link_title }} @else {{ __('pages.event_button_title') }} @endif</a>
+                                        <a href="@if($content->url) {{ $content->url }} @else {{ LaravelLocalization::localizeUrl('/translation') }} @endif" class="g-btn g-btn-green text-uppercase">
+                                            @if(!empty($content->link_title))
+                                                {{ $content->link_title }}
+                                            @else
+                                                @if($loop->iteration == 5)
+                                                    {{ __('pages.translate_button_title') }}
+                                                @elseif($loop->iteration == 3)
+                                                    {{ __('pages.event_button_title') }}
+                                                @endif
+                                            @endif
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -205,7 +215,17 @@
                                         <p>{{ $content->description }}</p>
                                     </div>
                                     <div class="g-description-list-btn-box text-left">
-                                        <a href="@if($content->url) {{ $content->url }} @else {{ LaravelLocalization::localizeUrl('/document-shop') }} @endif" class="g-btn g-btn-green text-uppercase">@if($content->url) {{ $content->link_title }} @else {{ __('pages.odd_button_title') }} @endif</a>
+                                        <a href="@if($content->url) {{ $content->url }} @else {{ LaravelLocalization::localizeUrl('/document-shop') }} @endif" class="g-btn g-btn-green text-uppercase">
+                                            @if(!empty($content->link_title))
+                                                {{ $content->link_title }}
+                                            @else
+                                                @if($loop->iteration == 4)
+                                                    {{ __('pages.connect_button_title') }}
+                                                @elseif($loop->iteration == 1)
+                                                    {{ __('pages.odd_button_title') }}
+                                                @endif
+                                            @endif
+                                        </a>
                                     </div>
                                 </div>
                             </div>

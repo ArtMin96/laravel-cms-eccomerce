@@ -106,6 +106,8 @@ return [
 
     'event_button_title' => 'Translate now',
     'odd_button_title' => 'Get your ready translation',
+    'connect_button_title' => 'CONNECT ME TO CUSTOMER SUPPORT',
+    'translate_button_title' => 'TRANSLATE MY DOCUMENTS NOW!',
 
     'Translator' => 'Translator',
     'Translation' => 'Translation',
@@ -140,5 +142,9 @@ return [
     'interpretation_services_description' => 'Gaudeamus offers simultaneous and consecutive interpretation services in over50+ languages. Our professional interpreters maintain strict standards of professionalism and possess exceptional linguistic and interpersonal skills to help facilitate interactions between different languages and cultures. Gaudeamus team provides everything you need for your meetings to make them run smoothly and accomplish their objectives, including interpretation equipment rental.',
     'transcription_services_description' => 'If you are looking for a quality transcription company, you are in the right place. Gaudeamus offers audio/video and human transcription services (converting live or recorded speech into a written or electronic text document). Our specialists, having excellent focus and attention to details, always deliverthe most accuratetranscriptionspossible by ensuring the best quality.',
     'localization_services_description' => 'Whenever you want to have an expansion of business or audience, we are here to help you. Unlike a direct translation process, localization takes everything a step further by focusing on the cultural aspect and adapting the content. Our skillful specialists use their experience in multilingual projects and professional localization to deliver sophisticated services to clients across the globe.',
+
+    'about_company' => 'About company',
+    'request_quote' => 'Request a Quote',
+    'request_quote_description' => 'Press the button below, submit the necessary information, and receive a Free Quote in just 10 minutes',
 
 ];
