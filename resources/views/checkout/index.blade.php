@@ -60,10 +60,10 @@
                             <div class="col-lg-6">
                                 <div class="form-group g-form-group">
                                     <label for="phone-number">{{ __('forms.Phone Number') }}</label>
-                                    <input type="tel" class="form-control g-form-control" value="@if(!empty(auth()->user()->phone)) {{ auth()->user()->phone }} @endif" name="phone_number" id="phone-number" aria-describedby="phoneNumberHelp" required>
+                                    <input type="tel" class="form-control g-form-control" value="@if(!empty(auth()->user()->phone)){{ auth()->user()->phone }}@endif" name="phone_number" id="phone-number" aria-describedby="phoneNumberHelp" required>
 
                                     @error('phone_number')
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback d-block" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
@@ -100,8 +100,8 @@
                                         @foreach($paymentGateways as $payment)
 
                                             <div class="col-lg-6">
-                                                <div class="form-group g-form-group payment-type-col">
-                                                    <button class="g-btn g-btn-img w-100 payment-type-btn" type="button"><span><img src="{{ asset('storage/payment-gateways/'.$payment->icon) }}" alt="{{ $payment->name }}"><span>{{ $payment->name }}</span></span></button>
+                                                <div class="form-group g-form-group payment-type-col @error('payment_method') mb-2 @enderror">
+                                                    <button class="g-btn g-btn-img w-100 payment-type-btn" type="button"><span><img src="{{ asset('images/payments/'.$payment->icon) }}" alt="{{ $payment->name }}"><span>{{ $payment->name }}</span></span></button>
                                                     <input type="radio" class="payment-radio d-none" name="payment_method" value="{{ $payment->id }}">
                                                 </div>
 
@@ -109,6 +109,14 @@
 
                                         @endforeach
                                     @endif
+
+                                    <div class="col-12 mb-5">
+                                        @error('payment_method')
+                                            <span class="invalid-feedback d-block" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
 
                                 </div>
                             </div>

@@ -104,6 +104,9 @@ return [
 
     'Download' => 'Скачать',
 
+    'event_button_title' => 'Перевести сейчас',
+    'odd_button_title' => 'Получите готовый перевод',
+
     'Translator' => 'Переводчик',
     'Interpreting' => 'Устный перевод',
     'Transcription' => 'Транскрипция',

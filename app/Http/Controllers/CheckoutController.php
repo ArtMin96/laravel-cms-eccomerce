@@ -39,7 +39,7 @@ class CheckoutController extends Controller
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'phone_number' => 'required',
+            'phone_number' => 'required|phone:AM', // AM Change to $this->getGeocodeCountryCode(),
             'payment_method' => 'required',
         ]);
 

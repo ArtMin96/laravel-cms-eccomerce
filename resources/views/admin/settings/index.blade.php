@@ -229,7 +229,7 @@
                                     <div class="d-flex align-items-center justify-content-between">
                                         <div class="d-flex align-items-center">
 
-                                            <img src="{{ asset('storage/payment-gateways/'.$gateway->icon) }}" width="36" alt="{{ $gateway->name }}">
+                                            <img src="{{ asset('images/payments/'.$gateway->icon) }}" width="36" alt="{{ $gateway->name }}">
 
                                             <div class="ml-4">
                                                 <div class="small">{{ $gateway->name }}</div>
@@ -283,7 +283,7 @@
 
                                     @if(!empty($settings->logo))
                                         <div class="img">
-                                            <img src="{{ asset('storage/site/'.$settings->logo) }}" alt="{{ $settings->title }}">
+                                            <img src="{{ asset('images/logo/'.$settings->logo) }}" alt="{{ $settings->title }}">
                                             <span class="remove-pic result_file"
                                                   data-file-id="{{ $settings->id }}"
                                                   data-file-url="/admin/request/remove-site-logo-image"
@@ -325,7 +325,7 @@
 
                                     @if(!empty($settings->logo_sm))
                                         <div class="img">
-                                            <img src="{{ asset('storage/site/'.$settings->logo_sm) }}" alt="{{ $settings->title }}">
+                                            <img src="{{ asset('images/logo/'.$settings->logo_sm) }}" alt="{{ $settings->title }}">
                                             <span class="remove-pic result_file"
                                                   data-file-id="{{ $settings->id }}"
                                                   data-file-url="/admin/request/remove-site-logo-sm-image"

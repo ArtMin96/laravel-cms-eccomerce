@@ -28,4 +28,47 @@
         </div>
     </section>
 
+    <div class="container">
+        <section class="g-page-description-1">
+
+            @if(!empty($page->pageContent->first()))
+                @php
+                    $firstElement = $page->pageContent->first();
+                @endphp
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="g-page-description-text-box">
+                            <h2 class="font-size-4 ">{{ $firstElement->title }}</h2>
+                            <div class="g-page-description-text">
+                                <p>{{ $firstElement->description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="g-page-description-image-box">
+                            <img src="{{ asset('/storage/page-content/' . $firstElement->image) }}" alt="{{ $firstElement->title }}" class="g-page-description-image">
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center mt-5">
+                        <h3 class="g-title">{{ __('pages.request_quote') }}</h3>
+                        <p>{{ __('pages.request_quote_description') }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="g-description-btn-box">
+                        <a href="{{ LaravelLocalization::localizeUrl('/translate-now') }}" class="g-btn g-btn-green text-uppercase">{{ __('pages.get my free quote') }}</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
 @endsection

@@ -132,7 +132,7 @@
                                         <div class="img">
                                             <img src="{{ asset('storage/page-content/' . $inputs[$i]['image']) }}" alt="{{ $inputs[$i]['pageTitle_en'] }}">
                                             <span class="result_file"
-                                                  wire:click.prevent="removeImage({{ 'inputs.' . $i . '.pageId' }})"><i class="fal fa-times"></i></span>
+                                                  wire:click.prevent="removeImage({{ $inputs[$i]['pageId'] }})"><i class="fal fa-times"></i></span>
                                         </div>
 
                                         <div class="pic" style="display: none;">

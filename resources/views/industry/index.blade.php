@@ -54,15 +54,15 @@
             <div class="row">
                 <div class="col-12">
                     <div class="text-center mt-5">
-                        <h3 class="g-title">Request a Quote</h3>
-                        <p>Press the button below, submit the necessary information, and receive a Free Quote in just 10 minutes</p>
+                        <h3 class="g-title">{{ __('pages.request_quote') }}</h3>
+                        <p>{{ __('pages.request_quote_description') }}</p>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="g-description-btn-box">
-                        <a href="../forms.html" class="g-btn g-btn-green text-uppercase">get my free quote</a>
+                        <a href="{{ LaravelLocalization::localizeUrl('/translate-now') }}" class="g-btn g-btn-green text-uppercase">{{ __('pages.get my free quote') }}</a>
                     </div>
                 </div>
             </div>

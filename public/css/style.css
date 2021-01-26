@@ -14,7 +14,7 @@ body{
 }
 .g-title{
     font-size: 34px;
-    color: #FFFFFF;
+    color: #5A6C8F;
 }
 .font-size-1{
     font-size: 28px !important;
@@ -1759,6 +1759,7 @@ label.label-row:hover{
     overflow-y: auto;
     text-align: center;
     padding-right: 8px;
+    overflow-x: hidden;
 }
 /* ********** end card simple ********** */
 

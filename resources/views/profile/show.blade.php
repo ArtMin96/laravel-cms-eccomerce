@@ -36,11 +36,13 @@
                     <div class="g-side-menu-title">text</div>
                     <ul class="g-side-menu-list">
                         <li class="g-side-menu-item side-menu-main-item"><a href="./personal.html" class="g-side-menu-link">Create New order</a></li>
-                        <li class="g-side-menu-item"><a href="{{ route('orders.index') }}" class="g-side-menu-link">My orders</a></li>
-                        <li class="g-side-menu-item"><a href="./online_shop.html" class="g-side-menu-link">Translate now</a></li>
-                        <li class="g-side-menu-item"><a href="./translate_yourselfs.html" class="g-side-menu-link">Translate yourself</a></li>
-                        <li class="g-side-menu-item"><a href="online_shop_history.html" class="g-side-menu-link">Documents online shop</a></li>
-                        <li class="g-side-menu-item"><a href="./rent_equipment.html" class="g-side-menu-link">Rent equipment</a></li>
+                        <li class="g-side-menu-item-title side-menu-main-item">
+                            <a href="{{ route('orders.index') }}" class="g-side-menu-link">My orders <i class="fas fa-angle-down light-color ml-2"></i></a>
+                        </li>
+                        <li class="g-side-menu-item"><a href="{{ route('orders.index') }}" class="g-side-menu-link">Translate now</a></li>
+                        <li class="g-side-menu-item"><a href="{{ route('orders.index') }}" class="g-side-menu-link">Translate yourself</a></li>
+                        <li class="g-side-menu-item"><a href="{{ route('orders.index') }}" class="g-side-menu-link">Documents online shop</a></li>
+                        <li class="g-side-menu-item"><a href="{{ route('orders.index') }}" class="g-side-menu-link">Rent equipment</a></li>
                     </ul>
                 </div>
             </div>

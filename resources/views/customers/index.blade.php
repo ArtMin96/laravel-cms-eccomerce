@@ -41,11 +41,11 @@
 
         <div class="row mb-5">
             <div class="col-12">
-                <div class="g-carousel">
-                    <div class="gtco-testimonials">
-                        <div class="owl-carousel owl-carousel-box owl-theme">
+                @if(count($customers) > 0)
+                    <div class="g-carousel">
+                        <div class="gtco-testimonials">
+                            <div class="owl-carousel owl-carousel-box owl-theme">
 
-                            @if(!empty($customers))
                                 @foreach($customers as $customer)
                                     <div>
                                         <div class="card">
@@ -53,11 +53,15 @@
                                         </div>
                                     </div>
                                 @endforeach
-                            @endif
 
+                            </div>
                         </div>
                     </div>
-                </div>
+                @else
+                    <div class="d-flex align-items-center justify-content-center h-100">
+                        <h3 class="text-muted">{{ __('pages.There is no item') }}</h3>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
