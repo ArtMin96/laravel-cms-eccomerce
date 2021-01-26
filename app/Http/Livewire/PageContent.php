@@ -56,7 +56,6 @@ class PageContent extends Component
 
     protected $rules = [
         'inputs.*.pageTitle_*' => ['required'],
-        'inputs.*.buttonText_*' => ['required'],
     ];
 
     public function mount($page)
