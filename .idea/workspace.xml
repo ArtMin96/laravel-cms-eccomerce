@@ -20,38 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="188bee73-7fda-407a-a0b3-1cea2f9f01e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/eloquent_model_generator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/hy/forms.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/blog/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/blog/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/blog/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/blog/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/RequestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/RequestController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InterpretationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/InterpretationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LocalizationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LocalizationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/forms.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/forms.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ru/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ru/forms.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru/forms.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/customers/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customers/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/document-shop/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/document-shop/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/document-template/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/document-template/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/event/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/event/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/faqs/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/faqs/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/get-in-touch/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/get-in-touch/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/help-us-improve/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/help-us-improve/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/interpretation/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/interpretation/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/join-us/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/join-us/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/localization/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/localization/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/services/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/services/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/translation/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/translation/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/PageContent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/PageContent.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
