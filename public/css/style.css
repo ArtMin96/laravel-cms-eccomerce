@@ -1759,6 +1759,7 @@ label.label-row:hover{
     overflow-y: auto;
     text-align: center;
     padding-right: 8px;
+    overflow-x: hidden;
 }
 /* ********** end card simple ********** */
 

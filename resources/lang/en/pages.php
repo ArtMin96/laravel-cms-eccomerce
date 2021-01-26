@@ -104,7 +104,7 @@ return [
 
     'Download' => 'Download',
 
-    'event_button_title' => 'Translate yourself',
+    'event_button_title' => 'Translate now',
     'odd_button_title' => 'Get your ready translation',
 
     'Translator' => 'Translator',

@@ -104,6 +104,9 @@ return [
 
     'Download' => 'Download',
 
+    'event_button_title' => 'Թարգմանիր հիմա',
+    'odd_button_title' => 'Ստացեք ձեր պատրաստ թարգմանությունը',
+
     'Translator' => 'Translator',
     'Interpreting' => 'Interpreting',
     'Transcription' => 'Transcription',
