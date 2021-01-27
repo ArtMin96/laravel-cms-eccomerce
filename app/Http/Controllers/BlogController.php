@@ -19,4 +19,15 @@ class BlogController extends Controller
         $blogs = Blog::paginate(8);
         return view('blog.index', compact('blogs', 'page'));
     }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function show($id)
+    {
+        $blog = Blog::find($id);
+
+        return view('blog.show', compact('blog'));
+    }
 }

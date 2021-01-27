@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Traits\Shareable;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,7 +22,7 @@ class Blog extends Model
     /**
      * @var string[]
      */
-    public $translatedAttributes = ['title', 'description'];
+    public $translatedAttributes = ['title', 'description', 'short_description'];
 
     /**
      * The table associated with the model.
@@ -58,5 +59,13 @@ class Blog extends Model
     public function blogTranslations()
     {
         return $this->hasMany(BlogTranslation::class);
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrlAttribute(): string
+    {
+        return route('blog.detail', $this->id);
     }
 }

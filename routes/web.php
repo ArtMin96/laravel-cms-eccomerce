@@ -130,6 +130,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
 
     Route::get('/translate-now', 'TranslateNowController@index')->name('translate-now');
     Route::get('/blog', 'BlogController@index')->name('blog.index');
+    Route::get('/blog/{id}', 'BlogController@show')->name('blog.detail');
 
     Route::group(['middleware' => ['auth']], function () {
 

@@ -115,6 +115,18 @@
                                         </div>
 
                                         <div class="form-group">
+                                            <label class="required" for="{{ $locale }}_short_description">{{ __('admin.Short description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
+                                            <input class="form-control @error($locale.'.short_description') is-invalid @enderror" type="text" name="{{ $locale }}[short_description]" id="{{ $locale }}_short_description" value="{{ old($locale.'.short_description', $blog->translate($locale)->short_description) }}">
+
+                                            @error($locale.'.short_description')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+
+                                        </div>
+
+                                        <div class="form-group">
                                             <label class="required" for="{{ $locale }}_description">{{ __('admin.Description') }} ({{ \Illuminate\Support\Str::upper($locale) }})</label>
                                             <input class="form-control @error($locale.'.description') is-invalid @enderror" type="text" name="{{ $locale }}[description]" id="{{ $locale }}_description" value="{{ old($locale.'.description', $blog->translate($locale)->description) }}">
 

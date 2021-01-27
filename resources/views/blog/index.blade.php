@@ -13,25 +13,24 @@
                 @foreach($blogs as $blog)
 
                     @if($blog->is_img_card == 1)
-                        <div class="col-lg-8">
+                        <div class="col-lg-12">
                             <div class="g-blog-item-main">
                                 <img src="{{ asset('storage/blog/' . $blog->image) }}" class="g-blog-image-main" alt="{{ $blog->title }}">
                                 <div class="g-blog-main-content">
-                                    <a href="#" class="g-btn g-btn-green text-uppercase mb-2">{{ $blog->title }}</a>
-                                    <p class="g-blog-main-description">{{ $blog->description }}</p>
+                                    <p class="g-blog-main-description">
+                                        <a href="{{ route('blog.detail', $blog->id) }}" class="g-link g-link-2">
+                                            {{ $blog->title }}
+                                        </a>
+                                    </p>
+
+                                    <span class="font-size-6">
+                                        @if(empty($blog->short_description))
+                                            {{ \Illuminate\Support\Str::limit($blog->description) }}
+                                        @else
+                                            {{ \Illuminate\Support\Str::limit($blog->short_description) }}
+                                        @endif
+                                    </span>
                                 </div>
-                            </div>
-                        </div>
-                    @elseif($blog->iteration % 2 == 0)
-                        <div class="col-lg-4">
-                            <div class="g-blog-item">
-                                <figure>
-                                    <img src="{{ asset('storage/blog/' . $blog->image) }}" class="g-blog-image img-fluid" alt="{{ $blog->title }}">
-                                    <figcaption><a href="#" class="g-link g-link-2 g-blog-link">{{ $blog->title }}</a></figcaption>
-                                </figure>
-                                <p class="g-blog-description">
-                                    {{ $blog->description }}
-                                </p>
                             </div>
                         </div>
                     @else
@@ -39,10 +38,19 @@
                             <div class="g-blog-item">
                                 <figure>
                                     <img src="{{ asset('storage/blog/' . $blog->image) }}" class="g-blog-image img-fluid" alt="{{ $blog->title }}">
-                                    <figcaption><a href="#" class="g-link g-link-2 g-blog-link">{{ $blog->title }}</a></figcaption>
+                                    <figcaption>
+                                        <a href="{{ route('blog.detail', $blog->id) }}" class="g-link g-link-2 g-blog-link">
+                                            {{ $blog->title }}
+                                        </a>
+                                    </figcaption>
                                 </figure>
+
                                 <p class="g-blog-description">
-                                    {{ $blog->description }}
+                                    @if(empty($blog->short_description))
+                                        {{ \Illuminate\Support\Str::limit($blog->description, 200) }}
+                                    @else
+                                        {{ \Illuminate\Support\Str::limit($blog->short_description, 200) }}
+                                    @endif
                                 </p>
                             </div>
                         </div>
