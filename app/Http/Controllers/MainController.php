@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CompanyLogos;
 use App\Page;
 use App\TranslationServices;
 use Illuminate\Http\Request;
@@ -18,7 +19,8 @@ class MainController extends FrontController
     {
         $page = Page::where('page_number', '=', Page::Home)->first();
         $translationServices = TranslationServices::all();
+        $companyLogo = CompanyLogos::all();
 
-        return view('main.index', compact('page', 'translationServices'));
+        return view('main.index', compact('page', 'translationServices', 'companyLogo'));
     }
 }

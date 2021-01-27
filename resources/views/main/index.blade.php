@@ -235,7 +235,74 @@
             @endforeach
         @endif
 
-        <x-five-step-check class="py-4" />
+        <section class="py-4">
+            <x-five-step-check class="py-4" />
+
+{{--            @if()--}}
+            <div class="py-5">
+                <p class="text-center">The best part… if you ever find an error months, or even years down the road, just come back to us. We will fix it. We promise you 100% accurate professional translation services every time, no matter what. That’s our lifetime guarantee.</p>
+                <div class="g-collapse">
+                    <div class="text-center">
+                        <button class="g-link g-link-2 green-color" type="button" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
+                            See more
+                        </button>
+                    </div>
+                    <div class="collapse" id="collapse-1">
+                        <div class="card card-body">
+                            <div class="text-center">
+                                <p>riatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
+                                <div class="py-5">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <a href="#" class="g-btn g-btn-img w-100 mb-4">
+                                                <span>
+                                                    <img src="./images/steps/step-btn-1.png" alt="gaudeamus"><span></span>
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a href="#" class="g-btn g-btn-img w-100 mb-4">
+                                                <span>
+                                                    <img src="./images/steps/step-btn-2.png" alt="gaudeamus"><span></span>
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a href="#" class="g-btn g-btn-img w-100 mb-4">
+                                                <span>
+                                                    <img src="./images/steps/step-btn-3.png" alt="gaudeamus"><span></span>
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a href="#" class="g-btn g-btn-img w-100 mb-4">
+                                                <span>
+                                                    <img src="./images/steps/step-btn-2.png" alt="gaudeamus"><span></span>
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a href="#" class="g-btn g-btn-img w-100 mb-4">
+                                                <span>
+                                                    <img src="./images/steps/step-btn-1.png" alt="gaudeamus"><span></span>
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a href="#" class="g-btn g-btn-img w-100 mb-4">
+                                                <span>
+                                                    <img src="./images/steps/step-btn-3.png" alt="gaudeamus"><span></span>
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section class="pb-4 pt-0">
             <div class="g-scroll-nums-box g-card-wrap">

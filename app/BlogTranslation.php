@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $locale
  * @property string $title
  * @property string $description
+ * @property string $short_description
  * @property Blog $blog
  */
 class BlogTranslation extends Model
@@ -24,7 +25,7 @@ class BlogTranslation extends Model
     /**
      * @var array
      */
-    protected $fillable = ['blog_id', 'locale', 'title', 'description'];
+    protected $fillable = ['blog_id', 'locale', 'title', 'description', 'short_description'];
 
     /**
      * @var bool

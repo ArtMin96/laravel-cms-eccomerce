@@ -41,6 +41,7 @@ class BlogController extends AdminController
     {
         $rules = RuleFactory::make([
             '%title%' => 'required|string',
+            '%short_description%' => 'required|string',
             '%description%' => 'required|string',
         ]);
         $request->validate($rules);
@@ -112,6 +113,7 @@ class BlogController extends AdminController
 
         $rules = RuleFactory::make([
             '%title%' => 'required|string',
+            '%short_description%' => 'required|string',
             '%description%' => 'required|string',
         ]);
         $request->validate($rules);
