@@ -45,12 +45,14 @@ return [
     'Experts' => 'Experts',
     'Search' => 'Search',
     'Wish list' => 'Wish list',
+    'Rent equipment' => 'Rent equipment',
     'Rent now' => 'Rent now',
     'rent_equipment_text_1' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, quasi, voluptatem. Accusamus, alias distinctio dolor magni perferendis ratione repudiandae vel!',
     'rent_equipment_text_2' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, quasi, voluptatem. Accusamus',
 
     // Document shop
     'Document Shop' => 'Document Shop',
+    'Document Online Shop' => 'Document Online Shop',
     'Catalog' => 'Catalog',
     'Filter' => 'Filter',
     'Time' => 'Time',
@@ -123,7 +125,7 @@ return [
     'Get your ready translation' => 'Get your ready translation',
     'Translate yourself' => 'Translate yourself',
 
-    'Select A Service' => 'Select A Service',
+    'Select A Service' => 'Select a Service',
 
     'Professional Translations' => 'Professional Translations',
     'Your document receives perfect translating & accurate formatting, while preserving the meaning.' => 'Your document receives perfect translating & accurate formatting, while preserving the meaning.',
@@ -146,5 +148,7 @@ return [
     'about_company' => 'About company',
     'request_quote' => 'Request a Quote',
     'request_quote_description' => 'Press the button below, submit the necessary information, and receive a Free Quote in just 10 minutes',
+
+    'all_languages' => 'All languages'
 
 ];

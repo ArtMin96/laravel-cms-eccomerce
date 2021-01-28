@@ -47,7 +47,13 @@
                     </div>
                     <div class="col-md-6">
                         <div class="g-page-description-image-box">
-                            <img src="{{ asset('/storage/page-content/' . $firstElement->image) }}" alt="{{ $firstElement->title }}" class="g-page-description-image">
+                            <div class="g-page-description-image-box">
+                                @if($firstElement->image)
+                                    <img src="{{ asset('storage/page-content/'.$firstElement->image) }}" alt="{{ $firstElement->title }}" class="g-page-description-image">
+                                @else
+                                    <img src="{{ asset('images/empty/empty-content-image.png') }}" alt="{{ $firstElement->title }}" class="g-page-description-image">
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>

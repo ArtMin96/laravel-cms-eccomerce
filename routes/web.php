@@ -147,13 +147,14 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         // Profile routes
         Route::get('/profile/change-password', 'ProfileController@changePassword')->name('profile.change-password');
         Route::resource('/profile', 'ProfileController');
+        Route::get('/orders/create-order', 'OrderController@createOrder')->name('orders.create-order');
 
         // Checkout
         Route::get('/checkout', 'CheckoutController@getCheckout')->name('checkout.index');
         Route::post('/checkout/order', 'CheckoutController@placeOrder')->name('checkout.place.order');
 
         // Orders
-        Route::get('/orders', 'OrderController@index')->name('orders.index');
+        Route::get('/orders/{type}', 'OrderController@index')->name('orders.index');
         Route::get('/orders/{order}/show', 'OrderController@show')->name('orders.show');
 
         // Download Route

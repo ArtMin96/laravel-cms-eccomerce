@@ -138,6 +138,14 @@ class Product extends Model
         return $filters->apply($builder);
     }
 
+    /**
+     * @return string
+     */
+    public function image(): string
+    {
+        return !$this->productFiles ? $this->productFiles[0]->url : asset('images/products/default-product.jpg');
+    }
+
     public function scopeProducts($query)
     {
         $catalog = request()->catalog;

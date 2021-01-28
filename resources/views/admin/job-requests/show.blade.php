@@ -39,9 +39,19 @@
                             <!-- Invoice items -->
                             <tr class="border-bottom">
                                 <td>
-                                    <div class="font-weight-bold">{{ $jobRequest->translator_type }}</div>
+                                    <div class="font-weight-bold">
+                                        @if($jobRequest->translator_type ==0)
+                                            {{ __('Freelance') }}
+                                        @else
+                                            {{ __('In house') }}
+                                        @endif
+                                    </div>
                                     <div class="small text-muted d-none d-md-block">
-                                        @if(!empty($jobRequest->translation_rate_per_page)) {{ $jobRequest->translation_rate_per_page }} @else {{ $jobRequest->monthly_salary_expectation }} @endif
+                                        @if(!empty($jobRequest->translation_rate_per_page))
+                                            {{ $jobRequest->translation_rate_per_page }}
+                                        @else
+                                            {{ $jobRequest->monthly_salary_expectation }}
+                                        @endif
                                     </div>
                                 </td>
                                 <td class="text-right font-weight-bold">{{ $jobRequest->field_expertise }}</td>

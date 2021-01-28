@@ -43,8 +43,6 @@ class CheckoutController extends Controller
             'payment_method' => 'required',
         ]);
 
-        // Before storing the order we should implement the
-        // request validation which I leave it to you
         $order = $this->orderRepository->storeOrderDetails($request->all());
 
         if ($order) {

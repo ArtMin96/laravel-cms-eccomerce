@@ -19,15 +19,14 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
 
-            $table->decimal('grand_total', 10, 2);
+            $table->decimal('grand_total', 10, 2)->default(0);
             $table->unsignedInteger('item_count');
 
             $table->boolean('payment_status')->default(1);
-            $table->unsignedBigInteger('payment_method')->nullable();
-            $table->foreign('payment_method')->references('id')->on('payment_gateways');
+            $table->smallInteger('payment_method')->nullable();
 
-            $table->string('first_name');
-            $table->string('last_name');
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
             $table->integer('is_delivery')->default(0);
             $table->text('address')->nullable();
             $table->string('phone_number');

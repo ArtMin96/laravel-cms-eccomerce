@@ -14,9 +14,9 @@ class OrderController extends FrontController
         $this->orderRepository = $orderRepository;
     }
 
-    public function index()
+    public function index($type)
     {
-        $orders = $this->orderRepository->listOrdersByUser();
+        $orders = $this->orderRepository->findOrdersByType($type);
 
         return view('orders.index', compact('orders'));
     }
@@ -26,5 +26,10 @@ class OrderController extends FrontController
         $order = $this->orderRepository->findOrderByNumber($orderNumber);
 
         return view('orders.show', compact('order'));
+    }
+
+    public function createOrder()
+    {
+        return view('orders.create-order');
     }
 }

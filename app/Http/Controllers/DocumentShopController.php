@@ -48,7 +48,12 @@ class DocumentShopController extends Controller
     {
         $searchTerm = $request->get('q');
 
-        $products = Product::whereLike(['productTranslations.title'], $searchTerm)->where('sale_type_id', Product::DocumentShop)->orderBy('id', 'DESC')->paginate(5);
+        if (empty($searchTerm)) {
+            $products = Product::where('sale_type_id', Product::DocumentShop)->orderBy('id', 'DESC')->paginate(5);
+        } else {
+            $products = Product::whereLike(['productTranslations.title'], $searchTerm)->where('sale_type_id', Product::DocumentShop)->orderBy('id', 'DESC')->paginate(5);
+        }
+
         $page = Page::where('page_number', '=', Page::DocumentShop)->first();
         $catalog = Catalog::all();
         $languages = DocumentLanguages::all();

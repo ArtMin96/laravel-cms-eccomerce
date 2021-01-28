@@ -9,11 +9,17 @@ class Order extends Model
 {
     protected $table = 'orders';
 
+    const DOCUMENT_SHOP = 1;
+    const TRANSLATE_YOURSELF = 2;
+    const RENT_EQUIPMENT = 3;
+    const TRANSLATE_NOW = 4;
+    const BOOK_INTERPRETER = 5;
+
     /**
      * @var string[]
      */
     protected $fillable = [
-        'order_number', 'user_id', 'status', 'grand_total', 'item_count', 'payment_status', 'payment_method',
+        'order_number', 'user_id', 'status', 'grand_total', 'item_count', 'payment_status', 'payment_method', 'sale_type_id',
         'first_name', 'last_name', 'is_delivery', 'address', 'phone_number'
     ];
 
@@ -30,7 +36,7 @@ class Order extends Model
      */
     public function items()
     {
-        return $this->hasMany(OrderItem::class);
+        return $this->hasMany(OrderItem::class, 'order_id');
     }
 
     /**
