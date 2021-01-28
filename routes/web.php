@@ -167,6 +167,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
         Route::get('/interpretation', 'InterpretationController@index')->name('interpretation.index');
         Route::get('/event', 'EventController@index')->name('event.index');
         Route::get('/localization', 'LocalizationController@index')->name('localization.index');
+
+        Route::get('/experts', 'ExpertsController@index')->name('experts.index');
     });
 
     // Ajax requests

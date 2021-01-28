@@ -233,7 +233,7 @@
                                             @else
                                                 @if($loop->iteration == 4)
                                                     {{ __('pages.connect_button_title') }}
-                                                @elseif($loop->iteration == 1)
+                                                @elseif($loop->iteration == 2)
                                                     {{ __('pages.odd_button_title') }}
                                                 @endif
                                             @endif
