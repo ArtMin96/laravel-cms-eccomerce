@@ -28,33 +28,49 @@ class OrderRepository extends BaseRepository implements OrderContract
             'item_count'        =>  count($items),
             'payment_status'    =>  0,
             'payment_method'    =>  $params['payment_method'],
-            'first_name'        =>  $params['first_name'],
-            'last_name'         =>  $params['last_name'],
-            'address'           =>  $params['address'],
-            'phone_number'      =>  $params['phone_number'],
-            'is_delivery'      =>   (!empty($params['is_delivery']) && $params['is_delivery'] != 0)? 1 : 0,
+            'sale_type_id'      =>  isset($params['sale_type_id']) ?: Order::DOCUMENT_SHOP,
+            'first_name'        =>  !empty($params['first_name']) ?: null,
+            'last_name'         =>  !empty($params['last_name']) ?: null,
+            'address'           =>  !empty($params['address']) ?: null,
+            'phone_number'      =>  !empty($params['phone_number']) ?: null,
+            'is_delivery'       =>  (!empty($params['is_delivery']) && $params['is_delivery'] != 0)? 1 : 0,
         ]);
 
         if ($order) {
 
-            foreach ($items as $item)
-            {
-                // A better way will be to bring the product id with the cart items
-                // you can explore the package documentation to send product id with the cart
-                $product = Product::where('id', $item->product_id)->first();
+            if (count($items) > 0) {
+                foreach ($items as $item)
+                {
+                    // A better way will be to bring the product id with the cart items
+                    // you can explore the package documentation to send product id with the cart
+                    $product = Product::where('id', $item->product_id)->first();
+
+                    $orderItem = new OrderItem([
+                        'order_id'      =>  $order->id,
+                        'product_id'    =>  $product->id,
+                        'quantity'      =>  $item->quantity,
+                        'price'         =>  $item->total
+                    ]);
+
+                    if ($order->items()->save($orderItem)) {
+                        if ($params['cart'] == 0) {
+                            $item->delete();
+                        }
+                    }
+                }
+            }
+
+            if (isset($params['sale_type_id']) && $params['sale_type_id'] != Order::DOCUMENT_SHOP) {
+                $product = Product::where('id', $params['product_id'])->first();
 
                 $orderItem = new OrderItem([
                     'order_id'      =>  $order->id,
                     'product_id'    =>  $product->id,
-                    'quantity'      =>  $item->quantity,
-                    'price'         =>  $item->total
+                    'quantity'      =>  1,
+                    'price'         =>  0
                 ]);
 
-                if ($order->items()->save($orderItem)) {
-                    if ($params['cart'] == 0) {
-                        $item->delete();
-                    }
-                }
+                $order->items()->save($orderItem);
             }
         }
 
@@ -74,5 +90,10 @@ class OrderRepository extends BaseRepository implements OrderContract
     public function findOrderByNumber($orderNumber)
     {
         return Order::where('order_number', $orderNumber)->first();
+    }
+
+    public function findOrdersByType($type, $perPage = 4)
+    {
+        return Order::where('sale_type_id', $type)->paginate($perPage);
     }
 }

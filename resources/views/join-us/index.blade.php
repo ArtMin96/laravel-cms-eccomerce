@@ -81,16 +81,6 @@
                                     <div class="collapse pt-4 border-top @if (count($errors->all()) > 0) show @endif" id="collapse-{{ $job->id }}">
                                         <div class="card card-body p-0">
 
-                                            @if ($errors->any())
-                                                <div class="alert alert-danger">
-                                                    <ul>
-                                                        @foreach ($errors->all() as $error)
-                                                            <li>{{ $error }}</li>
-                                                        @endforeach
-                                                    </ul>
-                                                </div>
-                                            @endif
-
                                             <form action="{{ route('join-us.store') }}" method="POST" enctype="multipart/form-data">
                                                 @csrf
 
@@ -401,3 +391,14 @@
     <div class="g-message-btn-box"><a href="#" class="g-message-btn"></a></div>
 
 @endsection
+
+@push('script')
+    <script>
+        window.addEventListener('load', function () {
+            $("#phone").inputFilter(function(value) {
+                return /^[0-9+]*$/.test(value);    // Allow digits only, using a RegExp
+                //return /^\d*$/.test(value);    // Allow digits only, using a RegExp
+            });
+        });
+    </script>
+@endpush

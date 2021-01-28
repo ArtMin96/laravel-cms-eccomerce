@@ -25,6 +25,8 @@ class ProductFilters extends QueryFilter
     {
         if (!is_null($languageId)) {
             return $this->builder->where('language', '=', $languageId)->where('sale_type_id', '=', 1);
+        } else {
+            return $this->builder->where('sale_type_id', '=', 1);
         }
     }
 

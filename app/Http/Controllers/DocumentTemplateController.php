@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Catalog;
+use App\Contracts\OrderContract;
 use App\DocumentLanguages;
+use App\Order;
+use App\OrderItem;
 use App\Page;
 use App\Product;
 use Carbon\Carbon;
@@ -15,6 +18,14 @@ use Session;
 
 class DocumentTemplateController extends Controller
 {
+
+    protected $orderRepository;
+
+    public function __construct(OrderContract $orderRepository)
+    {
+        $this->orderRepository = $orderRepository;
+    }
+
     public function index() {
         $page = Page::where('page_number', '=', Page::DocumentTemplates)->first();
 
@@ -47,7 +58,11 @@ class DocumentTemplateController extends Controller
     {
         $searchTerm = $request->get('q');
 
-        $productQuery = Product::whereLike(['productTranslations.title'], $searchTerm)->where('sale_type_id', Product::DocumentTemplate);
+        if (empty($searchTerm)) {
+            $productQuery = Product::where('sale_type_id', Product::DocumentTemplate);
+        } else {
+            $productQuery = Product::whereLike(['productTranslations.title'], $searchTerm)->where('sale_type_id', Product::DocumentTemplate);
+        }
 
         if (request()->catalog) {
             $productQuery->whereHas('catalog', function ($query) {
@@ -164,6 +179,35 @@ class DocumentTemplateController extends Controller
             unlink($destinationPath.'/'.$imageName);
         }
 
+        $order = Order::create([
+            'order_number'      =>  strtoupper(bin2hex(random_bytes(3))),
+            'user_id'           =>  auth()->user()->id,
+            'status'            =>  1,
+            'grand_total'       =>  0,
+            'item_count'        =>  0,
+            'payment_status'    =>  0,
+            'payment_method'    =>  0,
+            'sale_type_id'      =>  Order::TRANSLATE_YOURSELF,
+            'first_name'        =>  null,
+            'last_name'         =>  null,
+            'address'           =>  null,
+            'phone_number'      =>  null,
+            'is_delivery'       =>  0,
+        ]);
+
+        if ($order) {
+            $product = Product::where('id', $id)->first();
+
+            $orderItem = new OrderItem([
+                'order_id'      =>  $order->id,
+                'product_id'    =>  $product->id,
+                'quantity'      =>  1,
+                'price'         =>  0
+            ]);
+
+            $order->items()->save($orderItem);
+        }
+
         return response()->download(public_path($fileName))->deleteFileAfterSend(true);
     }
 
@@ -215,6 +259,35 @@ class DocumentTemplateController extends Controller
 
         $templateProcessor->saveAs($fileName);
 
+        $order = Order::create([
+            'order_number'      =>  strtoupper(bin2hex(random_bytes(3))),
+            'user_id'           =>  auth()->user()->id,
+            'status'            =>  1,
+            'grand_total'       =>  0,
+            'item_count'        =>  0,
+            'payment_status'    =>  0,
+            'payment_method'    =>  0,
+            'sale_type_id'      =>  Order::TRANSLATE_YOURSELF,
+            'first_name'        =>  null,
+            'last_name'         =>  null,
+            'address'           =>  null,
+            'phone_number'      =>  null,
+            'is_delivery'       =>  0,
+        ]);
+
+        if ($order) {
+            $product = Product::where('id', $id)->first();
+
+            $orderItem = new OrderItem([
+                'order_id'      =>  $order->id,
+                'product_id'    =>  $product->id,
+                'quantity'      =>  1,
+                'price'         =>  0
+            ]);
+
+            $order->items()->save($orderItem);
+        }
+
         return response()->download(public_path($fileName))->deleteFileAfterSend(true);
     }
 
@@ -263,6 +336,35 @@ class DocumentTemplateController extends Controller
         $templateProcessor->setValue('place_of_death', $request->input('place_of_death'));
 
         $templateProcessor->saveAs($fileName);
+
+        $order = Order::create([
+            'order_number'      =>  strtoupper(bin2hex(random_bytes(3))),
+            'user_id'           =>  auth()->user()->id,
+            'status'            =>  1,
+            'grand_total'       =>  0,
+            'item_count'        =>  0,
+            'payment_status'    =>  0,
+            'payment_method'    =>  0,
+            'sale_type_id'      =>  Order::TRANSLATE_YOURSELF,
+            'first_name'        =>  null,
+            'last_name'         =>  null,
+            'address'           =>  null,
+            'phone_number'      =>  null,
+            'is_delivery'       =>  0,
+        ]);
+
+        if ($order) {
+            $product = Product::where('id', $id)->first();
+
+            $orderItem = new OrderItem([
+                'order_id'      =>  $order->id,
+                'product_id'    =>  $product->id,
+                'quantity'      =>  1,
+                'price'         =>  0
+            ]);
+
+            $order->items()->save($orderItem);
+        }
 
         return response()->download(public_path($fileName))->deleteFileAfterSend(true);
     }
@@ -322,6 +424,35 @@ class DocumentTemplateController extends Controller
         $templateProcessor->setValue('issue_date', $this->toDate($request->input('issue_date'), 'ru'));
 
         $templateProcessor->saveAs($fileName);
+
+        $order = Order::create([
+            'order_number'      =>  strtoupper(bin2hex(random_bytes(3))),
+            'user_id'           =>  auth()->user()->id,
+            'status'            =>  1,
+            'grand_total'       =>  0,
+            'item_count'        =>  0,
+            'payment_status'    =>  0,
+            'payment_method'    =>  0,
+            'sale_type_id'      =>  Order::TRANSLATE_YOURSELF,
+            'first_name'        =>  null,
+            'last_name'         =>  null,
+            'address'           =>  null,
+            'phone_number'      =>  null,
+            'is_delivery'       =>  0,
+        ]);
+
+        if ($order) {
+            $product = Product::where('id', $id)->first();
+
+            $orderItem = new OrderItem([
+                'order_id'      =>  $order->id,
+                'product_id'    =>  $product->id,
+                'quantity'      =>  1,
+                'price'         =>  0
+            ]);
+
+            $order->items()->save($orderItem);
+        }
 
         return response()->download(public_path($fileName))->deleteFileAfterSend(true);
     }

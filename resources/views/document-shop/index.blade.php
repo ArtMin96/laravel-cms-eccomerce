@@ -97,7 +97,7 @@
                                             <div class="text-center font-weight-bold font-size-5 mb-3">{{ __('pages.Filter') }}</div>
                                             <div>
                                                 <label class="g-checkbox" for="title">
-                                                    <input class="form-check-input" type="checkbox" name="title" id="title">
+                                                    <input class="form-check-input" type="checkbox" name="title" id="title" @if(request()->title) checked @endif>
                                                     <span>{{ __('pages.By name') }}</span>
                                                 </label>
 {{--                                                <label class="g-radio label-row d-block">--}}
@@ -124,7 +124,7 @@
                                             <div>
                                                 <label for="filter-lang-select" class="light-color">{{ __('pages.By language') }}</label>
                                                 <select id="filter-lang-select" class="form-control g-form-control g-form-control-sm selectpicker" name="language" aria-describedby="filterLangHelp">
-                                                    <option value="">{{ __('Choose language') }}</option>
+                                                    <option value="">{{ __('pages.all_languages') }}</option>
 
                                                     @if(!empty($languages))
                                                         @foreach($languages as $locale)

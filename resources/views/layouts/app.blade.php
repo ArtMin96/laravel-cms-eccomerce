@@ -76,22 +76,29 @@
                         </div>
                         <div class="col-lg-5">
                             <h3 class="font-size-1">{{ __('pages.Services') }}</h3>
+
+                            @php
+                                $services1 = \App\Page::where('parent_id', 16)->take(4)->get();
+                                $services2 = \App\Page::where('parent_id', 16)->offset(4)->take(4)->get();
+                            @endphp
                             <div class="row">
                                 <div class="col-lg-6">
                                     <ul class="g-footer-list g-footer-list-2">
-                                        <li class="g-footer-list-item"><a class="g-footer-list-link" href="../services/legal.html">Legal Translation Services</a></li>
-                                        <li class="g-footer-list-item"><a class="g-footer-list-link" href="../services/medical.html">Medical Translations</a></li>
-                                        <li class="g-footer-list-item"><a class="g-footer-list-link" href="../services/finance.html">Finance</a></li>
-                                        <li class="g-footer-list-item"><a class="g-footer-list-link" href="../services/technical.html">Technical & Scientific</a></li>
+                                        @foreach($services1 as $service)
+                                            <li class="g-footer-list-item">
+                                                <a class="g-footer-list-link" href="{{ '/services/'.$service->alias }}">{{ $service->name }}</a>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
+
                                 <div class="col-lg-6">
                                     <ul class="g-footer-list g-footer-list-2">
-                                        <li class="g-footer-list-item"><a class="g-footer-list-link" href="../services/it.html">IT Translations</a></li>
-                                        <li class="g-footer-list-item"><a class="g-footer-list-link" href="../services/business.html">Business Translation</a></li>
-                                        <li class="g-footer-list-item"><a class="g-footer-list-link" href="../services/marketing.html">Marketing Translation</a></li>
-                                        <li class="g-footer-list-item"><a class="g-footer-list-link" href="../services/website.html">Website Translation</a></li>
-                                        <li class="g-footer-list-item"><a class="g-footer-list-link" href="../services/document.html">Document translation</a></li>
+                                        @foreach($services2 as $service)
+                                            <li class="g-footer-list-item">
+                                                <a class="g-footer-list-link" href="{{ '/services/'.$service->alias }}">{{ $service->name }}</a>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>

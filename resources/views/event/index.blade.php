@@ -214,11 +214,13 @@
                             </label>
                         </div>
                     </div>
+                </div>
 
-                    <div class="col-lg-6 languages-toggle-col">
+                <div class="row languages-toggle-col">
+                    <div class="col-lg-6">
                         <div class="form-group g-form-group">
-                            <label for="languages-select">Languages</label>
-                            <select class="form-control g-form-control selectpicker @error('language') is-invalid @enderror" name="language" id="languages-select" aria-describedby="languagesHelp">
+                            <label for="source-language">{{ __('forms.Source Language') }}</label>
+                            <select class="form-control g-form-control selectpicker @error('source_language') is-invalid @enderror" name="source_language" id="source-language" aria-describedby="sourceLanguageHelp" required>
                                 @if(!empty($languages))
                                     @foreach($languages as $language)
                                         <option value="{{ $language->id }}">{{ $language->name }}</option>
@@ -226,14 +228,34 @@
                                 @endif
                             </select>
 
-                            @error('language')
+                            @error('source_language')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
                     </div>
+                    <div class="col-lg-6">
+                        <div class="form-group g-form-group">
+                            <label for="translate-language">{{ __('forms.Target Language') }}</label>
+                            <select class="form-control g-form-control selectpicker @error('target_language') is-invalid @enderror" name="target_language" id="translate-language" aria-describedby="translateLanguageHelp" required>
+                                @if(!empty($languages))
+                                    @foreach($languages as $language)
+                                        <option value="{{ $language->id }}">{{ $language->name }}</option>
+                                    @endforeach
+                                @endif
+                            </select>
 
+                            @error('target_language')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="col-12">
                         <div class="form-group g-form-group mb-0 text-center">
                             <button class="g-btn g-btn-blue g-btn-round text-uppercase">{{ __('pages.Submit') }}</button>

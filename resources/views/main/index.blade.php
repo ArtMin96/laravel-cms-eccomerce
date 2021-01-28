@@ -57,7 +57,11 @@
                     </div>
                     <div class="col-md-6 rectangle-image-box">
                         <div class="g-page-description-image-box">
-                            <img src="{{ asset('/storage/page-content/' . $firstElement->image) }}" alt="{{ $firstElement->title }}" class="g-page-description-image">
+                            @if($firstElement->image)
+                                <img src="{{ asset('storage/page-content/'.$firstElement->image) }}" alt="{{ $firstElement->title }}" class="g-page-description-image">
+                            @else
+                                <img src="{{ asset('images/empty/empty-content-image.png') }}" alt="{{ $firstElement->title }}" class="g-page-description-image">
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -195,7 +199,11 @@
                             </div>
                             <div class="col-md-6 rectangle-image-box">
                                 <div class="g-page-description-image-box">
-                                    <img src="{{ asset('/storage/page-content/' . $content->image) }}" alt="{{ $content->title }}" class="g-page-description-image">
+                                    @if($content->image)
+                                        <img src="{{ asset('storage/page-content/'.$content->image) }}" alt="{{ $content->title }}" class="g-page-description-image">
+                                    @else
+                                        <img src="{{ asset('images/empty/empty-content-image.png') }}" alt="{{ $content->title }}" class="g-page-description-image">
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -205,7 +213,11 @@
                         <div class="row">
                             <div class="col-md-6 rectangle-image-box">
                                 <div class="g-page-description-image-box">
-                                    <img src="{{ asset('/storage/page-content/' . $content->image) }}" alt="{{ $content->title }}" class="g-page-description-image">
+                                    @if($content->image)
+                                        <img src="{{ asset('storage/page-content/'.$content->image) }}" alt="{{ $content->title }}" class="g-page-description-image">
+                                    @else
+                                        <img src="{{ asset('images/empty/empty-content-image.png') }}" alt="{{ $content->title }}" class="g-page-description-image">
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -238,62 +250,30 @@
         <section class="py-4">
             <x-five-step-check class="py-4" />
 
-{{--            @if()--}}
-            <div class="py-5">
-                <p class="text-center">The best part… if you ever find an error months, or even years down the road, just come back to us. We will fix it. We promise you 100% accurate professional translation services every time, no matter what. That’s our lifetime guarantee.</p>
-                <div class="g-collapse">
-                    <div class="text-center">
-                        <button class="g-link g-link-2 green-color" type="button" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
-                            See more
-                        </button>
-                    </div>
-                    <div class="collapse" id="collapse-1">
-                        <div class="card card-body">
-                            <div class="text-center">
-                                <p>riatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
-                                <div class="py-5">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <a href="#" class="g-btn g-btn-img w-100 mb-4">
-                                                <span>
-                                                    <img src="./images/steps/step-btn-1.png" alt="gaudeamus"><span></span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a href="#" class="g-btn g-btn-img w-100 mb-4">
-                                                <span>
-                                                    <img src="./images/steps/step-btn-2.png" alt="gaudeamus"><span></span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a href="#" class="g-btn g-btn-img w-100 mb-4">
-                                                <span>
-                                                    <img src="./images/steps/step-btn-3.png" alt="gaudeamus"><span></span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a href="#" class="g-btn g-btn-img w-100 mb-4">
-                                                <span>
-                                                    <img src="./images/steps/step-btn-2.png" alt="gaudeamus"><span></span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a href="#" class="g-btn g-btn-img w-100 mb-4">
-                                                <span>
-                                                    <img src="./images/steps/step-btn-1.png" alt="gaudeamus"><span></span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a href="#" class="g-btn g-btn-img w-100 mb-4">
-                                                <span>
-                                                    <img src="./images/steps/step-btn-3.png" alt="gaudeamus"><span></span>
-                                                </span>
-                                            </a>
+            @if(count($companyLogo) > 0)
+                <div class="py-5">
+                    <p class="text-center">The best part… if you ever find an error months, or even years down the road, just come back to us. We will fix it. We promise you 100% accurate professional translation services every time, no matter what. That’s our lifetime guarantee.</p>
+                    <div class="g-collapse">
+                        <div class="text-center">
+                            <button class="g-link g-link-2 green-color" type="button" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
+                                See more
+                            </button>
+                        </div>
+                        <div class="collapse" id="collapse-1">
+                            <div class="card card-body">
+                                <div class="text-center">
+                                    <p>riatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
+                                    <div class="py-5">
+                                        <div class="row">
+                                            @foreach($companyLogo as $logo)
+                                                <div class="col-md-4">
+                                                    <a href="{{ $logo->url }}" target="_blank" class="g-btn g-btn-img w-100 mb-4">
+                                                        <span>
+                                                            <img src="{{ asset('storage/company-logos/'.$logo->icon) }}" alt="{{ $logo->title }}"><span></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -301,7 +281,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            @endif
         </section>
 
         <section class="pb-4 pt-0">
