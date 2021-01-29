@@ -4,7 +4,7 @@ a,
 input,
 textarea,
 select{
- outline: none !important;
+    outline: none !important;
 }
 html{
     scroll-behavior: smooth;
@@ -450,6 +450,10 @@ label.label-row:hover{
 .g-navbar{
     background-color: #FFF;
     min-height: 100px;
+    position: sticky;
+    top: -70px;
+    z-index: 1;
+    box-shadow: 0 16px 30px rgb(204 204 204 / 16%);
 }
 .g-navbar .navbar{
     justify-content: flex-end;
@@ -457,11 +461,11 @@ label.label-row:hover{
 }
 .g-navbar .navbar-brand{
     z-index: 1;
+    top: -3px;
     position: absolute;
-    background-color: #FFF;
 }
 .g-navbar .navbar-brand img{
-    width: 155px;
+    width: 105px;
 }
 .g-navbar .nav-item{
     position: relative;
@@ -995,7 +999,6 @@ label.label-row:hover{
     text-align: center;
 }
 .g-side-menu-1 .g-side-menu-list{
-    text-align: center;
     padding: 0 16px;
 }
 .g-side-menu-2 .g-side-menu-list{
@@ -1012,10 +1015,23 @@ label.label-row:hover{
 .g-side-menu-item:hover{
     color: #B4BF18;
 }
-.g-side-menu-item-title{
+.side-menu-item-drop{
     cursor: default;
-    padding: 8px 0;
     margin-top: 8px;
+}
+.side-menu-item-drop .side-menu-drop-list{
+    display: none;
+    padding: 5px;
+    list-style: none;
+}
+.side-menu-item-drop .side-menu-drop-toggle{
+    cursor: pointer;
+}
+.side-menu-item-drop.opened .side-menu-drop-toggle i {
+    display: inline-block;
+}
+.side-menu-item-drop.opened .side-menu-drop-toggle i{
+    transform: rotate(180deg);
 }
 .side-menu-main-item{
     border-radius: 10px !important;
@@ -1025,7 +1041,7 @@ label.label-row:hover{
     text-decoration: none;
     color: inherit;
     display: block;
-    padding: 8px 0;
+    padding: 8px;
     overflow: hidden;
     margin: 0;
     text-overflow: ellipsis;
@@ -1108,7 +1124,7 @@ label.label-row:hover{
     content: none;
 }
 .g-page-navigation-active{
-  color: #B4BF18;
+    color: #B4BF18;
 }
 .g-page-navigation-link{
     text-decoration: none;
@@ -2418,25 +2434,3 @@ Blog post entries
 .post-masonry .masonry-title {
     font-weight: 500;
 }
-
-.share-buttons li {
-    vertical-align: middle;
-}
-
-.share-buttons li a {
-    margin-right: 0px;
-}
-
-/* SHAREBUTTONS ========================= */
-
-.sharebuttons a { color: #fff !important; }
-.btn-facebook { background: #3b5998;}
-.btn-twitter { background: #00acee;}
-.btn-google { background: #dd4b39;}
-.btn-pinterest { background: #c8232c;}
-.btn-linkedin { background: #0e76a8;}
-.btn-facebook:hover { background: #2f4679;}
-.btn-twitter:hover { background: #0089bd;}
-.btn-google:hover { background: #b03b2d;}
-.btn-pinterest:hover { background: #9f1b23;}
-.btn-linkedin:hover { background: #0b5e85;}

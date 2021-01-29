@@ -19,23 +19,16 @@ $( document ).ready(function() {
     })();
 
     /**
-     * bootstrap modal,
-     * toggle modal image
+     * toggle side menu drop list
      */
-    // (function (){
-    //     const cardImageModal = $('#card-image-modal');
-    //     if( !cardImageModal.length){ return }
-    //
-    //     cardImageModal.on('show.bs.modal', function (event) {
-    //         let button = $(event.relatedTarget) // Button that triggered the modal
-    //         const imageSrc = $(button).closest('.g-card-product-basket-image-box').find('.g-card-product-basket-image').attr('src');
-    //         $(this).find('.modal-image').attr('src', imageSrc);
-    //     });
-    //
-    //     cardImageModal.on('hidden.bs.modal', function () {
-    //         $(this).find('.modal-image').attr('src', '');
-    //     })
-    // })();
+    (function (){
+        const sideMenuDrop = $('.side-menu-item-drop');
+        if( sideMenuDrop.length ){
+            sideMenuDrop.click(function (){
+                $(this).closest('.side-menu-main-item').toggleClass('opened').find('.side-menu-drop-list').slideToggle(300);
+            });
+        }
+    })();
 
     animateNumbersChange();
 
