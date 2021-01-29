@@ -50,7 +50,7 @@
             <div class="col-12 mb-5">
                 <div class="d-flex justify-content-between align-items-center flex-column flex-sm-row">
                     <h1 class="g-title">{{ __('pages.Equipments') }}</h1>
-                    <a href="{{ LaravelLocalization::localizeUrl('/wishlist') }}" class="g-btn g-btn-blue mt-2">{{ __('pages.Wish list') }} ({{ count($wishlists) }})</a>
+                    <livewire:wishlist.icon />
                 </div>
             </div>
         </div>
@@ -101,10 +101,16 @@
                                     <div class="mt-2 d-flex justify-content-center">
                                         <a href="{{ route('rent-equipment.rent', $product->id) }}" class="g-btn g-btn-green g-btn-round mr-2">{{ __('pages.Rent now') }}</a>
 
+                                        @php
+                                        if ($product->wished) {
+                                            $isWished = true;
+                                        } else {
+                                            $isWished = false;
+                                        }
+                                        @endphp
+
                                         @if (Auth::check())
-                                            <button class="g-btn px-0 blue-color equipment-wish-btn" data-id="{{ $product->id }}" data-url="{{ LaravelLocalization::localizeUrl('/rent-equipment/add-wishlist') }}">
-                                                <i class="far fa-heart"></i>
-                                            </button>
+                                            <livewire:wishlist.toggle :productId="$product->id" :isWished="$isWished" />
                                         @else
                                             <button class="g-btn px-0 blue-color" data-toggle="modal" data-target="#loginModal">
                                                 <i class="far fa-heart"></i>

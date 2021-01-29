@@ -6,6 +6,7 @@ use App\Contracts\OrderContract;
 use App\Page;
 use App\Product;
 use App\User;
+use App\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
@@ -28,8 +29,7 @@ class RentEquipmentController extends Controller
         $products = Product::where('sale_type_id', Product::RentEquipment)->paginate(8);
 
         if (\Auth::check()) {
-            $user = User::find(\Auth::user()->id);
-            $wishlists = $user->wishlist();
+            $wishlists = Wishlist::where('user_id', Auth::id())->get();
         } else {
             $wishlists = [];
         }
@@ -112,20 +112,6 @@ class RentEquipmentController extends Controller
 
     }
 
-    public function addWishlist(Request $request) {
-        if (!empty($request->post('id'))) {
-            $user = User::find(\Auth::user()->id);
-            $product = Product::find($request->post('id'));
-            $wishlists = $user->wishlist();
-
-            if ($user->wish($product)) {
-                return response()->json(['status' => true, 'title' => 'Success', 'message' => $product->title.' added to your wishlist!']);
-            } else {
-                return response()->json(['status' => false, 'title' => 'Error', 'message' => 'Please try again!']);
-            }
-        }
-    }
-
     /**
      * @param Request $request
      * @return \Illuminate\Contracts\View\View
@@ -149,7 +135,6 @@ class RentEquipmentController extends Controller
             $wishlists = [];
         }
 
-        //return display search result to user by using a view
         return View::make('rent-equipment.index', compact('products', 'page', 'wishlists', 'searchTerm'));
     }
 }

@@ -120,7 +120,7 @@
                             <input type="email" class="form-control g-form-control @error('email') is-invalid @enderror" name="email" id="email" value="{{ old('email', auth()->user()->email) }}" aria-describedby="mailHelp" required>
 
                             @error('email')
-                            <span class="invalid-feedback" role="alert">
+                                <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -132,7 +132,7 @@
                             <input type="tel" class="form-control g-form-control @error('phone') is-invalid @enderror" name="phone" id="phone" value="{{ old('phone', auth()->user()->phone) }}" required aria-describedby="phoneHelp">
 
                             @error('phone')
-                            <span class="invalid-feedback" role="alert">
+                                <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror

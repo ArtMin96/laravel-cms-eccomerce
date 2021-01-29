@@ -48,7 +48,7 @@
             <div class="g-footer-box">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-3">
+                        <div class="col-lg-4">
                             <h3 class="font-size-1 mb-3">{{ settings()->footer_title }}</h3>
                             <p>{{ settings()->footer_description }}</p>
                         </div>
@@ -74,7 +74,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-lg-5">
+                        <div class="col-lg-4">
                             <h3 class="font-size-1">{{ __('pages.Services') }}</h3>
 
                             @php
@@ -114,7 +114,9 @@
 {{--           data-toggle="modal"--}}
 {{--           data-target="#registerModal">{{ __('Register') }}</a>--}}
 
+        <livewire:front-toast />
     </div>
+
 </body>
 
 @livewireScripts

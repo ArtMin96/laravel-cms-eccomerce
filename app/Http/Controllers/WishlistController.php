@@ -10,13 +10,6 @@ use Illuminate\Support\Facades\View;
 class WishlistController extends Controller
 {
     public function index() {
-        if (\Auth::check()) {
-            $user = User::find(\Auth::user()->id);
-            $wishlists = $user->wishlist();
-        } else {
-            $wishlists = [];
-        }
-
         return view('wishlist.index', compact('wishlists'));
     }
 
@@ -28,7 +21,11 @@ class WishlistController extends Controller
     {
         $searchTerm = $request->get('q');
 
-        $wishlists = Product::whereLike(['productTranslations.title'], $searchTerm)->get();
+        if (!empty($searchTerm)) {
+            $wishlists = Product::whereLike(['productTranslations.title'], $searchTerm)->get();
+        } else {
+            $wishlists = Product::all();
+        }
 
         //return display search result to user by using a view
         return View::make('wishlist.index', compact('wishlists','searchTerm'));

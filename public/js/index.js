@@ -531,6 +531,11 @@ $( document ).ready(function() {
         };
     }(jQuery));
 
+    $("input[type=tel]").inputFilter(function(value) {
+        return /^[0-9+]*$/.test(value); // Allow digits only, using a RegExp
+        //return /^\d*$/.test(value);    // Allow digits only, using a RegExp
+    });
+
 });
 
 
