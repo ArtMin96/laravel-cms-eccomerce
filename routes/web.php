@@ -117,7 +117,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     // Rent equipment routes
     Route::get('/rent-equipment/search-product', ['uses' => 'RentEquipmentController@getSearch', 'as' => 'search-product']);
     Route::get('/rent-equipment', 'RentEquipmentController@index')->name('rent-equipment');
-    Route::post('/rent-equipment/add-wishlist', 'RentEquipmentController@addWishlist')->name('rent-equipment.add-wishlist');
 
     Route::get('/document-shop/search', ['uses' => 'DocumentShopController@getSearch', 'as' => 'search-document-shop']);
     Route::get('/document-shop/filter', ['uses' => 'DocumentShopController@getFilter', 'as' => 'filter-product']);

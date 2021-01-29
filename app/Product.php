@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use LamaLama\Wishlist\Wishlistable;
 
 /**
  * @property integer $id
@@ -31,7 +30,7 @@ class Product extends Model
     const DocumentTemplate = 2;
     const RentEquipment = 3;
 
-    use Translatable, SoftDeletes, Wishlistable;
+    use Translatable, SoftDeletes;
 
     /**
      * @var string[]
@@ -128,6 +127,11 @@ class Product extends Model
     public function catalog()
     {
         return $this->belongsToMany(Catalog::class);
+    }
+
+    public function wished()
+    {
+        return $this->hasOne(Wishlist::class);
     }
 
     /**

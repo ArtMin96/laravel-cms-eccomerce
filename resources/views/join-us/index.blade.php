@@ -108,9 +108,9 @@
                                                                 <input type="text" class="form-control g-form-control @error('last_name') is-invalid @enderror" id="last-name" name="last_name" value="{{ old('last_name') }}">
 
                                                                 @error('last_name')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
+                                                                    <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
                                                                 @enderror
                                                             </div>
                                                         </div>
@@ -121,9 +121,9 @@
                                                                 <input type="tel" class="form-control g-form-control @error('phone') is-invalid @enderror" id="phone" name="phone" value="{{ old('phone') }}">
 
                                                                 @error('phone')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
+                                                                    <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
                                                                 @enderror
                                                             </div>
                                                         </div>
@@ -131,12 +131,12 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group g-form-group">
                                                                 <label for="email">{{ __('forms.E-mail') }}</label>
-                                                                <input type="text" class="form-control g-form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}">
+                                                                <input type="email" class="form-control g-form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}">
 
                                                                 @error('email')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
+                                                                    <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
                                                                 @enderror
                                                             </div>
                                                         </div>
@@ -150,9 +150,9 @@
                                                                 </select>
 
                                                                 @error('field_expertise')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
+                                                                    <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
                                                                 @enderror
                                                             </div>
                                                         </div>
@@ -163,9 +163,9 @@
                                                                 <input type="number" class="form-control g-form-control g-form-control-square @error('year_expertise') is-invalid @enderror" id="year_expertise" name="year_expertise" value="{{ old('year_expertise') }}">
 
                                                                 @error('year_expertise')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
+                                                                    <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
                                                                 @enderror
                                                             </div>
                                                         </div>
@@ -176,9 +176,9 @@
                                                                 <input type="number" class="form-control g-form-control g-form-control-square @error('translated_page_number') is-invalid @enderror" id="translated_page_number" name="translated_page_number" value="{{ old('translated_page_number') }}">
 
                                                                 @error('translated_page_number')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
+                                                                    <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
                                                                 @enderror
                                                             </div>
                                                         </div>
@@ -189,9 +189,9 @@
                                                                 <input type="number" class="form-control g-form-control g-form-control-square @error('daily_translation_capacity') is-invalid @enderror" id="daily_translation_capacity" name="daily_translation_capacity" value="{{ old('daily_translation_capacity') }}">
 
                                                                 @error('daily_translation_capacity')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
+                                                                    <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
                                                                 @enderror
                                                             </div>
                                                         </div>
@@ -211,9 +211,9 @@
                                                                                 <input type="number" class="form-control g-form-control g-form-control-square job-place-input @error('translation_rate_per_page') is-invalid @enderror" placeholder="{{ __('forms.Translation rate per page') }}" id="translation_rate_per_page" name="translation_rate_per_page" value="{{ old('translation_rate_per_page') }}" disabled>
 
                                                                                 @error('translation_rate_per_page')
-                                                                                <span class="invalid-feedback" role="alert">
-                                                                                    <strong>{{ $message }}</strong>
-                                                                                </span>
+                                                                                    <span class="invalid-feedback" role="alert">
+                                                                                        <strong>{{ $message }}</strong>
+                                                                                    </span>
                                                                                 @enderror
                                                                             </div>
                                                                         </div>
@@ -226,9 +226,9 @@
                                                                                 <input type="number" class="form-control g-form-control g-form-control-square job-place-input @error('monthly_salary_expectation') is-invalid @enderror" placeholder="{{ __('forms.Monthly salary expectation') }}" id="monthly_salary_expectation" name="monthly_salary_expectation" value="{{ old('monthly_salary_expectation') }}" disabled>
 
                                                                                 @error('monthly_salary_expectation')
-                                                                                <span class="invalid-feedback" role="alert">
-                                                                                    <strong>{{ $message }}</strong>
-                                                                                </span>
+                                                                                    <span class="invalid-feedback" role="alert">
+                                                                                        <strong>{{ $message }}</strong>
+                                                                                    </span>
                                                                                 @enderror
                                                                             </div>
                                                                         </div>
@@ -243,9 +243,9 @@
                                                                 </label>
 
                                                                 @error('cv')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
+                                                                    <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
                                                                 @enderror
                                                             </div>
                                                         </div>
@@ -391,14 +391,3 @@
     <div class="g-message-btn-box"><a href="#" class="g-message-btn"></a></div>
 
 @endsection
-
-@push('script')
-    <script>
-        window.addEventListener('load', function () {
-            $("#phone").inputFilter(function(value) {
-                return /^[0-9+]*$/.test(value);    // Allow digits only, using a RegExp
-                //return /^\d*$/.test(value);    // Allow digits only, using a RegExp
-            });
-        });
-    </script>
-@endpush
