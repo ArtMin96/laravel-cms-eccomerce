@@ -332,7 +332,7 @@ class ProductController extends AdminController
             } else {
                 return redirect()
                     ->route('admin.product.index', $request->input('sale_type_id'))
-                    ->with('error', __('admin.product_updated_success_bx_error') . ' Error: ' . $bxProduct['error_description']);
+                    ->with('error', __('admin.product_updated_success_bx_error'));
             }
 
         } else {

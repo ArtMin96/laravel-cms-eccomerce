@@ -117,6 +117,12 @@
                                         </div>
                                     </div>
                                 @endforeach
+
+                                @error('star')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             @endif
                         </div>
                         <div class="row">

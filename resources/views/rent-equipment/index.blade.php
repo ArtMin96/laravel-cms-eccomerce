@@ -132,13 +132,7 @@
             <div class="row">
                 <div class="col-12">
 
-                    @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'document-template')
-                        {{ $products->links() }}
-                    @endif
-
-                    @if(\Illuminate\Support\Facades\Route::getCurrentRoute()->getName() == 'search-document-template')
-                        {{ $products->links() }}
-                    @endif
+                    {{ $products->links() }}
 
                 </div>
             </div>
