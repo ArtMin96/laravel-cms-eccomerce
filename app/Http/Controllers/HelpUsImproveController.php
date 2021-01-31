@@ -40,10 +40,11 @@ class HelpUsImproveController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request);
         $request->validate([
             'name' => 'required|string',
             'email_address' => 'required|email',
-            'star' => 'required',
+            'star.*' => 'required_if:star,0|min:1',
         ]);
 
         if (!empty($request->input('star'))) {
