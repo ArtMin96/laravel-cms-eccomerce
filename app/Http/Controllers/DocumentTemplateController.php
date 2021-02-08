@@ -188,10 +188,10 @@ class DocumentTemplateController extends Controller
             'payment_status'    =>  0,
             'payment_method'    =>  0,
             'sale_type_id'      =>  Order::TRANSLATE_YOURSELF,
-            'first_name'        =>  null,
-            'last_name'         =>  null,
-            'address'           =>  null,
-            'phone_number'      =>  null,
+            'first_name'        =>  auth()->user()->name,
+            'last_name'         =>  auth()->user()->last_name,
+            'address'           =>  auth()->user()->address ?: null,
+            'phone_number'      =>  auth()->user()->phone,
             'is_delivery'       =>  0,
         ]);
 
@@ -268,10 +268,10 @@ class DocumentTemplateController extends Controller
             'payment_status'    =>  0,
             'payment_method'    =>  0,
             'sale_type_id'      =>  Order::TRANSLATE_YOURSELF,
-            'first_name'        =>  null,
-            'last_name'         =>  null,
-            'address'           =>  null,
-            'phone_number'      =>  null,
+            'first_name'        =>  auth()->user()->name,
+            'last_name'         =>  auth()->user()->last_name,
+            'address'           =>  auth()->user()->address ?: null,
+            'phone_number'      =>  auth()->user()->phone,
             'is_delivery'       =>  0,
         ]);
 
@@ -346,10 +346,10 @@ class DocumentTemplateController extends Controller
             'payment_status'    =>  0,
             'payment_method'    =>  0,
             'sale_type_id'      =>  Order::TRANSLATE_YOURSELF,
-            'first_name'        =>  null,
-            'last_name'         =>  null,
-            'address'           =>  null,
-            'phone_number'      =>  null,
+            'first_name'        =>  auth()->user()->name,
+            'last_name'         =>  auth()->user()->last_name,
+            'address'           =>  auth()->user()->address ?: null,
+            'phone_number'      =>  auth()->user()->phone,
             'is_delivery'       =>  0,
         ]);
 
@@ -434,10 +434,10 @@ class DocumentTemplateController extends Controller
             'payment_status'    =>  0,
             'payment_method'    =>  0,
             'sale_type_id'      =>  Order::TRANSLATE_YOURSELF,
-            'first_name'        =>  null,
-            'last_name'         =>  null,
-            'address'           =>  null,
-            'phone_number'      =>  null,
+            'first_name'        =>  auth()->user()->name,
+            'last_name'         =>  auth()->user()->last_name,
+            'address'           =>  auth()->user()->address ?: null,
+            'phone_number'      =>  auth()->user()->phone,
             'is_delivery'       =>  0,
         ]);
 

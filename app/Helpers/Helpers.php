@@ -77,7 +77,6 @@ if (!function_exists('wrapMenu')) {
 
             foreach ($menu as $key => $items) {
                 $i++;
-
                 if (isset($items) && !empty($items)) {
 
                     if (!empty($items['childrenPages'][0])) {
@@ -97,11 +96,14 @@ if (!function_exists('wrapMenu')) {
                         } else {
                            if($key == 0 && $level == 2){
                                echo '<ul class="p-0 list-unstyled">';
-                           }elseif(($key) % 5 == 0 && $level == 2 ){
+                           } elseif(($key) % 5 == 0 && $level == 2){
                                echo '</ul>';
                                if($key != (count($menu) - 1))
                                echo '<ul class="p-0 list-unstyled">';
-                           }
+                           }else if(($key) % 6 == 0 && $items['parent_id'] == 4 && $level == 1){
+                                echo '</ul>';
+                                echo '<ul class="p-0 list-unstyled">';
+                            }
 
                             echo '<li>';
                         }
@@ -136,13 +138,16 @@ if (!function_exists('wrapMenu')) {
                         if (!empty($items['childrenPages'][0]) && $level != 0) {
                             echo '<div class="d-flex">';
                         }
-
+                        if ($items['id'] == 4) {
+                            echo '<div class="d-flex"><ul class="p-0 list-unstyled">';
+                        }
                         wrapMenu($items['childrenPages'], $level + 1);
-
                         if (!empty($items['childrenPages'][0]) && $level != 0) {
                             echo '</div>';
                         }
-
+                        if ( $items['id'] == 4) {
+                            echo '</ul></div>';
+                        }
                         echo '</ul>';
                     }
 
