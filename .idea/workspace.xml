@@ -21,14 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="188bee73-7fda-407a-a0b3-1cea2f9f01e2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HelpUsImproveController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HelpUsImproveController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WishlistController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WishlistController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/help-us-improve/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/help-us-improve/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/orders/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/orders/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/rent-equipment/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/rent-equipment/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/wishlist/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/wishlist/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentTemplateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentTemplateController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
